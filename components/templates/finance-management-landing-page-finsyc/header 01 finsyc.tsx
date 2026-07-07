@@ -266,23 +266,6 @@ export default function FinsycOriginalHeader({ className }: { className?: string
 
           {/* Hero Content */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center mt-12 lg:mt-[80px]">
-            {/* Rating Box */}
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" as const }}
-              className="flex flex-row items-center gap-1.5 sm:gap-2 px-3 sm:px-[14px] py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/40 mb-6 whitespace-nowrap"
-            >
-              <div className="flex items-center gap-1 shrink-0">
-                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#15122E] text-[#15122E]" />
-                <span className="font-inter text-sm sm:text-base lg:text-[18px] font-medium leading-[28px] text-[#15122E]">
-                  4.9 Rating
-                </span>
-              </div>
-              <span className="font-inter text-sm sm:text-base lg:text-[18px] font-normal leading-[28px] text-[#000000] opacity-60 shrink-0">
-                from 18.3k+ users
-              </span>
-            </motion.div>
 
             {/* Heading */}
             <motion.h1
@@ -291,11 +274,7 @@ export default function FinsycOriginalHeader({ className }: { className?: string
               transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" as const }}
               className="max-w-[750px] w-full text-center font-onest text-[40px] sm:text-[50px] lg:text-[66px] font-semibold leading-tight lg:leading-[72px] tracking-tight lg:tracking-[-3px] text-[#15122E]"
             >
-              <span className="text-[#4F46E5]">Control Your Money With</span>{" "}
-              <span className="font-playfair italic font-semibold text-[#000000] opacity-50 tracking-normal lg:tracking-[-3.566px]">
-                AI-Powered
-              </span>{" "}
-              <span className="text-[#4F46E5]">Insights</span>
+              Enterprise software without the army of consultants
             </motion.h1>
 
             {/* Subheading */}
