@@ -274,7 +274,7 @@ export default function FinsycOriginalHeader({ className }: { className?: string
               transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" as const }}
               className="max-w-[750px] w-full text-center font-onest text-[40px] sm:text-[50px] lg:text-[66px] font-semibold leading-tight lg:leading-[72px] tracking-tight lg:tracking-[-3px] text-[#15122E]"
             >
-              Enterprise software without the army of consultants
+              <span className="text-[#4F46E5]">Enterprise software without the army of consultants</span>
             </motion.h1>
 
             {/* Subheading */}
