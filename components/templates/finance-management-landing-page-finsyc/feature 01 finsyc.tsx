@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Boxes, Brain, Shield, BarChart3, Sparkles, Check } from "lucide-react";
+import { Layers, Brain, Landmark, Users, Sparkles, Check } from "lucide-react";
 
 interface FeatureCardProps {
   title: string;
@@ -89,38 +89,30 @@ export default function OriginalFinsycFeature({ className }: { className?: strin
 
   const cards: Array<{ title: string; description: string; icon: React.ElementType; uiSrc: string; width: string; items?: string[] }> = [
     {
-      title: "Unified ERP Suite",
-      description: "",
-      icon: Boxes,
+      title: "Orchestration AI Layer",
+      description: "An agnostic intelligence layer that understands your business logic, decides what needs to happen, and routes work to the right agent or person.",
+      icon: Layers,
       uiSrc: "",
-      width: "",
-      items: [
-        "Finance & Accounting",
-        "CRM & Sales",
-        "HR & Payroll",
-        "Supply Chain & Logistics",
-        "Manufacturing & Production",
-        "Projects & Service",
-      ]
+      width: ""
     },
     {
-      title: "Agentic AI & Copilot",
-      description: "AI copilots, predictive analytics, and intelligent automation built into every module — not bolted on.",
+      title: "Embedded Domain Experts",
+      description: "Consultants and developers sit beneath the intelligence layer, turning real operational knowledge into better agents, workflows, and outcomes.",
+      icon: Users,
+      uiSrc: "",
+      width: ""
+    },
+    {
+      title: "Finance & Accounting Agent",
+      description: "Automates the complex work behind close, reconciliations, reporting, controls, and day-to-day finance operations.",
+      icon: Landmark,
+      uiSrc: "",
+      width: ""
+    },
+    {
+      title: "HCM Agent",
+      description: "Handles workforce workflows with the context to support people operations, payroll, approvals, and employee experience.",
       icon: Brain,
-      uiSrc: "",
-      width: ""
-    },
-    {
-      title: "Enterprise Security",
-      description: "RBAC, SSO, encryption, and full audit trails with SOC 2 and GDPR-aligned governance built in.",
-      icon: Shield,
-      uiSrc: "",
-      width: ""
-    },
-    {
-      title: "Real-Time Analytics",
-      description: "Live dashboards, KPI tracking, and self-service reporting across your entire business.",
-      icon: BarChart3,
       uiSrc: "",
       width: ""
     }
@@ -146,7 +138,7 @@ export default function OriginalFinsycFeature({ className }: { className?: strin
               >
                 <Sparkles className="w-4 h-4 text-[#6C63FF]" />
                 <span className="text-[#6C63FF] text-center font-inter text-base font-normal leading-6 tracking-[-0.3px]">
-                  Our Powerful Features
+                  The Agentic Architecture
                 </span>
               </motion.div>
 
@@ -157,11 +149,11 @@ export default function OriginalFinsycFeature({ className }: { className?: strin
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="mt-6 w-full max-w-[686px] text-[#15122E] text-center font-onest text-[32px] sm:text-[40px] lg:text-[52px] font-semibold leading-tight lg:leading-[58px] tracking-[-1.2px] sm:tracking-[-1.8px]"
               >
-                Master Your System
+                One intelligence layer.
                 <br className="block sm:hidden" />
-                {" with Smart "}
+                {" Every department in "}
                 <span className="text-black/40 font-playfair italic font-semibold">
-                  Features
+                  motion
                 </span>
               </motion.h2>
 
@@ -172,7 +164,7 @@ export default function OriginalFinsycFeature({ className }: { className?: strin
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="mt-3 w-full max-w-[514px] text-[#15122E] text-center font-inter text-base sm:text-lg font-normal leading-relaxed sm:leading-7 opacity-80"
               >
-                Everything your teams need to run the business — 15 modules and 160+ features unified in one AI-first platform.
+                Orchestrate the work from one agnostic AI layer, then let specialized Finance & Accounting and HCM agents execute it with your team in control.
               </motion.p>
             </div>
 

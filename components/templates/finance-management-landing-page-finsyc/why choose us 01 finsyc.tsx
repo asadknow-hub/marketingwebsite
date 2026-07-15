@@ -3,11 +3,51 @@
 import React from "react";
 import Link from "next/link";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { Sparkles, Check, ArrowUpRight } from "lucide-react";
+import { Brain, Check, Landmark, Layers, Sparkles, Users, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { featureModules } from "@/lib/data/featureModules";
 
-const totalFeatures = featureModules.reduce((sum, m) => sum + m.features.length, 0);
+const waveOneLayers = [
+  {
+    id: "orchestration",
+    name: "Orchestration AI Layer",
+    description: "The agnostic intelligence layer that understands your business logic and directs work across the system.",
+    icon: Layers,
+    features: [
+      { name: "Business context", description: "Learns how your organization operates" },
+      { name: "Task routing", description: "Directs work to the right agent or person" },
+    ],
+  },
+  {
+    id: "experts",
+    name: "Embedded Domain Experts",
+    description: "Consultants and developers give the agents real operational depth without rebuilding the system for every change.",
+    icon: Users,
+    features: [
+      { name: "Domain intelligence", description: "Built from lived finance and operations experience" },
+      { name: "Expert support", description: "Configuration and customization when it matters" },
+    ],
+  },
+  {
+    id: "finance",
+    name: "Finance & Accounting Agent",
+    description: "A specialized agent for the workflows that keep finance moving and leadership informed.",
+    icon: Landmark,
+    features: [
+      { name: "Close and reconciliations", description: "Coordinates complex recurring work" },
+      { name: "Controls and reporting", description: "Works from your policies and requirements" },
+    ],
+  },
+  {
+    id: "hcm",
+    name: "HCM Agent",
+    description: "A dedicated workforce agent for people operations, payroll, approvals, and employee workflows.",
+    icon: Brain,
+    features: [
+      { name: "Workforce workflows", description: "Handles requests and approvals with context" },
+      { name: "Employee experience", description: "Gets people to answers and action faster" },
+    ],
+  },
+];
 
 export default function WhyChooseUs01Finsyc({ className }: { className?: string }) {
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -22,7 +62,7 @@ export default function WhyChooseUs01Finsyc({ className }: { className?: string 
     restDelta: 0.001,
   });
 
-  const tags = ["Finance", "CRM & Sales", "HR & Payroll", "Supply Chain", "AI & Automation"];
+  const tags = ["Orchestration AI", "Embedded Experts", "Finance & Accounting", "HCM"];
 
   return (
     <>
@@ -58,11 +98,10 @@ export default function WhyChooseUs01Finsyc({ className }: { className?: string 
                 transition={{ duration: 0.8, ease: "easeOut" as const }}
                 className="text-[#15122E] font-onest text-[32px] sm:text-[44px] lg:text-[52px] font-semibold leading-tight lg:leading-[58px] tracking-[-1.2px] lg:tracking-[-1.8px]"
               >
-                One Platform.{" "}
+                One orchestration layer.
                 <span className="text-black/40 font-playfair italic font-semibold">
-                  Every Module
-                </span>{" "}
-                You Need.
+                  {" "}Four agents.
+                </span>
               </motion.h2>
 
               <motion.p
@@ -72,8 +111,7 @@ export default function WhyChooseUs01Finsyc({ className }: { className?: string 
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-[#15122E] font-sans text-base md:text-[18px] font-normal leading-[24px] md:leading-[28px] opacity-80 max-w-[400px]"
               >
-                Nexus AI First unifies {featureModules.length} modules and {totalFeatures}+ features
-                in a single AI-first system — so every team works from the same source of truth.
+                Nexus AI First gives every team one intelligent system of record — with the orchestration layer above the experts and department agents that do the work.
               </motion.p>
 
               {/* Tags */}
@@ -101,16 +139,16 @@ export default function WhyChooseUs01Finsyc({ className }: { className?: string 
               </div>
 
               <Link
-                href="/features"
+                href="/contact"
                 className="inline-flex items-center gap-2 h-12 px-6 w-fit rounded-full bg-[#15122E] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
               >
-                Explore all features <ArrowUpRight className="w-4 h-4" />
+                Join the Waitlist <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
 
-            {/* Right Column - Modules > Submodules List */}
+            {/* Right Column - Agentic Layers List */}
             <div className="w-full lg:flex-1 flex flex-col gap-12">
-              {featureModules.map((m, idx) => {
+              {waveOneLayers.map((m, idx) => {
                 const Icon = m.icon;
                 return (
                   <motion.div
@@ -129,7 +167,7 @@ export default function WhyChooseUs01Finsyc({ className }: { className?: string 
                         {m.name}
                       </h3>
                       <span className="ml-auto shrink-0 text-xs font-semibold text-[#4F46E5] bg-[#4F46E5]/10 px-2.5 py-1 rounded-full">
-                        {m.features.length} features
+                        {m.id === "orchestration" ? "System layer" : m.id === "experts" ? "Expert layer" : "Wave one"}
                       </span>
                     </div>
                     <p className="text-[#15122E]/70 font-sans text-[15px] md:text-base leading-relaxed mb-5">

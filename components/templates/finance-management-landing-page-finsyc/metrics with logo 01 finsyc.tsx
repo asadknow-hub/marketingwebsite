@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, animate } from "framer-motion";
-import { ArrowUpRight, BarChart3, GitBranch, TrendingDown } from "lucide-react";
+import { ArrowUpRight, Clock3, GitBranch, Users } from "lucide-react";
 
 function Counter({ value, suffix = "%", duration = 2 }: { value: number; suffix?: string; duration?: number }) {
   const [displayValue, setDisplayValue] = useState(0);
@@ -78,7 +78,7 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
                 transition={{ duration: 0.8, ease: "easeOut" as const }}
                 className="max-w-[1100px] text-center text-[36px] md:text-[52px] font-heading font-semibold leading-[42px] md:leading-[58px] tracking-[-1.2px] md:tracking-[-1.8px] text-[#15122E]"
               >
-                <span className="text-[#6C63FF]">Break away from Rigid ERPs</span> with our <i className="text-[rgba(0,0,0,0.40)]">Agentic ERP</i> that understands you and your processes.
+                <span className="text-[#6C63FF]">Stop managing the system</span> and let an <i className="text-[rgba(0,0,0,0.40)]">agentic system</i> run the work.
               </motion.h1>
             </div>
 
@@ -87,29 +87,29 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
               <RoleCard
                 delay={0.1}
                 title="Employees"
-                description="8-hour tasks reduced to under 1 hour. Less frustration, more time for high-value strategic work."
-                icon={<BarChart3 className="w-12 h-12 text-[#15122E]" />}
-                metric={87}
-                metricSuffix="%"
-                metricLabel="Reduction in task completion time"
+                description="Complex 8-hour tasks can move toward 3 hours or less as agents take on the domain-heavy work."
+                icon={<Clock3 className="w-12 h-12 text-[#15122E]" />}
+                metric={3}
+                metricSuffix="h"
+                metricLabel="Potential target for complex work"
               />
               <RoleCard
                 delay={0.2}
                 title="Managers & Directors"
-                description="Zero delays waiting on external consultant meetings. Real-time changes and radically faster decision-making."
+                description="Less coordination with external consultants. More visibility into what the system is doing and why."
                 icon={<GitBranch className="w-12 h-12 text-[#15122E]" />}
-                metric={10}
-                metricSuffix="x"
-                metricLabel="Faster decision-making speed"
+                metric={1}
+                metricSuffix=" layer"
+                metricLabel="Orchestration layer for the work"
               />
               <RoleCard
                 delay={0.3}
                 title="Leadership"
-                description="Meaningfully lower total cost of ownership, eliminated project risk, and accelerated business optimization."
-                icon={<TrendingDown className="w-12 h-12 text-[#15122E]" />}
-                metric={60}
-                metricSuffix="%"
-                metricLabel="Lower total cost of ownership"
+                description="Finance & Accounting and HCM are the first wave — with a system designed to expand without rebuilding the logic."
+                icon={<Users className="w-12 h-12 text-[#15122E]" />}
+                metric={2}
+                metricSuffix=" agents"
+                metricLabel="Wave-one department agents"
               />
             </div>
 
@@ -122,7 +122,7 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
               className="mt-10 md:mt-[48px] w-full py-5 px-6 md:px-10 rounded-2xl bg-[#4F46E5]/10 border border-[#4F46E5]/30 flex justify-center"
             >
               <p className="font-sans text-[15px] md:text-[18px] font-medium leading-[24px] md:leading-[28px] text-[#15122E] text-center italic">
-                Stop treating high consultant spend and operational friction as a normal cost of doing business.
+                AI understands the work. Domain experts deepen it. Your team owns the outcome.
               </p>
             </motion.div>
 
@@ -153,7 +153,7 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
                   transition={{ type: "spring" as const, stiffness: 400, damping: 35 }}
                   className="font-sans text-[18px] font-medium leading-[28px] text-white whitespace-nowrap"
                 >
-                  Try for Free
+                  Join the Waitlist
                 </motion.div>
                 <motion.div
                   layout="position"

@@ -28,53 +28,53 @@ interface ProcessStep {
 const steps: ProcessStep[] = [
   {
     id: 1,
-    label: "Deploy",
+    label: "Orchestrate",
     icon: Cloud,
-    heading: "Deploy in Minutes",
-    subheading: "Get instant access to your secure, fully managed cloud workspace — provisioned and ready in minutes, with zero infrastructure to maintain.",
+    heading: "The Orchestration AI Layer",
+    subheading: "An agnostic intelligence layer understands how your business works, interprets intent, and directs every task to the right agent or person.",
     list: [
-      "Instant cloud provisioning",
-      "Enterprise-grade security by default",
-      "No servers or infrastructure to manage"
+      "Understands your business logic",
+      "Routes work across departments",
+      "Keeps decisions and controls visible"
     ],
     imgSrc: "https://cdn.jiro.build/amox/all%20images/p01-process-img-01.png"
   },
   {
     id: 2,
-    label: "Configure",
+    label: "Augment",
     icon: Settings,
-    heading: "Configure Your Business",
-    subheading: "Set up your organizational structure, chart of accounts, modules, users, and roles through intuitive guided wizards.",
+    heading: "Embedded Domain Experts",
+    subheading: "Consultants and developers sit beneath the AI layer, encoding real operational knowledge and helping your agents adapt without a permanent external consulting army.",
     list: [
-      "Guided setup wizards",
-      "Role-based access control",
-      "40+ prebuilt industry templates"
+      "Real finance and operations expertise",
+      "Faster configuration and customization",
+      "Less reliance on external consultants"
     ],
     imgSrc: "https://cdn.jiro.build/amox/all%20images/p01-process-img-01.png"
   },
   {
     id: 3,
-    label: "Import",
+    label: "Finance",
     icon: Upload,
-    heading: "Import Your Data",
-    subheading: "Bring your data from legacy systems with built-in migration tools. CSV, Excel, and API-based imports are fully supported.",
+    heading: "Finance & Accounting Agent",
+    subheading: "Your finance agent handles the complex work behind close, reconciliations, reporting, controls, approvals, and daily operations.",
     list: [
-      "CSV & Excel imports",
-      "API-based data migration",
-      "Validation and field mapping tools"
+      "Automates repeatable finance workflows",
+      "Works from your policies and controls",
+      "Turns 8-hour tasks into focused work"
     ],
     imgSrc: "https://cdn.jiro.build/amox/all%20images/p01-process-img-01.png"
   },
   {
     id: 4,
-    label: "Go Live",
+    label: "HCM",
     icon: Rocket,
-    heading: "Go Live with Confidence",
-    subheading: "Start running your business on Nexus AI First with full training resources, documentation, and dedicated support at your side.",
+    heading: "HCM Agent",
+    subheading: "A dedicated HCM agent coordinates workforce workflows across people operations, payroll, approvals, and the employee experience.",
     list: [
-      "Full training resources",
-      "Comprehensive documentation",
-      "Dedicated support team"
+      "Handles workforce requests and approvals",
+      "Supports payroll and people operations",
+      "Creates a faster employee experience"
     ],
     imgSrc: "https://cdn.jiro.build/amox/all%20images/p01-process-img-01.png"
   }
@@ -112,7 +112,7 @@ export default function FinsycOriginal4Step({ className }: { className?: string 
               >
                 <Sparkles className="w-4 h-4 text-[#6C63FF]" strokeWidth={2.5} />
                 <span className="text-[#6C63FF] text-center font-inter text-base font-normal leading-6 tracking-[-0.3px]">
-                  Implementation
+                  How the Agentic System Works
                 </span>
               </motion.div>
 
@@ -123,13 +123,12 @@ export default function FinsycOriginal4Step({ className }: { className?: string 
                 transition={{ delay: 0.2 }}
                 className="text-[#15122E] font-onest text-[32px] sm:text-[44px] lg:text-[52px] font-semibold leading-tight lg:leading-[58px] tracking-[-1.2px] lg:tracking-[-1.8px] w-full lg:max-w-[556px] text-left"
               >
-                Up and Running
+                One system.
                 <br className="block lg:hidden" />
-                {" "}in{" "}
+                {" "}Four agentic{" "}
                 <span className="text-black/40 font-playfair italic font-semibold">
-                  4
-                </span>{" "}
-                Steps
+                  layers
+                </span>
               </motion.h2>
 
               <motion.p
@@ -139,7 +138,7 @@ export default function FinsycOriginal4Step({ className }: { className?: string 
                 transition={{ delay: 0.3 }}
                 className="mt-4 text-[#15122E]/70 font-inter text-base lg:text-[18px] leading-[28px] max-w-[556px] text-left"
               >
-                Go from zero to a fully operational ERP faster than any traditional vendor.
+                The orchestration layer directs the work. Domain experts deepen it. Department agents execute it.
               </motion.p>
             </div>
 
@@ -251,7 +250,7 @@ export default function FinsycOriginal4Step({ className }: { className?: string 
                         layout
                         className="font-inter text-base lg:text-[18px] font-medium leading-[28px] text-white"
                       >
-                        Request a Demo
+                        Join the Waitlist
                       </motion.span>
 
                       <motion.div

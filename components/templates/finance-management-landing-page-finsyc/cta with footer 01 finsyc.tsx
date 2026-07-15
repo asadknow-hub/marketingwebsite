@@ -16,6 +16,7 @@ function CtaButton({ text, variant = 'primary' }: CtaButtonProps) {
 
   return (
     <motion.button
+      onClick={() => { window.location.href = "/contact"; }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileTap={{ scale: 0.98 }}
@@ -137,7 +138,7 @@ export default function CtaWithFooter01Finsyc({ className }: { className?: strin
                 className="w-full max-w-[742px] text-center text-[#15122E] font-semibold text-[42px] md:text-[68px] leading-[1.1] md:leading-[80px] tracking-tight md:tracking-[-2.2px] mb-[12px]"
                 style={{ fontFamily: "'Onest', sans-serif" }}
               >
-                Take Full Control of Your <span className="italic text-[rgba(0,0,0,0.40)]">Business</span> Today
+                Let the <span className="italic text-[rgba(0,0,0,0.40)]">system</span> do the work.
               </motion.h2>
 
               {/* Subheading */}
@@ -148,7 +149,7 @@ export default function CtaWithFooter01Finsyc({ className }: { className?: strin
                 viewport={{ once: true }}
                 className="w-full max-w-[660px] text-center text-[#15122E] font-sans text-lg md:text-[20px] leading-[1.5] md:leading-[30px] tracking-tight md:tracking-[-0.4px] opacity-80 mb-[64px]"
               >
-                Unify finance, operations, HR, and more — all in one intelligent, AI-first platform.
+                Join the waitlist for wave one: Finance & Accounting and HCM, powered by orchestration AI and embedded domain experts.
               </motion.p>
 
               {/* Buttons */}
@@ -159,8 +160,7 @@ export default function CtaWithFooter01Finsyc({ className }: { className?: strin
                 viewport={{ once: true }}
                 className="flex flex-col sm:flex-row items-center gap-4"
               >
-                <CtaButton text="Get Started" variant="primary" />
-                <CtaButton text="Book a Demo" variant="secondary" />
+                <CtaButton text="Join the Waitlist" variant="primary" />
               </motion.div>
 
             </div>

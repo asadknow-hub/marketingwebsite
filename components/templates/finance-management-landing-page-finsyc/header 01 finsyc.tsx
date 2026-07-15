@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Sparkles, Brain, Wrench, Menu, X, ChevronDown } from "lucide-react";
+import { ArrowUpRight, Brain, Wrench, Menu, X, ChevronDown } from "lucide-react";
 
 export default function FinsycOriginalHeader({ className }: { className?: string }) {
   const [isNavHovered, setIsNavHovered] = useState(false);
@@ -29,14 +29,13 @@ export default function FinsycOriginalHeader({ className }: { className?: string
   }, [isMobileMenuOpen]);
 
   const navItems: { label: string; href: string }[] = [
-    { label: "Modules", href: "/modules" },
+    { label: "Wave One", href: "/modules" },
     { label: "Industries", href: "/industries" },
-    { label: "Features", href: "/features" },
-    { label: "Pricing", href: "/pricing" },
+    { label: "Agentic System", href: "#architecture" },
     { label: "About", href: "/about" },
     { label: "Blog", href: "/blog" },
   ];
-  const ctaText = "Request a Demo";
+  const ctaText = "Join the Waitlist";
 
   const docsItems: { label: string; href: string; desc: string }[] = [
     { label: "Process Flows", href: "/docs/process-flows", desc: "All 18 end-to-end business processes" },
@@ -274,7 +273,10 @@ export default function FinsycOriginalHeader({ className }: { className?: string
               transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" as const }}
               className="max-w-[750px] w-full text-center font-onest text-[40px] sm:text-[50px] lg:text-[66px] font-semibold leading-tight lg:leading-[72px] tracking-tight lg:tracking-[-3px] text-[#15122E]"
             >
-              <span className="text-[#4F46E5]">Enterprise software without the army of consultants</span>
+              <span className="text-[#4F46E5]">The Agentic Enterprise System</span>{" "}
+              <span className="font-playfair italic font-semibold text-[#000000] opacity-50 tracking-normal lg:tracking-[-3.566px]">
+                That Does the Work
+              </span>
             </motion.h1>
 
             {/* Subheading */}
@@ -284,7 +286,7 @@ export default function FinsycOriginalHeader({ className }: { className?: string
               transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" as const }}
               className="max-w-[630px] w-full text-center mt-5 font-['DM_Sans'] text-lg lg:text-[20px] font-normal leading-relaxed lg:leading-[30px] tracking-[-0.4px] text-[#15122E]"
             >
-              Nexus AI First is world's leading Agentic ERP built with embedded consultants and developers, so you get the software, the expertise, and the execution — in one platform.
+              Nexus AI First is the AI-native operating system for the enterprise — orchestrating your business logic, guiding your teams, and executing complex work across Finance & Accounting and HCM.
             </motion.p>
 
             {/* AI Helper Banner */}
@@ -297,22 +299,23 @@ export default function FinsycOriginalHeader({ className }: { className?: string
               <div className="flex items-center gap-2">
                 <Wrench className="w-4 h-4 shrink-0 text-[#6C63FF]" />
                 <span className="font-['DM_Sans'] text-sm sm:text-base lg:text-[18px] font-medium leading-relaxed text-[#6C63FF] text-center">
-                  For Employees: Imagine a helper that understands your work
+                  Orchestration AI: Understands your business and directs the work
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <Brain className="w-4 h-4 shrink-0 text-[#4F46E5]" />
                 <span className="font-['DM_Sans'] text-sm sm:text-base lg:text-[18px] font-medium leading-relaxed text-[#4F46E5] text-center">
-                  For Leaders: Imagine instant insights for driving smart decisions
+                  Wave One: Finance & Accounting and HCM agents execute the complex workflows
                 </span>
               </div>
               <span className="font-['DM_Sans'] text-base sm:text-lg lg:text-[20px] font-bold leading-relaxed text-[#15122E] text-center mt-1">
-                That is Nexus AI First
+                Your team stays in control. The system does the work.
               </span>
             </motion.div>
 
             {/* CTA Button */}
             <motion.button
+              onClick={() => { window.location.href = "/contact"; }}
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1, duration: 0.8, ease: "easeOut" as const }}
@@ -328,7 +331,7 @@ export default function FinsycOriginalHeader({ className }: { className?: string
                 layout
                 className="font-inter text-base lg:text-[18px] font-medium leading-[28px] text-white"
               >
-                Request a Demo
+                Join the Waitlist
               </motion.span>
 
               <motion.div
