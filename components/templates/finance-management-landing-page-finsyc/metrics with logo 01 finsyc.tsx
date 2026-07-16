@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, animate } from "framer-motion";
 import { ArrowUpRight, Clock3, GitBranch, Users } from "lucide-react";
+import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 
 function Counter({ value, suffix = "%", duration = 2 }: { value: number; suffix?: string; duration?: number }) {
   const [displayValue, setDisplayValue] = useState(0);
@@ -61,6 +62,7 @@ function RoleCard({ title, description, icon, metric, metricSuffix = "%", metric
 
 export default function MetricsWithLogo01Finsyc({ className }: { className?: string }) {
   const [isHovered, setIsHovered] = useState(false);
+  const { openGetInTouch } = useGetInTouchModal();
 
   return (
     <>
@@ -129,6 +131,7 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
             {/* Button */}
             <div className="flex justify-center mt-10 md:mt-[64px]">
               <motion.button
+                onClick={openGetInTouch}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 initial={{ opacity: 0, y: 20 }}
@@ -153,7 +156,7 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
                   transition={{ type: "spring" as const, stiffness: 400, damping: 35 }}
                   className="font-sans text-[18px] font-medium leading-[28px] text-white whitespace-nowrap"
                 >
-                  Join the Waitlist
+                  Get In Touch
                 </motion.div>
                 <motion.div
                   layout="position"

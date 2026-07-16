@@ -3,55 +3,11 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Facebook, Twitter, Linkedin, Instagram, Sparkles, ArrowUpRight } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-interface CtaButtonProps {
-  text: string;
-  variant?: 'primary' | 'secondary';
-}
-
-function CtaButton({ text, variant = 'primary' }: CtaButtonProps) {
-  const isPrimary = variant === 'primary';
-  const [isHovered, setIsHovered] = React.useState(false);
-
-  return (
-    <motion.button
-      onClick={() => { window.location.href = "/contact"; }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      whileTap={{ scale: 0.98 }}
-      className={cn(
-        "relative flex items-center h-[56px] rounded-full transition-all duration-500 overflow-hidden gap-3",
-        isPrimary
-          ? "bg-[#15122E] text-white shadow-[0_8px_32px_rgba(21,18,46,0.15)]"
-          : "bg-white/20 backdrop-blur-xl border border-white/60 text-[#15122E] w-full sm:w-[232px] justify-between shadow-[0_8px_32px_rgba(255,255,255,0.1)]",
-        isHovered ? "pl-[8px] pr-[20px] flex-row-reverse" : "pl-[20px] pr-[8px] flex-row"
-      )}
-    >
-      <motion.span
-        layout
-        transition={{ type: "spring" as const, stiffness: 400, damping: 30 }}
-        className="font-sans font-medium text-[18px] leading-[28px] whitespace-nowrap z-10"
-      >
-        {text}
-      </motion.span>
-
-      <motion.div
-        layout
-        transition={{ type: "spring" as const, stiffness: 400, damping: 30 }}
-        className={cn(
-          "flex items-center justify-center w-10 h-10 rounded-full shrink-0 z-20",
-          isPrimary ? "bg-white" : "bg-[#15122E]"
-        )}
-      >
-        <ArrowUpRight className={cn("w-4 h-4", isPrimary ? "text-[#15122E]" : "text-white")} />
-      </motion.div>
-    </motion.button>
-  );
-}
+import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 
 export default function CtaWithFooter01Finsyc({ className }: { className?: string }) {
   const [isMounted, setIsMounted] = useState(false);
+  const { openGetInTouch } = useGetInTouchModal();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsMounted(true), 0);
@@ -149,7 +105,7 @@ export default function CtaWithFooter01Finsyc({ className }: { className?: strin
                 viewport={{ once: true }}
                 className="w-full max-w-[660px] text-center text-[#15122E] font-sans text-lg md:text-[20px] leading-[1.5] md:leading-[30px] tracking-tight md:tracking-[-0.4px] opacity-80 mb-[64px]"
               >
-                Join the waitlist for wave one: Finance & Accounting and HCM, powered by orchestration AI and embedded domain experts.
+                Get in touch about wave one: Finance & Accounting and HCM, powered by orchestration AI and embedded domain experts.
               </motion.p>
 
               {/* Buttons */}
@@ -160,7 +116,14 @@ export default function CtaWithFooter01Finsyc({ className }: { className?: strin
                 viewport={{ once: true }}
                 className="flex flex-col sm:flex-row items-center gap-4"
               >
-                <CtaButton text="Join the Waitlist" variant="primary" />
+                <button
+                  type="button"
+                  onClick={openGetInTouch}
+                  className="relative flex h-[56px] items-center gap-3 rounded-full bg-[#15122E] px-5 text-white shadow-[0_8px_32px_rgba(21,18,46,0.15)] transition-colors hover:bg-[#4F46E5]"
+                >
+                  <span className="font-sans text-[18px] font-medium leading-[28px]">Get In Touch</span>
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white"><ArrowUpRight className="h-4 w-4 text-[#15122E]" /></span>
+                </button>
               </motion.div>
 
             </div>

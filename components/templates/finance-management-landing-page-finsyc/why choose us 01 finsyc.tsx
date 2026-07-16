@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Brain, Check, Landmark, Layers, Sparkles, Users, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 
 const waveOneLayers = [
   {
@@ -51,6 +52,7 @@ const waveOneLayers = [
 
 export default function WhyChooseUs01Finsyc({ className }: { className?: string }) {
   const containerRef = React.useRef<HTMLDivElement>(null);
+  const { openGetInTouch } = useGetInTouchModal();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -138,12 +140,13 @@ export default function WhyChooseUs01Finsyc({ className }: { className?: string 
                 />
               </div>
 
-              <Link
-                href="/contact"
+              <button
+                type="button"
+                onClick={openGetInTouch}
                 className="inline-flex items-center gap-2 h-12 px-6 w-fit rounded-full bg-[#15122E] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
               >
-                Join the Waitlist <ArrowUpRight className="w-4 h-4" />
-              </Link>
+                Get In Touch <ArrowUpRight className="w-4 h-4" />
+              </button>
             </div>
 
             {/* Right Column - Agentic Layers List */}

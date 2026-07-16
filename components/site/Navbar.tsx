@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 
 const navItems: { label: string; href: string }[] = [
   { label: "Modules", href: "/modules" },
@@ -28,6 +29,7 @@ export default function Navbar() {
   const [isCtaHovered, setIsCtaHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [docsOpen, setDocsOpen] = useState(false);
+  const { openGetInTouch } = useGetInTouchModal();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -157,15 +159,8 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-3 shrink-0">
-            <Link
-              href="/contact"
-              className="hidden sm:flex items-center font-poppins text-sm font-bold leading-6 tracking-[-0.3px] text-[#15122E] hover:opacity-70 transition-opacity"
-            >
-              Sign In
-            </Link>
-
-            <Link href="/contact" className="hidden sm:block">
-              <motion.button
+            <motion.button
+              onClick={openGetInTouch}
                 onMouseEnter={() => setIsCtaHovered(true)}
                 onMouseLeave={() => setIsCtaHovered(false)}
                 layout
@@ -180,7 +175,7 @@ export default function Navbar() {
                   layout
                   className="font-poppins text-sm font-bold leading-6 tracking-[-0.3px] text-white whitespace-nowrap"
                 >
-                  Request a Demo
+                  Get In Touch
                 </motion.span>
                 <motion.div
                   layout
@@ -194,7 +189,6 @@ export default function Navbar() {
                   />
                 </motion.div>
               </motion.button>
-            </Link>
 
             <button
               onClick={() => setIsMobileMenuOpen(true)}
@@ -271,13 +265,17 @@ export default function Navbar() {
                   </motion.div>
                 ))}
               </div>
-              <Link
-                href="/contact"
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  openGetInTouch();
+                }}
                 className="mt-8 inline-flex items-center justify-center gap-2 h-14 rounded-full bg-[#6C63FF] text-white font-poppins font-bold text-lg"
               >
-                Request a Demo
+                Get In Touch
                 <ArrowUpRight className="w-5 h-5" />
-              </Link>
+              </button>
             </div>
           </motion.div>
         )}

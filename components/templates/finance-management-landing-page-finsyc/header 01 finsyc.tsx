@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Brain, Wrench, Menu, X, ChevronDown } from "lucide-react";
+import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 
 export default function FinsycOriginalHeader({ className }: { className?: string }) {
   const [isNavHovered, setIsNavHovered] = useState(false);
@@ -11,6 +12,7 @@ export default function FinsycOriginalHeader({ className }: { className?: string
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDocsHovered, setIsDocsHovered] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const { openGetInTouch } = useGetInTouchModal();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsMounted(true), 0);
@@ -35,7 +37,7 @@ export default function FinsycOriginalHeader({ className }: { className?: string
     { label: "About", href: "/about" },
     { label: "Blog", href: "/blog" },
   ];
-  const ctaText = "Join the Waitlist";
+  const ctaText = "Get In Touch";
 
   const docsItems: { label: string; href: string; desc: string }[] = [
     { label: "Process Flows", href: "/docs/process-flows", desc: "All 18 end-to-end business processes" },
@@ -145,12 +147,8 @@ export default function FinsycOriginalHeader({ className }: { className?: string
             </ul>
 
             <div className="flex items-center gap-4 shrink-0">
-              <Link href="/contact" className="hidden sm:flex items-center font-poppins text-base font-bold leading-6 tracking-[-0.3px] text-[#15122E] hover:opacity-70 transition-opacity">
-                Sign In
-              </Link>
-
               <motion.button
-                onClick={() => { window.location.href = "/contact"; }}
+                onClick={openGetInTouch}
                 onMouseEnter={() => setIsNavHovered(true)}
                 onMouseLeave={() => setIsNavHovered(false)}
                 layout
@@ -255,9 +253,16 @@ export default function FinsycOriginalHeader({ className }: { className?: string
                 </ul>
 
                 <div className="mt-auto">
-                  <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-center py-4 rounded-full bg-[#15122E] text-white font-poppins font-bold text-lg">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      openGetInTouch();
+                    }}
+                    className="block w-full rounded-full bg-[#15122E] py-4 text-center font-poppins text-lg font-bold text-white"
+                  >
                     {ctaText}
-                  </Link>
+                  </button>
                 </div>
               </motion.div>
             )}
@@ -315,7 +320,7 @@ export default function FinsycOriginalHeader({ className }: { className?: string
 
             {/* CTA Button */}
             <motion.button
-              onClick={() => { window.location.href = "/contact"; }}
+              onClick={openGetInTouch}
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1, duration: 0.8, ease: "easeOut" as const }}
@@ -331,7 +336,7 @@ export default function FinsycOriginalHeader({ className }: { className?: string
                 layout
                 className="font-inter text-base lg:text-[18px] font-medium leading-[28px] text-white"
               >
-                Join the Waitlist
+                Get In Touch
               </motion.span>
 
               <motion.div

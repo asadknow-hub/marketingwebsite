@@ -14,6 +14,7 @@ import {
   type LucideIcon
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 
 interface ProcessStep {
   id: number;
@@ -84,6 +85,7 @@ export default function FinsycOriginal4Step({ className }: { className?: string 
   const [activeTab, setActiveTab] = useState(1);
   const [isHoveringBtn, setIsHoveringBtn] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const { openGetInTouch } = useGetInTouchModal();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsMounted(true), 0);
@@ -237,7 +239,7 @@ export default function FinsycOriginal4Step({ className }: { className?: string 
 
                     {/* Action Button */}
                     <motion.button
-                      onClick={() => { window.location.href = "/contact"; }}
+                      onClick={openGetInTouch}
                       onMouseEnter={() => setIsHoveringBtn(true)}
                       onMouseLeave={() => setIsHoveringBtn(false)}
                       layout
@@ -250,7 +252,7 @@ export default function FinsycOriginal4Step({ className }: { className?: string 
                         layout
                         className="font-inter text-base lg:text-[18px] font-medium leading-[28px] text-white"
                       >
-                        Join the Waitlist
+                        Get In Touch
                       </motion.span>
 
                       <motion.div
