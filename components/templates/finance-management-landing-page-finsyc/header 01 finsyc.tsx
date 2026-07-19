@@ -47,6 +47,89 @@ export default function FinsycOriginalHeader({ className }: { className?: string
     backgroundSize: "cover",
   };
 
+  interface HeroSlide {
+    index: string;
+    eyebrow: string;
+    title: string;
+    description: string;
+    overlayClass: string;
+  }
+
+  const heroSlides: HeroSlide[] = [
+    {
+      index: "01",
+      eyebrow: "Goal first",
+      title: "Give agents the goal.",
+      description: "Set the outcome once. Nexus maps the work and prepares the setup path before anything changes.",
+      overlayClass: "bg-gradient-to-tr from-white/96 via-white/70 to-[#E9E4FF]/42",
+    },
+    {
+      index: "02",
+      eyebrow: "Execution",
+      title: "They do the work.",
+      description: "Agents handle repetitive work, formatting, reconciliations, and handoffs so your team stays on decisions.",
+      overlayClass: "bg-gradient-to-tr from-white/95 via-white/66 to-[#DCE4FF]/44",
+    },
+    {
+      index: "03",
+      eyebrow: "Approval-led",
+      title: "Consultant-free setup guaranteed.",
+      description: "Nexus configures your company with your approval and loads the branded environment.",
+      overlayClass: "bg-gradient-to-tr from-white/95 via-white/64 to-[#F2E7FF]/44",
+    },
+  ];
+
+  function HeroSlideCard({ slide }: { slide: HeroSlide }) {
+    return (
+      <motion.article
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: "easeOut" as const }}
+        className="relative shrink-0 snap-center overflow-hidden rounded-[32px] border border-white/70 bg-white shadow-[0_18px_50px_rgba(21,18,46,0.08)] w-[min(86vw,640px)]"
+      >
+        <div className="relative h-[380px] sm:h-[440px] lg:h-[520px]">
+          <img
+            src="/hero-agentic-bg.svg"
+            alt={slide.title}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className={"absolute inset-0 " + slide.overlayClass} />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/84" />
+
+          <div className="relative z-10 flex h-full flex-col justify-between p-6 sm:p-8 lg:p-10">
+            <div className="flex items-center justify-between gap-4">
+              <span className="rounded-full border border-[#6C63FF]/15 bg-white/78 px-3 py-1.5 font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-[#6C63FF] backdrop-blur-sm">
+                {slide.eyebrow}
+              </span>
+              <span className="rounded-full bg-[#15122E] px-3 py-1.5 font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/80">
+                {slide.index}
+              </span>
+            </div>
+
+            <div className="max-w-[460px]">
+              <h3 className="font-onest text-[34px] sm:text-[42px] lg:text-[54px] font-semibold leading-[0.96] tracking-[-1.6px] text-[#15122E]">
+                {slide.title}
+              </h3>
+              <p className="mt-4 max-w-[420px] font-['DM_Sans'] text-[16px] sm:text-[18px] leading-relaxed text-[#15122E]/76">
+                {slide.description}
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between gap-4">
+              <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.24em] text-[#15122E]/50">
+                Swipe the hero backgrounds
+              </span>
+              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#15122E] text-white shadow-[0_10px_25px_rgba(21,18,46,0.18)]">
+                <ArrowUpRight className="h-4 w-4" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </motion.article>
+    );
+  }
+
   return (
     <>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -260,7 +343,7 @@ export default function FinsycOriginalHeader({ className }: { className?: string
           {/* Hero Content */}
           <div className="flex-1 flex items-end">
             <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12">
-              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-12">
+              <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
                 <div className="max-w-[780px]">
                   <p className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.45em] text-[#6C63FF] mb-4">
                     Self-deploying agentic system
@@ -284,33 +367,34 @@ export default function FinsycOriginalHeader({ className }: { className?: string
                     Nexus AI First configures your company with your approval and gives every employee an agent trained to handle tedious tasks.
                   </motion.p>
 
-                  <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#15122E]/10 bg-white/65 px-4 py-2 backdrop-blur-sm shadow-[0_12px_30px_rgba(21,18,46,0.06)]">
-                    <span className="font-poppins text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.25em] text-[#15122E]/60">
-                      Finance & Accounting wave one
+                  <motion.button
+                    onClick={openGetInTouch}
+                    initial={{ y: 18, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.9, duration: 0.6, ease: "easeOut" as const }}
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="mt-8 inline-flex items-center gap-3 rounded-full border border-[#15122E]/10 bg-white/80 px-5 py-3 text-left text-[#15122E] shadow-[0_18px_45px_rgba(21,18,46,0.08)] backdrop-blur-md transition-colors hover:bg-white w-fit"
+                  >
+                    <span className="font-poppins text-[16px] sm:text-[18px] font-bold tracking-[-0.2px]">
+                      {ctaText}
                     </span>
-                    <span className="h-1 w-1 rounded-full bg-[#6C63FF]" />
-                    <span className="font-poppins text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.22em] text-[#15122E]/60">
-                      HCM next
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#15122E] text-white">
+                      <ArrowUpRight className="h-4 w-4" />
                     </span>
-                  </div>
+                  </motion.button>
                 </div>
 
-                <motion.button
-                  onClick={openGetInTouch}
-                  initial={{ y: 18, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.9, duration: 0.6, ease: "easeOut" as const }}
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-3 rounded-full border border-[#15122E]/10 bg-white/80 px-5 py-3 text-left text-[#15122E] shadow-[0_18px_45px_rgba(21,18,46,0.08)] backdrop-blur-md transition-colors hover:bg-white w-fit"
-                >
-                  <span className="font-poppins text-[16px] sm:text-[18px] font-bold tracking-[-0.2px]">
-                    {ctaText}
-                  </span>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#15122E] text-white">
-                    <ArrowUpRight className="h-4 w-4" />
-                  </span>
-                </motion.button>
+                <div className="relative min-w-0">
+                  <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#F7F5EF] to-transparent lg:w-20" />
+                  <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#F7F5EF] to-transparent lg:w-20" />
+
+                  <div className="flex gap-4 overflow-x-auto pb-4 pr-8 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                    {heroSlides.map((slide) => (
+                      <HeroSlideCard key={slide.index} slide={slide} />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
