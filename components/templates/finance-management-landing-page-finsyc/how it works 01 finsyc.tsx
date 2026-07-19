@@ -68,10 +68,10 @@ const steps: ProcessStep[] = [
   },
   {
     id: 4,
-    label: "HCM",
+    label: "HRMS",
     icon: Rocket,
-    heading: "HCM Agent",
-    subheading: "A dedicated HCM agent coordinates workforce workflows across people operations, payroll, approvals, and the employee experience.",
+    heading: "HRMS Agent",
+    subheading: "A dedicated HRMS agent coordinates workforce workflows across people operations, payroll, approvals, and the employee experience.",
     list: [
       "Handles workforce requests and approvals",
       "Supports payroll and people operations",

@@ -73,7 +73,7 @@ const scenarios = [
     icon: Landmark,
   },
   {
-    department: "HCM",
+    department: "HRMS",
     title: "The HR lead",
     description:
       "Onboarding 100 hires becomes one intake. Agents draft the pack, prepare the follow-ups, and she approves the final steps.",

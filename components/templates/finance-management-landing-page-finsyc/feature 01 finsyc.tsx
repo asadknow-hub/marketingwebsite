@@ -110,7 +110,7 @@ export default function OriginalFinsycFeature({ className }: { className?: strin
       width: ""
     },
     {
-      title: "HCM Agent",
+      title: "HRMS Agent",
       description: "Handles workforce workflows with the context to support people operations, payroll, approvals, and employee experience.",
       icon: Brain,
       uiSrc: "",
@@ -164,7 +164,7 @@ export default function OriginalFinsycFeature({ className }: { className?: strin
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="mt-3 w-full max-w-[514px] text-[#15122E] text-center font-inter text-base sm:text-lg font-normal leading-relaxed sm:leading-7 opacity-80"
               >
-                Orchestrate the work from one agnostic AI layer, then let specialized Finance & Accounting and HCM agents execute it with your team in control.
+                Orchestrate the work from one agnostic AI layer, then let specialized Finance & Accounting and HRMS agents execute it with your team in control.
               </motion.p>
             </div>
 

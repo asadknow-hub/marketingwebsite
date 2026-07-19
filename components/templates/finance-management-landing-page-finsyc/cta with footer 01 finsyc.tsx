@@ -105,7 +105,7 @@ export default function CtaWithFooter01Finsyc({ className }: { className?: strin
                 viewport={{ once: true }}
                 className="w-full max-w-[660px] text-center text-[#15122E] font-sans text-lg md:text-[20px] leading-[1.5] md:leading-[30px] tracking-tight md:tracking-[-0.4px] opacity-80 mb-[64px]"
               >
-                Get in touch about wave one: Finance & Accounting and HCM, powered by orchestration AI and embedded domain experts.
+                Get in touch about Wave 1: Finance & Accounting and HRMS, powered by orchestration AI and embedded domain experts.
               </motion.p>
 
               {/* Buttons */}

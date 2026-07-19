@@ -25,7 +25,7 @@ export default function FinsycOriginalHeader({ className }: { className?: string
   }, [isMobileMenuOpen]);
 
   const navItems: { label: string; href: string }[] = [
-    { label: "Wave One", href: "/modules" },
+    { label: "Roadmap", href: "/modules" },
     { label: "Industries", href: "/industries" },
     { label: "Agentic System", href: "#architecture" },
     { label: "About", href: "/about" },
@@ -286,11 +286,11 @@ export default function FinsycOriginalHeader({ className }: { className?: string
 
                   <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#15122E]/10 bg-white/65 px-4 py-2 backdrop-blur-sm shadow-[0_12px_30px_rgba(21,18,46,0.06)]">
                     <span className="font-poppins text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.25em] text-[#15122E]/60">
-                      Finance & Accounting wave one
+                      Finance & HRMS agentic
                     </span>
                     <span className="h-1 w-1 rounded-full bg-[#6C63FF]" />
                     <span className="font-poppins text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.22em] text-[#15122E]/60">
-                      HCM next
+                      Wave 1 launch
                     </span>
                   </div>
                 </div>

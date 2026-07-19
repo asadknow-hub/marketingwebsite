@@ -21,10 +21,10 @@ interface GetInTouchModalContextValue {
 const GetInTouchModalContext = createContext<GetInTouchModalContextValue | null>(null);
 
 const departments = [
-  { id: "finance", label: "Finance", wave: "Wave One", available: true },
-  { id: "hr", label: "HR", wave: "Wave One", available: true },
-  { id: "marketing", label: "Marketing", wave: "Wave Two", available: false },
-  { id: "it", label: "IT", wave: "Wave Two", available: false },
+  { id: "finance", label: "Finance", wave: "Wave 1", available: true },
+  { id: "hr", label: "HR", wave: "Wave 1", available: true },
+  { id: "marketing", label: "Marketing", wave: "Wave 2", available: false },
+  { id: "it", label: "IT", wave: "Wave 2", available: false },
 ];
 
 const initialForm: GetInTouchForm = {
@@ -182,7 +182,7 @@ export function GetInTouchModalProvider({ children }: { children: React.ReactNod
                       {[
                         "Goal first, approval led.",
                         "Built in your branded environment.",
-                        "Finance and HCM from one system.",
+                        "Finance and HRMS from one system.",
                       ].map((label) => (
                         <div key={label} className="rounded-2xl border border-white/10 bg-white/8 px-4 py-4">
                           <p className="font-poppins text-[11px] font-bold uppercase tracking-[0.28em] text-white/42">{label}</p>

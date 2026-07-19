@@ -39,8 +39,8 @@ const waveOneLayers = [
     ],
   },
   {
-    id: "hcm",
-    name: "HCM Agent",
+    id: "hrms",
+    name: "HRMS Agent",
     description: "A dedicated workforce agent for people operations, payroll, approvals, and employee workflows.",
     icon: Brain,
     features: [
@@ -64,7 +64,7 @@ export default function WhyChooseUs01Finsyc({ className }: { className?: string 
     restDelta: 0.001,
   });
 
-  const tags = ["Orchestration AI", "Embedded Experts", "Finance & Accounting", "HCM"];
+  const tags = ["Orchestration AI", "Embedded Experts", "Finance & Accounting", "HRMS"];
 
   return (
     <>
@@ -170,7 +170,7 @@ export default function WhyChooseUs01Finsyc({ className }: { className?: string 
                         {m.name}
                       </h3>
                       <span className="ml-auto shrink-0 text-xs font-semibold text-[#4F46E5] bg-[#4F46E5]/10 px-2.5 py-1 rounded-full">
-                        {m.id === "orchestration" ? "System layer" : m.id === "experts" ? "Expert layer" : "Wave one"}
+                        {m.id === "orchestration" ? "System layer" : m.id === "experts" ? "Expert layer" : "Wave 1"}
                       </span>
                     </div>
                     <p className="text-[#15122E]/70 font-sans text-[15px] md:text-base leading-relaxed mb-5">
