@@ -6,6 +6,8 @@ import { Clock3, Network, Users, Workflow } from "lucide-react";
 
 type ProblemCardData = {
   label: string;
+  stat: string;
+  microLabel: string;
   title: string;
   icon: ElementType;
   accentClass: string;
@@ -14,25 +16,22 @@ type ProblemCardData = {
 
 const problemCards: ProblemCardData[] = [
   {
-    label: "01 · Services project",
-    title: "Consulting slows go-live.",
+    label: "01 · Cost",
+    stat: "2x-4x",
+    microLabel: "more",
+    title: "Companies pay 2x-4x more just to get it running.",
     icon: Workflow,
     accentClass: "bg-gradient-to-br from-[#6C63FF] to-[#4F46E5]",
-    chips: ["Plan", "Setup", "Go-live"],
+    chips: ["License", "Consulting", "Setup"],
   },
   {
-    label: "02 · Employee time",
-    title: "People become the workflow.",
+    label: "02 · Silos",
+    stat: "Silos",
+    microLabel: "split teams",
+    title: "Each department works in hard silos.",
     icon: Users,
     accentClass: "bg-gradient-to-br from-[#E94B6F] to-[#FF7FA2]",
-    chips: ["Re-key", "Chase", "Reconcile"],
-  },
-  {
-    label: "03 · Ecosystem bonus",
-    title: "The stack starts connecting.",
-    icon: Network,
-    accentClass: "bg-gradient-to-br from-[#0EA5E9] to-[#6C63FF]",
-    chips: ["Connect", "Automate", "Scale"],
+    chips: ["Finance", "HR", "Ops"],
   },
 ];
 
@@ -65,7 +64,16 @@ function ProblemStage({ card, delay }: { card: ProblemCardData; delay: number })
             {card.label}
           </p>
 
-          <h3 className="mt-2 max-w-[240px] font-onest text-[18px] sm:text-[20px] font-semibold leading-tight tracking-[-0.8px] text-white">
+          <div className="mt-3 flex items-end gap-2">
+            <span className="font-onest text-[30px] sm:text-[34px] font-semibold leading-none tracking-[-1.8px] text-white">
+              {card.stat}
+            </span>
+            <span className="pb-1 font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-white/45">
+              {card.microLabel}
+            </span>
+          </div>
+
+          <h3 className="mt-3 max-w-[240px] font-onest text-[18px] sm:text-[19px] font-semibold leading-tight tracking-[-0.8px] text-white">
             {card.title}
           </h3>
         </div>
@@ -75,11 +83,11 @@ function ProblemStage({ card, delay }: { card: ProblemCardData; delay: number })
             <div className={"h-full w-[72%] rounded-full " + card.accentClass} />
           </div>
           <span className="font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-white/45">
-            shift
+            impact
           </span>
         </div>
 
-        <div className="mt-auto flex flex-wrap gap-2 pt-5">
+        <div className="mt-auto flex flex-wrap gap-2 pt-4">
           {card.chips.map((chip) => (
             <span
               key={chip}
@@ -128,7 +136,7 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
                 transition={{ duration: 0.75, delay: 0.08, ease: "easeOut" as const }}
                 className="mt-5 max-w-[520px] font-onest text-[36px] sm:text-[44px] lg:text-[56px] font-semibold leading-[0.95] tracking-[-2px] text-[#15122E]"
               >
-                Enterprise systems still ship like projects.
+                You pay for the license. Then you pay 2x-4x more.
               </motion.h2>
 
               <motion.p
@@ -138,7 +146,7 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
                 transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" as const }}
                 className="mt-4 max-w-[480px] font-['DM_Sans'] text-[16px] sm:text-[17px] leading-relaxed text-[#15122E]/72"
               >
-                Consultants implement. Employees re-enter data. The stack only pays off once it starts connecting.
+                Companies spend 2x-4x more on consulting and implementation. Each department works in hard silos.
               </motion.p>
 
               <motion.div
@@ -149,9 +157,8 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
                 className="mt-6 flex flex-wrap gap-3"
               >
                 {[
-                  "Consultation time",
-                  "Employee rework",
-                  "Connected ecosystem",
+                  "2x-4x more",
+                  "Hard silos",
                 ].map((label) => (
                   <span
                     key={label}
@@ -160,26 +167,6 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
                     {label}
                   </span>
                 ))}
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.28, ease: "easeOut" as const }}
-                className="mt-6 rounded-[26px] border border-[#15122E]/8 bg-white/72 p-4 shadow-[0_12px_30px_rgba(21,18,46,0.04)] backdrop-blur-sm"
-              >
-                <div className="flex items-center justify-between gap-3 text-[10px] font-poppins font-bold uppercase tracking-[0.26em] text-[#15122E]/48">
-                  <span>Slow</span>
-                  <span>Manual</span>
-                  <span>Connected</span>
-                </div>
-
-                <div className="mt-3 grid grid-cols-3 gap-2">
-                  <div className="h-2 rounded-full bg-[#E94B6F]" />
-                  <div className="h-2 rounded-full bg-[#6C63FF]" />
-                  <div className="h-2 rounded-full bg-[#0EA5E9]" />
-                </div>
               </motion.div>
             </div>
 
@@ -197,33 +184,17 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-2 backdrop-blur-sm">
                   <Network className="h-4 w-4 text-[#6C63FF]" />
                   <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-white/60">
-                    Where time goes
+                    Two problems
                   </span>
                 </div>
                 <div className="rounded-full border border-white/10 bg-white/8 px-3 py-2 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-white/60">
-                  Enterprise software today
+                  Old way
                 </div>
               </div>
 
-              <div className="relative z-10 mt-4 grid gap-3 md:grid-cols-3">
+              <div className="relative z-10 mt-4 grid gap-3 md:grid-cols-2">
                 {problemCards.map((card, index) => (
                   <ProblemStage key={card.title} card={card} delay={0.07 * index} />
-                ))}
-              </div>
-
-              <div className="relative z-10 mt-3 flex flex-wrap gap-2">
-                {[
-                  { label: "Consultants", value: "Months" },
-                  { label: "Employees", value: "Rework" },
-                  { label: "Company", value: "Ecosystem" },
-                ].map((item) => (
-                  <div key={item.label} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-2 backdrop-blur-sm">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#6C63FF]" />
-                    <span className="font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-white/70">
-                      {item.label}
-                    </span>
-                    <span className="text-[10px] text-white/52">· {item.value}</span>
-                  </div>
                 ))}
               </div>
             </motion.div>
