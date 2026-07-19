@@ -58,24 +58,24 @@ function PlatformCard({ index, title, description, icon: Icon, points }: Platfor
 const platformCards = [
   {
     index: "01",
-    title: "The Nexus Engine consults first",
-    description: "It maps your company logic, checks how work is handled today, and drafts the setup path before anything changes.",
+    title: "Give agents the goal.",
+    description: "The Nexus Engine reads the outcome, maps the work, and prepares the setup path before anything changes.",
     icon: Layers,
-    points: ["Understands the operating model", "Configures the flow it sees", "Shows the setup before go-live"],
+    points: ["Goal-first setup", "Approval-led changes", "Company logic stays visible"],
   },
   {
     index: "02",
-    title: "You command the setup with approval",
-    description: "The platform prepares the company system for you, but it only moves forward when your team signs off.",
+    title: "They do the work.",
+    description: "Finance agents handle repetitive work, formatting, reconciliations, and handoffs so the team stays on decisions.",
     icon: ShieldCheck,
-    points: ["Review and approve each change", "Keep control of the rollout", "Launch with governance built in"],
+    points: ["Finance-first execution", "Less manual chase work", "Only exceptions need review"],
   },
   {
     index: "03",
-    title: "Finance agents land on your system",
-    description: "Each employee gets finance-agent help inside your own platform, so the experience feels loaded in rather than metered out.",
+    title: "Consultant-free setup guaranteed.",
+    description: "Nexus configures your company with your approval and loads the system in your branded environment.",
     icon: SlidersHorizontal,
-    points: ["Finance agents for every employee", "No separate token pack feel", "Built for scale across the team"],
+    points: ["Branded environment", "Approval before go-live", "Loaded into the platform"],
   },
 ];
 
@@ -86,7 +86,7 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
     <>
       <section className={"w-full bg-[#F4F0FF] py-20 lg:py-28 overflow-hidden " + (className || "")}>
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[96px]">
-          <div className="grid gap-8 lg:grid-cols-[0.96fr_1.04fr] items-start">
+          <div className="grid gap-8 lg:grid-cols-[0.94fr_1.06fr] items-start">
             <div className="lg:sticky lg:top-24 self-start">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -117,7 +117,7 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
                 transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" as const }}
                 className="mt-5 max-w-[600px] font-['DM_Sans'] text-[18px] sm:text-[20px] leading-relaxed text-[#15122E]/80"
               >
-                You deploy your company system with the built-in Nexus Engine. It consults, configures the company structure with your approval, and sets up the work before the finance agents go live.
+                Give agents the goal. They do the work. Consultant-free setup guaranteed. The built-in Nexus Engine consults, configures the company structure with your approval, and loads finance agents into your branded environment.
               </motion.p>
 
               <motion.div
@@ -128,7 +128,7 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
                 className="mt-6 flex flex-wrap gap-3"
               >
                 <span className="rounded-full border border-[#15122E]/10 bg-white px-4 py-2 font-poppins text-[12px] font-bold uppercase tracking-[0.2em] text-[#15122E]/70">
-                  Consultation
+                  Goal first
                 </span>
                 <span className="rounded-full border border-[#15122E]/10 bg-white px-4 py-2 font-poppins text-[12px] font-bold uppercase tracking-[0.2em] text-[#15122E]/70">
                   Approval-led setup
@@ -168,7 +168,7 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
               </motion.button>
             </div>
 
-            <div className="space-y-4">
+            <div className="grid gap-4 lg:grid-cols-3">
               {platformCards.map((card) => (
                 <PlatformCard
                   key={card.title}
@@ -179,24 +179,6 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
                   points={card.points}
                 />
               ))}
-
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.28, ease: "easeOut" as const }}
-                className="rounded-[28px] border border-[#15122E]/10 bg-[#15122E] px-6 py-6 sm:px-8 sm:py-7 text-white shadow-[0_18px_42px_rgba(21,18,46,0.18)]"
-              >
-                <p className="font-poppins text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.3em] text-white/50">
-                  Finance-first scale
-                </p>
-                <p className="mt-3 font-onest text-[22px] sm:text-[28px] font-semibold leading-tight tracking-[-0.8px]">
-                  Loaded into your system, not sold as separate token packs.
-                </p>
-                <p className="mt-3 font-['DM_Sans'] text-[15px] sm:text-[16px] leading-relaxed text-white/78">
-                  Every employee gets agentic help where finance work happens, so the experience feels close to unlimited instead of metered task by task.
-                </p>
-              </motion.div>
             </div>
           </div>
         </div>

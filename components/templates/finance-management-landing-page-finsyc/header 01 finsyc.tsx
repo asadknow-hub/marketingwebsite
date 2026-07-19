@@ -260,8 +260,8 @@ export default function FinsycOriginalHeader({ className }: { className?: string
           {/* Hero Content */}
           <div className="flex-1 flex items-end">
             <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12">
-              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-12">
-                <div className="max-w-[780px]">
+              <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
+                <div className="max-w-[760px]">
                   <p className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.45em] text-[#6C63FF] mb-4">
                     Self-deploying agentic system
                   </p>
@@ -272,45 +272,94 @@ export default function FinsycOriginalHeader({ className }: { className?: string
                     transition={{ delay: 0.55, duration: 0.75, ease: "easeOut" as const }}
                     className="max-w-[700px] w-full text-left font-onest text-[42px] sm:text-[56px] lg:text-[74px] font-semibold leading-[0.96] tracking-[-2.2px] lg:tracking-[-3.4px] text-[#15122E]"
                   >
-                    A system that self-deploys.
+                    Give agents the goal.
+                    <br className="block sm:hidden" />
+                    <span className="font-playfair italic font-semibold text-[#000000] opacity-55 tracking-normal lg:tracking-[-3px]">
+                      They do the work.
+                    </span>
                   </motion.h1>
 
                   <motion.p
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.7, duration: 0.75, ease: "easeOut" as const }}
-                    className="mt-5 max-w-[640px] text-left font-['DM_Sans'] text-[18px] sm:text-[20px] lg:text-[22px] font-normal leading-relaxed lg:leading-[1.55] tracking-[-0.3px] text-[#15122E]/82"
+                    className="mt-5 max-w-[660px] text-left font-['DM_Sans'] text-[18px] sm:text-[20px] lg:text-[22px] font-normal leading-relaxed lg:leading-[1.55] tracking-[-0.3px] text-[#15122E]/82"
                   >
-                    Nexus AI First configures your company with your approval and gives every employee an agent trained to handle tedious tasks.
+                    Consultant-free setup guaranteed. Nexus AI First configures your company with your approval and gives every employee an agent trained to handle tedious tasks.
                   </motion.p>
 
-                  <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#15122E]/10 bg-white/65 px-4 py-2 backdrop-blur-sm shadow-[0_12px_30px_rgba(21,18,46,0.06)]">
-                    <span className="font-poppins text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.25em] text-[#15122E]/60">
-                      Finance & Accounting wave one
+                  <motion.div
+                    initial={{ y: 18, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.82, duration: 0.6, ease: "easeOut" as const }}
+                    className="mt-6 flex flex-wrap gap-3"
+                  >
+                    {[
+                      "Approval-led setup",
+                      "Goal-first agents",
+                      "Consultant-free by design",
+                    ].map((label) => (
+                      <span
+                        key={label}
+                        className="rounded-full border border-[#15122E]/10 bg-white/70 px-4 py-2 font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.24em] text-[#15122E]/60 backdrop-blur-sm"
+                      >
+                        {label}
+                      </span>
+                    ))}
+                  </motion.div>
+
+                  <motion.button
+                    onClick={openGetInTouch}
+                    initial={{ y: 18, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.95, duration: 0.6, ease: "easeOut" as const }}
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="mt-8 inline-flex items-center gap-3 rounded-full border border-[#15122E]/10 bg-white/80 px-5 py-3 text-left text-[#15122E] shadow-[0_18px_45px_rgba(21,18,46,0.08)] backdrop-blur-md transition-colors hover:bg-white w-fit"
+                  >
+                    <span className="font-poppins text-[16px] sm:text-[18px] font-bold tracking-[-0.2px]">
+                      {ctaText}
                     </span>
-                    <span className="h-1 w-1 rounded-full bg-[#6C63FF]" />
-                    <span className="font-poppins text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.22em] text-[#15122E]/60">
-                      HCM next
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#15122E] text-white">
+                      <ArrowUpRight className="h-4 w-4" />
                     </span>
-                  </div>
+                  </motion.button>
                 </div>
 
-                <motion.button
-                  onClick={openGetInTouch}
-                  initial={{ y: 18, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.9, duration: 0.6, ease: "easeOut" as const }}
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-3 rounded-full border border-[#15122E]/10 bg-white/80 px-5 py-3 text-left text-[#15122E] shadow-[0_18px_45px_rgba(21,18,46,0.08)] backdrop-blur-md transition-colors hover:bg-white w-fit"
-                >
-                  <span className="font-poppins text-[16px] sm:text-[18px] font-bold tracking-[-0.2px]">
-                    {ctaText}
-                  </span>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#15122E] text-white">
-                    <ArrowUpRight className="h-4 w-4" />
-                  </span>
-                </motion.button>
+                <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-3">
+                  {[
+                    {
+                      title: "Give agents the goal.",
+                      description: "Set the outcome once. Nexus maps the work and routes it through the system.",
+                    },
+                    {
+                      title: "They do the work.",
+                      description: "Agents handle repetition, formatting, and handoffs so people stay on decisions.",
+                    },
+                    {
+                      title: "Consultant-free setup guaranteed.",
+                      description: "Nexus configures the company with your approval inside your branded environment.",
+                    },
+                  ].map((item, index) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.72 + index * 0.08, duration: 0.55, ease: "easeOut" as const }}
+                      className="rounded-[24px] border border-white/60 bg-white/82 px-5 py-5 backdrop-blur-md shadow-[0_18px_40px_rgba(21,18,46,0.08)]"
+                    >
+                      <p className="font-poppins text-[11px] font-bold uppercase tracking-[0.3em] text-[#6C63FF]">
+                        0{index + 1}
+                      </p>
+                      <h3 className="mt-3 font-onest text-[22px] sm:text-[24px] font-semibold leading-tight tracking-[-0.8px] text-[#15122E]">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 font-['DM_Sans'] text-[14px] sm:text-[15px] leading-relaxed text-[#15122E]/70">
+                        {item.description}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
