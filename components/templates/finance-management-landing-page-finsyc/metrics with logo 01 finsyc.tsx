@@ -2,94 +2,80 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight, Check, Layers, ShieldCheck, SlidersHorizontal } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 
-interface GallerySlideProps {
+interface PlatformCardProps {
   index: string;
-  eyebrow: string;
   title: string;
   description: string;
-  callout: string;
-  delay?: number;
+  icon: React.ElementType;
+  points: string[];
 }
 
-function GallerySlide({ index, eyebrow, title, description, callout, delay = 0 }: GallerySlideProps) {
+function PlatformCard({ index, title, description, icon: Icon, points }: PlatformCardProps) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 28 }}
+      initial={{ opacity: 0, y: 36 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.75, delay, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-      className="relative shrink-0 snap-center overflow-hidden rounded-[32px] border border-white/70 bg-white shadow-[0_18px_50px_rgba(21,18,46,0.08)] w-[min(88vw,700px)]"
+      transition={{ duration: 0.75, ease: [0.21, 0.47, 0.32, 0.98] as const }}
+      className="rounded-[28px] bg-white border border-[#15122E]/10 shadow-[0_16px_48px_rgba(21,18,46,0.08)] p-6 sm:p-8"
     >
-      <div className="relative h-[420px] sm:h-[480px] lg:h-[560px]">
-        <img
-          src="/hero-agentic-bg.svg"
-          alt={title}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+      <div className="flex items-start gap-4">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#6C63FF]/10 text-[#6C63FF] shrink-0">
+          <Icon className="h-5 w-5" />
+        </div>
 
-        <div className="absolute inset-0 bg-gradient-to-tr from-white/95 via-white/68 to-[#F4F0FF]/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/84" />
-
-        <div className="relative z-10 flex h-full flex-col justify-between p-6 sm:p-8 lg:p-10">
-          <div className="flex items-center justify-between gap-4">
-            <span className="rounded-full border border-[#6C63FF]/15 bg-white/72 px-3 py-1.5 font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-[#6C63FF] backdrop-blur-sm">
-              {eyebrow}
-            </span>
-            <span className="rounded-full bg-[#15122E] px-3 py-1.5 font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/80">
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-3 flex-wrap">
+            <span className="font-poppins text-[11px] font-bold uppercase tracking-[0.28em] text-[#6C63FF]">
               {index}
             </span>
-          </div>
-
-          <div className="max-w-[460px]">
-            <h3 className="font-onest text-[34px] sm:text-[42px] lg:text-[54px] font-semibold leading-[0.96] tracking-[-1.6px] text-[#15122E]">
+            <h3 className="font-onest text-[22px] sm:text-[26px] font-semibold leading-tight tracking-[-0.8px] text-[#15122E]">
               {title}
             </h3>
-            <p className="mt-4 max-w-[420px] font-['DM_Sans'] text-[16px] sm:text-[18px] leading-relaxed text-[#15122E]/74">
-              {description}
-            </p>
           </div>
 
-          <div className="flex items-center justify-between gap-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#15122E]/10 bg-white/78 px-4 py-2 backdrop-blur-sm">
-              <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.2em] text-[#15122E]/70">
-                {callout}
-              </span>
-            </div>
+          <p className="mt-3 font-['DM_Sans'] text-[16px] sm:text-[18px] leading-relaxed text-[#15122E]/78">
+            {description}
+          </p>
 
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#15122E] text-white shadow-[0_10px_25px_rgba(21,18,46,0.18)]">
-              <ArrowUpRight className="h-4 w-4" />
-            </span>
-          </div>
+          <ul className="mt-5 space-y-3">
+            {points.map((point) => (
+              <li key={point} className="flex items-start gap-2 text-[#15122E] font-['DM_Sans'] text-[15px] sm:text-[16px] leading-relaxed">
+                <Check className="h-4 w-4 text-[#6C63FF] shrink-0 mt-1" />
+                <span className="opacity-80">{point}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </motion.article>
   );
 }
 
-const gallerySlides = [
+const platformCards = [
   {
     index: "01",
-    eyebrow: "Hero",
-    title: "A system that self-deploys.",
-    description: "Nexus configures your company with your approval and gives every employee an agent trained to handle tedious tasks.",
-    callout: "Minimal hero",
+    title: "Give agents the goal.",
+    description: "The Nexus Engine reads the outcome, maps the work, and prepares the setup path before anything changes.",
+    icon: Layers,
+    points: ["Goal-first setup", "Approval-led changes", "Company logic stays visible"],
   },
   {
     index: "02",
-    eyebrow: "Platform",
-    title: "Give agents the goal.",
-    description: "The platform reads the outcome, maps the work, and routes it through the right agent or person.",
-    callout: "Horizontal gallery",
+    title: "They do the work.",
+    description: "Finance agents handle repetitive work, formatting, reconciliations, and handoffs so the team stays on decisions.",
+    icon: ShieldCheck,
+    points: ["Finance-first execution", "Less manual chase work", "Only exceptions need review"],
   },
   {
     index: "03",
-    eyebrow: "Rollout",
     title: "Consultant-free setup guaranteed.",
-    description: "Your team stays in control while Nexus configures the branded company environment with approval.",
-    callout: "Approval-led setup",
+    description: "Nexus configures your company with your approval and loads the system in your branded environment.",
+    icon: SlidersHorizontal,
+    points: ["Branded environment", "Approval before go-live", "Loaded into the platform"],
   },
 ];
 
@@ -109,7 +95,6 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
                 transition={{ duration: 0.6, ease: "easeOut" as const }}
                 className="inline-flex items-center gap-2 rounded-full border border-[#6C63FF]/15 bg-white/70 px-4 py-2 backdrop-blur-sm"
               >
-                <Sparkles className="w-4 h-4 text-[#6C63FF]" />
                 <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.35em] text-[#6C63FF]">
                   The Platform · 02
                 </span>
@@ -132,7 +117,7 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
                 transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" as const }}
                 className="mt-5 max-w-[600px] font-['DM_Sans'] text-[18px] sm:text-[20px] leading-relaxed text-[#15122E]/80"
               >
-                Scroll left to right through the system. The first card stays minimalist; the next slides show how the platform deploys, routes work, and rolls out with approval.
+                Give agents the goal. They do the work. Consultant-free setup guaranteed. The built-in Nexus Engine consults, configures the company structure with your approval, and loads finance agents into your branded environment.
               </motion.p>
 
               <motion.div
@@ -143,13 +128,13 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
                 className="mt-6 flex flex-wrap gap-3"
               >
                 <span className="rounded-full border border-[#15122E]/10 bg-white px-4 py-2 font-poppins text-[12px] font-bold uppercase tracking-[0.2em] text-[#15122E]/70">
-                  Image-led hero
+                  Goal first
                 </span>
                 <span className="rounded-full border border-[#15122E]/10 bg-white px-4 py-2 font-poppins text-[12px] font-bold uppercase tracking-[0.2em] text-[#15122E]/70">
-                  Gallery scroll
+                  Approval-led setup
                 </span>
                 <span className="rounded-full border border-[#15122E]/10 bg-white px-4 py-2 font-poppins text-[12px] font-bold uppercase tracking-[0.2em] text-[#15122E]/70">
-                  Left to right motion
+                  Finance agents loaded in
                 </span>
               </motion.div>
 
@@ -183,23 +168,17 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
               </motion.button>
             </div>
 
-            <div className="relative w-full">
-              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#F4F0FF] to-transparent" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#F4F0FF] to-transparent" />
-
-              <div className="flex gap-4 overflow-x-auto pb-4 pr-8 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                {gallerySlides.map((slide, index) => (
-                  <GallerySlide
-                    key={slide.title}
-                    index={slide.index}
-                    eyebrow={slide.eyebrow}
-                    title={slide.title}
-                    description={slide.description}
-                    callout={slide.callout}
-                    delay={0.08 * index}
-                  />
-                ))}
-              </div>
+            <div className="grid gap-4 lg:grid-cols-3">
+              {platformCards.map((card) => (
+                <PlatformCard
+                  key={card.title}
+                  index={card.index}
+                  title={card.title}
+                  description={card.description}
+                  icon={card.icon}
+                  points={card.points}
+                />
+              ))}
             </div>
           </div>
         </div>
