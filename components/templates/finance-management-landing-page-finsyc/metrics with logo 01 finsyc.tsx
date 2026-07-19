@@ -476,22 +476,6 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
                   </div>
                 </div>
               </motion.div>
-
-              <div className="grid gap-4 md:grid-cols-3">
-                {platformCards.map((card: PlatformCardData) => (
-                  <PlatformCard
-                    key={card.title}
-                    index={card.index}
-                    title={card.title}
-                    description={card.description}
-                    icon={card.icon}
-                    points={card.points}
-                    scene={card.scene}
-                    tiltClass={card.tiltClass}
-                    accentClass={card.accentClass}
-                  />
-                ))}
-              </div>
             </div>
           </div>
         </div>
