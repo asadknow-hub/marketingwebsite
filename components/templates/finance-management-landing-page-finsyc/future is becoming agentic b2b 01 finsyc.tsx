@@ -2,10 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, DollarSign, RefreshCw, Settings, Sparkles } from "lucide-react";
+import { ArrowUpRight, Layers, Network, Sparkles } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 
-interface ProblemCardProps {
+interface EcosystemCardProps {
   title: string;
   description: string;
   icon: React.ElementType;
@@ -13,7 +13,7 @@ interface ProblemCardProps {
   delay?: number;
 }
 
-function ProblemCard({ title, description, icon: Icon, accent, delay = 0 }: ProblemCardProps) {
+function EcosystemCard({ title, description, icon: Icon, accent, delay = 0 }: EcosystemCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -39,24 +39,24 @@ function ProblemCard({ title, description, icon: Icon, accent, delay = 0 }: Prob
   );
 }
 
-const problemCards = [
+const ecosystemCards = [
   {
-    title: "Implementation",
-    description: "6–18 months of configuration before go-live — billed by the hour, not by the outcome.",
-    icon: DollarSign,
-    accent: "bg-gradient-to-br from-[#E94B6F] to-[#FF7FA2]",
-  },
-  {
-    title: "Integration",
-    description: "Making it talk to everything else is its own project — with its own integrators and its own bill.",
-    icon: Settings,
+    title: "One layer",
+    description: "The orchestration layer sits above finance, HRMS, and operations so everyone works from the same context.",
+    icon: Layers,
     accent: "bg-gradient-to-br from-[#6C63FF] to-[#4F46E5]",
   },
   {
-    title: "Every change after",
-    description: "New field, new workflow, new report — each one a fresh SOW. The meter never stops running.",
-    icon: RefreshCw,
-    accent: "bg-gradient-to-br from-[#F59E0B] to-[#F97316]",
+    title: "Connected workflows",
+    description: "Approvals, tasks, and records stop living in isolated tools and start passing context automatically.",
+    icon: Network,
+    accent: "bg-gradient-to-br from-[#E94B6F] to-[#FF7FA2]",
+  },
+  {
+    title: "Compounding value",
+    description: "Every new workflow makes the platform more useful because the ecosystem keeps learning as it expands.",
+    icon: Sparkles,
+    accent: "bg-gradient-to-br from-[#0EA5E9] to-[#6C63FF]",
   },
 ];
 
@@ -85,7 +85,7 @@ export default function FutureIsBecomingAgenticB2B01Finsyc({ className }: { clas
                 >
                   <Sparkles className="h-4 w-4 text-[#6C63FF]" />
                   <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.35em] text-[#6C63FF]">
-                    The Problem · 04
+                    The ecosystem bonus · 05
                   </span>
                 </motion.div>
 
@@ -96,7 +96,7 @@ export default function FutureIsBecomingAgenticB2B01Finsyc({ className }: { clas
                   transition={{ duration: 0.75, delay: 0.08, ease: "easeOut" as const }}
                   className="mt-6 max-w-[640px] font-onest text-[38px] sm:text-[48px] lg:text-[62px] font-semibold leading-[0.96] tracking-[-2px] text-[#15122E]"
                 >
-                  Future is becoming Agentic B2B.
+                  Add it once, and the company starts acting like one ecosystem.
                 </motion.h2>
 
                 <motion.p
@@ -106,7 +106,7 @@ export default function FutureIsBecomingAgenticB2B01Finsyc({ className }: { clas
                   transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" as const }}
                   className="mt-5 max-w-[620px] font-['DM_Sans'] text-[18px] sm:text-[20px] leading-relaxed text-[#15122E]/78"
                 >
-                  Come be a part of this transformational journey. Submit details and get early Pilot access — we’ll give you a free sandbox to try.
+                  Approvals, workflows, and data stop living in separate silos. The whole company starts moving with shared context and less waste.
                 </motion.p>
 
                 <motion.div
@@ -116,10 +116,10 @@ export default function FutureIsBecomingAgenticB2B01Finsyc({ className }: { clas
                   transition={{ duration: 0.7, delay: 0.22, ease: "easeOut" as const }}
                   className="mt-7 flex flex-wrap gap-3"
                 >
-                  {[
-                    "Free sandbox",
-                    "Early pilot access",
-                    "Design partner slots",
+                {[
+                    "Connected workflows",
+                    "Shared context",
+                    "Compounding value",
                   ].map((label) => (
                     <span
                       key={label}
@@ -138,7 +138,7 @@ export default function FutureIsBecomingAgenticB2B01Finsyc({ className }: { clas
                   className="mt-8 rounded-[28px] border border-[#6C63FF]/15 bg-white/75 p-5 shadow-[0_16px_40px_rgba(21,18,46,0.07)] backdrop-blur-sm"
                 >
                   <p className="font-['DM_Sans'] text-[15px] sm:text-[17px] leading-relaxed text-[#15122E]/82">
-                    We’ll show you the hard part before you sign anything — the licence is rarely the expensive part.
+                    Once the ecosystem is in place, every new workflow feels native instead of custom.
                   </p>
                 </motion.div>
               </div>
@@ -153,7 +153,7 @@ export default function FutureIsBecomingAgenticB2B01Finsyc({ className }: { clas
                 className="inline-flex w-fit items-center gap-3 rounded-full bg-[#15122E] px-5 py-3 text-white shadow-[0_18px_40px_rgba(21,18,46,0.12)] transition-colors hover:bg-[#4F46E5]"
               >
                 <span className="font-poppins text-[16px] sm:text-[18px] font-bold tracking-[-0.2px]">
-                  Submit details for early Pilot access
+                  See the ecosystem effect
                 </span>
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#15122E]">
                   <ArrowUpRight className="h-4 w-4" />
@@ -168,78 +168,84 @@ export default function FutureIsBecomingAgenticB2B01Finsyc({ className }: { clas
               transition={{ duration: 0.75, delay: 0.08, ease: "easeOut" as const }}
               className="relative overflow-hidden rounded-[36px] border border-white/80 bg-white shadow-[0_24px_70px_rgba(21,18,46,0.08)]"
             >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.12),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(233,75,111,0.10),transparent_30%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.12),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.10),transparent_30%)]" />
               <div className="relative z-10 p-6 sm:p-8 lg:p-10">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <span className="rounded-full border border-[#6C63FF]/15 bg-[#6C63FF]/5 px-3 py-1.5 font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-[#6C63FF]">
-                    The licence is the cheap part.
+                    The ecosystem effect
                   </span>
                   <span className="rounded-full bg-[#15122E] px-3 py-1.5 font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/80">
-                    2–4x
+                    One operating layer
                   </span>
                 </div>
 
-                <div className="mt-6 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-                  <div className="flex flex-col gap-5">
-                    <div className="rounded-[28px] border border-[#15122E]/8 bg-[#F7F5FF] p-5 shadow-[0_12px_30px_rgba(21,18,46,0.04)]">
-                      <div className="flex items-end gap-4">
-                        <span className="font-onest text-[58px] sm:text-[72px] leading-none font-semibold tracking-[-3px] text-[#E94B6F]">
-                          2–4x
-                        </span>
-                        <p className="max-w-[190px] pb-2 font-['DM_Sans'] text-[14px] sm:text-[15px] leading-relaxed text-[#15122E]/72">
-                          the licence cost goes to consultants and implementors — the real total cost of ownership
-                        </p>
-                      </div>
-                    </div>
+                <div className="mt-6 grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
+                  <div className="rounded-[30px] border border-[#15122E]/8 bg-[#15122E] p-5 text-white shadow-[0_18px_44px_rgba(21,18,46,0.18)]">
+                    <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-white/45">
+                      Orchestration AI
+                    </p>
+                    <h3 className="mt-2 max-w-[360px] font-onest text-[22px] sm:text-[26px] font-semibold leading-tight tracking-[-0.6px] text-white">
+                      Turns separate tools into one working system.
+                    </h3>
 
-                    <div className="rounded-[28px] border border-[#15122E]/8 bg-white p-4 shadow-[0_12px_30px_rgba(21,18,46,0.04)]">
-                      <div className="flex items-center justify-between gap-4 text-[11px] font-poppins font-bold uppercase tracking-[0.28em] text-[#15122E]/42">
-                        <span>What you budget</span>
-                        <span>What you actually pay on top</span>
-                      </div>
-                      <div className="mt-3 flex items-center gap-3 rounded-2xl bg-[#F5F3FF] p-3">
-                        <div className="w-[120px] rounded-xl bg-[#6C63FF] px-3 py-3 text-center font-poppins text-[11px] font-bold uppercase tracking-[0.22em] text-white shadow-[0_10px_24px_rgba(108,99,255,0.22)]">
-                          Licence · $1
-                        </div>
-                        <div className="flex-1 overflow-hidden rounded-xl bg-[#E94B6F]/10">
-                          <div className="grid grid-cols-3 gap-px">
-                            <div className="bg-[#E94B6F] px-2 py-4 text-center font-poppins text-[10px] font-bold uppercase tracking-[0.18em] text-white">
-                              Implementation
-                            </div>
-                            <div className="bg-[#EF6586] px-2 py-4 text-center font-poppins text-[10px] font-bold uppercase tracking-[0.18em] text-white">
-                              Integration
-                            </div>
-                            <div className="bg-[#FF8DA5] px-2 py-4 text-center font-poppins text-[10px] font-bold uppercase tracking-[0.18em] text-white">
-                              Change SOWs
-                            </div>
+                    <div className="relative mt-5 h-[280px] overflow-hidden rounded-[24px] border border-white/10 bg-white/6 p-4">
+                      <div className="absolute left-1/2 top-6 h-[calc(100%-48px)] w-px -translate-x-1/2 bg-gradient-to-b from-white/40 via-white/15 to-transparent" />
+                      <div className="absolute inset-x-10 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+                      {[
+                        { label: "Finance", position: "left-5 top-5", accent: "bg-[#6C63FF]" },
+                        { label: "HRMS", position: "right-5 top-5", accent: "bg-[#E94B6F]" },
+                        { label: "Operations", position: "left-1/2 bottom-5 -translate-x-1/2", accent: "bg-[#0EA5E9]" },
+                      ].map((node) => (
+                        <div
+                          key={node.label}
+                          className={"absolute " + node.position + " flex items-center gap-3 rounded-[20px] border border-white/10 bg-white/8 px-4 py-3 shadow-[0_12px_28px_rgba(0,0,0,0.12)] backdrop-blur-sm"}
+                        >
+                          <span className={"flex h-9 w-9 items-center justify-center rounded-full " + node.accent}>
+                            <Layers className="h-4.5 w-4.5 text-white" />
+                          </span>
+                          <div>
+                            <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/72">
+                              {node.label}
+                            </p>
+                            <p className="mt-1 text-[12px] leading-relaxed text-white/62">
+                              Same context
+                            </p>
                           </div>
                         </div>
-                      </div>
-                      <div className="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-2 text-[12px] font-['DM_Sans'] text-[#15122E]/60">
-                        <span>$2–4 for every licence dollar</span>
-                        <span>•</span>
-                        <span>Panorama Consulting · Gartner services-to-licence benchmarks</span>
-                      </div>
-                    </div>
+                      ))}
 
-                    <div className="rounded-[28px] border border-[#6C63FF]/15 bg-[#F5F3FF] px-5 py-4 text-[#15122E] shadow-[0_12px_30px_rgba(21,18,46,0.04)]">
-                      <p className="font-['DM_Sans'] text-[14px] sm:text-[15px] leading-relaxed">
-                        <span className="font-semibold text-[#6C63FF]">Your address →</span> consultants and configurators built into the product. Agents implement, integrate and make every change after — the services line goes to ~zero.
-                      </p>
+                      <div className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#15122E] shadow-[0_18px_40px_rgba(0,0,0,0.22)]">
+                        <Network className="h-8 w-8 text-[#6C63FF]" />
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-4">
-                    {problemCards.map((card, index) => (
-                      <ProblemCard
-                        key={card.title}
-                        title={card.title}
-                        description={card.description}
-                        icon={card.icon}
-                        accent={card.accent}
-                        delay={0.08 * index}
-                      />
-                    ))}
+                  <div className="flex flex-col gap-5">
+                    <div className="rounded-[28px] border border-[#15122E]/8 bg-[#F7F5FF] p-5 shadow-[0_12px_30px_rgba(21,18,46,0.04)]">
+                      <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-[#6C63FF]">
+                        What the ecosystem unlocks
+                      </p>
+
+                      <div className="mt-4 space-y-3">
+                        {ecosystemCards.map((card, index) => (
+                          <EcosystemCard
+                            key={card.title}
+                            title={card.title}
+                            description={card.description}
+                            icon={card.icon}
+                            accent={card.accent}
+                            delay={0.06 * index}
+                          />
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="rounded-[28px] border border-[#6C63FF]/15 bg-white px-5 py-4 shadow-[0_12px_30px_rgba(21,18,46,0.04)]">
+                      <p className="font-['DM_Sans'] text-[14px] sm:text-[15px] leading-relaxed text-[#15122E]/82">
+                        Once the ecosystem is in place, every new workflow feels native instead of custom.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
