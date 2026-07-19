@@ -1,184 +1,169 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { ArrowUpRight, Check, Layers, ShieldCheck, SlidersHorizontal } from "lucide-react";
-import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
+import React, { useState, useEffect } from "react";
+import { motion, animate } from "framer-motion";
+import { ArrowUpRight, BarChart3, GitBranch, TrendingDown } from "lucide-react";
 
-interface PlatformCardProps {
-  index: string;
-  title: string;
-  description: string;
-  icon: React.ElementType;
-  points: string[];
+function Counter({ value, suffix = "%", duration = 2 }: { value: number; suffix?: string; duration?: number }) {
+  const [displayValue, setDisplayValue] = useState(0);
+
+  useEffect(() => {
+    const controls = animate(0, value, {
+      duration: duration,
+      onUpdate: (latest: number) => setDisplayValue(Math.round(latest)),
+      ease: "easeOut" as const,
+    });
+    return () => controls.stop();
+  }, [value, duration]);
+
+  return <span>{displayValue}{suffix}</span>;
 }
 
-function PlatformCard({ index, title, description, icon: Icon, points }: PlatformCardProps) {
+interface RoleCardProps {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  metric: number;
+  metricSuffix?: string;
+  metricLabel: string;
+  delay?: number;
+}
+
+function RoleCard({ title, description, icon, metric, metricSuffix = "%", metricLabel, delay = 0 }: RoleCardProps) {
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 36 }}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.75, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-      className="rounded-[28px] bg-white border border-[#15122E]/10 shadow-[0_16px_48px_rgba(21,18,46,0.08)] p-6 sm:p-8"
+      transition={{ duration: 0.8, delay, ease: [0.21, 0.47, 0.32, 0.98] as const }}
+      className="flex w-full lg:flex-1 p-6 md:p-8 flex-col items-start rounded-[24px] bg-white border-2 border-[#E5E7EB] relative"
     >
-      <div className="flex items-start gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#6C63FF]/10 text-[#6C63FF] shrink-0">
-          <Icon className="h-5 w-5" />
-        </div>
-
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-3 flex-wrap">
-            <span className="font-poppins text-[11px] font-bold uppercase tracking-[0.28em] text-[#6C63FF]">
-              {index}
-            </span>
-            <h3 className="font-onest text-[22px] sm:text-[26px] font-semibold leading-tight tracking-[-0.8px] text-[#15122E]">
-              {title}
-            </h3>
-          </div>
-
-          <p className="mt-3 font-['DM_Sans'] text-[16px] sm:text-[18px] leading-relaxed text-[#15122E]/78">
-            {description}
-          </p>
-
-          <ul className="mt-5 space-y-3">
-            {points.map((point) => (
-              <li key={point} className="flex items-start gap-2 text-[#15122E] font-['DM_Sans'] text-[15px] sm:text-[16px] leading-relaxed">
-                <Check className="h-4 w-4 text-[#6C63FF] shrink-0 mt-1" />
-                <span className="opacity-80">{point}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <h3 className="font-heading text-[24px] md:text-[28px] font-bold leading-[32px] md:leading-[36px] tracking-[-0.5px] text-[#15122E] mb-4">
+        {title}
+      </h3>
+      <p className="font-sans text-[15px] md:text-[17px] font-normal leading-[22px] md:leading-[26px] text-[#15122E] opacity-80 flex-1">
+        {description}
+      </p>
+      <div className="mt-8">
+        <h2 className="font-heading text-[40px] md:text-[52px] font-semibold leading-[46px] md:leading-[58px] tracking-[-1.2px] md:tracking-[-1.8px] text-[#6C63FF]">
+          <Counter value={metric} suffix={metricSuffix} />
+        </h2>
+        <p className="mt-2 font-sans text-[14px] md:text-[16px] font-normal leading-[20px] md:leading-[24px] text-[#15122E] opacity-70">
+          {metricLabel}
+        </p>
       </div>
-    </motion.article>
+      <div className="absolute top-6 right-6 opacity-30">
+        {icon}
+      </div>
+    </motion.div>
   );
 }
 
-const platformCards = [
-  {
-    index: "01",
-    title: "Give agents the goal.",
-    description: "The Nexus Engine reads the outcome, maps the work, and prepares the setup path before anything changes.",
-    icon: Layers,
-    points: ["Goal-first setup", "Approval-led changes", "Company logic stays visible"],
-  },
-  {
-    index: "02",
-    title: "They do the work.",
-    description: "Finance agents handle repetitive work, formatting, reconciliations, and handoffs so the team stays on decisions.",
-    icon: ShieldCheck,
-    points: ["Finance-first execution", "Less manual chase work", "Only exceptions need review"],
-  },
-  {
-    index: "03",
-    title: "Consultant-free setup guaranteed.",
-    description: "Nexus configures your company with your approval and loads the system in your branded environment.",
-    icon: SlidersHorizontal,
-    points: ["Branded environment", "Approval before go-live", "Loaded into the platform"],
-  },
-];
-
 export default function MetricsWithLogo01Finsyc({ className }: { className?: string }) {
-  const { openGetInTouch } = useGetInTouchModal();
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <>
-      <section className={"w-full bg-[#F4F0FF] py-20 lg:py-28 overflow-hidden " + (className || "")}>
-        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[96px]">
-          <div className="grid gap-8 lg:grid-cols-[0.94fr_1.06fr] items-start">
-            <div className="lg:sticky lg:top-24 self-start">
-              <motion.div
+      <section
+        className={"w-full bg-[#F5F3FF] py-20 lg:py-32 flex justify-center " + (className || "")}
+      >
+        <div className="w-full max-w-[1440px] px-6 lg:px-[96px]">
+          <div className="w-full max-w-[1248px] mx-auto">
+            {/* Header */}
+            <div className="mb-10 md:mb-[64px] flex justify-center">
+              <motion.h1
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" as const }}
+                className="max-w-[1100px] text-center text-[36px] md:text-[52px] font-heading font-semibold leading-[42px] md:leading-[58px] tracking-[-1.2px] md:tracking-[-1.8px] text-[#15122E]"
+              >
+                <span className="text-[#6C63FF]">Break away from Rigid ERPs</span> with our <i className="text-[rgba(0,0,0,0.40)]">Agentic ERP</i> that understands you and your processes.
+              </motion.h1>
+            </div>
+
+            {/* Role Cards */}
+            <div className="flex flex-col lg:flex-row gap-[24px]">
+              <RoleCard
+                delay={0.1}
+                title="Employees"
+                description="8-hour tasks reduced to under 1 hour. Less frustration, more time for high-value strategic work."
+                icon={<BarChart3 className="w-12 h-12 text-[#15122E]" />}
+                metric={87}
+                metricSuffix="%"
+                metricLabel="Reduction in task completion time"
+              />
+              <RoleCard
+                delay={0.2}
+                title="Managers & Directors"
+                description="Zero delays waiting on external consultant meetings. Real-time changes and radically faster decision-making."
+                icon={<GitBranch className="w-12 h-12 text-[#15122E]" />}
+                metric={10}
+                metricSuffix="x"
+                metricLabel="Faster decision-making speed"
+              />
+              <RoleCard
+                delay={0.3}
+                title="Leadership"
+                description="Meaningfully lower total cost of ownership, eliminated project risk, and accelerated business optimization."
+                icon={<TrendingDown className="w-12 h-12 text-[#15122E]" />}
+                metric={60}
+                metricSuffix="%"
+                metricLabel="Lower total cost of ownership"
+              />
+            </div>
+
+            {/* Bottom Banner */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" as const }}
+              className="mt-10 md:mt-[48px] w-full py-5 px-6 md:px-10 rounded-2xl bg-[#4F46E5]/10 border border-[#4F46E5]/30 flex justify-center"
+            >
+              <p className="font-sans text-[15px] md:text-[18px] font-medium leading-[24px] md:leading-[28px] text-[#15122E] text-center italic">
+                Stop treating high consultant spend and operational friction as a normal cost of doing business.
+              </p>
+            </motion.div>
+
+            {/* Button */}
+            <div className="flex justify-center mt-10 md:mt-[64px]">
+              <motion.button
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, ease: "easeOut" as const }}
-                className="inline-flex items-center gap-2 rounded-full border border-[#6C63FF]/15 bg-white/70 px-4 py-2 backdrop-blur-sm"
-              >
-                <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.35em] text-[#6C63FF]">
-                  The Platform · 02
-                </span>
-              </motion.div>
-
-              <motion.h2
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.75, delay: 0.08, ease: "easeOut" as const }}
-                className="mt-6 max-w-[560px] font-onest text-[38px] sm:text-[48px] lg:text-[64px] font-semibold leading-[0.96] tracking-[-2px] text-[#15122E]"
-              >
-                Agentic Platform.
-              </motion.h2>
-
-              <motion.p
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" as const }}
-                className="mt-5 max-w-[600px] font-['DM_Sans'] text-[18px] sm:text-[20px] leading-relaxed text-[#15122E]/80"
-              >
-                Give agents the goal. They do the work. Consultant-free setup guaranteed. The built-in Nexus Engine consults, configures the company structure with your approval, and loads finance agents into your branded environment.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.22, ease: "easeOut" as const }}
-                className="mt-6 flex flex-wrap gap-3"
-              >
-                <span className="rounded-full border border-[#15122E]/10 bg-white px-4 py-2 font-poppins text-[12px] font-bold uppercase tracking-[0.2em] text-[#15122E]/70">
-                  Goal first
-                </span>
-                <span className="rounded-full border border-[#15122E]/10 bg-white px-4 py-2 font-poppins text-[12px] font-bold uppercase tracking-[0.2em] text-[#15122E]/70">
-                  Approval-led setup
-                </span>
-                <span className="rounded-full border border-[#15122E]/10 bg-white px-4 py-2 font-poppins text-[12px] font-bold uppercase tracking-[0.2em] text-[#15122E]/70">
-                  Finance agents loaded in
-                </span>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.28, ease: "easeOut" as const }}
-                className="mt-8 rounded-[28px] border border-[#6C63FF]/15 bg-white/70 px-5 py-4 backdrop-blur-sm shadow-[0_12px_34px_rgba(21,18,46,0.06)]"
-              >
-                <p className="font-['DM_Sans'] text-[15px] sm:text-[17px] leading-relaxed text-[#15122E]/82">
-                  Your team is commanding the rollout. Nexus does the consultation and setup, but nothing ships without your approval.
-                </p>
-              </motion.div>
-
-              <motion.button
-                onClick={openGetInTouch}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.34, ease: "easeOut" as const }}
+                animate={{
+                  paddingLeft: isHovered ? 8 : 20,
+                  paddingRight: isHovered ? 20 : 8,
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: [0.22, 1, 0.36, 1] as const,
+                  opacity: { duration: 0.8 },
+                  y: { duration: 0.8 },
+                }}
                 whileTap={{ scale: 0.98 }}
-                className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#15122E] px-5 py-3 text-white shadow-[0_18px_40px_rgba(21,18,46,0.12)] transition-colors hover:bg-[#4F46E5]"
+                className="flex items-center h-[56px] min-w-fit w-max bg-[#15122E] rounded-full group cursor-pointer transition-colors duration-300 hover:bg-[#4F46E5] overflow-hidden gap-[12px]"
               >
-                <span className="font-poppins text-[16px] sm:text-[18px] font-bold tracking-[-0.2px]">
-                  Get In Touch
-                </span>
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#15122E]">
-                  <ArrowUpRight className="h-4 w-4" />
-                </span>
+                <motion.div
+                  layout="position"
+                  style={{ order: isHovered ? 2 : 1 } as React.CSSProperties}
+                  transition={{ type: "spring" as const, stiffness: 400, damping: 35 }}
+                  className="font-sans text-[18px] font-medium leading-[28px] text-white whitespace-nowrap"
+                >
+                  Try for Free
+                </motion.div>
+                <motion.div
+                  layout="position"
+                  style={{ order: isHovered ? 1 : 2 } as React.CSSProperties}
+                  transition={{ type: "spring" as const, stiffness: 400, damping: 35 }}
+                  className="w-[40px] h-[40px] bg-white rounded-full flex items-center justify-center shrink-0"
+                >
+                  <ArrowUpRight className="w-[16px] h-[16px] text-[#15122E]" />
+                </motion.div>
               </motion.button>
-            </div>
-
-            <div className="grid gap-4 lg:grid-cols-3">
-              {platformCards.map((card) => (
-                <PlatformCard
-                  key={card.title}
-                  index={card.index}
-                  title={card.title}
-                  description={card.description}
-                  icon={card.icon}
-                  points={card.points}
-                />
-              ))}
             </div>
           </div>
         </div>
