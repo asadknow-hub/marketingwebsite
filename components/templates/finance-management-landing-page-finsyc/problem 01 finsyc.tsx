@@ -2,7 +2,7 @@
 
 import { type CSSProperties, type ElementType } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Building2, CircleDollarSign, Layers3, Network, Users, Workflow } from "lucide-react";
+import { ArrowRight, Building2, CircleDollarSign, Clock3, Network, Users, Workflow } from "lucide-react";
 
 type ProblemCardData = {
   label: string;
@@ -37,7 +37,7 @@ const problemCards: ProblemCardData[] = [
 
 const problemBackgroundStyle: CSSProperties = {
   backgroundImage:
-    "linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(247,245,239,0.82) 45%, rgba(246,241,255,0.96) 100%), url('/hero-agentic-bg.svg')",
+    "linear-gradient(180deg, rgba(9,10,18,0.98) 0%, rgba(14,13,28,0.96) 45%, rgba(20,15,40,0.98) 100%), url('/hero-agentic-bg.svg')",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
@@ -58,10 +58,10 @@ function ProblemStage({ card, delay }: { card: ProblemCardData; delay: number })
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-      className="relative h-full min-h-[220px] overflow-hidden rounded-[30px] border border-white/10 bg-white/8 p-4 sm:p-5 shadow-[0_18px_44px_rgba(0,0,0,0.16)] backdrop-blur-xl"
+      className="relative h-full min-h-[220px] overflow-hidden rounded-[30px] border border-white/8 bg-white/[0.06] p-4 sm:p-5 shadow-[0_18px_44px_rgba(0,0,0,0.28)] backdrop-blur-xl"
     >
       <div className={"absolute -right-10 -top-10 h-28 w-28 rounded-full blur-3xl " + card.accentClass + " opacity-20"} />
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.12),transparent_42%)] opacity-90" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_42%)] opacity-80" />
       <div className="relative flex h-full min-h-0 flex-col">
         <div className="flex items-start justify-between gap-3">
           <div className={"flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-white shadow-[0_18px_36px_rgba(0,0,0,0.24)] " + card.accentClass}>
@@ -74,23 +74,23 @@ function ProblemStage({ card, delay }: { card: ProblemCardData; delay: number })
         </div>
 
         <div className="mt-4">
-          <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-white/52">
+          <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-white/46">
             {card.label}
           </p>
 
           <div className="mt-3 flex items-end gap-2">
             <span
               className="font-onest text-[32px] sm:text-[36px] lg:text-[38px] font-semibold leading-none tracking-[-1.8px] text-white"
-              style={{ textShadow: "0 1px 0 rgba(255,255,255,0.1), 0 14px 24px rgba(21,18,46,0.18)" }}
+              style={{ textShadow: "0 1px 0 rgba(255,255,255,0.08), 0 14px 24px rgba(0,0,0,0.28)" }}
             >
               {card.stat}
             </span>
-            <span className="pb-1 font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-white/45">
+            <span className="pb-1 font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-white/38">
               {card.microLabel}
             </span>
           </div>
 
-          <h3 className="mt-3 max-w-[260px] font-onest text-[18px] sm:text-[19px] lg:text-[20px] font-semibold leading-tight tracking-[-0.8px] text-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.18)]">
+          <h3 className="mt-3 max-w-[260px] font-onest text-[18px] sm:text-[19px] lg:text-[20px] font-medium leading-tight tracking-[-0.8px] text-white/94 drop-shadow-[0_10px_20px_rgba(0,0,0,0.18)]">
             {card.title}
           </h3>
         </div>
@@ -99,7 +99,7 @@ function ProblemStage({ card, delay }: { card: ProblemCardData; delay: number })
           <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/10">
             <div className={"h-full w-[72%] rounded-full " + card.accentClass} />
           </div>
-          <span className="font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-white/45">
+          <span className="font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-white/38">
             impact
           </span>
         </div>
@@ -128,9 +128,9 @@ function ProblemFlowStrip() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-      className="relative h-full min-h-[220px] overflow-hidden rounded-[30px] border border-white/10 bg-white/8 p-4 sm:p-5 shadow-[0_18px_44px_rgba(0,0,0,0.16)] backdrop-blur-xl"
+      className="relative h-full min-h-[220px] overflow-hidden rounded-[30px] border border-white/8 bg-white/[0.06] p-4 sm:p-5 shadow-[0_18px_44px_rgba(0,0,0,0.28)] backdrop-blur-xl"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.1),transparent_42%)] opacity-90" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_42%)] opacity-80" />
       <div className="relative flex h-full min-h-0 flex-col">
         <div className="flex items-center justify-between gap-3">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-2 backdrop-blur-sm">
@@ -139,9 +139,11 @@ function ProblemFlowStrip() {
               Budget leak
             </span>
           </div>
-          <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-white/45">
-            2x-4x more
-          </span>
+          <div className="flex items-center gap-1.5 pr-1">
+            <span className="h-2.5 w-2.5 rounded-full bg-white/45 shadow-[0_0_18px_rgba(255,255,255,0.18)]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#6C63FF] shadow-[0_0_18px_rgba(108,99,255,0.28)]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#E94B6F] shadow-[0_0_18px_rgba(233,75,111,0.28)]" />
+          </div>
         </div>
 
         <div className="mt-5 flex flex-wrap items-center gap-2">
@@ -177,9 +179,9 @@ function ProblemSiloStrip() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay: 0.26, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-      className="relative h-full min-h-[220px] overflow-hidden rounded-[30px] border border-white/10 bg-white/8 p-4 sm:p-5 shadow-[0_18px_44px_rgba(0,0,0,0.16)] backdrop-blur-xl"
+      className="relative h-full min-h-[220px] overflow-hidden rounded-[30px] border border-white/8 bg-white/[0.06] p-4 sm:p-5 shadow-[0_18px_44px_rgba(0,0,0,0.28)] backdrop-blur-xl"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.1),transparent_42%)] opacity-90" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_42%)] opacity-80" />
       <div className="relative flex h-full min-h-0 flex-col">
         <div className="flex items-center justify-between gap-3">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-2 backdrop-blur-sm">
@@ -188,9 +190,11 @@ function ProblemSiloStrip() {
               Department silos
             </span>
           </div>
-          <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-white/45">
-            split teams
-          </span>
+          <div className="flex items-center gap-1.5 pr-1">
+            <span className="h-2 w-2 rounded-full bg-white/36" />
+            <span className="h-2 w-2 rounded-full bg-white/20" />
+            <span className="h-2 w-2 rounded-full bg-white/36" />
+          </div>
         </div>
 
         <div className="mt-4 grid grid-cols-3 gap-2">
@@ -230,10 +234,10 @@ function ProblemSiloStrip() {
 export default function Problem01Finsyc({ className }: { className?: string }) {
   return (
     <>
-      <section className={"relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#F6F1FF] " + (className || "")}>
+      <section className={"relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#0B0A12] " + (className || "")}>
         <div className="pointer-events-none absolute inset-0" style={problemBackgroundStyle} />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(108,99,255,0.18),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(233,75,111,0.12),transparent_28%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/44 via-white/18 to-[#F6F1FF]/92" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(108,99,255,0.22),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(233,75,111,0.14),transparent_28%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0B0A12]/12 via-[#0B0A12]/40 to-[#0B0A12]/92" />
 
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[96px] py-8 lg:py-0">
           <div className="grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr]">
@@ -243,17 +247,18 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut" as const }}
-                className="inline-flex items-center gap-2 rounded-full border border-[#6C63FF]/12 bg-white/75 px-4 py-2 backdrop-blur-sm shadow-[0_12px_30px_rgba(21,18,46,0.06)]"
+                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 backdrop-blur-sm shadow-[0_12px_30px_rgba(0,0,0,0.18)]"
               >
-                <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.35em] text-[#6C63FF]">
-                  2x-4x more
+                <Clock3 className="h-4 w-4 text-[#C7C3FF]" />
+                <span className="font-poppins text-[11px] sm:text-[12px] font-medium tracking-[0.12em] text-white/72">
+                  Current Enterprise System landscape
                 </span>
               </motion.div>
 
               <div className="relative mt-5">
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute left-[4px] top-[6px] hidden max-w-[520px] font-onest text-[42px] font-semibold leading-[0.93] tracking-[-2.6px] text-[#6C63FF]/18 blur-[0.2px] sm:block sm:text-[56px] lg:text-[74px]"
+                  className="pointer-events-none absolute left-[4px] top-[6px] hidden max-w-[520px] font-onest text-[42px] font-semibold leading-[0.93] tracking-[-2.6px] text-[#C7C3FF]/12 blur-[0.2px] sm:block sm:text-[56px] lg:text-[74px]"
                 >
                   Enterprise systems in companies
                   <br />
@@ -264,7 +269,7 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.75, delay: 0.08, ease: "easeOut" as const }}
-                  className="relative max-w-[520px] font-onest text-[42px] font-semibold leading-[0.93] tracking-[-2.6px] text-[#15122E] drop-shadow-[0_16px_26px_rgba(21,18,46,0.12)] sm:text-[56px] lg:text-[74px]"
+                  className="relative max-w-[520px] font-onest text-[42px] font-semibold leading-[0.93] tracking-[-2.6px] text-white drop-shadow-[0_16px_26px_rgba(0,0,0,0.32)] sm:text-[56px] lg:text-[74px]"
                 >
                   Enterprise systems in companies
                   <br />
@@ -277,31 +282,10 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" as const }}
-                className="mt-5 max-w-[520px] font-['DM_Sans'] text-[17px] leading-relaxed text-[#15122E]/74 sm:text-[18px] lg:text-[20px]"
+                className="mt-5 max-w-[520px] font-['DM_Sans'] text-[17px] leading-relaxed text-white/72 sm:text-[18px] lg:text-[20px]"
               >
-                Companies spend 2x-4x more on consulting and implementation of that system. There is no budget left to fully optimize it across departments, so teams stay in silos.
+                Companies spend 2x-4x more on consulting and implementation of that system. There is no budget left to optimize it across departments, so teams stay in silos.
               </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.22, ease: "easeOut" as const }}
-                className="mt-6 flex flex-wrap gap-3"
-              >
-                {[
-                  "Consulting + implementation",
-                  "No budget to optimize",
-                  "Teams stay split",
-                ].map((label) => (
-                  <span
-                    key={label}
-                    className="rounded-full border border-[#15122E]/10 bg-white px-4 py-2 font-poppins text-[11px] font-bold uppercase tracking-[0.22em] text-[#15122E]/64 shadow-[0_10px_25px_rgba(21,18,46,0.05)] sm:text-[12px]"
-                  >
-                    {label}
-                  </span>
-                ))}
-              </motion.div>
             </div>
 
             <motion.div
@@ -309,30 +293,18 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.75, ease: [0.2, 0.65, 0.25, 1] as const }}
-              className="relative h-auto overflow-hidden rounded-[40px] border border-[#15122E]/8 bg-[linear-gradient(180deg,#17142E_0%,#221D44_48%,#161226_100%)] p-4 shadow-[0_34px_90px_rgba(21,18,46,0.20)] sm:p-5 lg:h-[72svh] lg:min-h-[640px] lg:p-7"
+              className="relative h-auto overflow-hidden rounded-[40px] border border-white/10 bg-[linear-gradient(180deg,#121221_0%,#1B1732_48%,#11111E_100%)] p-4 shadow-[0_34px_90px_rgba(0,0,0,0.34)] sm:p-5 lg:h-[72svh] lg:min-h-[640px] lg:p-7"
             >
               <img
                 src="/hero-agentic-bg.svg"
                 alt=""
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-28 mix-blend-screen"
+                className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-24 mix-blend-screen"
               />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.24),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(233,75,111,0.14),transparent_30%)]" />
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:28px_28px] opacity-18" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.22),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(233,75,111,0.14),transparent_30%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:28px_28px] opacity-14" />
 
-              <div className="relative z-10 flex items-center justify-between gap-3">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-2 backdrop-blur-sm">
-                  <Layers3 className="h-4 w-4 text-[#C7C3FF]" />
-                  <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-white/60">
-                    Two blockers
-                  </span>
-                </div>
-                <div className="rounded-full border border-white/10 bg-white/8 px-3 py-2 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-white/60">
-                  Old software model
-                </div>
-              </div>
-
-              <div className="relative z-10 mt-4 grid h-full min-h-0 gap-4 lg:grid-cols-2 lg:grid-rows-2">
+              <div className="relative z-10 mt-2 grid h-full min-h-0 gap-4 lg:grid-cols-2 lg:grid-rows-2">
                 {problemCards.map((card, index) => (
                   <ProblemStage key={card.title} card={card} delay={0.07 * index} />
                 ))}
