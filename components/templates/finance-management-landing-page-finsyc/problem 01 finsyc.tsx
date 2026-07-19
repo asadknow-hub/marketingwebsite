@@ -17,18 +17,18 @@ type ProblemCardData = {
 const problemCards: ProblemCardData[] = [
   {
     label: "01 · Cost",
-    stat: "2x-4x",
-    microLabel: "more",
-    title: "Consulting and implementation of that system can cost 2x-4x more.",
+    stat: "2x-4x more",
+    microLabel: "than license",
+    title: "Consulting and implementation add up fast.",
     icon: Workflow,
     accentClass: "bg-gradient-to-br from-[#6C63FF] to-[#4F46E5]",
-    chips: ["License", "Consulting", "Setup"],
+    chips: ["License", "Consulting", "Implementation"],
   },
   {
     label: "02 · Silos",
-    stat: "Silos",
-    microLabel: "split teams",
-    title: "No budget left to fully optimize it across departments.",
+    stat: "Siloed",
+    microLabel: "teams",
+    title: "Departments keep separate budgets and work apart.",
     icon: Users,
     accentClass: "bg-gradient-to-br from-[#E94B6F] to-[#FF7FA2]",
     chips: ["Finance", "HR", "Ops"],
@@ -161,10 +161,11 @@ function ProblemFlowStrip() {
           <div className="h-2 overflow-hidden rounded-full bg-white/10">
             <div className="h-full w-[68%] rounded-full bg-gradient-to-r from-[#6C63FF] via-[#4F46E5] to-[#E94B6F]" />
           </div>
-          <div className="mt-4 grid grid-cols-3 gap-2 text-center font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-white/42">
+          <div className="mt-4 grid grid-cols-4 gap-2 text-center font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-white/42">
             <span>license</span>
             <span>consulting</span>
-            <span>setup</span>
+            <span>implementation</span>
+            <span>optimization</span>
           </div>
         </div>
       </div>
@@ -258,22 +259,26 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
               <div className="relative mt-5">
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute left-[4px] top-[6px] hidden max-w-[520px] font-onest text-[42px] font-semibold leading-[0.93] tracking-[-2.6px] text-[#C7C3FF]/12 blur-[0.2px] sm:block sm:text-[56px] lg:text-[74px]"
+                  className="pointer-events-none absolute left-[4px] top-[6px] hidden max-w-[500px] font-onest text-[40px] font-semibold leading-[0.93] tracking-[-2.4px] text-[#C7C3FF]/12 blur-[0.2px] sm:block sm:text-[54px] lg:text-[68px]"
                 >
-                  Enterprise systems in companies
+                  Enterprise systems
                   <br />
-                  cost more than the license.
+                  cost more than
+                  <br />
+                  the license.
                 </div>
                 <motion.h2
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.75, delay: 0.08, ease: "easeOut" as const }}
-                  className="relative max-w-[520px] font-onest text-[42px] font-semibold leading-[0.93] tracking-[-2.6px] text-white drop-shadow-[0_16px_26px_rgba(0,0,0,0.32)] sm:text-[56px] lg:text-[74px]"
+                  className="relative max-w-[500px] font-onest text-[40px] font-semibold leading-[0.93] tracking-[-2.4px] text-white drop-shadow-[0_16px_26px_rgba(0,0,0,0.32)] sm:text-[54px] lg:text-[68px]"
                 >
-                  Enterprise systems in companies
+                  Enterprise systems
                   <br />
-                  cost more than the license.
+                  cost more than
+                  <br />
+                  the license.
                 </motion.h2>
               </div>
 
@@ -282,9 +287,9 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" as const }}
-                className="mt-5 max-w-[520px] font-['DM_Sans'] text-[17px] leading-relaxed text-white/72 sm:text-[18px] lg:text-[20px]"
+                className="mt-5 max-w-[500px] font-['DM_Sans'] text-[16px] leading-relaxed text-white/74 sm:text-[17px] lg:text-[18px]"
               >
-                Companies spend 2x-4x more on consulting and implementation of that system. There is no budget left to optimize it across departments, so teams stay in silos.
+                Companies spend 2x-4x the license cost on consulting and implementation. That leaves little budget to optimize across departments, so teams stay in silos.
               </motion.p>
             </div>
 
