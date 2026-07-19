@@ -2,7 +2,7 @@
 
 import { type ElementType } from "react";
 import { motion } from "framer-motion";
-import { Clock3, Network, Users, Workflow } from "lucide-react";
+import { Network, Users, Workflow } from "lucide-react";
 
 type ProblemCardData = {
   label: string;
@@ -116,27 +116,14 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[96px]">
           <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
             <div className="max-w-[540px]">
-              <motion.div
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, ease: "easeOut" as const }}
-                className="inline-flex items-center gap-2 rounded-full border border-[#6C63FF]/12 bg-white/75 px-4 py-2 backdrop-blur-sm"
-              >
-                <Clock3 className="h-4 w-4 text-[#6C63FF]" />
-                <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.35em] text-[#6C63FF]">
-                  The problem · 01
-                </span>
-              </motion.div>
-
               <motion.h2
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.75, delay: 0.08, ease: "easeOut" as const }}
-                className="mt-5 max-w-[520px] font-onest text-[36px] sm:text-[44px] lg:text-[56px] font-semibold leading-[0.95] tracking-[-2px] text-[#15122E]"
+                className="mt-0 max-w-[520px] font-onest text-[36px] sm:text-[44px] lg:text-[56px] font-semibold leading-[0.95] tracking-[-2px] text-[#15122E]"
               >
-                You pay for the license. Then you pay 2x-4x more.
+                Enterprise systems in companies cost more than the license.
               </motion.h2>
 
               <motion.p
@@ -146,7 +133,7 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
                 transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" as const }}
                 className="mt-4 max-w-[480px] font-['DM_Sans'] text-[16px] sm:text-[17px] leading-relaxed text-[#15122E]/72"
               >
-                Companies spend 2x-4x more on consulting and implementation. Each department works in hard silos.
+                Companies spend 2x-4x more on consulting and implementation of that system. There is no budget left to fully optimize it across departments, so teams stay in silos.
               </motion.p>
 
               <motion.div
