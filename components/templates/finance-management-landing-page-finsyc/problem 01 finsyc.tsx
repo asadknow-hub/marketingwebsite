@@ -19,7 +19,7 @@ const problemCards: ProblemCardData[] = [
     label: "01 · Cost",
     stat: "2x-4x",
     microLabel: "more than license",
-    title: "Consulting and implementation add up fast.",
+    title: "Consulting costs stack fast.",
     icon: Workflow,
     accentClass: "bg-gradient-to-br from-[#6C63FF] to-[#4F46E5]",
     chips: ["License", "Consulting", "Implementation"],
@@ -28,7 +28,7 @@ const problemCards: ProblemCardData[] = [
     label: "02 · Silos",
     stat: "Siloed",
     microLabel: "teams",
-    title: "Departments keep budgets apart.",
+    title: "Teams keep budgets apart.",
     icon: Users,
     accentClass: "bg-gradient-to-br from-[#E94B6F] to-[#FF7FA2]",
     chips: ["Finance", "HR", "Ops"],
@@ -58,7 +58,7 @@ function ProblemStage({ card, delay }: { card: ProblemCardData; delay: number })
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-      className="relative h-full min-h-[190px] overflow-hidden rounded-[30px] border border-white/55 bg-white/96 p-3.5 shadow-[0_18px_44px_rgba(16,10,28,0.18)] backdrop-blur-xl sm:p-4"
+      className="relative h-full min-h-[176px] overflow-hidden rounded-[30px] border border-white/55 bg-white/96 p-3.5 shadow-[0_18px_44px_rgba(16,10,28,0.18)] backdrop-blur-xl sm:p-4"
     >
       <div className={"absolute -right-10 -top-10 h-28 w-28 rounded-full blur-3xl " + card.accentClass + " opacity-18"} />
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.88),transparent_42%)] opacity-55" />
@@ -80,7 +80,7 @@ function ProblemStage({ card, delay }: { card: ProblemCardData; delay: number })
 
           <div className="mt-2.5 space-y-0.5">
             <span
-              className="block font-onest text-[26px] font-semibold leading-[1.02] tracking-[-1.8px] text-[#120F1D] sm:text-[30px] lg:text-[32px]"
+              className="block font-onest text-[24px] font-semibold leading-[1.02] tracking-[-1.8px] text-[#120F1D] sm:text-[28px] lg:text-[30px]"
               style={{ textShadow: "0 1px 0 rgba(255,255,255,0.36), 0 14px 24px rgba(81,71,122,0.08)" }}
             >
               {card.stat}
@@ -90,7 +90,7 @@ function ProblemStage({ card, delay }: { card: ProblemCardData; delay: number })
             </span>
           </div>
 
-          <h3 className="mt-2.5 max-w-[240px] font-onest text-[16px] font-medium leading-[1.12] tracking-[-0.8px] text-[#120F1D] drop-shadow-[0_10px_20px_rgba(81,71,122,0.08)] sm:text-[17px] lg:text-[18px]">
+          <h3 className="mt-2.5 max-w-[240px] font-onest text-[15px] font-medium leading-[1.12] tracking-[-0.8px] text-[#120F1D] drop-shadow-[0_10px_20px_rgba(81,71,122,0.08)] sm:text-[16px] lg:text-[17px]">
             {card.title}
           </h3>
         </div>
@@ -120,7 +120,7 @@ function ProblemStage({ card, delay }: { card: ProblemCardData; delay: number })
 }
 
 function ProblemFlowStrip() {
-  const flowSteps = ["License", "Consulting", "Implementation", "Optimization"];
+  const flowSteps = ["License", "Consulting", "Implementation"];
 
   return (
     <motion.div
@@ -128,7 +128,7 @@ function ProblemFlowStrip() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-      className="relative h-full min-h-[198px] overflow-hidden rounded-[30px] border border-white/55 bg-white/96 p-3.5 shadow-[0_18px_44px_rgba(16,10,28,0.18)] backdrop-blur-xl sm:p-4"
+      className="relative h-full min-h-[184px] overflow-hidden rounded-[30px] border border-white/55 bg-white/96 p-3.5 shadow-[0_18px_44px_rgba(16,10,28,0.18)] backdrop-blur-xl sm:p-4"
     >
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.88),transparent_42%)] opacity-55" />
       <div className="relative flex h-full min-h-0 flex-col">
@@ -148,10 +148,10 @@ function ProblemFlowStrip() {
 
         <div className="mt-3 space-y-2">
           {flowSteps.map((step, index) => (
-            <div key={step} className="flex items-center gap-3 rounded-[18px] border border-[#E1DAEE] bg-white p-2.5 shadow-[0_10px_20px_rgba(81,71,122,0.06)]">
+            <div key={step} className="flex items-center gap-2.5 rounded-[18px] border border-[#E1DAEE] bg-white p-2 shadow-[0_10px_20px_rgba(81,71,122,0.06)]">
               <span
                 className={
-                  "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-[8px] font-bold text-white shadow-[0_10px_20px_rgba(0,0,0,0.12)] " +
+                  "flex h-[28px] w-[28px] shrink-0 items-center justify-center rounded-lg text-[8px] font-bold text-white shadow-[0_10px_20px_rgba(0,0,0,0.12)] " +
                   (index === 0 ? "bg-[#6C63FF]" : index === 1 ? "bg-[#4F46E5]" : index === 2 ? "bg-[#E94B6F]" : "bg-[#B9AED3]")
                 }
               >
@@ -159,10 +159,10 @@ function ProblemFlowStrip() {
               </span>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-3">
-                  <span className="truncate font-poppins text-[8px] font-bold uppercase tracking-[0.24em] text-[#1E172C]">
+                  <span className="truncate font-poppins text-[7px] font-bold uppercase tracking-[0.24em] text-[#1E172C]">
                     {step}
                   </span>
-                  {index < flowSteps.length - 1 ? <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[#847A99]" /> : null}
+                  {index < flowSteps.length - 1 ? <ArrowRight className="h-3 w-3 shrink-0 text-[#847A99]" /> : null}
                 </div>
                 <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-[#E4DEEE]">
                   <div
@@ -183,11 +183,6 @@ function ProblemFlowStrip() {
           ))}
         </div>
 
-        <div className="mt-auto pt-3">
-          <div className="h-2 overflow-hidden rounded-full bg-[#E4DEEE]">
-            <div className="h-full w-[68%] rounded-full bg-gradient-to-r from-[#6C63FF] via-[#4F46E5] to-[#E94B6F]" />
-          </div>
-        </div>
       </div>
     </motion.div>
   );
@@ -200,7 +195,7 @@ function ProblemSiloStrip() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay: 0.26, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-      className="relative h-full min-h-[198px] overflow-hidden rounded-[30px] border border-white/55 bg-white/96 p-3.5 shadow-[0_18px_44px_rgba(16,10,28,0.18)] backdrop-blur-xl sm:p-4"
+      className="relative h-full min-h-[176px] overflow-hidden rounded-[30px] border border-white/55 bg-white/96 p-3.5 shadow-[0_18px_44px_rgba(16,10,28,0.18)] backdrop-blur-xl sm:p-4"
     >
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.88),transparent_42%)] opacity-55" />
       <div className="relative flex h-full min-h-0 flex-col">
@@ -220,37 +215,29 @@ function ProblemSiloStrip() {
 
         <div className="mt-3 space-y-2">
           {siloDepartments.map((dept) => (
-            <div key={dept.label} className="rounded-[22px] border border-[#E1DAEE] bg-white p-2.5 shadow-[0_12px_28px_rgba(81,71,122,0.08)]">
-              <div className="flex items-center gap-3">
-                <div className={"flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-white shadow-[0_12px_24px_rgba(0,0,0,0.18)] " + dept.accentClass}>
-                  <Building2 className="h-[14px] w-[14px]" />
+            <div key={dept.label} className="rounded-[22px] border border-[#E1DAEE] bg-white p-2 shadow-[0_12px_28px_rgba(81,71,122,0.08)]">
+              <div className="flex items-center gap-2.5">
+                <div className={"flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-xl text-white shadow-[0_12px_24px_rgba(0,0,0,0.18)] " + dept.accentClass}>
+                  <Building2 className="h-[13px] w-[13px]" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center justify-between gap-2.5">
                     <div className="min-w-0">
-                      <p className="truncate font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-[#1E172C]">
+                      <p className="truncate font-poppins text-[8px] font-bold uppercase tracking-[0.22em] text-[#1E172C]">
                         {dept.label}
                       </p>
-                      <p className="truncate font-['DM_Sans'] text-[10px] text-[#615A73]">{dept.note}</p>
+                      <p className="truncate font-['DM_Sans'] text-[9px] text-[#615A73]">{dept.note}</p>
                     </div>
-                    <span className={"h-2.5 w-2.5 shrink-0 rounded-full " + dept.barClass} />
+                    <span className={"h-2 w-2 shrink-0 rounded-full " + dept.barClass} />
                   </div>
 
-                  <div className="mt-2.5 h-2 overflow-hidden rounded-full bg-[#E4DEEE]">
+                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#E4DEEE]">
                     <div className={"h-full w-[72%] rounded-full " + dept.barClass} />
                   </div>
                 </div>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-auto flex items-center gap-2 pt-3">
-          <span className="h-px flex-1 bg-[#D9D1E6]" />
-          <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-[#6D6582]">
-            no shared budget
-          </span>
-          <span className="h-px flex-1 bg-[#D9D1E6]" />
         </div>
       </div>
     </motion.div>
@@ -328,7 +315,7 @@ export default function Problem01Finsyc({ className }: { className?: string }) {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.18),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(233,75,111,0.14),transparent_30%)]" />
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.45)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.45)_1px,transparent_1px)] bg-[size:28px_28px] opacity-10" />
 
-              <div className="relative z-10 mt-1 grid h-full min-h-0 gap-3 lg:grid-cols-2 lg:grid-rows-2">
+              <div className="relative z-10 mt-1 grid h-full min-h-0 gap-3 lg:grid-cols-2 lg:grid-rows-[0.84fr_1.16fr]">
                 {problemCards.map((card, index) => (
                   <ProblemStage key={card.title} card={card} delay={0.07 * index} />
                 ))}
