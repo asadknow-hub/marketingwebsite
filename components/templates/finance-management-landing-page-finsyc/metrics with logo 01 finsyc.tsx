@@ -257,7 +257,7 @@ export default function MetricsWithLogo01Finsyc({ className }: { className?: str
 
   return (
     <>
-      <section className={"relative w-full overflow-hidden bg-[#F4F0FF] py-20 lg:py-28 " + (className || "")}> 
+      <section className={"relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#F4F0FF] py-12 sm:py-14 lg:py-16 " + (className || "")}> 
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-32 right-[-120px] h-[420px] w-[420px] rounded-full bg-[#6C63FF]/12 blur-[150px]" />
           <div className="absolute top-[16%] left-[-120px] h-[360px] w-[360px] rounded-full bg-[#4F46E5]/10 blur-[140px]" />
