@@ -2,10 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Landmark, ShieldCheck, Users } from "lucide-react";
+import { Landmark, Users } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 
-type ScenarioVariant = "finance" | "hrms" | "operations";
+type ScenarioVariant = "finance" | "hrms";
 
 const scenarioVariantMeta = {
   finance: {
@@ -21,13 +21,6 @@ const scenarioVariantMeta = {
     accent: "bg-[#E94B6F]",
     accentSoft: "bg-[#E94B6F]/10",
     accentGlow: "bg-[#E94B6F]/20",
-  },
-  operations: {
-    label: "Routing flow",
-    labelText: "text-[#9A92FF]",
-    accent: "bg-[#4F46E5]",
-    accentSoft: "bg-[#4F46E5]/10",
-    accentGlow: "bg-[#4F46E5]/20",
   },
 } as const;
 
@@ -195,16 +188,6 @@ const scenarios = [
     metric: "100 hires, one flow",
     variant: "hrms" as const,
   },
-  {
-    department: "Operations",
-    title: "The ops lead",
-    description:
-      "Work gets routed, filled in, and kept to decisions.",
-    icon: ShieldCheck,
-    chips: ["Route work", "Fill gaps", "Surface decisions"],
-    metric: "Decision-only view",
-    variant: "operations" as const,
-  },
 ];
 
 export default function DepartmentScenarios01Finsyc({ className }: { className?: string }) {
@@ -338,7 +321,6 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
                   chips={scenario.chips}
                   metric={scenario.metric}
                   variant={scenario.variant}
-                  className={index === scenarios.length - 1 ? "xl:col-span-2" : ""}
                   delay={0.08 * index}
                 />
               ))}
