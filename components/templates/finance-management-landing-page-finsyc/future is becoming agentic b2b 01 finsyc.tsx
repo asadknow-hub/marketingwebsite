@@ -39,6 +39,28 @@ function EcosystemCard({ title, description, icon: Icon, accent, delay = 0 }: Ec
   );
 }
 
+interface SystemNodeProps {
+  label: string;
+  description: string;
+  accent: string;
+}
+
+function SystemNode({ label, description, accent }: SystemNodeProps) {
+  return (
+    <div className="rounded-[20px] border border-white/10 bg-white/10 px-4 py-3 shadow-[0_12px_28px_rgba(0,0,0,0.12)] backdrop-blur-sm">
+      <div className="flex items-center gap-2">
+        <span className={"h-2.5 w-2.5 rounded-full " + accent} />
+        <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/72">
+          {label}
+        </p>
+      </div>
+      <p className="mt-2 text-[12px] leading-relaxed text-white/62">
+        {description}
+      </p>
+    </div>
+  );
+}
+
 const ecosystemCards = [
   {
     title: "One layer",
@@ -188,35 +210,49 @@ export default function FutureIsBecomingAgenticB2B01Finsyc({ className }: { clas
                       Turns separate tools into one working system.
                     </h3>
 
-                    <div className="relative mt-5 h-[280px] overflow-hidden rounded-[24px] border border-white/10 bg-white/6 p-4">
-                      <div className="absolute left-1/2 top-6 h-[calc(100%-48px)] w-px -translate-x-1/2 bg-gradient-to-b from-white/40 via-white/15 to-transparent" />
-                      <div className="absolute inset-x-10 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                    <div className="relative mt-5 overflow-hidden rounded-[24px] border border-white/10 bg-white/6 p-4">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.10),transparent_28%),linear-gradient(145deg,rgba(255,255,255,0.04),transparent_42%)]" />
 
-                      {[
-                        { label: "Finance", position: "left-5 top-5", accent: "bg-[#6C63FF]" },
-                        { label: "HRMS", position: "right-5 top-5", accent: "bg-[#E94B6F]" },
-                        { label: "Operations", position: "left-1/2 bottom-5 -translate-x-1/2", accent: "bg-[#0EA5E9]" },
-                      ].map((node) => (
-                        <div
-                          key={node.label}
-                          className={"absolute " + node.position + " flex items-center gap-3 rounded-[20px] border border-white/10 bg-white/8 px-4 py-3 shadow-[0_12px_28px_rgba(0,0,0,0.12)] backdrop-blur-sm"}
-                        >
-                          <span className={"flex h-9 w-9 items-center justify-center rounded-full " + node.accent}>
-                            <Layers className="h-4.5 w-4.5 text-white" />
-                          </span>
-                          <div>
-                            <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/72">
-                              {node.label}
-                            </p>
-                            <p className="mt-1 text-[12px] leading-relaxed text-white/62">
-                              Same context
-                            </p>
+                      <div className="relative grid gap-3">
+                        <div className="grid gap-3 sm:grid-cols-2">
+                          <SystemNode
+                            label="Finance"
+                            description="Shared controls and reconciliations stay in the same context."
+                            accent="bg-[#6C63FF]"
+                          />
+                          <SystemNode
+                            label="HRMS"
+                            description="People workflows keep approvals, tasks, and records aligned."
+                            accent="bg-[#E94B6F]"
+                          />
+                        </div>
+
+                        <div className="rounded-[22px] border border-white/10 bg-white/10 px-4 py-4 shadow-[0_12px_28px_rgba(0,0,0,0.12)] backdrop-blur-sm">
+                          <div className="flex flex-wrap items-center gap-4">
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10">
+                              <Network className="h-6 w-6 text-[#6C63FF]" />
+                            </div>
+
+                            <div className="min-w-0 flex-1">
+                              <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/72">
+                                Orchestration AI
+                              </p>
+                              <p className="mt-1 text-[13px] leading-relaxed text-white/68">
+                                One layer keeps context shared across every workflow.
+                              </p>
+                            </div>
+
+                            <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-white/72">
+                              Always on
+                            </span>
                           </div>
                         </div>
-                      ))}
 
-                      <div className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#15122E] shadow-[0_18px_40px_rgba(0,0,0,0.22)]">
-                        <Network className="h-8 w-8 text-[#6C63FF]" />
+                        <SystemNode
+                          label="Operations"
+                          description="No handoff loses context or control."
+                          accent="bg-[#0EA5E9]"
+                        />
                       </div>
                     </div>
                   </div>
