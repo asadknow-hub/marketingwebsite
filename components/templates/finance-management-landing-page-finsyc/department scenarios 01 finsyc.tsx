@@ -58,7 +58,7 @@ function ScenarioIllustration({ icon: Icon, chips, metric, variant }: ScenarioIl
       <div className={"absolute -right-6 -top-8 h-24 w-24 rounded-full " + theme.accentGlow + " blur-3xl"} />
       <div className={"absolute -bottom-10 left-2 h-20 w-20 rounded-full " + theme.accentGlow + " blur-3xl"} />
 
-      <div className="relative flex min-h-[152px] flex-col justify-between">
+      <div className="relative flex min-h-[152px] flex-col gap-4">
         <div className="flex items-center justify-between gap-3">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.24em] text-white/80">
             <span className={"h-2 w-2 rounded-full " + theme.accent} />
@@ -70,7 +70,7 @@ function ScenarioIllustration({ icon: Icon, chips, metric, variant }: ScenarioIl
           </span>
         </div>
 
-        <div className="mt-4 grid gap-3 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="grid gap-3">
           <div className="flex items-center justify-center">
             <div className={"relative flex h-20 w-20 items-center justify-center rounded-[28px] border border-white/10 bg-white/10 shadow-[0_16px_30px_rgba(0,0,0,0.18)] " + theme.accentSoft}>
               <Icon className="h-8 w-8 text-white" />
@@ -116,7 +116,7 @@ function ScenarioCard({ department, title, description, icon: Icon, chips, metri
       <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-4 sm:p-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(108,99,255,0.18),transparent_38%),radial-gradient(circle_at_bottom_left,rgba(233,75,111,0.12),transparent_34%)]" />
 
-        <div className="relative grid gap-4 lg:grid-cols-[1fr_1fr] lg:items-center">
+        <div className="relative grid gap-4">
           <div className="space-y-3">
             <div className="flex items-start gap-3">
               <div className={"flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/8 text-white " + theme.accentSoft}>
@@ -327,7 +327,7 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
               </div>
             </div>
 
-            <div className="grid gap-4 lg:grid-cols-2">
+            <div className="grid gap-4 lg:grid-cols-1 xl:grid-cols-2 xl:gap-5">
               {scenarios.map((scenario, index) => (
                 <ScenarioCard
                   key={scenario.title}
@@ -338,7 +338,7 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
                   chips={scenario.chips}
                   metric={scenario.metric}
                   variant={scenario.variant}
-                  className={index === scenarios.length - 1 ? "lg:col-span-2" : ""}
+                  className={index === scenarios.length - 1 ? "xl:col-span-2" : ""}
                   delay={0.08 * index}
                 />
               ))}
