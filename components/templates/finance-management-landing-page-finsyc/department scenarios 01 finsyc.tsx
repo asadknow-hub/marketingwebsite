@@ -5,38 +5,148 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Landmark, ShieldCheck, Users } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 
+type ScenarioVariant = "finance" | "hrms" | "operations";
+
+const scenarioVariantMeta = {
+  finance: {
+    label: "Month-end flow",
+    labelText: "text-[#B7B2FF]",
+    accent: "bg-[#6C63FF]",
+    accentSoft: "bg-[#6C63FF]/12",
+    accentGlow: "bg-[#6C63FF]/18",
+  },
+  hrms: {
+    label: "Onboarding flow",
+    labelText: "text-[#FF8DA5]",
+    accent: "bg-[#E94B6F]",
+    accentSoft: "bg-[#E94B6F]/12",
+    accentGlow: "bg-[#E94B6F]/18",
+  },
+  operations: {
+    label: "Routing flow",
+    labelText: "text-[#9A92FF]",
+    accent: "bg-[#4F46E5]",
+    accentSoft: "bg-[#4F46E5]/12",
+    accentGlow: "bg-[#4F46E5]/18",
+  },
+} as const;
+
 interface ScenarioCardProps {
   department: string;
   title: string;
   description: string;
   icon: React.ElementType;
+  chips: string[];
+  metric: string;
+  variant: ScenarioVariant;
   delay?: number;
+  className?: string;
 }
 
-function ScenarioCard({ department, title, description, icon: Icon, delay = 0 }: ScenarioCardProps) {
+interface ScenarioIllustrationProps {
+  icon: React.ElementType;
+  chips: string[];
+  metric: string;
+  variant: ScenarioVariant;
+}
+
+function ScenarioIllustration({ icon: Icon, chips, metric, variant }: ScenarioIllustrationProps) {
+  const theme = scenarioVariantMeta[variant];
+
+  return (
+    <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-[#0F1021] p-4 shadow-[0_16px_36px_rgba(0,0,0,0.18)]">
+      <div className={"absolute -right-6 -top-8 h-24 w-24 rounded-full " + theme.accentGlow + " blur-3xl"} />
+      <div className={"absolute -bottom-10 left-2 h-20 w-20 rounded-full " + theme.accentGlow + " blur-3xl"} />
+
+      <div className="relative flex min-h-[170px] flex-col justify-between">
+        <div className="flex items-center justify-between gap-3">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.24em] text-white/60">
+            <span className={"h-2 w-2 rounded-full " + theme.accent} />
+            Illustration-led
+          </span>
+
+          <span className={"rounded-full border border-white/10 px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-white/72 " + theme.accentSoft}>
+            {theme.label}
+          </span>
+        </div>
+
+        <div className="mt-4 grid gap-3 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div className="flex items-center justify-center">
+            <div className={"relative flex h-20 w-20 items-center justify-center rounded-[28px] border border-white/10 bg-white/8 shadow-[0_16px_30px_rgba(0,0,0,0.18)] " + theme.accentSoft}>
+              <Icon className="h-8 w-8 text-white" />
+              <div className={"absolute inset-3 rounded-[22px] border border-white/10 " + theme.accentGlow} />
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            {chips.map((chip, idx) => (
+              <div key={chip} className="flex items-center gap-2 rounded-[16px] border border-white/10 bg-white/6 px-3 py-2.5">
+                <span className={"h-2.5 w-2.5 rounded-full " + (idx === 0 ? theme.accent : idx === 1 ? "bg-white/70" : "bg-white/50")} />
+                <span className="text-[11px] leading-tight text-white/78">{chip}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-4 flex items-center gap-3">
+          <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/10">
+            <div className={"h-full w-[72%] rounded-full " + theme.accent} />
+          </div>
+
+          <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.24em] text-white/70">
+            {metric}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ScenarioCard({ department, title, description, icon: Icon, chips, metric, variant, delay = 0, className }: ScenarioCardProps) {
+  const theme = scenarioVariantMeta[variant];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-      className="rounded-[28px] border border-white/10 bg-[#15122E] p-6 shadow-[0_16px_48px_rgba(0,0,0,0.22)] sm:p-8"
+      className={"rounded-[28px] border border-white/10 bg-[#15122E] p-4 shadow-[0_16px_48px_rgba(0,0,0,0.22)] sm:p-5 " + (className || "")}
     >
-      <div className="flex items-start gap-4">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/8 text-white">
-          <Icon className="h-5 w-5" />
-        </div>
+      <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-4 sm:p-5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(108,99,255,0.18),transparent_38%),radial-gradient(circle_at_bottom_left,rgba(233,75,111,0.12),transparent_34%)]" />
 
-        <div className="min-w-0 flex-1">
-          <p className="font-poppins text-[11px] font-bold uppercase tracking-[0.28em] text-[#B7B2FF]">
-            {department}
-          </p>
-          <h3 className="mt-1 font-onest text-[22px] font-semibold leading-tight tracking-[-0.8px] text-white sm:text-[26px]">
-            {title}
-          </h3>
-          <p className="mt-3 font-['DM_Sans'] text-[16px] leading-relaxed text-white/72 sm:text-[18px]">
-            {description}
-          </p>
+        <div className="relative grid gap-4 lg:grid-cols-[1fr_1fr] lg:items-center">
+          <div className="space-y-3">
+            <div className="flex items-start gap-3">
+              <div className={"flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/8 text-white " + theme.accentSoft}>
+                <Icon className="h-5 w-5" />
+              </div>
+
+              <div className="min-w-0 flex-1">
+                <p className={"font-poppins text-[11px] font-bold uppercase tracking-[0.28em] " + theme.labelText}>
+                  {department}
+                </p>
+                <h3 className="mt-1 font-onest text-[20px] font-semibold leading-tight tracking-[-0.8px] text-white sm:text-[22px]">
+                  {title}
+                </h3>
+              </div>
+            </div>
+
+            <p className="max-w-[34ch] font-['DM_Sans'] text-[14px] leading-relaxed text-white/72">
+              {description}
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              {chips.map((chip) => (
+                <span key={chip} className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.2em] text-white/72">
+                  {chip}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <ScenarioIllustration icon={Icon} chips={chips} metric={metric} variant={variant} />
         </div>
       </div>
     </motion.div>
@@ -69,22 +179,31 @@ const scenarios = [
     department: "Finance & Accounting",
     title: "The finance lead",
     description:
-      "Month-end means huge exports from every client. Nexus agents map, clean, and reconcile the work — she reviews exceptions, not rows.",
+      "Rows get cleaned and matched before the lead sees a single exception.",
     icon: Landmark,
+    chips: ["Map rows", "Flag exceptions", "Close books"],
+    metric: "Month-end simplified",
+    variant: "finance" as const,
   },
   {
     department: "HRMS",
     title: "The HR lead",
     description:
-      "Onboarding 100 hires becomes one intake. Agents draft the pack, prepare the follow-ups, and she approves the final steps.",
+      "One intake covers the pack, the follow-ups, and the final sign-off.",
     icon: Users,
+    chips: ["One intake", "Draft packs", "Approve steps"],
+    metric: "100 hires, one flow",
+    variant: "hrms" as const,
   },
   {
     department: "Operations",
     title: "The ops lead",
     description:
-      "Requests and approvals keep bouncing around. The engine routes the work, fills the blanks, and keeps only the decisions in view.",
+      "Work gets routed, filled in, and reduced to the decisions that matter.",
     icon: ShieldCheck,
+    chips: ["Route work", "Fill gaps", "Surface decisions"],
+    metric: "Decision-only view",
+    variant: "operations" as const,
   },
 ];
 
@@ -93,14 +212,14 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
 
   return (
     <>
-      <section className={"relative w-full overflow-hidden bg-[#0B0A12] py-20 lg:py-28 " + (className || "") }>
+      <section className={"relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#0B0A12] py-10 sm:py-12 lg:py-10 " + (className || "") }>
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-32 right-[-120px] h-[420px] w-[420px] rounded-full bg-[#6C63FF]/18 blur-[140px]" />
           <div className="absolute bottom-[-140px] left-[-100px] h-[360px] w-[360px] rounded-full bg-[#E94B6F]/12 blur-[120px]" />
         </div>
 
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[96px]">
-          <div className="grid gap-8 lg:grid-cols-[0.96fr_1.04fr] items-start">
+          <div className="grid gap-6 lg:grid-cols-[0.94fr_1.06fr] items-start">
             <div className="lg:sticky lg:top-24 self-start">
               <motion.div
                 initial={{ opacity: 0, y: 18 }}
@@ -119,7 +238,7 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.75, delay: 0.08, ease: "easeOut" as const }}
-                className="mt-6 max-w-[660px] font-onest text-[38px] font-semibold leading-[0.96] tracking-[-2px] text-white sm:text-[48px] lg:text-[64px]"
+                className="mt-5 max-w-[660px] font-onest text-[34px] font-semibold leading-[0.96] tracking-[-2px] text-white sm:text-[44px] lg:text-[58px]"
               >
                 The work grows. The output doesn’t.
               </motion.h2>
@@ -129,12 +248,12 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" as const }}
-                className="mt-5 max-w-[620px] font-['DM_Sans'] text-[18px] leading-relaxed text-white/72 sm:text-[20px]"
+                className="mt-4 max-w-[620px] font-['DM_Sans'] text-[16px] leading-relaxed text-white/72 sm:text-[18px]"
               >
                 Importing messy files. Re-keying between systems. Reconciling, chasing, formatting. Nexus agents take the tedious work while your people keep the approvals and the judgment.
               </motion.p>
 
-              <div className="mt-10 space-y-6">
+              <div className="mt-8 space-y-5">
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -208,7 +327,7 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="grid gap-4 lg:grid-cols-2">
               {scenarios.map((scenario, index) => (
                 <ScenarioCard
                   key={scenario.title}
@@ -216,6 +335,10 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
                   title={scenario.title}
                   description={scenario.description}
                   icon={scenario.icon}
+                  chips={scenario.chips}
+                  metric={scenario.metric}
+                  variant={scenario.variant}
+                  className={index === scenarios.length - 1 ? "lg:col-span-2" : ""}
                   delay={0.08 * index}
                 />
               ))}
