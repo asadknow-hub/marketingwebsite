@@ -58,14 +58,14 @@ function ScenarioIllustration({ icon: Icon, chips, metric, variant }: ScenarioIl
       <div className={"absolute -right-6 -top-8 h-24 w-24 rounded-full " + theme.accentGlow + " blur-3xl"} />
       <div className={"absolute -bottom-10 left-2 h-20 w-20 rounded-full " + theme.accentGlow + " blur-3xl"} />
 
-      <div className="relative flex min-h-[170px] flex-col justify-between">
+      <div className="relative flex min-h-[152px] flex-col justify-between">
         <div className="flex items-center justify-between gap-3">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.24em] text-white/60">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.24em] !text-white/80">
             <span className={"h-2 w-2 rounded-full " + theme.accent} />
             Illustration-led
           </span>
 
-          <span className={"rounded-full border border-white/10 px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-white/72 " + theme.accentSoft}>
+          <span className={"rounded-full border border-white/10 px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.22em] !text-white/88 " + theme.accentSoft}>
             {theme.label}
           </span>
         </div>
@@ -82,7 +82,7 @@ function ScenarioIllustration({ icon: Icon, chips, metric, variant }: ScenarioIl
             {chips.map((chip, idx) => (
               <div key={chip} className="flex items-center gap-2 rounded-[16px] border border-white/10 bg-white/6 px-3 py-2.5">
                 <span className={"h-2.5 w-2.5 rounded-full " + (idx === 0 ? theme.accent : idx === 1 ? "bg-white/70" : "bg-white/50")} />
-                <span className="text-[11px] leading-tight text-white/78">{chip}</span>
+                <span className="text-[11px] leading-tight !text-white/88">{chip}</span>
               </div>
             ))}
           </div>
@@ -93,7 +93,7 @@ function ScenarioIllustration({ icon: Icon, chips, metric, variant }: ScenarioIl
             <div className={"h-full w-[72%] rounded-full " + theme.accent} />
           </div>
 
-          <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.24em] text-white/70">
+          <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.24em] !text-white/82">
             {metric}
           </span>
         </div>
@@ -133,13 +133,13 @@ function ScenarioCard({ department, title, description, icon: Icon, chips, metri
               </div>
             </div>
 
-            <p className="max-w-[34ch] font-['DM_Sans'] text-[14px] leading-relaxed text-white/72">
+            <p className="max-w-[34ch] font-['DM_Sans'] text-[14px] leading-relaxed !text-white/88">
               {description}
             </p>
 
             <div className="flex flex-wrap gap-2">
               {chips.map((chip) => (
-                <span key={chip} className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.2em] text-white/72">
+                <span key={chip} className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.2em] !text-white/88">
                   {chip}
                 </span>
               ))}
@@ -171,7 +171,7 @@ const manualTasks = [
 
 const agentBlocks = [
   { label: "3h — the actual job", weight: 3, tone: "bg-[#6C63FF] text-white" },
-  { label: "5 hours back, every day", weight: 5, tone: "border border-dashed border-white/16 bg-white/8 text-white/72" },
+  { label: "5 hours back, every day", weight: 5, tone: "border border-dashed border-white/16 bg-white/8 !text-white/88" },
 ];
 
 const scenarios = [
@@ -179,7 +179,7 @@ const scenarios = [
     department: "Finance & Accounting",
     title: "The finance lead",
     description:
-      "Rows get cleaned and matched before the lead sees a single exception.",
+      "Rows get cleaned before the lead sees exceptions.",
     icon: Landmark,
     chips: ["Map rows", "Flag exceptions", "Close books"],
     metric: "Month-end simplified",
@@ -189,7 +189,7 @@ const scenarios = [
     department: "HRMS",
     title: "The HR lead",
     description:
-      "One intake covers the pack, the follow-ups, and the final sign-off.",
+      "One intake covers the pack, follow-ups, and sign-off.",
     icon: Users,
     chips: ["One intake", "Draft packs", "Approve steps"],
     metric: "100 hires, one flow",
@@ -199,7 +199,7 @@ const scenarios = [
     department: "Operations",
     title: "The ops lead",
     description:
-      "Work gets routed, filled in, and reduced to the decisions that matter.",
+      "Work gets routed, filled in, and kept to decisions.",
     icon: ShieldCheck,
     chips: ["Route work", "Fill gaps", "Surface decisions"],
     metric: "Decision-only view",
@@ -212,14 +212,14 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
 
   return (
     <>
-      <section className={"relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#0B0A12] py-10 sm:py-12 lg:py-10 " + (className || "") }>
+      <section className={"relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#0B0A12] py-8 sm:py-10 lg:py-8 " + (className || "") }>
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-32 right-[-120px] h-[420px] w-[420px] rounded-full bg-[#6C63FF]/18 blur-[140px]" />
           <div className="absolute bottom-[-140px] left-[-100px] h-[360px] w-[360px] rounded-full bg-[#E94B6F]/12 blur-[120px]" />
         </div>
 
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[96px]">
-          <div className="grid gap-6 lg:grid-cols-[0.94fr_1.06fr] items-start">
+          <div className="grid gap-5 lg:grid-cols-[0.94fr_1.06fr] items-start">
             <div className="lg:sticky lg:top-24 self-start">
               <motion.div
                 initial={{ opacity: 0, y: 18 }}
@@ -228,7 +228,7 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
                 transition={{ duration: 0.6, ease: "easeOut" as const }}
                 className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-4 py-2 backdrop-blur-sm"
               >
-                <span className="font-poppins text-[11px] font-bold uppercase tracking-[0.35em] text-white/72 sm:text-[12px]">
+                <span className="font-poppins text-[11px] font-bold uppercase tracking-[0.35em] !text-white/88 sm:text-[12px]">
                   How it works · 03
                 </span>
               </motion.div>
@@ -238,7 +238,7 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.75, delay: 0.08, ease: "easeOut" as const }}
-                className="mt-5 max-w-[660px] font-onest text-[34px] font-semibold leading-[0.96] tracking-[-2px] text-white sm:text-[44px] lg:text-[58px]"
+                className="mt-4 max-w-[660px] font-onest text-[34px] font-semibold leading-[0.96] tracking-[-2px] text-white sm:text-[42px] lg:text-[54px]"
               >
                 The work grows. The output doesn’t.
               </motion.h2>
@@ -248,33 +248,33 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" as const }}
-                className="mt-4 max-w-[620px] font-['DM_Sans'] text-[16px] leading-relaxed text-white/72 sm:text-[18px]"
+                className="mt-4 max-w-[620px] font-['DM_Sans'] text-[16px] leading-relaxed !text-white/88 sm:text-[18px]"
               >
-                Importing messy files. Re-keying between systems. Reconciling, chasing, formatting. Nexus agents take the tedious work while your people keep the approvals and the judgment.
+                Nexus agents clear the admin work so your team keeps the judgment.
               </motion.p>
 
-              <div className="mt-8 space-y-5">
+              <div className="mt-7 space-y-4">
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.65, delay: 0.2, ease: "easeOut" as const }}
                 >
-                  <div className="flex items-center justify-between gap-4 mb-3">
-                    <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.3em] text-white/52">
+                  <div className="flex items-center justify-between gap-4 mb-2.5">
+                    <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.3em] !text-white/70">
                       Today · 8 hours
                     </span>
-                    <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.3em] text-white/30">
+                    <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.3em] !text-white/48">
                       Manual work
                     </span>
                   </div>
 
-                  <div className="flex gap-1.5">
+                  <div className="flex gap-1">
                     {manualBlocks.map((block) => (
                       <div
                         key={block.label}
                         style={{ flexGrow: block.weight, flexBasis: 0 }}
-                        className={"relative h-12 overflow-hidden rounded-xl flex items-center justify-center px-2 text-center font-poppins text-[11px] font-bold leading-tight text-white shadow-[0_10px_30px_rgba(21,18,46,0.08)] " + block.tone}
+                        className={"relative h-11 overflow-hidden rounded-xl flex items-center justify-center px-2 text-center font-poppins text-[11px] font-bold leading-tight text-white shadow-[0_10px_30px_rgba(21,18,46,0.08)] " + block.tone}
                       >
                         {block.hours}
                       </div>
@@ -283,7 +283,7 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
 
                   <ul className="mt-4 space-y-2.5">
                     {manualTasks.map((task, index) => (
-                      <li key={task.label} className="flex items-start gap-2.5 font-['DM_Sans'] text-[14px] leading-relaxed text-white/74 sm:text-[15px]">
+                      <li key={task.label} className="flex items-start gap-2.5 font-['DM_Sans'] text-[14px] leading-relaxed !text-white/84 sm:text-[15px]">
                         <span className={"mt-1.5 h-2 w-2 rounded-sm shrink-0 " + task.tone} />
                         <span className={index === manualTasks.length - 1 ? "font-semibold text-white" : ""}>
                           {task.label}
@@ -299,11 +299,11 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
                   viewport={{ once: true }}
                   transition={{ duration: 0.65, delay: 0.28, ease: "easeOut" as const }}
                 >
-                  <div className="flex items-center justify-between gap-4 mb-3">
-                    <span className="font-poppins text-[11px] font-bold uppercase tracking-[0.3em] text-[#B7B2FF] sm:text-[12px]">
+                  <div className="flex items-center justify-between gap-4 mb-2.5">
+                    <span className="font-poppins text-[11px] font-bold uppercase tracking-[0.3em] !text-[#D7D3FF] sm:text-[12px]">
                       With Nexus agents · 3 hours
                     </span>
-                    <span className="font-poppins text-[11px] font-bold uppercase tracking-[0.3em] text-white/34 sm:text-[12px]">
+                    <span className="font-poppins text-[11px] font-bold uppercase tracking-[0.3em] !text-white/50 sm:text-[12px]">
                       Approved work
                     </span>
                   </div>
@@ -320,8 +320,8 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
                     ))}
                   </div>
 
-                  <p className="mt-3 font-['DM_Sans'] text-[12px] leading-relaxed text-white/42 sm:text-[13px]">
-                    Illustrative day · internal estimate based on design partners
+                  <p className="mt-3 font-['DM_Sans'] text-[12px] leading-relaxed !text-white/55 sm:text-[13px]">
+                    Illustrative day · internal estimate 
                   </p>
                 </motion.div>
               </div>
@@ -349,4 +349,8 @@ export default function DepartmentScenarios01Finsyc({ className }: { className?:
     </>
   );
 }
+
+
+
+
 
