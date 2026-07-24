@@ -109,20 +109,20 @@ function PillarCard({ pillar, index }: { pillar: SolutionPillar; index: number }
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: 0.06 * index, ease: "easeOut" as const }}
-      className="rounded-[26px] border border-white/10 bg-white/[0.04] p-4 shadow-[0_20px_60px_rgba(0,0,0,0.18)] backdrop-blur-xl"
+      className="rounded-[26px] border border-slate-200 bg-white p-4 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl"
     >
       <div className="flex items-start gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-[#C7C3FF]">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#EEF2FF] text-[#4F46E5]">
           <Icon className="h-4.5 w-4.5" />
         </div>
         <div className="min-w-0">
-          <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/45">
+          <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
             {pillar.label}
           </p>
-          <h3 className="mt-2 font-onest text-[18px] font-semibold leading-tight tracking-[-0.6px] text-white sm:text-[20px]">
+          <h3 className="mt-2 font-onest text-[18px] font-semibold leading-tight tracking-[-0.6px] text-slate-950 sm:text-[20px]">
             {pillar.title}
           </h3>
-          <p className="mt-2 font-['DM_Sans'] text-[14px] leading-relaxed text-white/68 sm:text-[15px]">
+          <p className="mt-2 font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600 sm:text-[15px]">
             {pillar.description}
           </p>
         </div>
@@ -135,16 +135,16 @@ function SignalCard({ signal }: { signal: SignalItem }) {
   const Icon = signal.icon;
 
   return (
-    <div className="rounded-[24px] border border-white/10 bg-white/[0.04] p-4 shadow-[0_20px_60px_rgba(0,0,0,0.16)] backdrop-blur-xl">
+    <div className="rounded-[24px] border border-slate-200 bg-white p-4 shadow-[0_20px_60px_rgba(15,23,42,0.06)] backdrop-blur-xl">
       <div className="flex items-start gap-3">
         <div className={"flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-[0_16px_30px_rgba(0,0,0,0.18)] " + signal.accent}>
           <Icon className="h-4.5 w-4.5" />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/54">
+          <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
             {signal.title}
           </p>
-          <p className="mt-2 font-['DM_Sans'] text-[13px] leading-relaxed text-white/68 sm:text-[14px]">
+          <p className="mt-2 font-['DM_Sans'] text-[13px] leading-relaxed text-slate-600 sm:text-[14px]">
             {signal.description}
           </p>
         </div>
@@ -155,11 +155,11 @@ function SignalCard({ signal }: { signal: SignalItem }) {
 
 function OutcomeCard({ title, description }: { title: string; description: string }) {
   return (
-    <div className="rounded-[22px] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl">
-      <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/50">
+    <div className="rounded-[22px] border border-slate-200 bg-white p-4 backdrop-blur-xl">
+      <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
         {title}
       </p>
-      <p className="mt-2 font-['DM_Sans'] text-[13px] leading-relaxed text-white/72 sm:text-[14px]">
+      <p className="mt-2 font-['DM_Sans'] text-[13px] leading-relaxed text-slate-600 sm:text-[14px]">
         {description}
       </p>
     </div>
@@ -172,13 +172,13 @@ export default function SolutionRedesign({ className }: { className?: string }) 
   return (
     <section
       id="solution"
-      className={"relative w-full overflow-hidden bg-[#070816] py-20 sm:py-24 lg:py-32 " + (className || "")}
+      className={"relative w-full overflow-hidden bg-white py-20 sm:py-24 lg:py-32 " + (className || "")}
     >
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.22),transparent_28%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.14),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.1),transparent_24%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:32px_32px] opacity-10" />
-        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#6C63FF]/18 blur-[160px]" />
-        <div className="absolute bottom-[-120px] right-[-100px] h-80 w-80 rounded-full bg-[#E94B6F]/10 blur-[160px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.08),transparent_28%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.06),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.05),transparent_24%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
+        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#6C63FF]/10 blur-[160px]" />
+        <div className="absolute bottom-[-120px] right-[-100px] h-80 w-80 rounded-full bg-[#E94B6F]/8 blur-[160px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
@@ -189,10 +189,10 @@ export default function SolutionRedesign({ className }: { className?: string }) 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" as const }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 backdrop-blur-xl"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl"
             >
-              <ShieldCheck className="h-4 w-4 text-[#C7C3FF]" />
-              <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-white/60">
+              <ShieldCheck className="h-4 w-4 text-[#6C63FF]" />
+              <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-600">
                 The solution
               </span>
             </motion.div>
@@ -202,7 +202,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
-              className="mt-6 max-w-[720px] font-onest text-[38px] font-semibold leading-[0.96] tracking-[-2px] text-white sm:text-[54px] lg:text-[66px]"
+              className="mt-6 max-w-[720px] font-onest text-[38px] font-semibold leading-[0.96] tracking-[-2px] text-slate-950 sm:text-[54px] lg:text-[66px]"
             >
               A living system, not a frozen design.
             </motion.h2>
@@ -212,7 +212,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.14, ease: "easeOut" as const }}
-              className="mt-5 max-w-[640px] font-['DM_Sans'] text-[17px] leading-[1.78] text-white/70 sm:text-[18px]"
+              className="mt-5 max-w-[640px] font-['DM_Sans'] text-[17px] leading-[1.78] text-slate-600 sm:text-[18px]"
             >
               Nexus AI First continuously maps the business, routes work into the right modules, and keeps approvals
               human-led so the software stays current as the company changes.
@@ -244,7 +244,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
 
               <a
                 href="#modules"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 font-poppins text-[14px] font-bold text-white/80 backdrop-blur-xl transition-colors hover:bg-white/8 hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 font-poppins text-[14px] font-bold text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl transition-colors hover:bg-slate-50 hover:text-slate-950"
               >
                 See the modules
               </a>
@@ -256,20 +256,20 @@ export default function SolutionRedesign({ className }: { className?: string }) 
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-            className="relative overflow-hidden rounded-[36px] border border-white/10 bg-[#0B0D19]/92 shadow-[0_30px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl"
+            className="relative overflow-hidden rounded-[36px] border border-slate-200 bg-white/90 shadow-[0_30px_120px_rgba(15,23,42,0.12)] backdrop-blur-2xl"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.16),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(233,75,111,0.12),transparent_24%)]" />
-            <div className="relative z-10 border-b border-white/10 px-5 py-4 sm:px-6">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.06),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(233,75,111,0.05),transparent_24%)]" />
+            <div className="relative z-10 border-b border-slate-200 px-5 py-4 sm:px-6">
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-white/45">
+                  <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500">
                     Control plane
                   </p>
-                  <p className="mt-2 font-onest text-[22px] font-semibold tracking-[-0.6px] text-white sm:text-[26px]">
+                  <p className="mt-2 font-onest text-[22px] font-semibold tracking-[-0.6px] text-slate-950 sm:text-[26px]">
                     Continuous mapping in motion.
                   </p>
                 </div>
-                <div className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-emerald-200">
+                <div className="rounded-full border border-emerald-500/20 bg-emerald-50 px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-emerald-700">
                   always adapting
                 </div>
               </div>
@@ -285,13 +285,13 @@ export default function SolutionRedesign({ className }: { className?: string }) 
 
                 <div className="relative flex items-center justify-center py-6 lg:py-0">
                   <div className="relative flex h-44 w-44 items-center justify-center sm:h-52 sm:w-52">
-                    <div className="absolute inset-0 rounded-full bg-[#6C63FF]/18 blur-[60px]" />
-                    <div className="absolute inset-4 rounded-full border border-white/10 bg-white/[0.03]" />
-                    <div className="absolute inset-9 rounded-full border border-white/10 bg-white/[0.05]" />
-                    <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full border border-white/12 bg-[#080915] shadow-[0_24px_60px_rgba(0,0,0,0.4)]">
+                    <div className="absolute inset-0 rounded-full bg-[#6C63FF]/12 blur-[60px]" />
+                    <div className="absolute inset-4 rounded-full border border-slate-200 bg-white" />
+                    <div className="absolute inset-9 rounded-full border border-slate-200 bg-slate-50" />
+                    <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full border border-slate-900/10 bg-slate-950 shadow-[0_24px_60px_rgba(15,23,42,0.24)]">
                       <Brain className="h-9 w-9 text-[#C7C3FF]" />
                     </div>
-                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-white/10 bg-white/[0.08] px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-white/65">
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-slate-200 bg-white px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-slate-600">
                       Continuous mapper
                     </div>
                   </div>
@@ -310,12 +310,12 @@ export default function SolutionRedesign({ className }: { className?: string }) 
                 ))}
               </div>
 
-              <div className="mt-6 flex flex-col gap-4 rounded-[28px] border border-white/10 bg-white/[0.04] p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
+              <div className="mt-6 flex flex-col gap-4 rounded-[28px] border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
                 <div>
-                  <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.26em] text-white/45">
+                  <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.26em] text-slate-500">
                     Why it works
                   </p>
-                  <p className="mt-2 max-w-[560px] font-['DM_Sans'] text-[14px] leading-relaxed text-white/70 sm:text-[15px]">
+                  <p className="mt-2 max-w-[560px] font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600 sm:text-[15px]">
                     Nexus keeps ingesting change, remapping modules, and routing work so the system never drifts from
                     reality.
                   </p>
@@ -323,7 +323,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
 
                 <a
                   href="#modules"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-3 font-poppins text-[12px] font-bold uppercase tracking-[0.24em] text-white/78 transition-colors hover:bg-white/10 hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-3 font-poppins text-[12px] font-bold uppercase tracking-[0.24em] text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950"
                 >
                   See module wave
                   <ArrowUpRight className="h-4 w-4" />

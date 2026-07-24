@@ -162,13 +162,13 @@ function ProblemCard({ item, delay }: { item: ProblemItem; delay: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.72, delay, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-      className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.04] p-5 sm:p-6 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur-2xl"
+      className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-white p-5 sm:p-6 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur-2xl"
     >
       <div className={"absolute -right-20 -top-20 h-48 w-48 rounded-full blur-3xl opacity-35 " + item.accent} />
       <div className="relative z-10">
         <div className="flex items-center justify-between gap-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3 py-1.5">
-            <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.26em] text-white/56">
+          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5">
+            <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.26em] text-slate-600">
               {item.label}
             </span>
           </div>
@@ -177,16 +177,16 @@ function ProblemCard({ item, delay }: { item: ProblemItem; delay: number }) {
           </div>
         </div>
 
-        <h3 className="mt-5 max-w-[620px] font-onest text-[24px] font-semibold leading-tight tracking-[-0.8px] text-white sm:text-[28px] lg:text-[30px]">
+        <h3 className="mt-5 max-w-[620px] font-onest text-[24px] font-semibold leading-tight tracking-[-0.8px] text-slate-950 sm:text-[28px] lg:text-[30px]">
           {item.title}
         </h3>
-        <p className="mt-4 max-w-[620px] font-['DM_Sans'] text-[15px] sm:text-[16px] leading-relaxed text-white/70">
+        <p className="mt-4 max-w-[620px] font-['DM_Sans'] text-[15px] sm:text-[16px] leading-relaxed text-slate-600">
           {item.description}
         </p>
 
         <div className="mt-5 grid gap-2 sm:grid-cols-3">
           {item.bullets.map((bullet) => (
-            <div key={bullet} className="rounded-[18px] border border-white/10 bg-white/6 px-3 py-3 text-[13px] leading-relaxed text-white/78 backdrop-blur-xl">
+            <div key={bullet} className="rounded-[18px] border border-slate-200 bg-slate-50 px-3 py-3 text-[13px] leading-relaxed text-slate-700 backdrop-blur-xl">
               {bullet}
             </div>
           ))}
@@ -202,7 +202,7 @@ function ProblemCard({ item, delay }: { item: ProblemItem; delay: number }) {
 
 export default function ProblemRedesign() {
   return (
-    <section id="problem" className="w-full bg-[#090A18] py-20 sm:py-24 lg:py-32">
+    <section id="problem" className="w-full bg-[#F6F7FB] py-20 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
         <div className="max-w-[820px]">
           <motion.div
@@ -210,10 +210,10 @@ export default function ProblemRedesign() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" as const }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-4 py-2 backdrop-blur-xl"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl"
           >
-            <AlertTriangle className="h-4 w-4 text-[#FF8DA5]" />
-            <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-white/65">
+            <AlertTriangle className="h-4 w-4 text-[#E11D48]" />
+            <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-600">
               Why the old model breaks
             </span>
           </motion.div>
@@ -223,7 +223,7 @@ export default function ProblemRedesign() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
-            className="mt-5 font-onest text-[38px] font-semibold leading-[0.98] tracking-[-1.8px] text-white sm:text-[52px] lg:text-[64px]"
+            className="mt-5 font-onest text-[38px] font-semibold leading-[0.98] tracking-[-1.8px] text-slate-950 sm:text-[52px] lg:text-[64px]"
           >
             Two problems keep enterprise software stuck.
           </motion.h2>
@@ -233,7 +233,7 @@ export default function ProblemRedesign() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.14, ease: "easeOut" as const }}
-            className="mt-5 max-w-[760px] font-['DM_Sans'] text-[17px] leading-[1.75] text-white/70 sm:text-[18px]"
+            className="mt-5 max-w-[760px] font-['DM_Sans'] text-[17px] leading-[1.75] text-slate-600 sm:text-[18px]"
           >
             The business keeps changing, but the old enterprise model asks teams to freeze requirements and work around disconnected systems. Nexus AI First removes that gap.
           </motion.p>

@@ -11,7 +11,7 @@ import { GetInTouchModalProvider } from "@/components/site/GetInTouchModal";
 export default function Home() {
   return (
     <GetInTouchModalProvider>
-      <main className="min-h-screen">
+      <main className="min-h-screen bg-[#F6F7FB] text-slate-900">
         <HeroRedesign />
         <ProblemRedesign />
         <SolutionRedesign />

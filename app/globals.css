@@ -8,6 +8,16 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
+  background: #f6f7fb;
+  color: #0f172a;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(108, 99, 255, 0.18);
+  color: #0f172a;
 }
 
 .scrollbar-hide {
