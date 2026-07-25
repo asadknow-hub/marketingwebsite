@@ -4,12 +4,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowUpRight,
-  Brain,
-  Layers,
   Menu,
-  ShieldCheck,
-  Sparkles,
-  Workflow,
   X,
 } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
@@ -21,35 +16,11 @@ const navItems = [
   { label: "Pricing", href: "#pricing" },
 ];
 
-const heroStats = [
-  {
-    icon: Workflow,
-    title: "No frozen design",
-    description: "Requirements keep moving with the business.",
-  },
-  {
-    icon: Brain,
-    title: "Agentic execution",
-    description: "Work is mapped to agents, not manual handoffs.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Approval-led",
-    description: "You stay in control while the system adapts.",
-  },
-];
-
 const terminalSteps = [
   "> ingest live business changes",
   "> map requirements to modules",
   "> route work to the right agents",
   "> ship with approval, not friction",
-];
-
-const liveSignals = [
-  { label: "Wave 1", value: "Finance + HRMS" },
-  { label: "Approach", value: "Continuous mapping" },
-  { label: "Promise", value: "Always current" },
 ];
 
 export default function HeroRedesign() {
@@ -83,7 +54,7 @@ export default function HeroRedesign() {
           >
             <a href="#top" className="flex items-center gap-3 text-slate-900 transition-opacity hover:opacity-80">
               <div className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow-[0_12px_28px_rgba(15,23,42,0.08)]">
-                <Sparkles className="h-4.5 w-4.5 text-[#6C63FF]" />
+                <img src="/purplelogowobg.png" alt="Nexus AI First logo" className="h-7 w-7 object-contain" />
               </div>
               <div className="flex flex-col leading-tight">
                 <span className="font-poppins text-[14px] font-bold tracking-[-0.2px] text-slate-950 sm:text-[15px]">Nexus AI First</span>
@@ -186,35 +157,6 @@ export default function HeroRedesign() {
                 </a>
               </motion.div>
 
-              <div className="mt-9 grid gap-3 sm:grid-cols-3">
-                {heroStats.map((stat, index) => {
-                  const Icon = stat.icon;
-
-                  return (
-                    <motion.div
-                      key={stat.title}
-                      initial={{ y: 16, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.55, delay: 0.34 + index * 0.06, ease: "easeOut" as const }}
-                      className="rounded-[22px] border border-slate-200 bg-white p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur-xl"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#EEF2FF] text-[#4F46E5]">
-                          <Icon className="h-4 w-4" />
-                        </div>
-                        <div>
-                          <p className="font-poppins text-[11px] font-bold uppercase tracking-[0.24em] text-slate-900">
-                            {stat.title}
-                          </p>
-                          <p className="mt-1 font-['DM_Sans'] text-[13px] leading-relaxed text-slate-600">
-                            {stat.description}
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
             </div>
 
             <div className="relative mx-auto w-full max-w-[620px] lg:max-w-none">
@@ -237,25 +179,25 @@ export default function HeroRedesign() {
                 </div>
 
                 <div className="p-5 sm:p-6">
-                  <div className="rounded-[28px] border border-white/10 bg-[#060711] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.26)]">
+                  <div className="rounded-[28px] border border-slate-700/50 bg-[#0B1020] p-5 shadow-[0_20px_60px_rgba(15,23,42,0.22)]">
                     <div className="flex items-center justify-between gap-3">
                       <div>
-                        <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.3em] text-white/40">
+                        <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.3em] text-slate-300">
                           Agentic run loop
                         </p>
-                        <p className="mt-2 font-onest text-[24px] font-semibold tracking-[-0.8px] text-white">
+                        <p className="mt-2 font-onest text-[24px] font-semibold tracking-[-0.8px] text-slate-50">
                           Keep the system current.
                         </p>
                       </div>
-                      <div className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-emerald-200">
+                      <div className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-emerald-100">
                         always on
                       </div>
                     </div>
 
-                    <div className="mt-5 space-y-3 rounded-[24px] border border-white/8 bg-white/4 p-4">
+                    <div className="mt-5 space-y-3 rounded-[24px] border border-slate-700/60 bg-white/5 p-4">
                       {terminalSteps.map((step, index) => (
-                        <div key={step} className="flex items-center gap-3 text-[13px] font-medium text-white/78 sm:text-[14px]">
-                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 font-poppins text-[10px] font-bold text-white/78">
+                        <div key={step} className="flex items-center gap-3 text-[13px] font-medium text-slate-100 sm:text-[14px]">
+                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/12 font-poppins text-[10px] font-bold text-slate-100">
                             {String(index + 1).padStart(2, "0")}
                           </span>
                           <span className="font-mono">{step}</span>
@@ -284,18 +226,6 @@ export default function HeroRedesign() {
                     </div>
                   </div>
 
-                  <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                    {liveSignals.map((signal) => (
-                      <div key={signal.label} className="rounded-[20px] border border-slate-200 bg-white px-4 py-3 shadow-[0_10px_24px_rgba(15,23,42,0.04)] backdrop-blur-xl">
-                        <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
-                          {signal.label}
-                        </p>
-                        <p className="mt-2 text-[13px] leading-relaxed text-slate-700">
-                          {signal.value}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </motion.div>
             </div>
@@ -314,8 +244,8 @@ export default function HeroRedesign() {
             >
               <div className="flex items-center justify-between">
                 <a href="#top" className="flex items-center gap-3 text-slate-900">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white">
-                    <Sparkles className="h-4.5 w-4.5 text-[#6C63FF]" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow-[0_12px_28px_rgba(15,23,42,0.08)]">
+                    <img src="/purplelogowobg.png" alt="Nexus AI First logo" className="h-7 w-7 object-contain" />
                   </div>
                   <div className="flex flex-col leading-tight">
                     <span className="font-poppins text-[14px] font-bold text-slate-950">Nexus AI First</span>
