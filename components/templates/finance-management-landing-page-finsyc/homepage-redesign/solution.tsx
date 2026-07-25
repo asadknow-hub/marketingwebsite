@@ -2,86 +2,73 @@
 
 import { type ElementType } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Brain, Layers, ShieldCheck, Workflow } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Brain, Layers, ShieldCheck, Workflow } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 
-interface SolutionPillar {
+interface SolutionStep {
   label: string;
-  title: string;
-  description: string;
-  icon: ElementType;
-}
-
-interface SignalItem {
   title: string;
   description: string;
   icon: ElementType;
   accent: string;
 }
 
-const solutionPillars: SolutionPillar[] = [
+interface FlowStage {
+  label: string;
+  title: string;
+  description: string;
+  icon: ElementType;
+  accent: string;
+}
+
+const solutionSteps: SolutionStep[] = [
   {
-    label: "Live change capture",
-    title: "Map the moving business.",
+    label: "Step 01",
+    title: "Capture the change early.",
     description:
-      "Nexus listens for new policies, process gaps, and tool changes before they turn into stale requirements.",
+      "Nexus listens for policy shifts, process gaps, and new exceptions before they turn into stale requirements.",
     icon: Layers,
+    accent: "bg-[#EEF2FF] text-[#4F46E5]",
   },
   {
-    label: "Orchestration layer",
-    title: "Route work through agents.",
+    label: "Step 02",
+    title: "Route work through the control plane.",
     description:
-      "The control plane sends each task to the right module, domain agent, or approver automatically.",
+      "The orchestration layer sends each task to the right module, domain agent, or approver automatically.",
     icon: Workflow,
+    accent: "bg-[#EEF7FF] text-[#0EA5E9]",
   },
   {
-    label: "Human control",
-    title: "Release with approval.",
+    label: "Step 03",
+    title: "Keep release decisions human-led.",
     description:
       "People approve the outcome while the system keeps adapting in the background.",
     icon: ShieldCheck,
+    accent: "bg-[#FDECF2] text-[#E94B6F]",
   },
 ];
 
-const incomingSignals: SignalItem[] = [
+const flowStages: FlowStage[] = [
   {
-    title: "Business change",
-    description: "New policy, exception, or operating model shift enters the system.",
+    label: "Input",
+    title: "Live business change enters Nexus.",
+    description: "New policies, exceptions, and operating shifts are captured as they happen.",
     icon: Layers,
     accent: "from-[#6C63FF] to-[#4F46E5]",
   },
   {
-    title: "Intelligence layer",
-    description: "Rules and context are re-mapped into active modules and agents.",
-    icon: Brain,
+    label: "Orchestration",
+    title: "The system re-maps work automatically.",
+    description: "Modules and agents receive the right tasks without manual handoffs.",
+    icon: Workflow,
     accent: "from-[#0EA5E9] to-[#6C63FF]",
   },
   {
-    title: "Work orchestration",
-    description: "Tasks move across apps, people, and approvals without manual handoffs.",
-    icon: Workflow,
-    accent: "from-[#E94B6F] to-[#FF8DA5]",
-  },
-];
-
-const orchestrationActions: SignalItem[] = [
-  {
-    title: "Modules sync",
-    description: "The suite updates the affected workflow, screen, and control layer.",
-    icon: Workflow,
-    accent: "from-[#6C63FF] to-[#0EA5E9]",
-  },
-  {
-    title: "Approvals stay visible",
-    description: "Every release still passes through the people who own the process.",
+    label: "Governance",
+    title: "People approve the final release.",
+    description: "Owners stay in the loop while Nexus keeps the software current.",
     icon: ShieldCheck,
-    accent: "from-[#E94B6F] to-[#6C63FF]",
-  },
-  {
-    title: "Agents keep learning",
-    description: "The orchestration layer keeps adapting while the business keeps moving.",
-    icon: Brain,
-    accent: "from-[#0EA5E9] to-[#E94B6F]",
+    accent: "from-[#E94B6F] to-[#FF8DA5]",
   },
 ];
 
@@ -91,8 +78,8 @@ const outcomes = [
     description: "The platform keeps pace with the business instead of freezing it.",
   },
   {
-    title: "No change requests",
-    description: "Continuous mapping replaces expensive redesign cycles.",
+    title: "No redesign cycles",
+    description: "Continuous mapping replaces expensive change request loops.",
   },
   {
     title: "One control plane",
@@ -100,69 +87,144 @@ const outcomes = [
   },
 ];
 
-function PillarCard({ pillar, index }: { pillar: SolutionPillar; index: number }) {
-  const Icon = pillar.icon;
+function SolutionStepCard({ step, index }: { step: SolutionStep; index: number }) {
+  const Icon = step.icon;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 18 }}
+    <motion.article
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: 0.06 * index, ease: "easeOut" as const }}
-      className="rounded-[26px] border border-slate-200 bg-white p-4 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl"
+      transition={{ duration: 0.55, delay: 0.06 * index, ease: "easeOut" as const }}
+      className="rounded-[28px] border border-slate-200 bg-white p-4 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl"
     >
       <div className="flex items-start gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#EEF2FF] text-[#4F46E5]">
+        <div className={"flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl " + step.accent}>
           <Icon className="h-4.5 w-4.5" />
         </div>
-        <div className="min-w-0">
-          <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
-            {pillar.label}
-          </p>
+
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-2">
+            <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
+              {step.label}
+            </p>
+            <div className="h-px flex-1 bg-slate-200" />
+            <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-300">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+          </div>
+
           <h3 className="mt-2 font-onest text-[18px] font-semibold leading-tight tracking-[-0.6px] text-slate-950 sm:text-[20px]">
-            {pillar.title}
+            {step.title}
           </h3>
+
           <p className="mt-2 font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600 sm:text-[15px]">
-            {pillar.description}
+            {step.description}
           </p>
+        </div>
+      </div>
+    </motion.article>
+  );
+}
+
+function SolutionFlowVisual() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 28, scale: 0.98 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] as const }}
+      className="relative overflow-hidden rounded-[36px] border border-slate-200 bg-white/92 shadow-[0_30px_120px_rgba(15,23,42,0.12)] backdrop-blur-2xl"
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.06),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(233,75,111,0.05),transparent_24%)]" />
+
+      <div className="relative z-10 p-5 sm:p-6">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500">
+              Live solution loop
+            </p>
+            <p className="mt-2 max-w-[420px] font-onest text-[22px] font-semibold tracking-[-0.6px] text-slate-950 sm:text-[26px]">
+              Change enters, the system adapts, people approve.
+            </p>
+          </div>
+
+          <div className="rounded-full border border-emerald-500/20 bg-emerald-50 px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-emerald-700">
+            always adapting
+          </div>
+        </div>
+
+        <div className="mt-6 rounded-[30px] border border-slate-200 bg-slate-950 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.22)] sm:p-5">
+          <div className="flex items-center justify-between gap-3">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3 py-1.5">
+              <Brain className="h-4 w-4 text-[#C7C3FF]" />
+              <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/70">
+                Nexus control plane
+              </span>
+            </div>
+            <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/50">
+              24/7
+            </span>
+          </div>
+
+          <div className="mt-5 space-y-3">
+            {flowStages.map((stage, index) => {
+              const Icon = stage.icon;
+
+              return (
+                <div key={stage.label} className="rounded-[24px] border border-white/10 bg-white/6 p-4">
+                  <div className="flex items-start gap-3">
+                    <div className={"flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-[0_16px_30px_rgba(0,0,0,0.18)] " + stage.accent}>
+                      <Icon className="h-4.5 w-4.5" />
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/55">
+                          {stage.label}
+                        </span>
+                        <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-white/30">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+
+                      <h3 className="mt-2 font-onest text-[18px] font-semibold leading-tight tracking-[-0.6px] text-white">
+                        {stage.title}
+                      </h3>
+
+                      <p className="mt-2 text-[14px] leading-relaxed text-white/70">
+                        {stage.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {index < flowStages.length - 1 ? (
+                    <div className="mt-4 flex items-center gap-3 text-white/30">
+                      <div className="h-px flex-1 bg-white/10" />
+                      <ArrowRight className="h-4 w-4" />
+                      <div className="h-px flex-1 bg-white/10" />
+                    </div>
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          {outcomes.map((item) => (
+            <div key={item.title} className="rounded-[20px] border border-slate-200 bg-white p-3">
+              <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
+                {item.title}
+              </p>
+              <p className="mt-2 text-[13px] leading-relaxed text-slate-600">
+                {item.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </motion.div>
-  );
-}
-
-function SignalCard({ signal }: { signal: SignalItem }) {
-  const Icon = signal.icon;
-
-  return (
-    <div className="rounded-[24px] border border-slate-200 bg-white p-4 shadow-[0_20px_60px_rgba(15,23,42,0.06)] backdrop-blur-xl">
-      <div className="flex items-start gap-3">
-        <div className={"flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-[0_16px_30px_rgba(0,0,0,0.18)] " + signal.accent}>
-          <Icon className="h-4.5 w-4.5" />
-        </div>
-        <div className="min-w-0 flex-1">
-          <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
-            {signal.title}
-          </p>
-          <p className="mt-2 font-['DM_Sans'] text-[13px] leading-relaxed text-slate-600 sm:text-[14px]">
-            {signal.description}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function OutcomeCard({ title, description }: { title: string; description: string }) {
-  return (
-    <div className="rounded-[22px] border border-slate-200 bg-white p-4 backdrop-blur-xl">
-      <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
-        {title}
-      </p>
-      <p className="mt-2 font-['DM_Sans'] text-[13px] leading-relaxed text-slate-600 sm:text-[14px]">
-        {description}
-      </p>
-    </div>
   );
 }
 
@@ -182,7 +244,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
-        <div className="grid gap-10 lg:grid-cols-[0.94fr_1.06fr] lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
           <div className="max-w-[620px]">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -204,7 +266,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
               transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
               className="mt-6 max-w-[720px] font-onest text-[38px] font-semibold leading-[0.96] tracking-[-2px] text-slate-950 sm:text-[54px] lg:text-[66px]"
             >
-              A living system, not a frozen design.
+              A living system that follows the business.
             </motion.h2>
 
             <motion.p
@@ -214,13 +276,13 @@ export default function SolutionRedesign({ className }: { className?: string }) 
               transition={{ duration: 0.7, delay: 0.14, ease: "easeOut" as const }}
               className="mt-5 max-w-[640px] font-['DM_Sans'] text-[17px] leading-[1.78] text-slate-600 sm:text-[18px]"
             >
-              Nexus AI First continuously maps the business, routes work into the right modules, and keeps approvals
-              human-led so the software stays current as the company changes.
+              Nexus AI First keeps listening for change, translates that change into the right modules, and keeps
+              the approval loop human so the software evolves with the company instead of freezing it.
             </motion.p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {solutionPillars.map((pillar, index) => (
-                <PillarCard key={pillar.title} pillar={pillar} index={index} />
+            <div className="mt-8 space-y-4">
+              {solutionSteps.map((step, index) => (
+                <SolutionStepCard key={step.title} step={step} index={index} />
               ))}
             </div>
 
@@ -251,86 +313,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
             </motion.div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 28, scale: 0.98 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-            className="relative overflow-hidden rounded-[36px] border border-slate-200 bg-white/90 shadow-[0_30px_120px_rgba(15,23,42,0.12)] backdrop-blur-2xl"
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.06),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(233,75,111,0.05),transparent_24%)]" />
-            <div className="relative z-10 border-b border-slate-200 px-5 py-4 sm:px-6">
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500">
-                    Control plane
-                  </p>
-                  <p className="mt-2 font-onest text-[22px] font-semibold tracking-[-0.6px] text-slate-950 sm:text-[26px]">
-                    Continuous mapping in motion.
-                  </p>
-                </div>
-                <div className="rounded-full border border-emerald-500/20 bg-emerald-50 px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-emerald-700">
-                  always adapting
-                </div>
-              </div>
-            </div>
-
-            <div className="relative z-10 p-5 sm:p-6">
-              <div className="grid gap-4 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
-                <div className="space-y-3">
-                  {incomingSignals.map((signal) => (
-                    <SignalCard key={signal.title} signal={signal} />
-                  ))}
-                </div>
-
-                <div className="relative flex items-center justify-center py-6 lg:py-0">
-                  <div className="relative flex h-44 w-44 items-center justify-center sm:h-52 sm:w-52">
-                    <div className="absolute inset-0 rounded-full bg-[#6C63FF]/12 blur-[60px]" />
-                    <div className="absolute inset-4 rounded-full border border-slate-200 bg-white" />
-                    <div className="absolute inset-9 rounded-full border border-slate-200 bg-slate-50" />
-                    <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full border border-slate-900/10 bg-slate-950 shadow-[0_24px_60px_rgba(15,23,42,0.24)]">
-                      <Brain className="h-9 w-9 text-[#C7C3FF]" />
-                    </div>
-                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-slate-200 bg-white px-3 py-1.5 font-poppins text-[9px] font-bold uppercase tracking-[0.22em] text-slate-600">
-                      Continuous mapper
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  {orchestrationActions.map((signal) => (
-                    <SignalCard key={signal.title} signal={signal} />
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                {outcomes.map((item) => (
-                  <OutcomeCard key={item.title} title={item.title} description={item.description} />
-                ))}
-              </div>
-
-              <div className="mt-6 flex flex-col gap-4 rounded-[28px] border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
-                <div>
-                  <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.26em] text-slate-500">
-                    Why it works
-                  </p>
-                  <p className="mt-2 max-w-[560px] font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600 sm:text-[15px]">
-                    Nexus keeps ingesting change, remapping modules, and routing work so the system never drifts from
-                    reality.
-                  </p>
-                </div>
-
-                <a
-                  href="#modules"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-3 font-poppins text-[12px] font-bold uppercase tracking-[0.24em] text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950"
-                >
-                  See module wave
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
-          </motion.div>
+          <SolutionFlowVisual />
         </div>
       </div>
     </section>
