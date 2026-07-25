@@ -1,7 +1,7 @@
 "use client";
 
-import { type ElementType, useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { type ElementType } from "react";
+import { motion } from "framer-motion";
 import { AlertTriangle, Clock3, Network, ShieldAlert, Workflow } from "lucide-react";
 
 interface ProblemItem {
@@ -145,7 +145,7 @@ function ProblemSlide({ item }: { item: ProblemItem }) {
 
   return (
     <article className="h-full rounded-[32px] border border-slate-200 bg-white p-4 shadow-[0_24px_80px_rgba(15,23,42,0.08)] sm:p-5">
-      <div className="grid gap-4 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
+      <div className="grid gap-4 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
         <div className="min-w-0">
           <div className="flex items-center justify-between gap-4">
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5">
@@ -158,16 +158,16 @@ function ProblemSlide({ item }: { item: ProblemItem }) {
             </div>
           </div>
 
-          <h3 className="mt-5 max-w-[460px] break-words font-onest text-[21px] font-semibold leading-[1.06] tracking-[-0.8px] text-slate-950 sm:text-[25px]">
+          <h3 className="mt-4 max-w-[440px] break-words font-onest text-[20px] font-semibold leading-[1.06] tracking-[-0.8px] text-slate-950 sm:text-[24px]">
             {item.title}
           </h3>
-          <p className="mt-3 max-w-[460px] break-words font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600">
+          <p className="mt-3 max-w-[440px] break-words font-['DM_Sans'] text-[13px] leading-relaxed text-slate-600">
             {item.description}
           </p>
 
-          <div className="mt-4 flex flex-wrap gap-2.5">
+          <div className="mt-3 flex flex-wrap gap-2">
             {item.bullets.map((bullet) => (
-              <div key={bullet} className="max-w-full rounded-full border border-slate-200 bg-slate-50 px-3 py-2 font-['DM_Sans'] text-[12px] leading-tight text-slate-700">
+              <div key={bullet} className="max-w-full rounded-full border border-slate-200 bg-slate-50 px-3 py-2 font-['DM_Sans'] text-[11px] leading-tight text-slate-700">
                 {bullet}
               </div>
             ))}
@@ -183,23 +183,6 @@ function ProblemSlide({ item }: { item: ProblemItem }) {
 }
 
 export default function ProblemRedesign() {
-  const prefersReducedMotion = useReducedMotion();
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-
-    const intervalId = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % problems.length);
-    }, 3200);
-
-    return () => window.clearInterval(intervalId);
-  }, [prefersReducedMotion]);
-
-  const activeProblem = problems[activeIndex];
-
   return (
     <section id="problem" className="relative w-full overflow-hidden bg-[#F6F7FB] py-16 sm:py-20 lg:min-h-[100svh] lg:py-12">
       <div className="pointer-events-none absolute inset-0">
@@ -210,107 +193,82 @@ export default function ProblemRedesign() {
       </div>
 
       <div className="relative mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
-        <div className="mx-auto max-w-[1080px]">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" as const }}
-            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl"
-          >
-            <AlertTriangle className="h-4 w-4 text-[#E11D48]" />
-            <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-600">
-              Current Enterprise System landscape
-            </span>
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
-            className="mt-5 max-w-[640px] font-onest text-[36px] font-semibold leading-[0.98] tracking-[-1.8px] text-slate-950 sm:text-[48px] lg:text-[58px]"
-          >
-            Two problems keep enterprise software stuck.
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.14, ease: "easeOut" as const }}
-            className="mt-5 max-w-[640px] font-['DM_Sans'] text-[16px] leading-[1.7] text-slate-600 sm:text-[17px]"
-          >
-            Scope freezes too early, and the work is split across too many tools. That is what keeps the business stuck.
-          </motion.p>
-
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            <div className="rounded-[20px] border border-slate-200 bg-white p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur-xl">
-              <div className="flex items-center gap-2 text-slate-900">
-                <Clock3 className="h-4 w-4 text-[#6C63FF]" />
-                <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-600">
-                  Frozen design
-                </p>
-              </div>
-              <p className="mt-3 font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600">
-                Scope gets locked before the business stops moving.
-              </p>
-            </div>
-
-            <div className="rounded-[20px] border border-slate-200 bg-white p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur-xl">
-              <div className="flex items-center gap-2 text-slate-900">
-                <Network className="h-4 w-4 text-[#E94B6F]" />
-                <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-600">
-                  Disconnected systems
-                </p>
-              </div>
-              <p className="mt-3 font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600">
-                Work moves through apps that never line up on their own.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-12">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div className="max-w-[620px]">
-              <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500">
-                Moving cards
-              </p>
-              <h3 className="mt-2 font-onest text-[26px] font-semibold tracking-[-1px] text-slate-950 sm:text-[32px]">
-                One card at a time.
-              </h3>
-            </div>
-
-            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.05)]">
-              {problems.map((_, index) => (
-                <span
-                  key={index}
-                  className={
-                    "h-2 w-2 rounded-full transition-all duration-300 " +
-                    (index === activeIndex ? "bg-[#6C63FF] scale-110" : "bg-slate-300")
-                  }
-                />
-              ))}
-              <span className="ml-1 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
-                {String(activeIndex + 1).padStart(2, "0")} / {String(problems.length).padStart(2, "0")}
+        <div className="mx-auto lg:grid lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[0.84fr_1.16fr] lg:items-center lg:gap-10">
+          <div className="max-w-[560px]">
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" as const }}
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl"
+            >
+              <AlertTriangle className="h-4 w-4 text-[#E11D48]" />
+              <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-600">
+                Current Enterprise System landscape
               </span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
+              className="mt-5 max-w-[640px] font-onest text-[36px] font-semibold leading-[0.98] tracking-[-1.8px] text-slate-950 sm:text-[48px] lg:text-[56px]"
+            >
+              Two problems keep enterprise software stuck.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.14, ease: "easeOut" as const }}
+              className="mt-5 max-w-[620px] font-['DM_Sans'] text-[16px] leading-[1.7] text-slate-600 sm:text-[17px]"
+            >
+              Scope freezes too early, and work is split across too many tools. That is what keeps the business stuck.
+            </motion.p>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-[20px] border border-slate-200 bg-white p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur-xl">
+                <div className="flex items-center gap-2 text-slate-900">
+                  <Clock3 className="h-4 w-4 text-[#6C63FF]" />
+                  <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-600">
+                    Frozen design
+                  </p>
+                </div>
+                <p className="mt-3 font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600">
+                  Scope gets locked before the business stops moving.
+                </p>
+              </div>
+
+              <div className="rounded-[20px] border border-slate-200 bg-white p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur-xl">
+                <div className="flex items-center gap-2 text-slate-900">
+                  <Network className="h-4 w-4 text-[#E94B6F]" />
+                  <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-600">
+                    Disconnected systems
+                  </p>
+                </div>
+                <p className="mt-3 font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600">
+                  Work moves through apps that never line up on their own.
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="relative mt-5 min-h-[540px] overflow-hidden rounded-[36px] border border-slate-200 bg-white p-4 shadow-[0_24px_80px_rgba(15,23,42,0.08)] sm:p-5">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeProblem.label}
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 14, scale: 0.985 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: -12, scale: 0.985 }}
-                transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.45, ease: "easeOut" as const }}
-                className="h-full w-full"
-              >
-                <ProblemSlide item={activeProblem} />
-              </motion.div>
-            </AnimatePresence>
+          <div className="mt-10 lg:mt-0">
+            <div className="grid gap-4">
+              {problems.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" as const }}
+                >
+                  <ProblemSlide item={item} />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
