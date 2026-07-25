@@ -22,7 +22,7 @@ const problems: ProblemItem[] = [
     icon: Clock3,
     accent: "bg-gradient-to-br from-[#6C63FF] to-[#4F46E5]",
     scene: "freeze",
-    theme: "dark",
+    theme: "light",
   },
   {
     label: "Problem 2",
