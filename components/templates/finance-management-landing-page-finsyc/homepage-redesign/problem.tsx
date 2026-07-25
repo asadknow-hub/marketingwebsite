@@ -1,7 +1,7 @@
 "use client";
 
 import { type ElementType } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { AlertTriangle, Clock3, Network, ShieldAlert, Workflow } from "lucide-react";
 
 interface ProblemItem {
@@ -36,6 +36,8 @@ const problems: ProblemItem[] = [
     scene: "silos",
   },
 ];
+
+const carouselItems = [...problems, ...problems];
 
 function ProblemVisual({ scene }: { scene: ProblemItem["scene"] }) {
   if (scene === "freeze") {
@@ -153,58 +155,62 @@ function ProblemVisual({ scene }: { scene: ProblemItem["scene"] }) {
   );
 }
 
-function ProblemCard({ item, delay }: { item: ProblemItem; delay: number }) {
+function ProblemSlide({ item }: { item: ProblemItem }) {
   const Icon = item.icon;
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.72, delay, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-      className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-white p-5 sm:p-6 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur-2xl"
-    >
-      <div className={"absolute -right-20 -top-20 h-48 w-48 rounded-full blur-3xl opacity-35 " + item.accent} />
-      <div className="relative z-10">
-        <div className="flex items-center justify-between gap-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5">
-            <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.26em] text-slate-600">
-              {item.label}
-            </span>
-          </div>
-          <div className={"flex h-11 w-11 items-center justify-center rounded-2xl text-white shadow-[0_14px_30px_rgba(0,0,0,0.2)] " + item.accent}>
-            <Icon className="h-4.5 w-4.5" />
-          </div>
-        </div>
-
-        <h3 className="mt-5 max-w-[620px] font-onest text-[24px] font-semibold leading-tight tracking-[-0.8px] text-slate-950 sm:text-[28px] lg:text-[30px]">
-          {item.title}
-        </h3>
-        <p className="mt-4 max-w-[620px] font-['DM_Sans'] text-[15px] sm:text-[16px] leading-relaxed text-slate-600">
-          {item.description}
-        </p>
-
-        <div className="mt-5 grid gap-2 sm:grid-cols-3">
-          {item.bullets.map((bullet) => (
-            <div key={bullet} className="rounded-[18px] border border-slate-200 bg-slate-50 px-3 py-3 text-[13px] leading-relaxed text-slate-700 backdrop-blur-xl">
-              {bullet}
+    <article className="h-full rounded-[32px] border border-slate-200 bg-white p-4 shadow-[0_24px_80px_rgba(15,23,42,0.08)] sm:p-5 backdrop-blur-2xl">
+      <div className="grid gap-4 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+        <div className="min-w-0">
+          <div className="flex items-center justify-between gap-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5">
+              <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.26em] text-slate-600">
+                {item.label}
+              </span>
             </div>
-          ))}
+            <div className={"flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-white shadow-[0_14px_30px_rgba(0,0,0,0.18)] " + item.accent}>
+              <Icon className="h-4.5 w-4.5" />
+            </div>
+          </div>
+
+          <h3 className="mt-5 max-w-[420px] font-onest text-[24px] font-semibold leading-tight tracking-[-0.8px] text-slate-950 sm:text-[28px]">
+            {item.title}
+          </h3>
+          <p className="mt-4 max-w-[420px] font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600 sm:text-[15px]">
+            {item.description}
+          </p>
+
+          <div className="mt-5 flex flex-wrap gap-2.5">
+            {item.bullets.map((bullet) => (
+              <div key={bullet} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-2 font-['DM_Sans'] text-[12px] leading-relaxed text-slate-700">
+                {bullet}
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-5 overflow-hidden rounded-[24px] border border-white/10 bg-[#060711] p-4">
+        <div className="rounded-[28px] border border-slate-200 bg-[#F8FAFC] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
           <ProblemVisual scene={item.scene} />
         </div>
       </div>
-    </motion.article>
+    </article>
   );
 }
 
 export default function ProblemRedesign() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
-    <section id="problem" className="w-full bg-[#F6F7FB] py-20 sm:py-24 lg:py-32">
-      <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
-        <div className="max-w-[820px]">
+    <section id="problem" className="relative w-full overflow-hidden bg-[#F6F7FB] py-20 sm:py-24 lg:min-h-[100svh] lg:py-16">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.10),transparent_30%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.08),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.06),transparent_24%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
+        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#6C63FF]/10 blur-[160px]" />
+        <div className="absolute right-[-120px] bottom-[-120px] h-80 w-80 rounded-full bg-[#E94B6F]/8 blur-[160px]" />
+      </div>
+
+      <div className="relative mx-auto max-w-[1440px] px-4 sm:px-6 lg:grid lg:min-h-[calc(100svh-6rem)] lg:grid-cols-[0.84fr_1.16fr] lg:items-center lg:gap-10 lg:px-[96px]">
+        <div className="max-w-[560px]">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -214,7 +220,7 @@ export default function ProblemRedesign() {
           >
             <AlertTriangle className="h-4 w-4 text-[#E11D48]" />
             <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-600">
-              Why the old model breaks
+              Current Enterprise System landscape
             </span>
           </motion.div>
 
@@ -237,12 +243,71 @@ export default function ProblemRedesign() {
           >
             The business keeps changing, but the old enterprise model asks teams to freeze requirements and work around disconnected systems. Nexus AI First removes that gap.
           </motion.p>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-[20px] border border-slate-200 bg-white p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur-xl">
+              <div className="flex items-center gap-2 text-slate-900">
+                <Clock3 className="h-4 w-4 text-[#6C63FF]" />
+                <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-600">
+                  Frozen design
+                </p>
+              </div>
+              <p className="mt-3 font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600">
+                Requirements age between sign-off and delivery.
+              </p>
+            </div>
+
+            <div className="rounded-[20px] border border-slate-200 bg-white p-4 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur-xl">
+              <div className="flex items-center gap-2 text-slate-900">
+                <Network className="h-4 w-4 text-[#E94B6F]" />
+                <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-600">
+                  Disconnected systems
+                </p>
+              </div>
+              <p className="mt-3 font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600">
+                Work stays manual across apps, chats, and spreadsheets.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          {problems.map((item, index) => (
-            <ProblemCard key={item.label} item={item} delay={0.08 * index} />
-          ))}
+        <div className="relative mt-10 lg:mt-0">
+          <div className="mb-4 flex items-center justify-between gap-3">
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl">
+              <span className="h-2 w-2 rounded-full bg-[#6C63FF]" />
+              <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-600">
+                Flowing carousel
+              </span>
+            </div>
+
+            <div className="hidden items-center gap-2 sm:flex">
+              <span className="h-2 w-2 rounded-full bg-slate-300" />
+              <span className="h-1.5 w-16 rounded-full bg-slate-200" />
+              <span className="h-2 w-2 rounded-full bg-slate-300" />
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden rounded-[36px] border border-slate-200 bg-white p-4 shadow-[0_24px_80px_rgba(15,23,42,0.08)]">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-[linear-gradient(90deg,rgba(255,255,255,0.98),rgba(255,255,255,0))]" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-[linear-gradient(270deg,rgba(255,255,255,0.98),rgba(255,255,255,0))]" />
+
+            <motion.div
+              className="flex w-max gap-5 py-1"
+              animate={prefersReducedMotion ? undefined : { x: [0, "-50%"] }}
+              transition={prefersReducedMotion ? undefined : { duration: 24, ease: "linear", repeat: Infinity }}
+              style={{ willChange: "transform" }}
+            >
+              {carouselItems.map((item, index) => (
+                <div
+                  key={`${item.label}-${index}`}
+                  aria-hidden={index >= problems.length}
+                  className="w-[min(82vw,720px)] shrink-0"
+                >
+                  <ProblemSlide item={item} />
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
