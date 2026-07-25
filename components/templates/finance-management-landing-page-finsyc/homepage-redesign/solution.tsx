@@ -2,93 +2,102 @@
 
 import { type ElementType } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Brain, Layers, ShieldCheck, Workflow } from "lucide-react";
+import { ArrowUpRight, BadgeCheck, Brain, FileBarChart2, Sparkles, UsersRound } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 
-interface SolutionStep {
+interface SolutionCaseStep {
   label: string;
+  text: string;
+}
+
+interface SolutionCase {
+  label: string;
+  role: string;
   title: string;
   description: string;
   icon: ElementType;
   accent: string;
+  outcome: string;
+  steps: SolutionCaseStep[];
 }
 
-interface FlowStage {
-  label: string;
-  title: string;
-  description: string;
-  icon: ElementType;
-  accent: string;
-}
-
-const solutionSteps: SolutionStep[] = [
+const solutionPrinciples = [
   {
-    label: "Step 01",
-    title: "Capture the change early.",
+    title: "Ask once",
+    description: "Employees describe the outcome in plain language.",
+  },
+  {
+    title: "Use live context",
+    description: "Nexus reaches into connected systems and business rules.",
+  },
+  {
+    title: "Deliver the work",
+    description: "The request becomes a finished, review-ready deliverable.",
+  },
+];
+
+const solutionCases: SolutionCase[] = [
+  {
+    label: "Solution 1",
+    role: "Finance",
+    title: "Create last quarter's report.",
     description:
-      "Nexus listens for policy shifts, process gaps, and new exceptions before they turn into stale requirements.",
-    icon: Layers,
+      "Hard designs keep reporting stuck. Nexus uses live company context so a finance lead does not start from scratch.",
+    icon: FileBarChart2,
     accent: "bg-[#EEF2FF] text-[#4F46E5]",
+    outcome: "Report pack ready",
+    steps: [
+      {
+        label: "Ask",
+        text: "Create last quarter's report.",
+      },
+      {
+        label: "Context",
+        text: "Pull ERP, finance, and prior-report context from connected systems.",
+      },
+      {
+        label: "Output",
+        text: "Return a review-ready report pack instead of a blank prompt answer.",
+      },
+    ],
   },
   {
-    label: "Step 02",
-    title: "Route work through the control plane.",
+    label: "Solution 2",
+    role: "HR",
+    title: "Onboard 20 people in one go.",
     description:
-      "The orchestration layer sends each task to the right module, domain agent, or approver automatically.",
-    icon: Workflow,
-    accent: "bg-[#EEF7FF] text-[#0EA5E9]",
-  },
-  {
-    label: "Step 03",
-    title: "Keep release decisions human-led.",
-    description:
-      "People approve the outcome while the system keeps adapting in the background.",
-    icon: ShieldCheck,
+      "Fragmented systems reduce employee output. Nexus coordinates the moving pieces so HR can launch all the onboarding packs together.",
+    icon: UsersRound,
     accent: "bg-[#FDECF2] text-[#E94B6F]",
+    outcome: "20 packs ready",
+    steps: [
+      {
+        label: "Ask",
+        text: "Onboard 20 people in one go.",
+      },
+      {
+        label: "Context",
+        text: "Pull policies, tasks, access steps, and document templates at once.",
+      },
+      {
+        label: "Output",
+        text: "Generate all 20 onboarding packs in one pass.",
+      },
+    ],
   },
 ];
 
-const flowStages: FlowStage[] = [
-  {
-    label: "Input",
-    title: "Live business change enters Nexus.",
-    description: "New policies, exceptions, and operating shifts are captured as they happen.",
-    icon: Layers,
-    accent: "from-[#6C63FF] to-[#4F46E5]",
-  },
-  {
-    label: "Orchestration",
-    title: "The system re-maps work automatically.",
-    description: "Modules and agents receive the right tasks without manual handoffs.",
-    icon: Workflow,
-    accent: "from-[#0EA5E9] to-[#6C63FF]",
-  },
-  {
-    label: "Governance",
-    title: "People approve the final release.",
-    description: "Owners stay in the loop while Nexus keeps the software current.",
-    icon: ShieldCheck,
-    accent: "from-[#E94B6F] to-[#FF8DA5]",
-  },
-];
+function SolutionPrincipleCard({ title, description }: { title: string; description: string }) {
+  return (
+    <div className="rounded-[20px] border border-slate-200 bg-white p-4 shadow-[0_10px_24px_rgba(15,23,42,0.04)]">
+      <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">{title}</p>
+      <p className="mt-2 text-[13px] leading-relaxed text-slate-600">{description}</p>
+    </div>
+  );
+}
 
-const outcomes = [
-  {
-    title: "Always current",
-    description: "The platform keeps pace with the business instead of freezing it.",
-  },
-  {
-    title: "No redesign cycles",
-    description: "Continuous mapping replaces expensive change request loops.",
-  },
-  {
-    title: "One control plane",
-    description: "Finance, HR, and operations follow the same orchestration logic.",
-  },
-];
-
-function SolutionStepCard({ step, index }: { step: SolutionStep; index: number }) {
-  const Icon = step.icon;
+function SolutionCaseCard({ item, index }: { item: SolutionCase; index: number }) {
+  const Icon = item.icon;
 
   return (
     <motion.article
@@ -96,135 +105,59 @@ function SolutionStepCard({ step, index }: { step: SolutionStep; index: number }
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.55, delay: 0.06 * index, ease: "easeOut" as const }}
-      className="rounded-[28px] border border-slate-200 bg-white p-4 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl"
+      className="rounded-[30px] border border-slate-200 bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl"
     >
-      <div className="flex items-start gap-3">
-        <div className={"flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl " + step.accent}>
-          <Icon className="h-4.5 w-4.5" />
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
+            {item.label}
+          </p>
+
+          <div className="mt-2 flex items-center gap-3">
+            <div className={"flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl " + item.accent}>
+              <Icon className="h-4.5 w-4.5" />
+            </div>
+
+            <div className="min-w-0">
+              <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
+                {item.role}
+              </p>
+              <h3 className="mt-1 font-onest text-[22px] font-semibold leading-tight tracking-[-0.7px] text-slate-950 sm:text-[24px]">
+                {item.title}
+              </h3>
+            </div>
+          </div>
         </div>
 
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-2">
-            <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
-              {step.label}
-            </p>
-            <div className="h-px flex-1 bg-slate-200" />
-            <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-300">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-          </div>
-
-          <h3 className="mt-2 font-onest text-[18px] font-semibold leading-tight tracking-[-0.6px] text-slate-950 sm:text-[20px]">
-            {step.title}
-          </h3>
-
-          <p className="mt-2 font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600 sm:text-[15px]">
-            {step.description}
-          </p>
+        <div className="inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-slate-600">
+          <BadgeCheck className="h-4 w-4 text-[#6C63FF]" />
+          {item.outcome}
         </div>
       </div>
-    </motion.article>
-  );
-}
 
-function SolutionFlowVisual() {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 28, scale: 0.98 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-      className="relative overflow-hidden rounded-[36px] border border-slate-200 bg-white/92 shadow-[0_30px_120px_rgba(15,23,42,0.12)] backdrop-blur-2xl"
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.06),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(233,75,111,0.05),transparent_24%)]" />
+      <p className="mt-4 max-w-[760px] font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600">
+        {item.description}
+      </p>
 
-      <div className="relative z-10 p-5 sm:p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500">
-              Live solution loop
-            </p>
-            <p className="mt-2 max-w-[420px] font-onest text-[22px] font-semibold tracking-[-0.6px] text-slate-950 sm:text-[26px]">
-              Change enters, the system adapts, people approve.
-            </p>
-          </div>
-
-          <div className="rounded-full border border-emerald-500/20 bg-emerald-50 px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-emerald-700">
-            always adapting
-          </div>
-        </div>
-
-        <div className="mt-6 rounded-[30px] border border-slate-200 bg-slate-950 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.22)] sm:p-5">
-          <div className="flex items-center justify-between gap-3">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3 py-1.5">
-              <Brain className="h-4 w-4 text-[#C7C3FF]" />
-              <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/70">
-                Nexus control plane
+      <div className="mt-5 grid gap-3 sm:grid-cols-3">
+        {item.steps.map((step, stepIndex) => (
+          <div
+            key={step.label}
+            className="rounded-[20px] border border-slate-200 bg-slate-50 p-4 shadow-[0_10px_24px_rgba(15,23,42,0.03)]"
+          >
+            <div className="flex items-center justify-between gap-3">
+              <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
+                {step.label}
+              </p>
+              <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-300">
+                {String(stepIndex + 1).padStart(2, "0")}
               </span>
             </div>
-            <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/50">
-              24/7
-            </span>
+            <p className="mt-2 text-[13px] leading-relaxed text-slate-600">{step.text}</p>
           </div>
-
-          <div className="mt-5 space-y-3">
-            {flowStages.map((stage, index) => {
-              const Icon = stage.icon;
-
-              return (
-                <div key={stage.label} className="rounded-[24px] border border-white/10 bg-white/6 p-4">
-                  <div className="flex items-start gap-3">
-                    <div className={"flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-[0_16px_30px_rgba(0,0,0,0.18)] " + stage.accent}>
-                      <Icon className="h-4.5 w-4.5" />
-                    </div>
-
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between gap-3">
-                        <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/55">
-                          {stage.label}
-                        </span>
-                        <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-white/30">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                      </div>
-
-                      <h3 className="mt-2 font-onest text-[18px] font-semibold leading-tight tracking-[-0.6px] text-white">
-                        {stage.title}
-                      </h3>
-
-                      <p className="mt-2 text-[14px] leading-relaxed text-white/70">
-                        {stage.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  {index < flowStages.length - 1 ? (
-                    <div className="mt-4 flex items-center gap-3 text-white/30">
-                      <div className="h-px flex-1 bg-white/10" />
-                      <ArrowRight className="h-4 w-4" />
-                      <div className="h-px flex-1 bg-white/10" />
-                    </div>
-                  ) : null}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="mt-6 grid gap-3 sm:grid-cols-3">
-          {outcomes.map((item) => (
-            <div key={item.title} className="rounded-[20px] border border-slate-200 bg-white p-3">
-              <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500">
-                {item.title}
-              </p>
-              <p className="mt-2 text-[13px] leading-relaxed text-slate-600">
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
-    </motion.div>
+    </motion.article>
   );
 }
 
@@ -253,9 +186,9 @@ export default function SolutionRedesign({ className }: { className?: string }) 
               transition={{ duration: 0.6, ease: "easeOut" as const }}
               className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl"
             >
-              <ShieldCheck className="h-4 w-4 text-[#6C63FF]" />
+              <Sparkles className="h-4 w-4 text-[#6C63FF]" />
               <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-600">
-                The solution
+                Agentic for Employees
               </span>
             </motion.div>
 
@@ -266,7 +199,8 @@ export default function SolutionRedesign({ className }: { className?: string }) 
               transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
               className="mt-6 max-w-[720px] font-onest text-[38px] font-semibold leading-[0.96] tracking-[-2px] text-slate-950 sm:text-[54px] lg:text-[66px]"
             >
-              A living system that follows the business.
+              Ask once.
+              <span className="block text-[#6C63FF]">Nexus turns the request into finished work.</span>
             </motion.h2>
 
             <motion.p
@@ -276,14 +210,20 @@ export default function SolutionRedesign({ className }: { className?: string }) 
               transition={{ duration: 0.7, delay: 0.14, ease: "easeOut" as const }}
               className="mt-5 max-w-[640px] font-['DM_Sans'] text-[17px] leading-[1.78] text-slate-600 sm:text-[18px]"
             >
-              Nexus AI First keeps listening for change, translates that change into the right modules, and keeps
-              the approval loop human so the software evolves with the company instead of freezing it.
+              Generic AI can answer a question. Nexus uses live business context so finance and HR teams get real
+              deliverables, not just a blank prompt response.
             </motion.p>
 
-            <div className="mt-8 space-y-4">
-              {solutionSteps.map((step, index) => (
-                <SolutionStepCard key={step.title} step={step} index={index} />
-              ))}
+            <div className="mt-8">
+              <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500">
+                How it works
+              </p>
+
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                {solutionPrinciples.map((item) => (
+                  <SolutionPrincipleCard key={item.title} title={item.title} description={item.description} />
+                ))}
+              </div>
             </div>
 
             <motion.div
@@ -313,7 +253,50 @@ export default function SolutionRedesign({ className }: { className?: string }) 
             </motion.div>
           </div>
 
-          <SolutionFlowVisual />
+          <motion.div
+            initial={{ opacity: 0, y: 24, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.75, ease: [0.21, 0.47, 0.32, 0.98] as const }}
+            className="relative overflow-hidden rounded-[38px] border border-slate-200 bg-white/95 shadow-[0_30px_120px_rgba(15,23,42,0.12)] backdrop-blur-2xl"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.06),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(233,75,111,0.05),transparent_24%)]" />
+
+            <div className="relative z-10 border-b border-slate-200 px-5 py-4 sm:px-6">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500">
+                    2 core employee solutions
+                  </p>
+                  <p className="mt-2 font-onest text-[22px] font-semibold tracking-[-0.6px] text-slate-950 sm:text-[26px]">
+                    Two requests, two finished workflows.
+                  </p>
+                </div>
+
+                <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-600">
+                  <Brain className="h-4 w-4 text-[#6C63FF]" />
+                  Agentic
+                </div>
+              </div>
+            </div>
+
+            <div className="relative z-10 p-5 sm:p-6">
+              <div className="space-y-4">
+                {solutionCases.map((item, index) => (
+                  <SolutionCaseCard key={item.title} item={item} index={index} />
+                ))}
+              </div>
+
+              <div className="mt-5 rounded-[28px] border border-slate-200 bg-slate-50 p-4">
+                <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.26em] text-slate-500">
+                  Shared pattern
+                </p>
+                <p className="mt-2 text-[14px] leading-relaxed text-slate-600">
+                  Ask once. Nexus finds the live context, does the stitching, and hands back a finished deliverable.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
