@@ -18,7 +18,7 @@ const problems: ProblemItem[] = [
   {
     label: "Problem 1",
     title: "Hard designs keep enterprise software stuck.",
-    summary: "The brief locks before the business stops changing.",
+    summary: "The brief locks before the business stops changing. Requirements freeze, but reality keeps moving — leaving teams to patch around rigid systems for months.",
     icon: Clock3,
     accent: "bg-gradient-to-br from-[#6C63FF] to-[#4F46E5]",
     scene: "freeze",
@@ -27,7 +27,7 @@ const problems: ProblemItem[] = [
   {
     label: "Problem 2",
     title: "Fragmented systems reduce Employees output.",
-    summary: "Teams bounce between ERP, CRM, email, docs, sheets, and chat.",
+    summary: "Teams bounce between ERP, CRM, email, docs, sheets, and chat. Work lives in silos, context gets lost, and people spend more time stitching tools together than doing the job.",
     icon: Network,
     accent: "bg-gradient-to-br from-[#E94B6F] to-[#FF7FA2]",
     scene: "silos",
@@ -190,7 +190,7 @@ export default function ProblemRedesign() {
               transition={{ duration: 0.55, delay: 0.05, ease: 'easeOut' as const }}
               className='mt-5 max-w-[760px] font-onest text-[40px] font-semibold leading-[0.96] tracking-[-1.8px] text-white sm:text-[58px] lg:text-[70px]'
             >
-              Problem
+              Enterprise software freezes. Employees lose time.
             </motion.h2>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-start">
