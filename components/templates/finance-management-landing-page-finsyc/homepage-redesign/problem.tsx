@@ -61,9 +61,14 @@ function ProblemVisual({ scene }: { scene: ProblemItem["scene"] }) {
           </div>
 
           <div className="mt-4 grid grid-cols-3 gap-2">
-            {["brief", "wait", "rework"].map((label) => (
-              <div key={label} className="rounded-[14px] border border-slate-200 bg-slate-50 px-2 py-2 text-center font-poppins text-[9px] font-bold uppercase tracking-[0.14em] text-slate-600">
-                {label}
+            {[
+              { label: "Locked brief", desc: "Signed off, then outdated" },
+              { label: "Change requests", desc: "Months in queue" },
+              { label: "Workarounds", desc: "Sheets & scripts everywhere" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-[14px] border border-slate-200 bg-slate-50 px-3 py-2.5 text-center">
+                <p className="font-poppins text-[9px] font-bold uppercase tracking-[0.14em] text-slate-600">{item.label}</p>
+                <p className="mt-1 font-['DM_Sans'] text-[10px] text-slate-500">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -86,30 +91,31 @@ function ProblemVisual({ scene }: { scene: ProblemItem["scene"] }) {
 
       <div className="mt-4 rounded-[18px] border border-slate-200 bg-white p-3">
         <div className="grid grid-cols-2 gap-2">
-          {["ERP", "CRM", "Docs", "Chat"].map((label, index) => (
+          {[
+            { name: "ERP", pain: "Data locked in" },
+            { name: "CRM", pain: "Context missing" },
+            { name: "Docs", pain: "Versions drift" },
+            { name: "Chat", pain: "Decisions buried" },
+          ].map((item, index) => (
             <div
-              key={label}
+              key={item.name}
               className={
-                "rounded-[14px] border border-slate-200 px-2 py-2 " +
+                "rounded-[14px] border border-slate-200 px-3 py-2.5 " +
                 (index % 2 === 0 ? "bg-slate-50" : "bg-white")
               }
             >
-              <div className="flex items-center justify-between">
-                <span className="h-2 w-2 rounded-full bg-[#E94B6F]" />
-                <span className="h-1 w-7 rounded-full bg-slate-200" />
-              </div>
-              <div className="mt-3 h-2 rounded-full bg-slate-200" />
-              <div className="mt-2 h-2 w-10/12 rounded-full bg-slate-100" />
+              <p className="font-poppins text-[9px] font-bold uppercase tracking-[0.14em] text-slate-600">{item.name}</p>
+              <p className="mt-1 font-['DM_Sans'] text-[10px] text-slate-500">{item.pain}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-4 flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-[#E94B6F]" />
+        <div className="mt-4 flex items-center gap-2 text-slate-500">
+          <span className="font-poppins text-[9px] uppercase tracking-[0.14em]">No shared context</span>
           <div className="h-px flex-1 bg-slate-200" />
-          <span className="h-2 w-2 rounded-full bg-[#0EA5E9]" />
+          <span className="font-poppins text-[9px] uppercase tracking-[0.14em]">Manual copy-paste</span>
           <div className="h-px flex-1 bg-slate-200" />
-          <span className="h-2 w-2 rounded-full bg-[#6C63FF]" />
+          <span className="font-poppins text-[9px] uppercase tracking-[0.14em]">AI only answers</span>
         </div>
       </div>
     </div>
@@ -188,7 +194,7 @@ export default function ProblemRedesign() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.05, ease: 'easeOut' as const }}
-              className='mt-5 max-w-[760px] font-onest text-[40px] font-semibold leading-[0.96] tracking-[-1.8px] text-white sm:text-[58px] lg:text-[70px]'
+              className='mt-5 max-w-[760px] font-onest text-[40px] font-semibold leading-[0.96] tracking-[-1.8px] text-white sm:text-[58px] lg:text-[70px] text-center'
             >
               Enterprise software freezes. Employees lose time.
             </motion.h2>
