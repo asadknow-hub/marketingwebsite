@@ -4,7 +4,12 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowUpRight,
+  Boxes,
+  BrainCircuit,
+  FileBarChart2,
   Menu,
+  ShieldCheck,
+  UsersRound,
   X,
 } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
@@ -16,11 +21,11 @@ const navItems = [
   { label: "Pricing", href: "#pricing" },
 ];
 
-const terminalSteps = [
-  "> ingest live business changes",
-  "> map requirements to modules",
-  "> route work to the right agents",
-  "> ship with approval, not friction",
+const agentNodes = [
+  { key: "erp", label: "ERP", icon: Boxes, pos: "top-[4%] left-1/2 -translate-x-1/2", accent: "text-[#6C63FF]" },
+  { key: "finance", label: "Finance", icon: FileBarChart2, pos: "top-1/2 right-[2%] -translate-y-1/2", accent: "text-[#E94B6F]" },
+  { key: "hr", label: "HR", icon: UsersRound, pos: "bottom-[4%] left-1/2 -translate-x-1/2", accent: "text-[#0EA5E9]" },
+  { key: "approvals", label: "Approvals", icon: ShieldCheck, pos: "top-1/2 left-[2%] -translate-y-1/2", accent: "text-emerald-500" },
 ];
 
 export default function HeroRedesign() {
@@ -45,7 +50,7 @@ export default function HeroRedesign() {
           <div className="absolute bottom-[-140px] left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-[#0EA5E9]/8 blur-[160px]" />
         </div>
 
-        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col px-4 pb-14 pt-3 sm:px-6 lg:px-[96px] lg:pb-12">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col px-4 pb-8 pt-3 sm:px-6 lg:min-h-0 lg:px-[96px] lg:pb-10">
           <motion.nav
             initial={{ y: -18, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -97,7 +102,7 @@ export default function HeroRedesign() {
             </div>
           </motion.nav>
 
-          <div className="grid flex-1 items-center gap-12 pb-2 pt-12 lg:grid-cols-[1.02fr_0.98fr] lg:pt-16">
+          <div className="grid flex-1 items-center gap-10 pb-2 pt-8 lg:grid-cols-[1.02fr_0.98fr] lg:pt-10">
             <div className="max-w-[720px]">
               <motion.div
                 initial={{ y: 18, opacity: 0 }}
@@ -107,7 +112,7 @@ export default function HeroRedesign() {
               >
                 <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_0_8px_rgba(16,185,129,0.12)]" />
                 <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-600">
-                  Agentic ERP · live
+                  Agentic Business Suite
                 </span>
               </motion.div>
 
@@ -115,7 +120,7 @@ export default function HeroRedesign() {
                 initial={{ y: 28, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.75, delay: 0.1, ease: "easeOut" as const }}
-                className="mt-6 max-w-[760px] font-onest text-[42px] font-semibold leading-[0.95] tracking-[-2px] text-slate-950 sm:text-[60px] lg:text-[76px] lg:tracking-[-3.2px]"
+                className="mt-6 max-w-[760px] font-onest text-[42px] font-semibold leading-[0.95] tracking-[-2px] text-slate-950 sm:text-[56px] lg:text-[62px] lg:tracking-[-2.6px]"
               >
                 Enterprise software that
                 <span className="block text-[#6C63FF]">runs itself.</span>
@@ -179,53 +184,54 @@ export default function HeroRedesign() {
                 </div>
 
                 <div className="p-5 sm:p-6">
-                  <div className="rounded-[28px] border border-slate-700/50 bg-[#0B1020] p-5 shadow-[0_20px_60px_rgba(15,23,42,0.22)]">
-                    <div className="flex items-center justify-between gap-3">
-                      <div>
-                        <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.3em] text-slate-300">
-                          Agentic run loop
-                        </p>
-                        <p className="mt-2 font-onest text-[24px] font-semibold tracking-[-0.8px] text-slate-50">
-                          Keep the system current.
-                        </p>
-                      </div>
-                      <div className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-emerald-100">
-                        always on
-                      </div>
+                  <div className="rounded-[28px] border border-slate-700/50 bg-[#0B1020] p-6 shadow-[0_20px_60px_rgba(15,23,42,0.22)]">
+                    <div className="relative mx-auto flex h-[220px] w-full max-w-[260px] items-center justify-center sm:h-[240px]">
+                      <svg viewBox="0 0 200 200" className="absolute inset-0 h-full w-full">
+                        <line x1="100" y1="100" x2="100" y2="24" stroke="#6C63FF" strokeOpacity="0.35" strokeWidth="1.5" strokeDasharray="4 5" />
+                        <line x1="100" y1="100" x2="176" y2="100" stroke="#E94B6F" strokeOpacity="0.35" strokeWidth="1.5" strokeDasharray="4 5" />
+                        <line x1="100" y1="100" x2="100" y2="176" stroke="#0EA5E9" strokeOpacity="0.35" strokeWidth="1.5" strokeDasharray="4 5" />
+                        <line x1="100" y1="100" x2="24" y2="100" stroke="#34D399" strokeOpacity="0.35" strokeWidth="1.5" strokeDasharray="4 5" />
+                      </svg>
+
+                      {agentNodes.map((node, index) => {
+                        const NodeIcon = node.icon;
+                        return (
+                          <motion.div
+                            key={node.key}
+                            animate={{ y: [0, -4, 0] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" as const, delay: index * 0.25 }}
+                            className={"absolute flex flex-col items-center gap-1 " + node.pos}
+                          >
+                            <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/12 bg-white/8 backdrop-blur-sm">
+                              <NodeIcon className={"h-4 w-4 " + node.accent} />
+                            </div>
+                            <span className="font-poppins text-[8px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                              {node.label}
+                            </span>
+                          </motion.div>
+                        );
+                      })}
+
+                      <motion.div
+                        animate={{ scale: [1, 1.06, 1] }}
+                        transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" as const }}
+                        className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] shadow-[0_0_0_10px_rgba(108,99,255,0.12)]"
+                      >
+                        <BrainCircuit className="h-7 w-7 text-white" />
+                      </motion.div>
                     </div>
 
-                    <div className="mt-5 space-y-3 rounded-[24px] border border-slate-700/60 bg-white/5 p-4">
-                      {terminalSteps.map((step, index) => (
-                        <div key={step} className="flex items-center gap-3 text-[13px] font-medium text-slate-100 sm:text-[14px]">
-                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/12 font-poppins text-[10px] font-bold text-slate-100">
-                            {String(index + 1).padStart(2, "0")}
-                          </span>
-                          <span className="font-mono">{step}</span>
-                        </div>
-                      ))}
+                    <div className="mt-5 flex items-center justify-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                      <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-300">
+                        Sensing · deciding · acting, always on
+                      </p>
                     </div>
 
-                    <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                      <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-4">
-                        <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.26em] text-slate-500">
-                          old model
-                        </p>
-                        <p className="mt-2 text-[14px] leading-relaxed text-slate-600">
-                          5-6 months of consultant-led solution design, then expensive change requests when the business moves.
-                        </p>
-                      </div>
-
-                      <div className="rounded-[22px] border border-[#C7C3FF]/40 bg-[#EEF2FF] p-4">
-                        <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.26em] text-[#4F46E5]">
-                          Nexus model
-                        </p>
-                        <p className="mt-2 text-[14px] leading-relaxed text-slate-700">
-                          Continuous mapping, approval-led rollout, and agents that evolve with the company.
-                        </p>
-                      </div>
-                    </div>
+                    <p className="mt-3 text-center font-['DM_Sans'] text-[13px] leading-[1.6] text-slate-400">
+                      One agent brain routes every request across ERP, Finance, HR, and Approvals — no waiting on a ticket.
+                    </p>
                   </div>
-
                 </div>
               </motion.div>
             </div>
