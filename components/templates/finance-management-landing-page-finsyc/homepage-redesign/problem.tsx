@@ -183,6 +183,16 @@ export default function ProblemRedesign() {
             </span>
           </motion.div>
 
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.05, ease: ''easeOut'' as const }}
+              className=''mt-5 max-w-[760px] font-onest text-[40px] font-semibold leading-[0.96] tracking-[-1.8px] text-white sm:text-[58px] lg:text-[70px]''
+            >
+              Problem
+            </motion.h2>
+
           <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-start">
             {problems.map((item, index) => (
               <motion.div
