@@ -2,7 +2,7 @@
 
 import { type ElementType } from "react";
 import { motion } from "framer-motion";
-import { AlertTriangle, Clock3, Network, ShieldAlert, Workflow } from "lucide-react";
+import { AlertTriangle, Clock3, Lock, Network, ShieldAlert, Unplug, Workflow } from "lucide-react";
 
 interface ProblemItem {
   label: string;
@@ -38,7 +38,7 @@ const problems: ProblemItem[] = [
 function ProblemVisual({ scene }: { scene: ProblemItem["scene"] }) {
   if (scene === "freeze") {
     return (
-      <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-3">
+      <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-4">
         <div className="flex items-center justify-between gap-3">
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5">
             <ShieldAlert className="h-4 w-4 text-[#6C63FF]" />
@@ -49,36 +49,38 @@ function ProblemVisual({ scene }: { scene: ProblemItem["scene"] }) {
           <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
         </div>
 
-        <div className="mt-4 rounded-[18px] border border-slate-200 bg-white p-3">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#6C63FF]/12">
-              <Clock3 className="h-4 w-4 text-[#6C63FF]" />
-            </div>
-            <div className="flex-1 space-y-2">
-              <div className="h-2 rounded-full bg-slate-200" />
-              <div className="h-2 rounded-full bg-slate-100" />
-            </div>
+        <div className="mt-4 flex flex-col items-center">
+          <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#6C63FF]/16 to-[#4F46E5]/6">
+            <div className="absolute inset-0 rounded-full bg-[#6C63FF]/30 blur-xl" />
+            <Lock className="relative h-7 w-7 text-[#6C63FF]" />
           </div>
+          <p className="mt-3 font-onest text-[15px] font-semibold text-slate-950">Solution design, locked</p>
+          <div className="mt-3 flex w-full items-center gap-1.5">
+            <div className="h-1.5 flex-1 rounded-full bg-[#6C63FF]/70" />
+            <div className="h-1.5 flex-1 rounded-full bg-[#6C63FF]/40" />
+            <div className="h-1.5 flex-1 rounded-full bg-slate-200" />
+            <div className="h-1.5 flex-1 rounded-full bg-slate-200" />
+          </div>
+        </div>
 
-          <div className="mt-4 grid grid-cols-3 gap-2">
-            {[
-              { label: "Locked brief", desc: "Signed off, then outdated" },
-              { label: "Change requests", desc: "Months in queue" },
-              { label: "Workarounds", desc: "Sheets & scripts everywhere" },
-            ].map((item) => (
-              <div key={item.label} className="rounded-[14px] border border-slate-200 bg-slate-50 px-3 py-2.5 text-center">
-                <p className="font-poppins text-[9px] font-bold uppercase tracking-[0.14em] text-slate-600">{item.label}</p>
-                <p className="mt-1 font-['DM_Sans'] text-[10px] text-slate-500">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+        <div className="mt-4 grid grid-cols-3 gap-2">
+          {[
+            { label: "Locked brief", desc: "Signed off, then outdated" },
+            { label: "Change requests", desc: "Months in queue" },
+            { label: "Workarounds", desc: "Sheets & scripts everywhere" },
+          ].map((item) => (
+            <div key={item.label} className="rounded-[14px] border border-slate-200 bg-white px-3 py-2.5 text-center">
+              <p className="font-poppins text-[9px] font-bold uppercase tracking-[0.14em] text-slate-600">{item.label}</p>
+              <p className="mt-1 font-['DM_Sans'] text-[10px] text-slate-500">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     );
   }
 
   return (
-    <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-3">
+    <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-4">
       <div className="flex items-center justify-between gap-3">
         <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5">
           <Workflow className="h-4 w-4 text-[#E94B6F]" />
@@ -89,34 +91,40 @@ function ProblemVisual({ scene }: { scene: ProblemItem["scene"] }) {
         <span className="h-2.5 w-2.5 rounded-full bg-[#E94B6F]" />
       </div>
 
-      <div className="mt-4 rounded-[18px] border border-slate-200 bg-white p-3">
-        <div className="grid grid-cols-2 gap-2">
-          {[
-            { name: "ERP", pain: "Data locked in" },
-            { name: "CRM", pain: "Context missing" },
-            { name: "Docs", pain: "Versions drift" },
-            { name: "Chat", pain: "Decisions buried" },
-          ].map((item, index) => (
-            <div
-              key={item.name}
-              className={
-                "rounded-[14px] border border-slate-200 px-3 py-2.5 " +
-                (index % 2 === 0 ? "bg-slate-50" : "bg-white")
-              }
-            >
-              <p className="font-poppins text-[9px] font-bold uppercase tracking-[0.14em] text-slate-600">{item.name}</p>
-              <p className="mt-1 font-['DM_Sans'] text-[10px] text-slate-500">{item.pain}</p>
-            </div>
-          ))}
+      <div className="mt-4 flex flex-col items-center">
+        <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#E94B6F]/16 to-[#FF7FA2]/6">
+          <div className="absolute inset-0 rounded-full bg-[#E94B6F]/30 blur-xl" />
+          <Unplug className="relative h-7 w-7 text-[#E94B6F]" />
         </div>
+        <p className="mt-3 font-onest text-[15px] font-semibold text-slate-950">Six apps, zero context</p>
+      </div>
 
-        <div className="mt-4 flex items-center gap-2 text-slate-500">
-          <span className="font-poppins text-[9px] uppercase tracking-[0.14em]">No shared context</span>
-          <div className="h-px flex-1 bg-slate-200" />
-          <span className="font-poppins text-[9px] uppercase tracking-[0.14em]">Manual copy-paste</span>
-          <div className="h-px flex-1 bg-slate-200" />
-          <span className="font-poppins text-[9px] uppercase tracking-[0.14em]">AI only answers</span>
-        </div>
+      <div className="mt-4 grid grid-cols-2 gap-2">
+        {[
+          { name: "ERP", pain: "Data locked in" },
+          { name: "CRM", pain: "Context missing" },
+          { name: "Docs", pain: "Versions drift" },
+          { name: "Chat", pain: "Decisions buried" },
+        ].map((item, index) => (
+          <div
+            key={item.name}
+            className={
+              "rounded-[14px] border border-slate-200 px-3 py-2.5 text-center " +
+              (index % 2 === 0 ? "bg-white" : "bg-slate-50")
+            }
+          >
+            <p className="font-poppins text-[9px] font-bold uppercase tracking-[0.14em] text-slate-600">{item.name}</p>
+            <p className="mt-1 font-['DM_Sans'] text-[10px] text-slate-500">{item.pain}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-center">
+        <span className="font-poppins text-[9px] uppercase tracking-[0.14em] text-slate-500">No shared context</span>
+        <span className="h-1 w-1 rounded-full bg-slate-300" />
+        <span className="font-poppins text-[9px] uppercase tracking-[0.14em] text-slate-500">Manual copy-paste</span>
+        <span className="h-1 w-1 rounded-full bg-slate-300" />
+        <span className="font-poppins text-[9px] uppercase tracking-[0.14em] text-slate-500">AI only answers</span>
       </div>
     </div>
   );
@@ -129,35 +137,34 @@ function ProblemPanel({ item }: { item: ProblemItem }) {
   return (
     <article
       className={
-        "h-full rounded-[34px] p-5 sm:p-6 " +
+        "flex h-full flex-col items-center rounded-[34px] p-5 text-center sm:p-6 " +
         (isDark
           ? "border border-white/10 bg-white/8 shadow-[0_24px_80px_rgba(0,0,0,0.20)] backdrop-blur-xl"
           : "border border-slate-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.12)]")
       }
     >
-      <div className="flex items-center justify-between gap-3">
-        <div
-          className={
-            "inline-flex items-center gap-2 rounded-full px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] " +
-            (isDark ? "border border-white/10 bg-white/8 text-white/72" : "border border-slate-200 bg-slate-50 text-slate-700")
-          }
-        >
-          <span>{item.label}</span>
-        </div>
-        <div className={"flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-white shadow-[0_14px_30px_rgba(0,0,0,0.18)] " + item.accent}>
-          <Icon className="h-4 w-4" />
-        </div>
+      <div className={"flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-white shadow-[0_14px_30px_rgba(0,0,0,0.18)] " + item.accent}>
+        <Icon className="h-5 w-5" />
       </div>
 
-      <h3 className={"mt-4 max-w-[480px] font-onest text-[24px] font-semibold leading-[1.04] tracking-[-0.9px] sm:text-[28px] " + (isDark ? "text-white" : "text-slate-950")}>
+      <div
+        className={
+          "mt-4 inline-flex items-center gap-2 rounded-full px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] " +
+          (isDark ? "border border-white/10 bg-white/8 text-white/72" : "border border-slate-200 bg-slate-50 text-slate-700")
+        }
+      >
+        <span>{item.label}</span>
+      </div>
+
+      <h3 className={"mt-4 max-w-[440px] font-onest text-[24px] font-semibold leading-[1.04] tracking-[-0.9px] sm:text-[28px] " + (isDark ? "text-white" : "text-slate-950")}>
         {item.title}
       </h3>
 
-      <p className={"mt-3 max-w-[480px] font-['DM_Sans'] text-[14px] leading-[1.7] " + (isDark ? "text-white/72" : "text-slate-600")}>
+      <p className={"mt-3 max-w-[420px] font-['DM_Sans'] text-[14px] leading-[1.7] " + (isDark ? "text-white/72" : "text-slate-600")}>
         {item.summary}
       </p>
 
-      <div className="mt-5">
+      <div className="mt-5 w-full">
         <ProblemVisual scene={item.scene} />
       </div>
     </article>
@@ -176,28 +183,30 @@ export default function ProblemRedesign() {
 
       <div className="relative mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
         <div className="mx-auto max-w-[1240px]">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" as const }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-4 py-2 shadow-[0_10px_24px_rgba(0,0,0,0.12)] backdrop-blur-xl"
-          >
-            <AlertTriangle className="h-4 w-4 text-[#FF8DA5]" />
-            <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-white/75">
-              Current Enterprise System landscape
-            </span>
-          </motion.div>
+          <div className="mx-auto flex max-w-[820px] flex-col items-center text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" as const }}
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-4 py-2 shadow-[0_10px_24px_rgba(0,0,0,0.12)] backdrop-blur-xl"
+            >
+              <AlertTriangle className="h-4 w-4 text-[#FF8DA5]" />
+              <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-white/75">
+                Current Enterprise System landscape
+              </span>
+            </motion.div>
 
             <motion.h2
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: 0.05, ease: 'easeOut' as const }}
-              className='mt-5 max-w-[760px] font-onest text-[40px] font-semibold leading-[0.96] tracking-[-1.8px] text-white sm:text-[58px] lg:text-[70px] text-center'
+              transition={{ duration: 0.55, delay: 0.05, ease: "easeOut" as const }}
+              className="mt-5 font-onest text-[40px] font-semibold leading-[0.96] tracking-[-1.8px] text-white sm:text-[58px] lg:text-[70px]"
             >
               Enterprise software freezes. Employees lose time.
             </motion.h2>
+          </div>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-start">
             {problems.map((item, index) => (
