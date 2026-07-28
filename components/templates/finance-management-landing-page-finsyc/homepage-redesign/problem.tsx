@@ -38,24 +38,24 @@ const problems: ProblemItem[] = [
 function ProblemVisual({ scene }: { scene: ProblemItem["scene"] }) {
   if (scene === "freeze") {
     return (
-      <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-4">
+      <div className="rounded-[20px] border border-slate-200 bg-slate-50 p-3">
         <div className="flex items-center justify-between gap-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5">
-            <ShieldAlert className="h-4 w-4 text-[#6C63FF]" />
-            <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-600">
+          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-2.5 py-1">
+            <ShieldAlert className="h-3.5 w-3.5 text-[#6C63FF]" />
+            <span className="font-poppins text-[9px] font-bold uppercase tracking-[0.2em] text-slate-600">
               frozen design
             </span>
           </div>
-          <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+          <span className="h-2 w-2 rounded-full bg-amber-400" />
         </div>
 
-        <div className="mt-4 flex flex-col items-center">
-          <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#6C63FF]/16 to-[#4F46E5]/6">
-            <div className="absolute inset-0 rounded-full bg-[#6C63FF]/30 blur-xl" />
-            <Lock className="relative h-7 w-7 text-[#6C63FF]" />
+        <div className="mt-3 flex flex-col items-center">
+          <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#6C63FF]/16 to-[#4F46E5]/6">
+            <div className="absolute inset-0 rounded-full bg-[#6C63FF]/30 blur-lg" />
+            <Lock className="relative h-5 w-5 text-[#6C63FF]" />
           </div>
-          <p className="mt-3 font-onest text-[15px] font-semibold text-slate-950">Solution design, locked</p>
-          <div className="mt-3 flex w-full items-center gap-1.5">
+          <p className="mt-2 font-onest text-[13px] font-semibold text-slate-950">Solution design, locked</p>
+          <div className="mt-2 flex w-full items-center gap-1.5">
             <div className="h-1.5 flex-1 rounded-full bg-[#6C63FF]/70" />
             <div className="h-1.5 flex-1 rounded-full bg-[#6C63FF]/40" />
             <div className="h-1.5 flex-1 rounded-full bg-slate-200" />
@@ -63,15 +63,15 @@ function ProblemVisual({ scene }: { scene: ProblemItem["scene"] }) {
           </div>
         </div>
 
-        <div className="mt-4 grid grid-cols-3 gap-2">
+        <div className="mt-3 grid grid-cols-3 gap-1.5">
           {[
             { label: "Locked brief", desc: "Signed off, then outdated" },
             { label: "Change requests", desc: "Months in queue" },
             { label: "Workarounds", desc: "Sheets & scripts everywhere" },
           ].map((item) => (
-            <div key={item.label} className="rounded-[14px] border border-slate-200 bg-white px-3 py-2.5 text-center">
-              <p className="font-poppins text-[9px] font-bold uppercase tracking-[0.14em] text-slate-600">{item.label}</p>
-              <p className="mt-1 font-['DM_Sans'] text-[10px] text-slate-500">{item.desc}</p>
+            <div key={item.label} className="rounded-[12px] border border-slate-200 bg-white px-2 py-2 text-center">
+              <p className="font-poppins text-[8px] font-bold uppercase tracking-[0.12em] text-slate-600">{item.label}</p>
+              <p className="mt-1 font-['DM_Sans'] text-[9px] leading-[1.3] text-slate-500">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -80,26 +80,26 @@ function ProblemVisual({ scene }: { scene: ProblemItem["scene"] }) {
   }
 
   return (
-    <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-4">
+    <div className="rounded-[20px] border border-slate-200 bg-slate-50 p-3">
       <div className="flex items-center justify-between gap-3">
-        <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5">
-          <Workflow className="h-4 w-4 text-[#E94B6F]" />
-          <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-slate-700">
+        <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-2.5 py-1">
+          <Workflow className="h-3.5 w-3.5 text-[#E94B6F]" />
+          <span className="font-poppins text-[9px] font-bold uppercase tracking-[0.2em] text-slate-700">
             fragmented work
           </span>
         </div>
-        <span className="h-2.5 w-2.5 rounded-full bg-[#E94B6F]" />
+        <span className="h-2 w-2 rounded-full bg-[#E94B6F]" />
       </div>
 
-      <div className="mt-4 flex flex-col items-center">
-        <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#E94B6F]/16 to-[#FF7FA2]/6">
-          <div className="absolute inset-0 rounded-full bg-[#E94B6F]/30 blur-xl" />
-          <Unplug className="relative h-7 w-7 text-[#E94B6F]" />
+      <div className="mt-3 flex flex-col items-center">
+        <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#E94B6F]/16 to-[#FF7FA2]/6">
+          <div className="absolute inset-0 rounded-full bg-[#E94B6F]/30 blur-lg" />
+          <Unplug className="relative h-5 w-5 text-[#E94B6F]" />
         </div>
-        <p className="mt-3 font-onest text-[15px] font-semibold text-slate-950">Six apps, zero context</p>
+        <p className="mt-2 font-onest text-[13px] font-semibold text-slate-950">Six apps, zero context</p>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-2">
+      <div className="mt-3 grid grid-cols-2 gap-1.5">
         {[
           { name: "ERP", pain: "Data locked in" },
           { name: "CRM", pain: "Context missing" },
@@ -109,22 +109,22 @@ function ProblemVisual({ scene }: { scene: ProblemItem["scene"] }) {
           <div
             key={item.name}
             className={
-              "rounded-[14px] border border-slate-200 px-3 py-2.5 text-center " +
+              "rounded-[12px] border border-slate-200 px-2 py-2 text-center " +
               (index % 2 === 0 ? "bg-white" : "bg-slate-50")
             }
           >
-            <p className="font-poppins text-[9px] font-bold uppercase tracking-[0.14em] text-slate-600">{item.name}</p>
-            <p className="mt-1 font-['DM_Sans'] text-[10px] text-slate-500">{item.pain}</p>
+            <p className="font-poppins text-[8px] font-bold uppercase tracking-[0.12em] text-slate-600">{item.name}</p>
+            <p className="mt-1 font-['DM_Sans'] text-[9px] leading-[1.3] text-slate-500">{item.pain}</p>
           </div>
         ))}
       </div>
 
-      <div className="mt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-center">
-        <span className="font-poppins text-[9px] uppercase tracking-[0.14em] text-slate-500">No shared context</span>
+      <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 text-center">
+        <span className="font-poppins text-[8px] uppercase tracking-[0.12em] text-slate-500">No shared context</span>
         <span className="h-1 w-1 rounded-full bg-slate-300" />
-        <span className="font-poppins text-[9px] uppercase tracking-[0.14em] text-slate-500">Manual copy-paste</span>
+        <span className="font-poppins text-[8px] uppercase tracking-[0.12em] text-slate-500">Manual copy-paste</span>
         <span className="h-1 w-1 rounded-full bg-slate-300" />
-        <span className="font-poppins text-[9px] uppercase tracking-[0.14em] text-slate-500">AI only answers</span>
+        <span className="font-poppins text-[8px] uppercase tracking-[0.12em] text-slate-500">AI only answers</span>
       </div>
     </div>
   );
@@ -137,34 +137,34 @@ function ProblemPanel({ item }: { item: ProblemItem }) {
   return (
     <article
       className={
-        "flex h-full flex-col items-center rounded-[34px] p-5 text-center sm:p-6 " +
+        "flex h-full flex-col items-center rounded-[30px] p-4 text-center sm:p-5 " +
         (isDark
           ? "border border-white/10 bg-white/8 shadow-[0_24px_80px_rgba(0,0,0,0.20)] backdrop-blur-xl"
           : "border border-slate-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.12)]")
       }
     >
-      <div className={"flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-white shadow-[0_14px_30px_rgba(0,0,0,0.18)] " + item.accent}>
-        <Icon className="h-5 w-5" />
+      <div className={"flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl text-white shadow-[0_14px_30px_rgba(0,0,0,0.18)] " + item.accent}>
+        <Icon className="h-4 w-4" />
       </div>
 
       <div
         className={
-          "mt-4 inline-flex items-center gap-2 rounded-full px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] " +
+          "mt-3 inline-flex items-center gap-2 rounded-full px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] " +
           (isDark ? "border border-white/10 bg-white/8 text-white/72" : "border border-slate-200 bg-slate-50 text-slate-700")
         }
       >
         <span>{item.label}</span>
       </div>
 
-      <h3 className={"mt-4 max-w-[440px] font-onest text-[24px] font-semibold leading-[1.04] tracking-[-0.9px] sm:text-[28px] " + (isDark ? "text-white" : "text-slate-950")}>
+      <h3 className={"mt-3 max-w-[440px] font-onest text-[21px] font-semibold leading-[1.08] tracking-[-0.7px] sm:text-[24px] " + (isDark ? "text-white" : "text-slate-950")}>
         {item.title}
       </h3>
 
-      <p className={"mt-3 max-w-[420px] font-['DM_Sans'] text-[14px] leading-[1.7] " + (isDark ? "text-white/72" : "text-slate-600")}>
+      <p className={"mt-2 max-w-[420px] font-['DM_Sans'] text-[13px] leading-[1.6] " + (isDark ? "text-white/72" : "text-slate-600")}>
         {item.summary}
       </p>
 
-      <div className="mt-5 w-full">
+      <div className="mt-4 w-full">
         <ProblemVisual scene={item.scene} />
       </div>
     </article>
@@ -173,7 +173,7 @@ function ProblemPanel({ item }: { item: ProblemItem }) {
 
 export default function ProblemRedesign() {
   return (
-    <section id="problem" className="relative w-full overflow-hidden bg-[#18172F] py-16 sm:py-20 lg:min-h-[100svh] lg:py-12">
+    <section id="problem" className="relative w-full overflow-hidden bg-[#18172F] py-14 sm:py-16 lg:py-16">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.24),transparent_28%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.16),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.10),transparent_22%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:32px_32px] opacity-25" />
@@ -202,13 +202,13 @@ export default function ProblemRedesign() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.05, ease: "easeOut" as const }}
-              className="mt-5 font-onest text-[40px] font-semibold leading-[0.96] tracking-[-1.8px] text-white sm:text-[58px] lg:text-[70px]"
+              className="mt-4 font-onest text-[36px] font-semibold leading-[0.98] tracking-[-1.4px] text-white sm:text-[48px] lg:text-[54px]"
             >
               Enterprise software freezes. Employees lose time.
             </motion.h2>
           </div>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-start">
+          <div className="mt-8 grid gap-5 lg:grid-cols-2 lg:items-start">
             {problems.map((item, index) => (
               <motion.div
                 key={item.label}
