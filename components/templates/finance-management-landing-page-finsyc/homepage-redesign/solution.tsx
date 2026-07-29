@@ -91,7 +91,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
   return (
     <section
       id="solution"
-      className={"relative flex w-full items-center overflow-hidden bg-white py-14 sm:py-16 lg:py-16 " + (className || "")}
+      className={"relative flex w-full items-center overflow-hidden bg-white py-14 sm:py-16 lg:min-h-screen lg:py-16 " + (className || "")}
     >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.08),transparent_28%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.06),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.05),transparent_24%)]" />
