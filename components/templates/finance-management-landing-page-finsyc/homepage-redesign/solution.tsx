@@ -2,8 +2,7 @@
 
 import { type ElementType } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Clock4, Settings2, Sparkles, UserX, Zap } from "lucide-react";
-import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
+import { Clock4, Settings2, Sparkles, UserX, Zap } from "lucide-react";
 
 interface SolutionPhase {
   step: string;
@@ -86,8 +85,6 @@ function PhaseCard({ item, index }: { item: SolutionPhase; index: number }) {
 }
 
 export default function SolutionRedesign({ className }: { className?: string }) {
-  const { openGetInTouch } = useGetInTouchModal();
-
   return (
     <section
       id="solution"
@@ -161,32 +158,6 @@ export default function SolutionRedesign({ className }: { className?: string }) 
               </div>
             );
           })}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.24, ease: "easeOut" as const }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-3"
-        >
-          <button
-            type="button"
-            onClick={openGetInTouch}
-            className="inline-flex items-center gap-3 rounded-full bg-[#6C63FF] px-5 py-3 font-poppins text-[14px] font-bold text-white shadow-[0_18px_40px_rgba(108,99,255,0.25)] transition-colors hover:bg-[#5B55F6]"
-          >
-            Talk to Nexus Agent
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#15122E]">
-              <ArrowUpRight className="h-4 w-4" />
-            </span>
-          </button>
-
-          <a
-            href="#modules"
-            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 font-poppins text-[14px] font-bold text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)] transition-colors hover:bg-slate-50 hover:text-slate-950"
-          >
-            See the modules
-          </a>
         </motion.div>
       </div>
     </section>
