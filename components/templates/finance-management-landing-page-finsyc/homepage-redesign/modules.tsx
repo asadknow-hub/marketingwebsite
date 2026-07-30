@@ -38,6 +38,13 @@ const totalModules = featureModules.length;
 const liveCount = spotlightModules.length;
 const remainingModules = totalModules - liveCount;
 const progressPercent = Math.round((liveCount / totalModules) * 100);
+const roadmapPillStyles = [
+  "border-[#6C63FF]/20 bg-[#6C63FF]/10 text-[#4F46E5]",
+  "border-[#E94B6F]/20 bg-[#E94B6F]/10 text-[#C02652]",
+  "border-[#0EA5E9]/20 bg-[#0EA5E9]/10 text-[#0284C7]",
+  "border-[#10B981]/20 bg-[#10B981]/10 text-[#059669]",
+  "border-[#F59E0B]/20 bg-[#F59E0B]/10 text-[#D97706]",
+];
 
 function LiveModuleCard({ module, index }: { module: SpotlightModule; index: number }) {
   const Icon = module.icon;
@@ -219,10 +226,10 @@ export default function ModulesRedesign({ className }: { className?: string }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" as const }}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
+              className="inline-flex items-center gap-2 rounded-full border border-[#6C63FF]/15 bg-white px-4 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
             >
               <Sparkles className="h-4 w-4 text-[#6C63FF]" />
-              <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-600">
+              <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.24em] text-[#4F46E5]">
                 What comes next
               </span>
             </motion.div>
@@ -255,18 +262,23 @@ export default function ModulesRedesign({ className }: { className?: string }) {
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
               className="mt-10 flex flex-wrap items-center justify-center gap-3"
             >
-              {nextModuleNames.map((name, i) => (
-                <motion.div
-                  key={name}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: 0.24 + i * 0.04, ease: "easeOut" as const }}
-                  className="rounded-full border border-slate-200 bg-white px-5 py-3 font-poppins text-[11px] font-bold uppercase tracking-[0.18em] text-slate-700 shadow-[0_8px_24px_rgba(15,23,42,0.05)]"
-                >
-                  {name}
-                </motion.div>
-              ))}
+              {nextModuleNames.map((name, i) => {
+                const pillStyle = roadmapPillStyles[i % roadmapPillStyles.length];
+
+                return (
+                  <motion.div
+                    key={name}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: 0.24 + i * 0.04, ease: "easeOut" as const }}
+                    className={`inline-flex items-center gap-2 rounded-full border px-5 py-3 font-poppins text-[12px] font-bold uppercase tracking-[0.16em] shadow-[0_8px_24px_rgba(15,23,42,0.05)] transition-transform hover:-translate-y-0.5 sm:text-[13px] ${pillStyle}`}
+                  >
+                    <span className={`h-2 w-2 rounded-full ${pillStyle.includes("#6C63FF") ? "bg-[#6C63FF]" : pillStyle.includes("#E94B6F") ? "bg-[#E94B6F]" : pillStyle.includes("#0EA5E9") ? "bg-[#0EA5E9]" : pillStyle.includes("#10B981") ? "bg-[#10B981]" : "bg-[#F59E0B]"}`} />
+                    {name}
+                  </motion.div>
+                );
+              })}
             </motion.div>
 
             <motion.div
@@ -276,9 +288,9 @@ export default function ModulesRedesign({ className }: { className?: string }) {
               transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" as const }}
               className="mx-auto mt-10 flex max-w-[680px] flex-col items-center gap-3 rounded-[24px] border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.05)] sm:flex-row sm:justify-center"
             >
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#6C63FF]/8 px-3 py-1.5">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#6C63FF]/15 bg-gradient-to-r from-[#6C63FF]/10 to-[#E94B6F]/10 px-3.5 py-1.5">
                 <span className="h-2 w-2 rounded-full bg-[#6C63FF]" />
-                <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-[#6C63FF]">
+                <span className="font-poppins text-[11px] font-bold uppercase tracking-[0.22em] text-[#4F46E5]">
                   Wave 2 & 3
                 </span>
               </span>
