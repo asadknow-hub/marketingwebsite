@@ -5,7 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
-import { chapters, focusRing, type } from "./ui";
+import { focusRing, type } from "./ui";
 
 const sectionTones: Record<string, "dark" | "light"> = {
   top: "light",
@@ -136,48 +136,6 @@ export default function HomeNav() {
           </a>
 
           <div className="hidden items-center gap-1 xl:flex">
-            {chapters.map((chapter) => {
-              const isActive = activeId === chapter.id;
-
-              return (
-                <a
-                  key={chapter.id}
-                  href={"#" + chapter.id}
-                  aria-current={isActive ? "true" : undefined}
-                  className={
-                    "relative flex items-center gap-1.5 rounded-full px-3.5 py-2 transition-colors " +
-                    focusRing +
-                    " " +
-                    (isActive
-                      ? isDark
-                        ? "text-white"
-                        : "text-slate-950"
-                      : isDark
-                        ? "text-white/55 hover:text-white/85"
-                        : "text-slate-500 hover:text-slate-900")
-                  }
-                >
-                  {isActive && (
-                    <motion.span
-                      layoutId="home-nav-active"
-                      transition={{ type: "spring", stiffness: 320, damping: 30 }}
-                      className={
-                        "absolute inset-0 rounded-full " + (isDark ? "bg-white/[0.10]" : "bg-slate-900/[0.06]")
-                      }
-                    />
-                  )}
-                  <span className={"relative font-onest text-[10px] font-semibold tabular-nums " + (isDark ? "text-white/40" : "text-slate-400")}>
-                    {chapter.index}
-                  </span>
-                  <span className="relative font-poppins text-[12px] font-bold uppercase tracking-[0.16em]">
-                    {chapter.label}
-                  </span>
-                </a>
-              );
-            })}
-
-            <span className={"mx-1.5 h-5 w-px " + (isDark ? "bg-white/12" : "bg-slate-200")} />
-
             {routeLinks.map((link) => (
               <a
                 key={link.href}
@@ -259,28 +217,7 @@ export default function HomeNav() {
               </button>
             </div>
 
-            <div className="mt-10 flex flex-col gap-1">
-              {chapters.map((chapter, index) => (
-                <motion.a
-                  key={chapter.id}
-                  href={"#" + chapter.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * index, duration: 0.35 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={"flex items-baseline gap-4 rounded-2xl px-2 py-3 " + focusRing}
-                >
-                  <span className="font-onest text-[13px] font-semibold tabular-nums text-white/35">
-                    {chapter.index}
-                  </span>
-                  <span className="font-poppins text-[26px] font-bold tracking-[-0.8px] text-white">
-                    {chapter.label}
-                  </span>
-                </motion.a>
-              ))}
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-2 border-t border-white/10 pt-6">
+            <div className="mt-10 flex flex-wrap gap-2">
               {routeLinks.map((link) => (
                 <a
                   key={link.href}
