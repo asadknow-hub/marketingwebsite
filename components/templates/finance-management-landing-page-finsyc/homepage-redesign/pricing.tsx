@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Check, Sparkles } from "lucide-react";
 import { featureModules } from "@/lib/data/featureModules";
-import { ChapterMark, TopFade, type } from "./ui";
+import { ChapterMark, type } from "./ui";
 
 interface PricingPlan {
   name: string;
@@ -160,7 +160,6 @@ export default function PricingRedesign({ className }: { className?: string }) {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20" />
         <div className="absolute -left-24 top-12 h-72 w-72 rounded-full bg-[#6C63FF]/16 blur-[150px]" />
         <div className="absolute right-[-120px] bottom-[-120px] h-80 w-80 rounded-full bg-[#E94B6F]/12 blur-[160px]" />
-        <TopFade from="#F6F7FB" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">

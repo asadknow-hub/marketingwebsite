@@ -3,7 +3,7 @@
 import { type ElementType } from "react";
 import { motion } from "framer-motion";
 import { AlertTriangle, Clock3, Network } from "lucide-react";
-import { ChapterMark, TopFade, type } from "./ui";
+import { ChapterMark, type } from "./ui";
 
 interface ProblemItem {
   label: string;
@@ -76,7 +76,6 @@ export default function ProblemRedesign() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:32px_32px] opacity-25" />
         <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#6C63FF]/16 blur-[160px]" />
         <div className="absolute right-[-120px] bottom-[-120px] h-80 w-80 rounded-full bg-[#E94B6F]/12 blur-[160px]" />
-        <TopFade from="#0F1024" />
       </div>
 
       <div className="relative mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Sparkles, type LucideIcon } from "lucide-react";
 import { featureModules } from "@/lib/data/featureModules";
-import { ChapterMark, TopFade, type } from "./ui";
+import { ChapterMark, type } from "./ui";
 
 interface SpotlightModule {
   id: string;
@@ -120,7 +120,6 @@ export default function ModulesRedesign({ className }: { className?: string }) {
           <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#6C63FF]/16 blur-[160px]" />
           <div className="absolute right-[-100px] top-1/3 h-80 w-80 rounded-full bg-[#E94B6F]/10 blur-[160px]" />
           <div className="absolute bottom-[-100px] left-1/3 h-72 w-72 rounded-full bg-[#0EA5E9]/8 blur-[160px]" />
-          <TopFade from="#FFFFFF" />
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
@@ -222,7 +221,6 @@ export default function ModulesRedesign({ className }: { className?: string }) {
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(108,99,255,0.08),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(233,75,111,0.06),transparent_26%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
-          <TopFade from="#151428" />
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">

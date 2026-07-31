@@ -130,16 +130,6 @@ export function ChapterMark({
   );
 }
 
-export function TopFade({ from, height = 160 }: { from: string; height?: number }) {
-  return (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute inset-x-0 top-0"
-      style={{ height, background: `linear-gradient(180deg, ${from} 0%, ${from}00 100%)` }}
-    />
-  );
-}
-
 export function GridGlow({ tone = "dark" }: { tone?: "dark" | "light" }) {
   const isDark = tone === "dark";
 
