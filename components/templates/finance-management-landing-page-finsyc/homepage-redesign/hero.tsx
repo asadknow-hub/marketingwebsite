@@ -191,7 +191,7 @@ function AgentConsole() {
           })}
         </div>
 
-        <div className="relative px-5 pb-5 pt-4">
+        <div className="relative min-h-[420px] px-5 pb-5 pt-4">
           <div className="rounded-[20px] border border-white/10 bg-white/[0.04] px-4 py-3.5">
             <p className="font-poppins text-[9px] font-bold uppercase tracking-[0.24em] text-white/40">
               Employee request
