@@ -3,7 +3,7 @@
 import { type ElementType } from "react";
 import { motion } from "framer-motion";
 import { Clock4, Settings2, Sparkles, UserX, Zap } from "lucide-react";
-import { ChapterMark, type } from "./ui";
+import { ChapterMark, TopFade, type } from "./ui";
 
 interface SolutionPhase {
   step: string;
@@ -96,6 +96,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
         <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
         <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#6C63FF]/10 blur-[160px]" />
         <div className="absolute bottom-[-120px] right-[-100px] h-80 w-80 rounded-full bg-[#E94B6F]/8 blur-[160px]" />
+        <TopFade from="#18172F" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1100px] px-4 sm:px-6 lg:px-[64px]">

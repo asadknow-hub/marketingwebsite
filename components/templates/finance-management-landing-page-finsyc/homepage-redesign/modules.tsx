@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Sparkles, type LucideIcon } from "lucide-react";
 import { featureModules } from "@/lib/data/featureModules";
-import { ChapterMark, Seam, type } from "./ui";
+import { ChapterMark, TopFade, type } from "./ui";
 
 interface SpotlightModule {
   id: string;
@@ -39,13 +39,6 @@ const totalModules = featureModules.length;
 const liveCount = spotlightModules.length;
 const remainingModules = totalModules - liveCount;
 const progressPercent = Math.round((liveCount / totalModules) * 100);
-const roadmapPillStyles = [
-  "border-[#6C63FF]/20 bg-[#6C63FF]/10 text-[#4F46E5]",
-  "border-[#E94B6F]/20 bg-[#E94B6F]/10 text-[#C02652]",
-  "border-[#0EA5E9]/20 bg-[#0EA5E9]/10 text-[#0284C7]",
-  "border-[#10B981]/20 bg-[#10B981]/10 text-[#059669]",
-  "border-[#F59E0B]/20 bg-[#F59E0B]/10 text-[#D97706]",
-];
 
 function LiveModuleCard({ module, index }: { module: SpotlightModule; index: number }) {
   const Icon = module.icon;
@@ -127,6 +120,7 @@ export default function ModulesRedesign({ className }: { className?: string }) {
           <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#6C63FF]/16 blur-[160px]" />
           <div className="absolute right-[-100px] top-1/3 h-80 w-80 rounded-full bg-[#E94B6F]/10 blur-[160px]" />
           <div className="absolute bottom-[-100px] left-1/3 h-72 w-72 rounded-full bg-[#0EA5E9]/8 blur-[160px]" />
+          <TopFade from="#FFFFFF" />
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
@@ -221,8 +215,6 @@ export default function ModulesRedesign({ className }: { className?: string }) {
         </div>
       </section>
 
-      <Seam from="#151428" to="#F6F7FB" />
-
       <section
         id="roadmap"
         className="relative flex w-full items-center overflow-hidden bg-[#F6F7FB] py-14 sm:py-16 lg:min-h-screen lg:py-16"
@@ -230,6 +222,7 @@ export default function ModulesRedesign({ className }: { className?: string }) {
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(108,99,255,0.08),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(233,75,111,0.06),transparent_26%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
+          <TopFade from="#151428" />
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
@@ -285,23 +278,19 @@ export default function ModulesRedesign({ className }: { className?: string }) {
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
               className="mt-10 flex flex-wrap items-center justify-center gap-3"
             >
-              {nextModuleNames.map((name, i) => {
-                const pillStyle = roadmapPillStyles[i % roadmapPillStyles.length];
-
-                return (
-                  <motion.div
-                    key={name}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.35, delay: 0.24 + i * 0.04, ease: "easeOut" as const }}
-                    className={`inline-flex items-center gap-2 rounded-full border px-5 py-3 font-poppins text-[12px] font-bold uppercase tracking-[0.16em] shadow-[0_8px_24px_rgba(15,23,42,0.05)] transition-transform hover:-translate-y-0.5 sm:text-[13px] ${pillStyle}`}
-                  >
-                    <span className={`h-2 w-2 rounded-full ${pillStyle.includes("#6C63FF") ? "bg-[#6C63FF]" : pillStyle.includes("#E94B6F") ? "bg-[#E94B6F]" : pillStyle.includes("#0EA5E9") ? "bg-[#0EA5E9]" : pillStyle.includes("#10B981") ? "bg-[#10B981]" : "bg-[#F59E0B]"}`} />
-                    {name}
-                  </motion.div>
-                );
-              })}
+              {nextModuleNames.map((name, i) => (
+                <motion.div
+                  key={name}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: 0.24 + i * 0.04, ease: "easeOut" as const }}
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 font-poppins text-[12px] font-bold uppercase tracking-[0.16em] text-slate-600 shadow-[0_8px_24px_rgba(15,23,42,0.05)] transition-all hover:-translate-y-0.5 hover:border-[#6C63FF]/30 hover:text-slate-900 sm:text-[13px]"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#6C63FF]/60" />
+                  {name}
+                </motion.div>
+              ))}
             </motion.div>
 
             <motion.div

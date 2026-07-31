@@ -5,7 +5,7 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 import { Boxes, Building2, Layers, Workflow } from "lucide-react";
 import { featureModules } from "@/lib/data/featureModules";
 import { industries } from "@/lib/data/industries";
-import { type } from "./ui";
+import { TopFade, type } from "./ui";
 
 const totalModules = featureModules.length;
 const totalCapabilities = featureModules.reduce((sum, module) => sum + module.features.length, 0);
@@ -56,6 +56,7 @@ export default function ProofBand() {
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(108,99,255,0.20),transparent_45%),radial-gradient(circle_at_85%_50%,rgba(233,75,111,0.14),transparent_45%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:28px_28px] opacity-30" />
+        <TopFade from="#F6F7FB" height={70} />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 py-10 sm:px-6 sm:py-12 lg:px-[96px]">

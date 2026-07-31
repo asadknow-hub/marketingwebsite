@@ -130,11 +130,13 @@ export function ChapterMark({
   );
 }
 
-export function Seam({ from, to }: { from: string; to: string }) {
+export function TopFade({ from, height = 160 }: { from: string; height?: number }) {
   return (
-    <div aria-hidden className="relative h-16 w-full sm:h-20" style={{ backgroundColor: to }}>
-      <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, ${from} 0%, ${to} 100%)` }} />
-    </div>
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-x-0 top-0"
+      style={{ height, background: `linear-gradient(180deg, ${from} 0%, ${from}00 100%)` }}
+    />
   );
 }
 

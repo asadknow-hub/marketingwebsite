@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Layers, ShieldCheck, Sparkles, Workflow } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
-import { focusRing, type } from "./ui";
+import { focusRing, TopFade, type } from "./ui";
 
 interface NextStep {
   label: string;
@@ -85,6 +85,7 @@ export default function FooterCtaRedesign({ className }: { className?: string })
         <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
         <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#6C63FF]/10 blur-[150px]" />
         <div className="absolute bottom-[-120px] right-[-100px] h-80 w-80 rounded-full bg-[#E94B6F]/8 blur-[160px]" />
+        <TopFade from="#121325" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-4 py-20 sm:px-6 sm:py-24 lg:px-[96px] lg:py-28">
