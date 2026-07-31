@@ -3,6 +3,7 @@
 import { type ElementType } from "react";
 import { motion } from "framer-motion";
 import { Clock4, Settings2, Sparkles, UserX, Zap } from "lucide-react";
+import { ChapterMark, type } from "./ui";
 
 interface SolutionPhase {
   step: string;
@@ -100,6 +101,16 @@ export default function SolutionRedesign({ className }: { className?: string }) 
       <div className="relative z-10 mx-auto w-full max-w-[1100px] px-4 sm:px-6 lg:px-[64px]">
         <div className="mx-auto flex max-w-[720px] flex-col items-center text-center">
           <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut" as const }}
+            className="mb-5"
+          >
+            <ChapterMark id="solution" tone="light" />
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -117,9 +128,10 @@ export default function SolutionRedesign({ className }: { className?: string }) 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
-            className="mt-4 font-onest text-[34px] font-semibold leading-[1.02] tracking-[-1.4px] text-slate-950 sm:text-[46px] lg:text-[52px]"
+            className={"mt-4 " + type.h2 + " text-slate-950"}
           >
-            From rollout to daily work, the agent does it.
+            From rollout to daily work,
+            <span className="block text-[#6C63FF]">the agent does it.</span>
           </motion.h2>
 
           <motion.p

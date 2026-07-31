@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Sparkles, type LucideIcon } from "lucide-react";
 import { featureModules } from "@/lib/data/featureModules";
+import { ChapterMark, Seam, type } from "./ui";
 
 interface SpotlightModule {
   id: string;
@@ -133,6 +134,16 @@ export default function ModulesRedesign({ className }: { className?: string }) {
             <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
               <div className="max-w-[560px]">
                 <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, ease: "easeOut" as const }}
+                  className="mb-5"
+                >
+                  <ChapterMark id="modules" tone="dark" />
+                </motion.div>
+
+                <motion.div
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -150,7 +161,7 @@ export default function ModulesRedesign({ className }: { className?: string }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
-                  className="mt-6 font-onest text-[34px] font-semibold leading-[0.98] tracking-[-1.4px] text-white sm:text-[46px] lg:text-[50px]"
+                  className={"mt-6 " + type.h2 + " text-white"}
                 >
                   Start with Finance and HRMS.
                   <span className="block text-[#6C63FF]">Grow into the rest of the suite.</span>
@@ -210,6 +221,8 @@ export default function ModulesRedesign({ className }: { className?: string }) {
         </div>
       </section>
 
+      <Seam from="#151428" to="#F6F7FB" />
+
       <section
         id="roadmap"
         className="relative flex w-full items-center overflow-hidden bg-[#F6F7FB] py-14 sm:py-16 lg:min-h-screen lg:py-16"
@@ -220,7 +233,17 @@ export default function ModulesRedesign({ className }: { className?: string }) {
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
-          <div className="mx-auto max-w-[1100px] text-center">
+          <div className="mx-auto flex max-w-[1100px] flex-col items-center text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeOut" as const }}
+              className="mb-5"
+            >
+              <ChapterMark id="roadmap" tone="light" />
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -239,7 +262,7 @@ export default function ModulesRedesign({ className }: { className?: string }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
-              className="mt-6 font-onest text-[34px] font-semibold leading-[0.98] tracking-[-1.4px] text-slate-950 sm:text-[46px] lg:text-[50px]"
+              className={"mt-6 " + type.h2 + " text-slate-950"}
             >
               One suite, one control plane.
               <span className="block text-[#6C63FF]">Rolling out in waves.</span>

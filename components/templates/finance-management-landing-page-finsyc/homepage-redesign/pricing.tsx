@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Check, Sparkles } from "lucide-react";
+import { featureModules } from "@/lib/data/featureModules";
+import { ChapterMark, type } from "./ui";
 
 interface PricingPlan {
   name: string;
@@ -50,7 +52,7 @@ const plans: PricingPlan[] = [
     name: "Enterprise",
     badge: "Full suite",
     priceLabel: "Enterprise agreement",
-    priceDetail: "All 15 modules",
+    priceDetail: `All ${featureModules.length} modules`,
     description:
       "Scale the platform across regions, functions, and governance levels.",
     features: [
@@ -116,7 +118,7 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
         </p>
 
         <div className="mt-5 rounded-[28px] border border-white/10 bg-white/[0.05] p-4">
-          <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/45">
+          <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/60">
             Investment
           </p>
           <p className="mt-2 font-onest text-[28px] font-semibold tracking-[-1px] text-white sm:text-[32px]">
@@ -163,6 +165,16 @@ export default function PricingRedesign({ className }: { className?: string }) {
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
         <div className="mx-auto max-w-[1240px]">
           <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut" as const }}
+            className="mb-5"
+          >
+            <ChapterMark id="pricing" tone="dark" />
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -180,7 +192,7 @@ export default function PricingRedesign({ className }: { className?: string }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
-            className="mt-6 max-w-[760px] font-onest text-[36px] font-semibold leading-[0.96] tracking-[-2px] text-white sm:text-[48px] lg:text-[54px]"
+            className={"mt-6 max-w-[760px] " + type.h2 + " text-white"}
           >
             Simple plans for every rollout.
             <span className="block text-[#9C9BFF]">Built for governed scale.</span>
@@ -212,12 +224,12 @@ export default function PricingRedesign({ className }: { className?: string }) {
           >
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-[620px]">
-                <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.26em] text-white/45">
+                <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.26em] text-white/60">
                   Need a bespoke scope?
                 </p>
-                <p className="mt-2 font-['DM_Sans'] text-[14px] leading-relaxed text-white/65 sm:text-[15px]">
-                  We shape the rollout around your current operating model, with no extra buttons or unnecessary
-                  complexity.
+                <p className="mt-2 font-['DM_Sans'] text-[14px] leading-relaxed text-white/70 sm:text-[15px]">
+                  We shape the rollout around your current operating model and show exactly how the first wave stays
+                  governed.
                 </p>
               </div>
 

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Layers, ShieldCheck, Sparkles, Workflow } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
+import { focusRing, type } from "./ui";
 
 interface NextStep {
   label: string;
@@ -107,9 +108,10 @@ export default function FooterCtaRedesign({ className }: { className?: string })
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
-              className="mt-6 max-w-[760px] font-onest text-[38px] font-semibold leading-[0.96] tracking-[-2px] text-slate-950 sm:text-[54px] lg:text-[68px]"
+              className={"mt-6 max-w-[760px] " + type.h2 + " text-slate-950"}
             >
-              Let the platform keep itself current.
+              Let the platform
+              <span className="block text-[#6C63FF]">keep itself current.</span>
             </motion.h2>
 
             <motion.p
@@ -133,7 +135,10 @@ export default function FooterCtaRedesign({ className }: { className?: string })
               <button
                 type="button"
                 onClick={openGetInTouch}
-                className="inline-flex items-center gap-3 rounded-full bg-[#6C63FF] px-5 py-3 font-poppins text-[14px] font-bold text-white shadow-[0_18px_40px_rgba(108,99,255,0.24)] transition-colors hover:bg-[#5B55F6]"
+                className={
+                  "inline-flex items-center gap-3 rounded-full bg-[#6C63FF] px-5 py-3 font-poppins text-[14px] font-bold text-white shadow-[0_18px_40px_rgba(108,99,255,0.24)] transition-colors hover:bg-[#5B55F6] " +
+                  focusRing
+                }
               >
                 Talk to Nexus Agent
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#15122E]">
@@ -143,7 +148,10 @@ export default function FooterCtaRedesign({ className }: { className?: string })
 
               <a
                 href="#pricing"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 font-poppins text-[14px] font-bold text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl transition-colors hover:bg-slate-50 hover:text-slate-950"
+                className={
+                  "inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 font-poppins text-[14px] font-bold text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl transition-colors hover:bg-slate-50 hover:text-slate-950 " +
+                  focusRing
+                }
               >
                 Review pricing
               </a>
@@ -219,7 +227,10 @@ export default function FooterCtaRedesign({ className }: { className?: string })
                 <a
                   key={link.label}
                   href={link.href}
-                  className="rounded-full border border-slate-200 bg-white px-4 py-2 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-950"
+                  className={
+                    "rounded-full border border-slate-200 bg-white px-4 py-2 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-950 " +
+                    focusRing
+                  }
                 >
                   {link.label}
                 </a>

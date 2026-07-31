@@ -3,6 +3,7 @@
 import { type ElementType } from "react";
 import { motion } from "framer-motion";
 import { AlertTriangle, Clock3, Network } from "lucide-react";
+import { ChapterMark, type } from "./ui";
 
 interface ProblemItem {
   label: string;
@@ -81,6 +82,16 @@ export default function ProblemRedesign() {
         <div className="mx-auto max-w-[1120px]">
           <div className="mx-auto flex max-w-[760px] flex-col items-center text-center">
             <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeOut" as const }}
+              className="mb-5"
+            >
+              <ChapterMark id="problem" tone="dark" />
+            </motion.div>
+
+            <motion.div
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -98,10 +109,10 @@ export default function ProblemRedesign() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.05, ease: "easeOut" as const }}
-              className="mt-5 font-onest text-[36px] font-semibold leading-[0.98] tracking-[-1.4px] text-white sm:text-[46px] lg:text-[50px]"
+              className={"mt-5 " + type.h2 + " text-white"}
             >
               Enterprise software freezes.
-              <span className="block text-white/55">Employees lose time.</span>
+              <span className="block text-white/60">Employees lose time.</span>
             </motion.h2>
           </div>
 
