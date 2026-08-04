@@ -20,7 +20,7 @@ const problems: ProblemItem[] = [
     title: "Rigid systems can't keep up.",
     summary: "Requirements freeze before the business does — teams patch around outdated software for months.",
     icon: Clock3,
-    accent: "bg-gradient-to-br from-[#6C63FF] to-[#4F46E5]",
+    accent: "bg-gradient-to-br from-[#685BFD] to-[#6366F1]",
     tags: ["Frozen scope", "Backlogged changes", "Manual workarounds"],
   },
   {
@@ -28,7 +28,7 @@ const problems: ProblemItem[] = [
     title: "Fragmented tools drain focus.",
     summary: "Work scatters across ERP, CRM, docs, and chat — people babysit software instead of doing the job.",
     icon: Network,
-    accent: "bg-gradient-to-br from-[#E94B6F] to-[#FF7FA2]",
+    accent: "bg-gradient-to-br from-[#EC4899] to-[#F472B6]",
     tags: ["Six disconnected apps", "Lost context", "Copy-paste busywork"],
   },
 ];
@@ -46,11 +46,11 @@ function ProblemPanel({ item }: { item: ProblemItem }) {
         <span>{item.label}</span>
       </div>
 
-      <h3 className="mt-3 max-w-[380px] font-onest text-[22px] font-semibold leading-[1.1] tracking-[-0.6px] text-white sm:text-[25px]">
+      <h3 className="mt-3 max-w-[380px] font-inter text-[22px] font-semibold leading-[1.1] tracking-[-0.6px] text-white sm:text-[25px]">
         {item.title}
       </h3>
 
-      <p className="mt-2 max-w-[380px] font-['DM_Sans'] text-[14px] leading-[1.6] text-white/65">
+      <p className="mt-2 max-w-[380px] font-inter text-[14px] leading-[1.6] text-white/65">
         {item.summary}
       </p>
 
@@ -70,12 +70,12 @@ function ProblemPanel({ item }: { item: ProblemItem }) {
 
 export default function ProblemRedesign() {
   return (
-    <section id="problem" className="relative flex w-full items-center overflow-hidden bg-[#18172F] py-14 sm:py-16 lg:min-h-screen lg:py-16">
+    <section id="problem" className="relative flex w-full items-center overflow-hidden bg-[#0B0F1A] py-14 sm:py-16 lg:min-h-screen lg:py-16">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.24),transparent_28%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.16),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.10),transparent_22%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(104,91,253,0.24),transparent_28%),radial-gradient(circle_at_top_right,rgba(236,72,153,0.16),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(8,145,178,0.10),transparent_22%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:32px_32px] opacity-25" />
-        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#6C63FF]/16 blur-[160px]" />
-        <div className="absolute right-[-120px] bottom-[-120px] h-80 w-80 rounded-full bg-[#E94B6F]/12 blur-[160px]" />
+        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#685BFD]/16 blur-[160px]" />
+        <div className="absolute right-[-120px] bottom-[-120px] h-80 w-80 rounded-full bg-[#EC4899]/12 blur-[160px]" />
       </div>
 
       <div className="relative mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
@@ -98,7 +98,7 @@ export default function ProblemRedesign() {
               transition={{ duration: 0.6, ease: "easeOut" as const }}
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-4 py-2 shadow-[0_10px_24px_rgba(0,0,0,0.12)] backdrop-blur-xl"
             >
-              <AlertTriangle className="h-4 w-4 text-[#FF8DA5]" />
+              <AlertTriangle className="h-4 w-4 text-[#F472B6]" />
               <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-white/75">
                 Current Enterprise System landscape
               </span>

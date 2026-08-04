@@ -19,21 +19,21 @@ const nextSteps: NextStep[] = [
     title: "Talk",
     description: "We map the current process and define the first wave.",
     icon: Sparkles,
-    accent: "from-[#6C63FF] to-[#4F46E5]",
+    accent: "from-[#685BFD] to-[#6366F1]",
   },
   {
     label: "02",
     title: "Map",
     description: "We show how modules, approvals, and data flow together.",
     icon: Workflow,
-    accent: "from-[#0EA5E9] to-[#6C63FF]",
+    accent: "from-[#0891B2] to-[#685BFD]",
   },
   {
     label: "03",
     title: "Launch",
     description: "You approve the rollout and the system keeps adapting.",
     icon: ShieldCheck,
-    accent: "from-[#E94B6F] to-[#FF8DA5]",
+    accent: "from-[#EC4899] to-[#F472B6]",
   },
 ];
 
@@ -63,7 +63,7 @@ function StepCard({ step }: { step: NextStep }) {
               {step.title}
             </span>
           </div>
-          <p className="mt-2 font-['DM_Sans'] text-[13px] leading-relaxed text-slate-600 sm:text-[14px]">
+          <p className="mt-2 font-inter text-[13px] leading-relaxed text-slate-600 sm:text-[14px]">
             {step.description}
           </p>
         </div>
@@ -78,13 +78,13 @@ export default function FooterCtaRedesign({ className }: { className?: string })
   return (
     <footer
       id="contact"
-      className={"relative w-full overflow-hidden bg-[#F6F7FB] " + (className || "")}
+      className={"relative w-full overflow-hidden bg-[#FAF5FF] " + (className || "")}
     >
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.08),transparent_28%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.06),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.05),transparent_22%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(104,91,253,0.08),transparent_28%),radial-gradient(circle_at_top_right,rgba(236,72,153,0.06),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(8,145,178,0.05),transparent_22%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
-        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#6C63FF]/10 blur-[150px]" />
-        <div className="absolute bottom-[-120px] right-[-100px] h-80 w-80 rounded-full bg-[#E94B6F]/8 blur-[160px]" />
+        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#685BFD]/10 blur-[150px]" />
+        <div className="absolute bottom-[-120px] right-[-100px] h-80 w-80 rounded-full bg-[#EC4899]/8 blur-[160px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-4 py-20 sm:px-6 sm:py-24 lg:px-[96px] lg:py-28">
@@ -97,7 +97,7 @@ export default function FooterCtaRedesign({ className }: { className?: string })
               transition={{ duration: 0.6, ease: "easeOut" as const }}
               className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl"
             >
-              <Sparkles className="h-4 w-4 text-[#6C63FF]" />
+              <Sparkles className="h-4 w-4 text-[#685BFD]" />
               <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-600">
                 Final step
               </span>
@@ -111,7 +111,7 @@ export default function FooterCtaRedesign({ className }: { className?: string })
               className={"mt-6 max-w-[760px] " + type.h2 + " text-slate-950"}
             >
               Let the platform
-              <span className="block text-[#6C63FF]">keep itself current.</span>
+              <span className="block text-[#685BFD]">keep itself current.</span>
             </motion.h2>
 
             <motion.p
@@ -119,7 +119,7 @@ export default function FooterCtaRedesign({ className }: { className?: string })
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.14, ease: "easeOut" as const }}
-              className="mt-5 max-w-[660px] font-['DM_Sans'] text-[17px] leading-[1.78] text-slate-600 sm:text-[18px]"
+              className="mt-5 max-w-[660px] font-inter text-[17px] leading-[1.78] text-slate-600 sm:text-[18px]"
             >
               We’ll map your first workflow, show the live module flow, and roll out with approval-led control so the
               business never has to wait for another frozen design.
@@ -136,12 +136,12 @@ export default function FooterCtaRedesign({ className }: { className?: string })
                 type="button"
                 onClick={openGetInTouch}
                 className={
-                  "inline-flex items-center gap-3 rounded-full bg-[#6C63FF] px-5 py-3 font-poppins text-[14px] font-bold text-white shadow-[0_18px_40px_rgba(108,99,255,0.24)] transition-colors hover:bg-[#5B55F6] " +
+                  "inline-flex items-center gap-3 rounded-full bg-[#685BFD] px-5 py-3 font-poppins text-[14px] font-bold text-white shadow-[0_18px_40px_rgba(104,91,253,0.24)] transition-colors hover:bg-[#5548E8] " +
                   focusRing
                 }
               >
                 Talk to Nexus Agent
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#15122E]">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#0B0F1A]">
                   <ArrowUpRight className="h-4 w-4" />
                 </span>
               </button>
@@ -185,11 +185,11 @@ export default function FooterCtaRedesign({ className }: { className?: string })
                 <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500">
                   What happens next
                 </p>
-                <p className="mt-2 font-onest text-[22px] font-semibold tracking-[-0.6px] text-slate-950 sm:text-[26px]">
+                <p className="mt-2 font-inter text-[22px] font-semibold tracking-[-0.6px] text-slate-950 sm:text-[26px]">
                   A simple rollout path.
                 </p>
               </div>
-              <div className="rounded-full border border-[#C7C3FF]/40 bg-[#EEF2FF] px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-[#4F46E5]">
+              <div className="rounded-full border border-[#A78BFA]/40 bg-[#EEF2FF] px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-[#6366F1]">
                 approval-led
               </div>
             </div>
@@ -206,7 +206,7 @@ export default function FooterCtaRedesign({ className }: { className?: string })
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-[460px]">
               <div className="flex items-center gap-3 text-slate-900">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-[#6C63FF] shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-[#685BFD] shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
                   <Layers className="h-5 w-5" />
                 </div>
                 <div className="flex flex-col leading-tight">
@@ -216,7 +216,7 @@ export default function FooterCtaRedesign({ className }: { className?: string })
                   </span>
                 </div>
               </div>
-              <p className="mt-4 max-w-[420px] font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600">
+              <p className="mt-4 max-w-[420px] font-inter text-[14px] leading-relaxed text-slate-600">
                 Built to replace frozen solution design with continuous mapping, orchestration, and approval-led
                 rollout.
               </p>
@@ -239,10 +239,10 @@ export default function FooterCtaRedesign({ className }: { className?: string })
           </div>
 
           <div className="mt-8 flex flex-col gap-2 text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-            <p className="font-['DM_Sans'] text-[13px] leading-relaxed">
+            <p className="font-inter text-[13px] leading-relaxed">
               © 2026 Nexus AI First. All rights reserved.
             </p>
-            <p className="font-['DM_Sans'] text-[13px] leading-relaxed">
+            <p className="font-inter text-[13px] leading-relaxed">
               Agentic enterprise software built to stay current.
             </p>
           </div>

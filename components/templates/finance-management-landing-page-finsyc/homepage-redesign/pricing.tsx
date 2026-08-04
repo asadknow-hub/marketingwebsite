@@ -30,7 +30,7 @@ const plans: PricingPlan[] = [
       "Production-ready handoff",
       "Executive readout",
     ],
-    accent: "from-[#6C63FF] to-[#4F46E5]",
+    accent: "from-[#685BFD] to-[#6366F1]",
   },
   {
     name: "Wave 1",
@@ -46,7 +46,7 @@ const plans: PricingPlan[] = [
       "Dedicated orchestration support",
     ],
     highlight: true,
-    accent: "from-[#E94B6F] to-[#FF8DA5]",
+    accent: "from-[#EC4899] to-[#F472B6]",
   },
   {
     name: "Enterprise",
@@ -61,22 +61,22 @@ const plans: PricingPlan[] = [
       "Security and approvals",
       "Priority support",
     ],
-    accent: "from-[#0EA5E9] to-[#6C63FF]",
+    accent: "from-[#0891B2] to-[#685BFD]",
   },
 ];
 
 const planAccentStyles = [
   {
-    badge: "border-[#6C63FF]/20 bg-[#6C63FF]/10 text-[#C7C3FF]",
-    dot: "bg-[#6C63FF]",
+    badge: "border-[#685BFD]/20 bg-[#685BFD]/10 text-[#A78BFA]",
+    dot: "bg-[#685BFD]",
   },
   {
-    badge: "border-[#E94B6F]/20 bg-[#E94B6F]/10 text-[#FFC0D0]",
-    dot: "bg-[#E94B6F]",
+    badge: "border-[#EC4899]/20 bg-[#EC4899]/10 text-[#F9A8C4]",
+    dot: "bg-[#EC4899]",
   },
   {
-    badge: "border-[#0EA5E9]/20 bg-[#0EA5E9]/10 text-[#B9E9FF]",
-    dot: "bg-[#0EA5E9]",
+    badge: "border-[#0891B2]/20 bg-[#0891B2]/10 text-[#67E8F9]",
+    dot: "bg-[#0891B2]",
   },
 ] as const;
 
@@ -92,7 +92,7 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
       className={
         "relative overflow-hidden rounded-[34px] border p-5 sm:p-6 lg:p-7 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-2xl " +
         (plan.highlight
-          ? "border-white/18 bg-gradient-to-b from-white/[0.08] via-white/[0.06] to-white/[0.04] ring-1 ring-[#6C63FF]/12"
+          ? "border-white/18 bg-gradient-to-b from-white/[0.08] via-white/[0.06] to-white/[0.04] ring-1 ring-[#685BFD]/12"
           : "border-white/10 bg-white/[0.05]")
       }
     >
@@ -104,16 +104,16 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
             {plan.badge}
           </span>
           {plan.highlight && (
-            <span className="rounded-full border border-[#6C63FF]/20 bg-[#6C63FF]/10 px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-[#C7C3FF]">
+            <span className="rounded-full border border-[#685BFD]/20 bg-[#685BFD]/10 px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-[#A78BFA]">
               Most chosen
             </span>
           )}
         </div>
 
-        <h3 className="mt-5 font-onest text-[24px] font-semibold leading-tight tracking-[-0.8px] text-white sm:text-[28px]">
+        <h3 className="mt-5 font-inter text-[24px] font-semibold leading-tight tracking-[-0.8px] text-white sm:text-[28px]">
           {plan.name}
         </h3>
-        <p className="mt-3 max-w-[420px] font-['DM_Sans'] text-[14px] leading-relaxed text-white/60 sm:text-[15px]">
+        <p className="mt-3 max-w-[420px] font-inter text-[14px] leading-relaxed text-white/60 sm:text-[15px]">
           {plan.description}
         </p>
 
@@ -121,10 +121,10 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
           <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/60">
             Investment
           </p>
-          <p className="mt-2 font-onest text-[28px] font-semibold tracking-[-1px] text-white sm:text-[32px]">
+          <p className="mt-2 font-inter text-[28px] font-semibold tracking-[-1px] text-white sm:text-[32px]">
             {plan.priceLabel}
           </p>
-          <p className="mt-1 font-['DM_Sans'] text-[14px] leading-relaxed text-white/60">
+          <p className="mt-1 font-inter text-[14px] leading-relaxed text-white/60">
             {plan.priceDetail}
           </p>
         </div>
@@ -138,7 +138,7 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
               <div className={"mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br text-white " + plan.accent}>
                 <Check className="h-3.5 w-3.5" strokeWidth={3.5} />
               </div>
-              <p className="font-['DM_Sans'] text-[13px] leading-relaxed text-white/75 sm:text-[14px]">
+              <p className="font-inter text-[13px] leading-relaxed text-white/75 sm:text-[14px]">
                 {feature}
               </p>
             </div>
@@ -153,13 +153,13 @@ export default function PricingRedesign({ className }: { className?: string }) {
   return (
     <section
       id="pricing"
-      className={"relative flex w-full items-center overflow-hidden bg-[#121325] py-14 sm:py-16 lg:min-h-screen lg:py-16 " + (className || "")}
+      className={"relative flex w-full items-center overflow-hidden bg-[#0B0F1A] py-14 sm:py-16 lg:min-h-screen lg:py-16 " + (className || "")}
     >
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.22),transparent_28%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.16),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.10),transparent_22%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(104,91,253,0.22),transparent_28%),radial-gradient(circle_at_top_right,rgba(236,72,153,0.16),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(8,145,178,0.10),transparent_22%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20" />
-        <div className="absolute -left-24 top-12 h-72 w-72 rounded-full bg-[#6C63FF]/16 blur-[150px]" />
-        <div className="absolute right-[-120px] bottom-[-120px] h-80 w-80 rounded-full bg-[#E94B6F]/12 blur-[160px]" />
+        <div className="absolute -left-24 top-12 h-72 w-72 rounded-full bg-[#685BFD]/16 blur-[150px]" />
+        <div className="absolute right-[-120px] bottom-[-120px] h-80 w-80 rounded-full bg-[#EC4899]/12 blur-[160px]" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
@@ -181,7 +181,7 @@ export default function PricingRedesign({ className }: { className?: string }) {
             transition={{ duration: 0.6, ease: "easeOut" as const }}
             className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 shadow-[0_10px_24px_rgba(0,0,0,0.14)] backdrop-blur-xl"
           >
-            <Sparkles className="h-4 w-4 text-[#9C9BFF]" />
+            <Sparkles className="h-4 w-4 text-[#A78BFA]" />
             <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.24em] text-white/75">
               Pricing
             </span>
@@ -195,7 +195,7 @@ export default function PricingRedesign({ className }: { className?: string }) {
             className={"mt-6 max-w-[760px] " + type.h2 + " text-white"}
           >
             Simple plans for every rollout.
-            <span className="block text-[#9C9BFF]">Built for governed scale.</span>
+            <span className="block text-[#A78BFA]">Built for governed scale.</span>
           </motion.h2>
 
           <motion.p
@@ -203,7 +203,7 @@ export default function PricingRedesign({ className }: { className?: string }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.14, ease: "easeOut" as const }}
-            className="mt-5 max-w-[700px] font-['DM_Sans'] text-[16px] leading-[1.78] text-white/60 sm:text-[17px]"
+            className="mt-5 max-w-[700px] font-inter text-[16px] leading-[1.78] text-white/60 sm:text-[17px]"
           >
             Pick the level of scope you need. Every plan stays approval-led, module-aware, and ready to scale from
             pilot to enterprise.
@@ -227,7 +227,7 @@ export default function PricingRedesign({ className }: { className?: string }) {
                 <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.26em] text-white/60">
                   Need a bespoke scope?
                 </p>
-                <p className="mt-2 font-['DM_Sans'] text-[14px] leading-relaxed text-white/70 sm:text-[15px]">
+                <p className="mt-2 font-inter text-[14px] leading-relaxed text-white/70 sm:text-[15px]">
                   We shape the rollout around your current operating model and show exactly how the first wave stays
                   governed.
                 </p>

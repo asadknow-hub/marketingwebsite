@@ -12,11 +12,11 @@ export const chapters = [
 ] as const;
 
 export const type = {
-  h1: "font-onest font-semibold leading-[0.95] tracking-[-2.2px] text-[42px] sm:text-[56px] lg:text-[62px]",
-  h2: "font-onest font-semibold leading-[0.98] tracking-[-1.6px] text-[34px] sm:text-[44px] lg:text-[52px]",
-  h3: "font-onest font-semibold leading-[1.1] tracking-[-0.7px] text-[22px] sm:text-[25px]",
-  lead: "font-['DM_Sans'] leading-[1.72] text-[16px] sm:text-[17px]",
-  body: "font-['DM_Sans'] leading-[1.65] text-[14px] sm:text-[15px]",
+  h1: "font-inter font-semibold leading-[0.95] tracking-[-2.2px] text-[42px] sm:text-[56px] lg:text-[62px]",
+  h2: "font-inter font-semibold leading-[0.98] tracking-[-1.6px] text-[34px] sm:text-[44px] lg:text-[52px]",
+  h3: "font-inter font-semibold leading-[1.1] tracking-[-0.7px] text-[22px] sm:text-[25px]",
+  lead: "font-inter leading-[1.72] text-[16px] sm:text-[17px]",
+  body: "font-inter leading-[1.65] text-[14px] sm:text-[15px]",
   eyebrow: "font-poppins font-bold uppercase tracking-[0.24em] text-[11px] sm:text-[12px]",
   micro: "font-poppins font-bold uppercase tracking-[0.2em] text-[10px]",
 } as const;
@@ -46,7 +46,7 @@ export const text = {
 } as const;
 
 export const focusRing =
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6C63FF] focus-visible:ring-offset-2";
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#685BFD] focus-visible:ring-offset-2";
 
 export const easeOut = [0.21, 0.47, 0.32, 0.98] as const;
 
@@ -97,7 +97,7 @@ export function Eyebrow({
           : "border-slate-200 bg-white shadow-[0_10px_24px_rgba(15,23,42,0.05)]")
       }
     >
-      {Icon ? <Icon className={"h-4 w-4 " + (accent || (isDark ? "text-[#9C9BFF]" : "text-[#6C63FF]"))} /> : null}
+      {Icon ? <Icon className={"h-4 w-4 " + (accent || (isDark ? "text-[#A78BFA]" : "text-[#685BFD]"))} /> : null}
       <span className={type.eyebrow + " " + (isDark ? "text-white/80" : "text-slate-600")}>{children}</span>
     </span>
   );
@@ -119,7 +119,7 @@ export function ChapterMark({
     <div className="flex items-center gap-3">
       <span
         className={
-          "font-onest text-[13px] font-semibold tabular-nums " + (isDark ? "text-white/45" : "text-slate-400")
+          "font-inter text-[13px] font-semibold tabular-nums " + (isDark ? "text-white/45" : "text-slate-400")
         }
       >
         {chapter.index}
@@ -139,8 +139,8 @@ export function GridGlow({ tone = "dark" }: { tone?: "dark" | "light" }) {
         className={
           "absolute inset-0 " +
           (isDark
-            ? "bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.22),transparent_30%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.15),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(14,165,233,0.10),transparent_24%)]"
-            : "bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.07),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.06),transparent_22%)]")
+            ? "bg-[radial-gradient(circle_at_top_left,rgba(104,91,253,0.22),transparent_30%),radial-gradient(circle_at_top_right,rgba(236,72,153,0.15),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(8,145,178,0.10),transparent_24%)]"
+            : "bg-[radial-gradient(circle_at_top_left,rgba(104,91,253,0.10),transparent_28%),radial-gradient(circle_at_top_right,rgba(236,72,153,0.07),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(8,145,178,0.06),transparent_22%)]")
         }
       />
       <div
@@ -154,13 +154,13 @@ export function GridGlow({ tone = "dark" }: { tone?: "dark" | "light" }) {
       <div
         className={
           "absolute -left-24 top-12 h-72 w-72 rounded-full blur-[150px] " +
-          (isDark ? "bg-[#6C63FF]/16" : "bg-[#6C63FF]/10")
+          (isDark ? "bg-[#685BFD]/16" : "bg-[#685BFD]/10")
         }
       />
       <div
         className={
           "absolute bottom-[-120px] right-[-100px] h-80 w-80 rounded-full blur-[160px] " +
-          (isDark ? "bg-[#E94B6F]/12" : "bg-[#E94B6F]/8")
+          (isDark ? "bg-[#EC4899]/12" : "bg-[#EC4899]/8")
         }
       />
     </div>

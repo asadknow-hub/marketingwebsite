@@ -52,9 +52,9 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export default function ProofBand() {
   return (
-    <section aria-label="Platform scale" className="relative w-full overflow-hidden bg-[#0F1024]">
+    <section aria-label="Platform scale" className="relative w-full overflow-hidden bg-[#0B0F1A]">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(108,99,255,0.20),transparent_45%),radial-gradient(circle_at_85%_50%,rgba(233,75,111,0.14),transparent_45%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(104,91,253,0.20),transparent_45%),radial-gradient(circle_at_85%_50%,rgba(236,72,153,0.14),transparent_45%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:28px_28px] opacity-30" />
       </div>
 
@@ -83,12 +83,12 @@ export default function ProofBand() {
                   transition={{ duration: 0.55, delay: index * 0.07, ease: "easeOut" }}
                   className="flex flex-col items-center text-center lg:flex-row lg:items-center lg:gap-4 lg:text-left"
                 >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] text-[#9C9BFF]">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] text-[#A78BFA]">
                     <Icon className="h-5 w-5" />
                   </span>
 
                   <span className="mt-3 flex flex-col lg:mt-0">
-                    <span className="font-onest text-[32px] font-semibold leading-none tracking-[-1.2px] text-white sm:text-[38px]">
+                    <span className="font-inter text-[32px] font-semibold leading-none tracking-[-1.2px] text-white sm:text-[38px]">
                       <Counter value={metric.value} suffix={metric.suffix} />
                     </span>
                     <span className={type.micro + " mt-2 text-white/50"}>{metric.label}</span>

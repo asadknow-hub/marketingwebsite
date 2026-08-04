@@ -21,8 +21,8 @@ const phases: SolutionPhase[] = [
     title: "Systems implement themselves.",
     description: "Agentic AI configures modules and maps your data — no consultants, no lock-in.",
     icon: Settings2,
-    accent: "bg-gradient-to-br from-[#6C63FF] to-[#4F46E5]",
-    glow: "from-[#6C63FF]/18 to-[#4F46E5]/6",
+    accent: "bg-gradient-to-br from-[#685BFD] to-[#6366F1]",
+    glow: "from-[#685BFD]/18 to-[#6366F1]/6",
     chips: ["Auto-configuration", "Data mapping", "Zero consultants"],
   },
   {
@@ -30,8 +30,8 @@ const phases: SolutionPhase[] = [
     title: "Every employee, assisted.",
     description: "Agentic AI runs the reports, packs, and approvals — people focus on judgment, not busywork.",
     icon: Sparkles,
-    accent: "bg-gradient-to-br from-[#E94B6F] to-[#FF7FA2]",
-    glow: "from-[#E94B6F]/18 to-[#FF7FA2]/6",
+    accent: "bg-gradient-to-br from-[#EC4899] to-[#F472B6]",
+    glow: "from-[#EC4899]/18 to-[#F472B6]/6",
     chips: ["Reports", "Onboarding", "Approvals"],
   },
 ];
@@ -63,11 +63,11 @@ function PhaseCard({ item, index }: { item: SolutionPhase; index: number }) {
         <Icon className="h-6 w-6" />
       </div>
 
-      <h3 className="relative z-10 mt-4 max-w-[320px] font-onest text-[23px] font-semibold leading-[1.1] tracking-[-0.7px] text-slate-950 sm:text-[26px]">
+      <h3 className="relative z-10 mt-4 max-w-[320px] font-inter text-[23px] font-semibold leading-[1.1] tracking-[-0.7px] text-slate-950 sm:text-[26px]">
         {item.title}
       </h3>
 
-      <p className="relative z-10 mt-3 max-w-[320px] font-['DM_Sans'] text-[14px] leading-[1.65] text-slate-600">
+      <p className="relative z-10 mt-3 max-w-[320px] font-inter text-[14px] leading-[1.65] text-slate-600">
         {item.description}
       </p>
 
@@ -92,10 +92,10 @@ export default function SolutionRedesign({ className }: { className?: string }) 
       className={"relative flex w-full items-center overflow-hidden bg-white py-14 sm:py-16 lg:min-h-screen lg:py-16 " + (className || "")}
     >
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.08),transparent_28%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.06),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.05),transparent_24%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(104,91,253,0.08),transparent_28%),radial-gradient(circle_at_top_right,rgba(236,72,153,0.06),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(8,145,178,0.05),transparent_24%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
-        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#6C63FF]/10 blur-[160px]" />
-        <div className="absolute bottom-[-120px] right-[-100px] h-80 w-80 rounded-full bg-[#E94B6F]/8 blur-[160px]" />
+        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#685BFD]/10 blur-[160px]" />
+        <div className="absolute bottom-[-120px] right-[-100px] h-80 w-80 rounded-full bg-[#EC4899]/8 blur-[160px]" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1100px] px-4 sm:px-6 lg:px-[64px]">
@@ -117,7 +117,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
             transition={{ duration: 0.6, ease: "easeOut" as const }}
             className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
           >
-            <Sparkles className="h-4 w-4 text-[#6C63FF]" />
+            <Sparkles className="h-4 w-4 text-[#685BFD]" />
             <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-600">
               The Agentic Shift
             </span>
@@ -131,7 +131,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
             className={"mt-4 " + type.h2 + " text-slate-950"}
           >
             From rollout to daily work,
-            <span className="block text-[#6C63FF]">the agent does it.</span>
+            <span className="block text-[#685BFD]">the agent does it.</span>
           </motion.h2>
 
           <motion.p
@@ -139,7 +139,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.14, ease: "easeOut" as const }}
-            className="mt-3 max-w-[520px] font-['DM_Sans'] text-[15px] leading-[1.7] text-slate-600 sm:text-[16px]"
+            className="mt-3 max-w-[520px] font-inter text-[15px] leading-[1.7] text-slate-600 sm:text-[16px]"
           >
             No consultants for setup. No manual grind for employees. Just outcomes.
           </motion.p>
@@ -162,7 +162,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
             const StatIcon = stat.icon;
             return (
               <div key={stat.label} className="flex items-center gap-2">
-                <StatIcon className="h-3.5 w-3.5 text-[#6C63FF]" />
+                <StatIcon className="h-3.5 w-3.5 text-[#685BFD]" />
                 <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">
                   {stat.label}
                 </span>

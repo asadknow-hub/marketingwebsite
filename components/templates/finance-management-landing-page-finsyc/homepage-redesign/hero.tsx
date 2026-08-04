@@ -35,8 +35,8 @@ const scenarios: Scenario[] = [
     id: "finance",
     chip: "Finance",
     icon: FileBarChart2,
-    accent: "from-[#6C63FF] to-[#4F46E5]",
-    dot: "#6C63FF",
+    accent: "from-[#685BFD] to-[#6366F1]",
+    dot: "#685BFD",
     prompt: "Create last quarter's finance report",
     steps: [
       "Reading ledger from Finance module",
@@ -59,8 +59,8 @@ const scenarios: Scenario[] = [
     id: "hr",
     chip: "HR",
     icon: UsersRound,
-    accent: "from-[#E94B6F] to-[#FF8DA5]",
-    dot: "#E94B6F",
+    accent: "from-[#EC4899] to-[#F472B6]",
+    dot: "#EC4899",
     prompt: "Onboard the 20 new hires starting Monday",
     steps: [
       "Reading 20 signed offer records",
@@ -135,22 +135,22 @@ function AgentConsole() {
 
   return (
     <div className="relative">
-      <div className="pointer-events-none absolute -inset-8 rounded-[44px] bg-[#6C63FF]/18 blur-[90px]" />
+      <div className="pointer-events-none absolute -inset-8 rounded-[44px] bg-[#685BFD]/18 blur-[90px]" />
 
       <motion.div
         initial={{ y: 26, opacity: 0, scale: 0.98 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 0.75, delay: 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-b from-[#141634] via-[#0E1026] to-[#080A18] shadow-[0_36px_120px_rgba(15,23,42,0.34)]"
+        className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-b from-[#0B0F1A] via-[#090B14] to-[#050608] shadow-[0_36px_120px_rgba(15,23,42,0.34)]"
       >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(108,99,255,0.22),transparent_55%),radial-gradient(circle_at_85%_10%,rgba(233,75,111,0.14),transparent_50%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(104,91,253,0.22),transparent_55%),radial-gradient(circle_at_85%_10%,rgba(236,72,153,0.14),transparent_50%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.022)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.022)_1px,transparent_1px)] bg-[size:24px_24px]" />
 
         <div className="relative flex items-center justify-between gap-3 border-b border-white/8 px-5 py-3.5">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F56]/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]/80" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#27C93F]/80" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#22C55E]/80" />
           </div>
 
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5">
@@ -193,12 +193,12 @@ function AgentConsole() {
 
         <div className="relative min-h-[420px] px-5 pb-5 pt-4">
           <div className="rounded-[20px] border border-white/10 bg-white/[0.04] px-4 py-3.5">
-            <p className="font-poppins text-[9px] font-bold uppercase tracking-[0.24em] text-white/40">
+            <p className="font-inter text-[9px] font-bold uppercase tracking-[0.24em] text-white/40">
               Employee request
             </p>
-            <p className="mt-2 font-['DM_Sans'] text-[15px] leading-snug text-white sm:text-[16px]">
+            <p className="mt-2 font-inter text-[15px] leading-snug text-white sm:text-[16px]">
               {scenario.prompt.slice(0, typed)}
-              {isTyping && <span className="ml-0.5 inline-block h-[15px] w-[2px] animate-pulse bg-[#9C9BFF] align-middle" />}
+              {isTyping && <span className="ml-0.5 inline-block h-[15px] w-[2px] animate-pulse bg-[#A78BFA] align-middle" />}
             </p>
           </div>
 
@@ -217,13 +217,13 @@ function AgentConsole() {
                       className="flex items-center gap-2.5 rounded-[14px] border border-white/8 bg-white/[0.03] px-3 py-2"
                     >
                       {isCurrent ? (
-                        <Loader2 className="h-3.5 w-3.5 shrink-0 animate-spin text-[#9C9BFF]" />
+                        <Loader2 className="h-3.5 w-3.5 shrink-0 animate-spin text-[#A78BFA]" />
                       ) : (
                         <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-emerald-400/90">
                           <Check className="h-2.5 w-2.5 text-[#08132A]" strokeWidth={4} />
                         </span>
                       )}
-                      <span className="font-['DM_Sans'] text-[12.5px] leading-snug text-white/70">{step}</span>
+                      <span className="font-inter text-[12.5px] leading-snug text-white/70">{step}</span>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -251,10 +251,10 @@ function AgentConsole() {
                     <ScenarioIcon className="h-4 w-4" />
                   </span>
                   <div className="min-w-0">
-                    <p className="font-onest text-[16px] font-semibold tracking-[-0.3px] text-white">
+                    <p className="font-inter text-[16px] font-semibold tracking-[-0.3px] text-white">
                       {scenario.result.title}
                     </p>
-                    <p className="mt-0.5 font-['DM_Sans'] text-[11.5px] text-white/50">{scenario.result.meta}</p>
+                    <p className="mt-0.5 font-inter text-[11.5px] text-white/50">{scenario.result.meta}</p>
                   </div>
                 </div>
 
@@ -264,7 +264,7 @@ function AgentConsole() {
                       <p className="font-poppins text-[8.5px] font-bold uppercase tracking-[0.18em] text-white/40">
                         {row.label}
                       </p>
-                      <p className="mt-1 font-onest text-[15px] font-semibold tracking-[-0.3px] text-white">
+                      <p className="mt-1 font-inter text-[15px] font-semibold tracking-[-0.3px] text-white">
                         {row.value}
                       </p>
                     </div>
@@ -291,13 +291,13 @@ export default function HeroRedesign() {
 
   return (
     <>
-      <section id="top" className="relative w-full overflow-hidden bg-[#F6F7FB] text-slate-900">
+      <section id="top" className="relative w-full overflow-hidden bg-[#FAF5FF] text-slate-900">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.12),transparent_28%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.08),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(14,165,233,0.08),transparent_24%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(104,91,253,0.12),transparent_28%),radial-gradient(circle_at_top_right,rgba(236,72,153,0.08),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(8,145,178,0.08),transparent_24%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.045)_1px,transparent_1px)] bg-[size:32px_32px] opacity-40" />
-          <div className="absolute -left-24 top-16 h-72 w-72 rounded-full bg-[#6C63FF]/12 blur-[140px]" />
-          <div className="absolute right-[-120px] top-36 h-80 w-80 rounded-full bg-[#E94B6F]/10 blur-[160px]" />
-          <div className="absolute bottom-[-140px] left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-[#0EA5E9]/8 blur-[160px]" />
+          <div className="absolute -left-24 top-16 h-72 w-72 rounded-full bg-[#685BFD]/12 blur-[140px]" />
+          <div className="absolute right-[-120px] top-36 h-80 w-80 rounded-full bg-[#EC4899]/10 blur-[160px]" />
+          <div className="absolute bottom-[-140px] left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-[#0891B2]/8 blur-[160px]" />
         </div>
 
         <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col px-4 pb-10 pt-24 sm:px-6 lg:min-h-screen lg:px-[96px] lg:pb-12 lg:pt-28">
@@ -319,17 +319,17 @@ export default function HeroRedesign() {
                 initial={{ y: 28, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.75, delay: 0.1, ease: "easeOut" as const }}
-                className="mt-6 max-w-[760px] font-onest text-[42px] font-semibold leading-[0.95] tracking-[-2px] text-slate-950 sm:text-[56px] lg:text-[62px] lg:tracking-[-2.6px]"
+                className="mt-6 max-w-[760px] font-inter text-[42px] font-semibold leading-[0.95] tracking-[-2px] text-slate-950 sm:text-[56px] lg:text-[62px] lg:tracking-[-2.6px]"
               >
                 Enterprise software that
-                <span className="block text-[#6C63FF]">runs itself.</span>
+                <span className="block text-[#685BFD]">runs itself.</span>
               </motion.h1>
 
               <motion.p
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.18, ease: "easeOut" as const }}
-                className="mt-6 max-w-[640px] font-['DM_Sans'] text-[17px] leading-[1.7] text-slate-600 sm:text-[18px]"
+                className="mt-6 max-w-[640px] font-inter text-[17px] leading-[1.7] text-slate-600 sm:text-[18px]"
               >
                 Consultants no longer freeze your requirements. Nexus AI First maps live business changes into working modules so the company keeps moving without waiting months for a solution design.
               </motion.p>
@@ -345,10 +345,10 @@ export default function HeroRedesign() {
                   onClick={openGetInTouch}
                   whileHover={{ y: -1, scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
-                  className="inline-flex items-center gap-3 rounded-full bg-[#6C63FF] px-5 py-3 font-poppins text-[14px] font-bold text-white shadow-[0_18px_40px_rgba(108,99,255,0.26)] transition-colors hover:bg-[#5B55F6]"
+                  className="inline-flex items-center gap-3 rounded-full bg-[#685BFD] px-5 py-3 font-poppins text-[14px] font-bold text-white shadow-[0_18px_40px_rgba(104,91,253,0.26)] transition-colors hover:bg-[#5548E8]"
                 >
                   Talk to Nexus Agent
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#15122E]">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#0B0F1A]">
                     <ArrowUpRight className="h-4 w-4" />
                   </span>
                 </motion.button>
@@ -376,7 +376,7 @@ export default function HeroRedesign() {
                   "Live business context",
                 ].map((item) => (
                   <span key={item} className="flex items-center gap-2">
-                    <Sparkles className="h-3.5 w-3.5 text-[#6C63FF]" />
+                    <Sparkles className="h-3.5 w-3.5 text-[#685BFD]" />
                     <span className={type.micro + " text-slate-500"}>{item}</span>
                   </span>
                 ))}
