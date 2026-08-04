@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Sparkles, type LucideIcon } from "lucide-react";
 import { featureModules } from "@/lib/data/featureModules";
-import { ChapterMark, type } from "./ui";
+import { ChapterMark, type, gradientText, glass, MeshBg } from "./ui";
 
 interface SpotlightModule {
   id: string;
@@ -26,7 +26,7 @@ const spotlightModules: SpotlightModule[] = spotlightSource.map((module, index) 
   icon: module.icon as LucideIcon,
   featureNames: module.features.slice(0, 4).map((feature) => feature.name),
   featureCount: module.features.length,
-  accent: index === 0 ? "from-[#685BFD] to-[#6366F1]" : "from-[#EC4899] to-[#F472B6]",
+  accent: index === 0 ? "from-[#685BFD] via-[#7C3AED] to-[#6366F1]" : "from-[#EC4899] via-[#F472B6] to-[#FB7185]",
   glow: index === 0 ? "bg-[#685BFD]" : "bg-[#EC4899]",
   tag: index === 0 ? "Finance" : "HR",
 }));
@@ -45,21 +45,24 @@ function LiveModuleCard({ module, index }: { module: SpotlightModule; index: num
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.68, delay: 0.08 * index, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-      className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.06] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.25)] backdrop-blur-xl"
+      initial={{ opacity: 0, y: 28, scale: 0.97 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.7, delay: 0.08 * index, ease: [0.16, 1, 0.3, 1] as const }}
+      className={"group relative overflow-hidden rounded-[28px] border border-white/[0.06] bg-white/[0.03] p-6 backdrop-blur-2xl transition-all duration-300 hover:bg-white/[0.06] hover:border-white/[0.12] " + glass.darkHover}
     >
-      <div className={"absolute -right-16 -top-16 h-40 w-40 rounded-full blur-[80px] opacity-25 " + module.glow} />
+      <div className={"pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-20 blur-[80px] transition-opacity duration-300 group-hover:opacity-40 " + module.glow} />
 
       <div className="relative z-10">
         <div className="flex items-center justify-between gap-3">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/70">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/65">
+            <span className="relative flex h-1.5 w-1.5 items-center justify-center">
+              <span className="absolute h-1.5 w-1.5 animate-ping rounded-full bg-emerald-400/60" />
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            </span>
             0{index + 1} · live now
           </span>
-          <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-white/55">
+          <span className="rounded-full border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-white/45">
             {module.featureCount} capabilities
           </span>
         </div>
@@ -69,13 +72,13 @@ function LiveModuleCard({ module, index }: { module: SpotlightModule; index: num
             <Icon className="h-5 w-5" />
           </div>
           <div className="min-w-0 flex-1">
-            <div className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 font-poppins text-[9px] font-bold uppercase tracking-[0.2em] text-white/55">
+            <div className="inline-flex items-center rounded-full border border-white/[0.06] bg-white/[0.03] px-2.5 py-1 font-poppins text-[9px] font-bold uppercase tracking-[0.2em] text-white/45">
               {module.tag}
             </div>
             <h3 className="mt-3 font-inter text-[22px] font-semibold leading-tight tracking-[-0.7px] text-white sm:text-[24px]">
               {module.name}
             </h3>
-            <p className="mt-3 font-inter text-[14px] leading-relaxed text-white/60 sm:text-[15px]">
+            <p className="mt-3 font-inter text-[14px] leading-relaxed text-white/55 sm:text-[15px]">
               {module.description}
             </p>
           </div>
@@ -85,7 +88,7 @@ function LiveModuleCard({ module, index }: { module: SpotlightModule; index: num
           {module.featureNames.map((feature) => (
             <div
               key={feature}
-              className="rounded-[16px] border border-white/10 bg-white/[0.04] px-4 py-3 font-inter text-[13px] text-white/75"
+              className="rounded-[16px] border border-white/[0.06] bg-white/[0.025] px-4 py-3 font-inter text-[13px] text-white/70 transition-colors hover:bg-white/[0.04] hover:text-white/85"
             >
               {feature}
             </div>
@@ -112,15 +115,9 @@ export default function ModulesRedesign({ className }: { className?: string }) {
     <>
       <section
         id="modules"
-        className={"relative flex w-full items-center overflow-hidden bg-[#0B0F1A] py-14 sm:py-16 lg:min-h-screen lg:py-16 " + (className || "")}
+        className={"relative flex w-full items-center overflow-hidden bg-[#0B0F1A] py-16 sm:py-20 lg:min-h-screen lg:py-20 " + (className || "")}
       >
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(104,91,253,0.22),transparent_30%),radial-gradient(circle_at_top_right,rgba(236,72,153,0.14),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(8,145,178,0.10),transparent_24%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] opacity-25" />
-          <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#685BFD]/16 blur-[160px]" />
-          <div className="absolute right-[-100px] top-1/3 h-80 w-80 rounded-full bg-[#EC4899]/10 blur-[160px]" />
-          <div className="absolute bottom-[-100px] left-1/3 h-72 w-72 rounded-full bg-[#0891B2]/8 blur-[160px]" />
-        </div>
+        <MeshBg tone="dark" />
 
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
           <div className="mx-auto max-w-[1240px]">
@@ -140,11 +137,11 @@ export default function ModulesRedesign({ className }: { className?: string }) {
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, ease: "easeOut" as const }}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-4 py-2 shadow-[0_10px_24px_rgba(0,0,0,0.12)] backdrop-blur-xl"
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-2 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
                 >
                   <Sparkles className="h-4 w-4 text-[#685BFD]" />
-                  <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-white/75">
+                  <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-white/70">
                     Wave 1 live now
                   </span>
                 </motion.div>
@@ -153,11 +150,11 @@ export default function ModulesRedesign({ className }: { className?: string }) {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
+                  transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] as const }}
                   className={"mt-6 " + type.h2 + " text-white"}
                 >
                   Start with Finance and HRMS.
-                  <span className="block text-[#685BFD]">Grow into the rest of the suite.</span>
+                  <span className={"block " + gradientText.brand}>Grow into the rest of the suite.</span>
                 </motion.h2>
 
                 <motion.p
@@ -195,9 +192,9 @@ export default function ModulesRedesign({ className }: { className?: string }) {
                     <span>Wave 1 progress</span>
                     <span>{progressPercent}%</span>
                   </div>
-                  <div className="h-2 overflow-hidden rounded-full bg-white/10">
+                  <div className="h-2 overflow-hidden rounded-full bg-white/[0.06]">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-[#685BFD] via-[#A78BFA] to-[#EC4899]"
+                      className="h-full rounded-full bg-gradient-to-r from-[#685BFD] via-[#7C3AED] to-[#EC4899]"
                       style={{ width: `${(liveCount / totalModules) * 100}%` }}
                     />
                   </div>
@@ -216,12 +213,9 @@ export default function ModulesRedesign({ className }: { className?: string }) {
 
       <section
         id="roadmap"
-        className="relative flex w-full items-center overflow-hidden bg-[#FAF5FF] py-14 sm:py-16 lg:min-h-screen lg:py-16"
+        className="relative flex w-full items-center overflow-hidden bg-[#FAF5FF] py-16 sm:py-20 lg:min-h-screen lg:py-20"
       >
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(104,91,253,0.08),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(236,72,153,0.06),transparent_26%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30" />
-        </div>
+        <MeshBg tone="light" />
 
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
           <div className="mx-auto flex max-w-[1100px] flex-col items-center text-center">
@@ -252,11 +246,11 @@ export default function ModulesRedesign({ className }: { className?: string }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
+              transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] as const }}
               className={"mt-6 " + type.h2 + " text-slate-950"}
             >
               One suite, one control plane.
-              <span className="block text-[#685BFD]">Rolling out in waves.</span>
+              <span className={"block " + gradientText.brand}>Rolling out in waves.</span>
             </motion.h2>
 
             <motion.p

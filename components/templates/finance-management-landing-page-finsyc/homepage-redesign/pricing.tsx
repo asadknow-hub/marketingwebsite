@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Check, Sparkles } from "lucide-react";
 import { featureModules } from "@/lib/data/featureModules";
-import { ChapterMark, type } from "./ui";
+import { ChapterMark, type, gradientText, glass, glow, MeshBg } from "./ui";
 
 interface PricingPlan {
   name: string;
@@ -30,7 +30,7 @@ const plans: PricingPlan[] = [
       "Production-ready handoff",
       "Executive readout",
     ],
-    accent: "from-[#685BFD] to-[#6366F1]",
+    accent: "from-[#685BFD] via-[#7C3AED] to-[#6366F1]",
   },
   {
     name: "Wave 1",
@@ -46,7 +46,7 @@ const plans: PricingPlan[] = [
       "Dedicated orchestration support",
     ],
     highlight: true,
-    accent: "from-[#EC4899] to-[#F472B6]",
+    accent: "from-[#EC4899] via-[#F472B6] to-[#FB7185]",
   },
   {
     name: "Enterprise",
@@ -61,7 +61,7 @@ const plans: PricingPlan[] = [
       "Security and approvals",
       "Priority support",
     ],
-    accent: "from-[#0891B2] to-[#685BFD]",
+    accent: "from-[#0891B2] via-[#685BFD] to-[#7C3AED]",
   },
 ];
 
@@ -85,18 +85,18 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] as const }}
+      initial={{ opacity: 0, y: 28, scale: 0.97 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] as const }}
       className={
-        "relative overflow-hidden rounded-[34px] border p-5 sm:p-6 lg:p-7 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-2xl " +
+        "group relative overflow-hidden rounded-[28px] border p-5 backdrop-blur-2xl transition-all duration-300 hover:border-white/[0.15] sm:p-6 lg:p-7 " +
         (plan.highlight
-          ? "border-white/18 bg-gradient-to-b from-white/[0.08] via-white/[0.06] to-white/[0.04] ring-1 ring-[#685BFD]/12"
-          : "border-white/10 bg-white/[0.05]")
+          ? "border-white/[0.1] bg-gradient-to-b from-white/[0.08] via-white/[0.05] to-white/[0.03] ring-1 ring-[#685BFD]/15 shadow-[0_30px_100px_rgba(0,0,0,0.4)] " + glow.brandGlow
+          : "border-white/[0.06] bg-white/[0.03] shadow-[0_24px_80px_rgba(0,0,0,0.3)] " + glass.darkHover)
       }
     >
-      <div className={"absolute -right-20 -top-20 h-48 w-48 rounded-full blur-3xl opacity-30 bg-gradient-to-br " + plan.accent} />
+      <div className={"pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-gradient-to-br opacity-20 blur-3xl transition-opacity duration-300 group-hover:opacity-40 " + plan.accent} />
       <div className="relative z-10 flex h-full flex-col">
         <div className="flex items-center justify-between gap-3">
           <span className={"inline-flex items-center gap-2 rounded-full border px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.24em] " + accent.badge}>
@@ -113,32 +113,32 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
         <h3 className="mt-5 font-inter text-[24px] font-semibold leading-tight tracking-[-0.8px] text-white sm:text-[28px]">
           {plan.name}
         </h3>
-        <p className="mt-3 max-w-[420px] font-inter text-[14px] leading-relaxed text-white/60 sm:text-[15px]">
+        <p className="mt-3 max-w-[420px] font-inter text-[14px] leading-relaxed text-white/55 sm:text-[15px]">
           {plan.description}
         </p>
 
-        <div className="mt-5 rounded-[28px] border border-white/10 bg-white/[0.05] p-4">
-          <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/60">
+        <div className="mt-5 rounded-[20px] border border-white/[0.06] bg-white/[0.03] p-4">
+          <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/50">
             Investment
           </p>
           <p className="mt-2 font-inter text-[28px] font-semibold tracking-[-1px] text-white sm:text-[32px]">
             {plan.priceLabel}
           </p>
-          <p className="mt-1 font-inter text-[14px] leading-relaxed text-white/60">
+          <p className="mt-1 font-inter text-[14px] leading-relaxed text-white/50">
             {plan.priceDetail}
           </p>
         </div>
 
-        <div className="mt-5 space-y-2.5">
+        <div className="mt-5 space-y-2">
           {plan.features.map((feature) => (
             <div
               key={feature}
-              className="flex items-start gap-3 rounded-[18px] border border-white/10 bg-white/[0.04] px-3 py-3"
+              className="flex items-start gap-3 rounded-[14px] border border-white/[0.06] bg-white/[0.025] px-3 py-3 transition-colors hover:bg-white/[0.05]"
             >
               <div className={"mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br text-white " + plan.accent}>
                 <Check className="h-3.5 w-3.5" strokeWidth={3.5} />
               </div>
-              <p className="font-inter text-[13px] leading-relaxed text-white/75 sm:text-[14px]">
+              <p className="font-inter text-[13px] leading-relaxed text-white/70 sm:text-[14px]">
                 {feature}
               </p>
             </div>
@@ -153,14 +153,9 @@ export default function PricingRedesign({ className }: { className?: string }) {
   return (
     <section
       id="pricing"
-      className={"relative flex w-full items-center overflow-hidden bg-[#0B0F1A] py-14 sm:py-16 lg:min-h-screen lg:py-16 " + (className || "")}
+      className={"relative flex w-full items-center overflow-hidden bg-[#0B0F1A] py-16 sm:py-20 lg:min-h-screen lg:py-20 " + (className || "")}
     >
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(104,91,253,0.22),transparent_28%),radial-gradient(circle_at_top_right,rgba(236,72,153,0.16),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(8,145,178,0.10),transparent_22%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20" />
-        <div className="absolute -left-24 top-12 h-72 w-72 rounded-full bg-[#685BFD]/16 blur-[150px]" />
-        <div className="absolute right-[-120px] bottom-[-120px] h-80 w-80 rounded-full bg-[#EC4899]/12 blur-[160px]" />
-      </div>
+      <MeshBg tone="dark" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[96px]">
         <div className="mx-auto max-w-[1240px]">
@@ -178,11 +173,11 @@ export default function PricingRedesign({ className }: { className?: string }) {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" as const }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 shadow-[0_10px_24px_rgba(0,0,0,0.14)] backdrop-blur-xl"
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
+            className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-2 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
           >
             <Sparkles className="h-4 w-4 text-[#A78BFA]" />
-            <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.24em] text-white/75">
+            <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.24em] text-white/70">
               Pricing
             </span>
           </motion.div>
@@ -191,11 +186,11 @@ export default function PricingRedesign({ className }: { className?: string }) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" as const }}
+            transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] as const }}
             className={"mt-6 max-w-[760px] " + type.h2 + " text-white"}
           >
             Simple plans for every rollout.
-            <span className="block text-[#A78BFA]">Built for governed scale.</span>
+            <span className={"block " + gradientText.brand}>Built for governed scale.</span>
           </motion.h2>
 
           <motion.p
@@ -219,8 +214,8 @@ export default function PricingRedesign({ className }: { className?: string }) {
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.65, delay: 0.18, ease: "easeOut" as const }}
-            className="mt-8 rounded-[30px] border border-white/10 bg-white/[0.06] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.18)] backdrop-blur-xl sm:p-6"
+            transition={{ duration: 0.65, delay: 0.18, ease: [0.16, 1, 0.3, 1] as const }}
+            className="mt-8 rounded-[24px] border border-white/[0.06] bg-white/[0.03] p-5 backdrop-blur-2xl sm:p-6"
           >
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-[620px]">
