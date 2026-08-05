@@ -12,7 +12,7 @@ import {
   UsersRound,
 } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
-import { focusRing, type, gradientText, glass, glow, MeshBg, AmbientOrbs } from "./ui";
+import { focusRing, type } from "./ui";
 
 interface Scenario {
   id: string;
@@ -20,7 +20,6 @@ interface Scenario {
   icon: typeof FileBarChart2;
   accent: string;
   dot: string;
-  glow: string;
   prompt: string;
   steps: string[];
   result: {
@@ -36,9 +35,8 @@ const scenarios: Scenario[] = [
     id: "finance",
     chip: "Finance",
     icon: FileBarChart2,
-    accent: "from-[#685BFD] via-[#7C3AED] to-[#6366F1]",
-    dot: "#685BFD",
-    glow: "#685BFD",
+    accent: "from-[#6C63FF] to-[#4F46E5]",
+    dot: "#6C63FF",
     prompt: "Create last quarter's finance report",
     steps: [
       "Reading ledger from Finance module",
@@ -61,9 +59,8 @@ const scenarios: Scenario[] = [
     id: "hr",
     chip: "HR",
     icon: UsersRound,
-    accent: "from-[#EC4899] via-[#F472B6] to-[#FB7185]",
-    dot: "#EC4899",
-    glow: "#EC4899",
+    accent: "from-[#E94B6F] to-[#FF8DA5]",
+    dot: "#E94B6F",
     prompt: "Onboard the 20 new hires starting Monday",
     steps: [
       "Reading 20 signed offer records",
@@ -138,31 +135,30 @@ function AgentConsole() {
 
   return (
     <div className="relative">
-      <div className="pointer-events-none absolute -inset-12 rounded-[48px] bg-[#685BFD]/20 blur-[100px]" style={{ animation: "pulse-glow 4s ease-in-out infinite" }} />
-      <div className="pointer-events-none absolute -top-8 -right-8 h-40 w-40 rounded-full bg-[#EC4899]/15 blur-[80px]" style={{ animation: "pulse-glow 5s ease-in-out infinite" }} />
+      <div className="pointer-events-none absolute -inset-8 rounded-[44px] bg-[#6C63FF]/18 blur-[90px]" />
 
       <motion.div
-        initial={{ y: 30, opacity: 0, scale: 0.96 }}
+        initial={{ y: 26, opacity: 0, scale: 0.98 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        className="relative overflow-hidden rounded-[32px] border border-white/[0.08] bg-gradient-to-b from-[#0B0F1A] via-[#0D1120] to-[#080A12] shadow-[0_40px_140px_rgba(0,0,0,0.5)] backdrop-blur-2xl"
+        transition={{ duration: 0.75, delay: 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-b from-[#141634] via-[#0E1026] to-[#080A18] shadow-[0_36px_120px_rgba(15,23,42,0.34)]"
       >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_0%,rgba(104,91,253,0.25),transparent_55%),radial-gradient(ellipse_at_85%_15%,rgba(236,72,153,0.18),transparent_50%),radial-gradient(ellipse_at_50%_100%,rgba(124,58,237,0.12),transparent_50%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(108,99,255,0.22),transparent_55%),radial-gradient(circle_at_85%_10%,rgba(233,75,111,0.14),transparent_50%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.022)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.022)_1px,transparent_1px)] bg-[size:24px_24px]" />
 
-        <div className="relative flex items-center justify-between gap-3 border-b border-white/[0.06] px-5 py-3.5">
+        <div className="relative flex items-center justify-between gap-3 border-b border-white/8 px-5 py-3.5">
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F56]/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#22C55E]/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F56]/80" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]/80" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#27C93F]/80" />
           </div>
 
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 backdrop-blur-xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5">
             <span className="relative flex h-1.5 w-1.5 items-center justify-center">
-              <span className="absolute h-1.5 w-1.5 animate-ping rounded-full bg-emerald-400/60" />
+              <span className="absolute h-1.5 w-1.5 animate-ping rounded-full bg-emerald-400/70" />
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             </span>
-            <span className="font-poppins text-[9px] font-bold uppercase tracking-[0.24em] text-white/60">
+            <span className="font-poppins text-[9px] font-bold uppercase tracking-[0.24em] text-white/65">
               Nexus Agent · live
             </span>
           </div>
@@ -184,8 +180,8 @@ function AgentConsole() {
                   focusRing +
                   " " +
                   (isActive
-                    ? "border-white/15 bg-white/[0.1] text-white shadow-[0_8px_24px_rgba(104,91,253,0.15)]"
-                    : "border-white/[0.06] bg-white/[0.03] text-white/50 hover:text-white/80 hover:bg-white/[0.05]")
+                    ? "border-white/20 bg-white/[0.12] text-white"
+                    : "border-white/10 bg-white/[0.04] text-white/55 hover:text-white/85")
                 }
               >
                 <ChipIcon className="h-3.5 w-3.5" style={{ color: item.dot }} />
@@ -196,13 +192,13 @@ function AgentConsole() {
         </div>
 
         <div className="relative min-h-[420px] px-5 pb-5 pt-4">
-          <div className="rounded-[20px] border border-white/[0.08] bg-gradient-to-r from-white/[0.06] to-white/[0.02] px-4 py-3.5 backdrop-blur-xl">
-            <p className="font-poppins text-[9px] font-bold uppercase tracking-[0.24em] text-white/35">
+          <div className="rounded-[20px] border border-white/10 bg-white/[0.04] px-4 py-3.5">
+            <p className="font-poppins text-[9px] font-bold uppercase tracking-[0.24em] text-white/40">
               Employee request
             </p>
-            <p className="mt-2 font-inter text-[15px] leading-snug text-white sm:text-[16px]">
+            <p className="mt-2 font-['DM_Sans'] text-[15px] leading-snug text-white sm:text-[16px]">
               {scenario.prompt.slice(0, typed)}
-              {isTyping && <span className="ml-0.5 inline-block h-[15px] w-[2px] animate-pulse bg-gradient-to-b from-[#685BFD] to-[#EC4899] align-middle" />}
+              {isTyping && <span className="ml-0.5 inline-block h-[15px] w-[2px] animate-pulse bg-[#9C9BFF] align-middle" />}
             </p>
           </div>
 
@@ -218,16 +214,16 @@ function AgentConsole() {
                       initial={{ opacity: 0, x: -8 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.28 }}
-                      className="flex items-center gap-2.5 rounded-[14px] border border-white/[0.06] bg-white/[0.025] px-3 py-2"
+                      className="flex items-center gap-2.5 rounded-[14px] border border-white/8 bg-white/[0.03] px-3 py-2"
                     >
                       {isCurrent ? (
-                        <Loader2 className="h-3.5 w-3.5 shrink-0 animate-spin text-[#A78BFA]" />
+                        <Loader2 className="h-3.5 w-3.5 shrink-0 animate-spin text-[#9C9BFF]" />
                       ) : (
                         <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-emerald-400/90">
                           <Check className="h-2.5 w-2.5 text-[#08132A]" strokeWidth={4} />
                         </span>
                       )}
-                      <span className="font-inter text-[12.5px] leading-snug text-white/70">{step}</span>
+                      <span className="font-['DM_Sans'] text-[12.5px] leading-snug text-white/70">{step}</span>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -243,9 +239,9 @@ function AgentConsole() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="mt-3 overflow-hidden rounded-[22px] border border-white/[0.1] bg-gradient-to-b from-white/[0.08] to-white/[0.03] backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.2)]"
+                className="mt-3 overflow-hidden rounded-[22px] border border-white/12 bg-white/[0.06]"
               >
-                <div className="flex items-start gap-3 border-b border-white/[0.06] px-4 py-3.5">
+                <div className="flex items-start gap-3 border-b border-white/8 px-4 py-3.5">
                   <span
                     className={
                       "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-white " +
@@ -255,27 +251,27 @@ function AgentConsole() {
                     <ScenarioIcon className="h-4 w-4" />
                   </span>
                   <div className="min-w-0">
-                    <p className="font-inter text-[16px] font-semibold tracking-[-0.3px] text-white">
+                    <p className="font-onest text-[16px] font-semibold tracking-[-0.3px] text-white">
                       {scenario.result.title}
                     </p>
-                    <p className="mt-0.5 font-inter text-[11.5px] text-white/50">{scenario.result.meta}</p>
+                    <p className="mt-0.5 font-['DM_Sans'] text-[11.5px] text-white/50">{scenario.result.meta}</p>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 divide-x divide-white/[0.06]">
+                <div className="grid grid-cols-3 divide-x divide-white/8">
                   {scenario.result.rows.map((row) => (
                     <div key={row.label} className="px-3 py-3">
                       <p className="font-poppins text-[8.5px] font-bold uppercase tracking-[0.18em] text-white/40">
                         {row.label}
                       </p>
-                      <p className="mt-1 font-inter text-[15px] font-semibold tracking-[-0.3px] text-white">
+                      <p className="mt-1 font-onest text-[15px] font-semibold tracking-[-0.3px] text-white">
                         {row.value}
                       </p>
                     </div>
                   ))}
                 </div>
 
-                <div className="flex items-center gap-2 border-t border-white/[0.06] bg-white/[0.02] px-4 py-2.5">
+                <div className="flex items-center gap-2 border-t border-white/8 bg-white/[0.03] px-4 py-2.5">
                   <BadgeCheck className="h-3.5 w-3.5 text-emerald-400" />
                   <span className="font-poppins text-[9px] font-bold uppercase tracking-[0.2em] text-white/60">
                     {scenario.result.footer}
@@ -294,109 +290,106 @@ export default function HeroRedesign() {
   const { openGetInTouch } = useGetInTouchModal();
 
   return (
-    <section id="top" className="relative w-full overflow-hidden bg-[#0B0F1A] text-white">
-      <MeshBg tone="dark" />
-      <AmbientOrbs tone="dark" />
+    <>
+      <section id="top" className="relative w-full overflow-hidden bg-[#F6F7FB] text-slate-900">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.12),transparent_28%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.08),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(14,165,233,0.08),transparent_24%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.045)_1px,transparent_1px)] bg-[size:32px_32px] opacity-40" />
+          <div className="absolute -left-24 top-16 h-72 w-72 rounded-full bg-[#6C63FF]/12 blur-[140px]" />
+          <div className="absolute right-[-120px] top-36 h-80 w-80 rounded-full bg-[#E94B6F]/10 blur-[160px]" />
+          <div className="absolute bottom-[-140px] left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-[#0EA5E9]/8 blur-[160px]" />
+        </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col px-4 pb-10 pt-24 sm:px-6 lg:min-h-screen lg:px-[96px] lg:pb-12 lg:pt-28">
-        <div className="grid flex-1 items-center gap-12 pb-2 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="max-w-[760px]">
-            <motion.div
-              initial={{ y: 18, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.04] px-4 py-2 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
-            >
-              <span className="relative flex h-2 w-2 items-center justify-center">
-                <span className="absolute h-2 w-2 animate-ping rounded-full bg-emerald-400/60" />
-                <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              </span>
-              <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-white/70">
-                Agentic Business Suite
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ y: 32, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] as const }}
-              className={"mt-6 max-w-[760px] " + type.h1}
-            >
-              Enterprise software that
-              <span className={"block " + gradientText.brand}>runs itself.</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ y: 24, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.75, delay: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
-              className="mt-6 max-w-[640px] font-inter text-[17px] leading-[1.7] text-white/60 sm:text-[18px]"
-            >
-              Consultants no longer freeze your requirements. Nexus AI First maps live business changes into working modules so the company keeps moving without waiting months for a solution design.
-            </motion.p>
-
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.65, delay: 0.32, ease: [0.16, 1, 0.3, 1] as const }}
-              className="mt-8 flex flex-wrap items-center gap-3"
-            >
-              <motion.button
-                type="button"
-                onClick={openGetInTouch}
-                whileHover={{ y: -2, scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={"inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#685BFD] to-[#7C3AED] px-6 py-3.5 font-poppins text-[14px] font-bold text-white " + glow.brandGlow + " transition-shadow hover:shadow-[0_22px_60px_rgba(104,91,253,0.45)] " + focusRing}
+        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col px-4 pb-10 pt-24 sm:px-6 lg:min-h-screen lg:px-[96px] lg:pb-12 lg:pt-28">
+          <div className="grid flex-1 items-center gap-10 pb-2 lg:grid-cols-[1.02fr_0.98fr]">
+            <div className="max-w-[720px]">
+              <motion.div
+                initial={{ y: 18, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut" as const }}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-[0_10px_25px_rgba(15,23,42,0.05)] backdrop-blur-xl"
               >
-                Talk to Nexus Agent
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm">
-                  <ArrowUpRight className="h-4 w-4" />
+                <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_0_8px_rgba(16,185,129,0.12)]" />
+                <span className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-600">
+                  Agentic Business Suite
                 </span>
-              </motion.button>
+              </motion.div>
 
-              <a
-                href="#modules"
-                className={
-                  "inline-flex items-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.04] px-5 py-3.5 font-poppins text-[14px] font-bold text-white/80 backdrop-blur-xl transition-all hover:bg-white/[0.08] hover:text-white hover:border-white/[0.18] " +
-                  focusRing
-                }
+              <motion.h1
+                initial={{ y: 28, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.75, delay: 0.1, ease: "easeOut" as const }}
+                className="mt-6 max-w-[760px] font-onest text-[42px] font-semibold leading-[0.95] tracking-[-2px] text-slate-950 sm:text-[56px] lg:text-[62px] lg:tracking-[-2.6px]"
               >
-                See the modules
-              </a>
-            </motion.div>
+                Enterprise software that
+                <span className="block text-[#6C63FF]">runs itself.</span>
+              </motion.h1>
 
-            <motion.div
-              initial={{ y: 18, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.42, ease: [0.16, 1, 0.3, 1] as const }}
-              className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3"
-            >
-              {[
-                { label: "Approval-led", desc: "by design" },
-                { label: "No frozen", desc: "requirements" },
-                { label: "Live business", desc: "context" },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className={"flex items-center gap-3 rounded-[16px] border border-white/[0.06] bg-white/[0.03] px-4 py-3 backdrop-blur-xl " + glass.darkHover}
+              <motion.p
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.18, ease: "easeOut" as const }}
+                className="mt-6 max-w-[640px] font-['DM_Sans'] text-[17px] leading-[1.7] text-slate-600 sm:text-[18px]"
+              >
+                Consultants no longer freeze your requirements. Nexus AI First maps live business changes into working modules so the company keeps moving without waiting months for a solution design.
+              </motion.p>
+
+              <motion.div
+                initial={{ y: 18, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.28, ease: "easeOut" as const }}
+                className="mt-8 flex flex-wrap items-center gap-3"
+              >
+                <motion.button
+                  type="button"
+                  onClick={openGetInTouch}
+                  whileHover={{ y: -1, scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  className="inline-flex items-center gap-3 rounded-full bg-[#6C63FF] px-5 py-3 font-poppins text-[14px] font-bold text-white shadow-[0_18px_40px_rgba(108,99,255,0.26)] transition-colors hover:bg-[#5B55F6]"
                 >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#685BFD]/20 to-[#EC4899]/15">
-                    <Sparkles className="h-3.5 w-3.5 text-[#A78BFA]" />
+                  Talk to Nexus Agent
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#15122E]">
+                    <ArrowUpRight className="h-4 w-4" />
                   </span>
-                  <div className="flex flex-col leading-tight">
-                    <span className="font-inter text-[13px] font-semibold text-white">{item.label}</span>
-                    <span className="font-inter text-[12px] text-white/50">{item.desc}</span>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          </div>
+                </motion.button>
 
-          <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
-            <AgentConsole />
+                <a
+                  href="#modules"
+                  className={
+                    "inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 font-poppins text-[14px] font-bold text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl transition-colors hover:bg-slate-50 hover:text-slate-950 " +
+                    focusRing
+                  }
+                >
+                  See the modules
+                </a>
+              </motion.div>
+
+              <motion.div
+                initial={{ y: 16, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.36, ease: "easeOut" as const }}
+                className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-slate-200 pt-6"
+              >
+                {[
+                  "Approval-led by design",
+                  "No frozen requirements",
+                  "Live business context",
+                ].map((item) => (
+                  <span key={item} className="flex items-center gap-2">
+                    <Sparkles className="h-3.5 w-3.5 text-[#6C63FF]" />
+                    <span className={type.micro + " text-slate-500"}>{item}</span>
+                  </span>
+                ))}
+              </motion.div>
+            </div>
+
+            <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
+              <AgentConsole />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+
+      </section>
+    </>
   );
 }

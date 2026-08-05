@@ -5,10 +5,10 @@ import Image from "next/image";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
-import { focusRing, type, glow } from "./ui";
+import { focusRing, type } from "./ui";
 
 const sectionTones: Record<string, "dark" | "light"> = {
-  top: "dark",
+  top: "light",
   problem: "dark",
   solution: "light",
   modules: "dark",
@@ -75,7 +75,7 @@ export default function HomeNav() {
   return (
     <>
       <motion.div
-        className="fixed inset-x-0 top-0 z-[90] h-[3px] origin-left bg-gradient-to-r from-[#685BFD] via-[#7C3AED] to-[#EC4899]"
+        className="fixed inset-x-0 top-0 z-[90] h-[3px] origin-left bg-gradient-to-r from-[#6C63FF] via-[#8B5CF6] to-[#E94B6F]"
         style={{ scaleX: progress }}
         aria-hidden
       />
@@ -90,9 +90,9 @@ export default function HomeNav() {
           animate={{ maxWidth: isCompact ? 1080 : 1248 }}
           transition={{ duration: 0.45, ease: "easeOut" }}
           className={
-            "mx-auto flex items-center justify-between gap-4 rounded-full border px-4 py-2.5 backdrop-blur-2xl transition-all duration-500 " +
+            "mx-auto flex items-center justify-between gap-4 rounded-full border px-4 py-2.5 backdrop-blur-2xl transition-colors duration-500 " +
             (isDark
-              ? "border-white/[0.08] bg-[#0B0F1A]/70 shadow-[0_16px_50px_rgba(0,0,0,0.4)]"
+              ? "border-white/12 bg-[#12132A]/80 shadow-[0_16px_44px_rgba(0,0,0,0.34)]"
               : "border-slate-200/80 bg-white/85 shadow-[0_12px_34px_rgba(15,23,42,0.08)]")
           }
         >
@@ -159,7 +159,7 @@ export default function HomeNav() {
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.98 }}
               className={
-                "hidden items-center gap-2 rounded-full bg-gradient-to-r from-[#685BFD] to-[#7C3AED] px-4 py-2.5 font-poppins text-[12px] font-bold text-white shadow-[0_14px_36px_rgba(104,91,253,0.35)] transition-shadow hover:shadow-[0_18px_48px_rgba(104,91,253,0.5)] sm:inline-flex " +
+                "hidden items-center gap-2 rounded-full bg-[#6C63FF] px-4 py-2.5 font-poppins text-[12px] font-bold text-white shadow-[0_14px_32px_rgba(108,99,255,0.3)] transition-colors hover:bg-[#5B55F6] sm:inline-flex " +
                 focusRing
               }
             >
@@ -195,7 +195,7 @@ export default function HomeNav() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 240, damping: 30 }}
-            className="fixed inset-0 z-[100] flex flex-col bg-[#0B0F1A]/95 px-5 py-6 backdrop-blur-2xl xl:hidden"
+            className="fixed inset-0 z-[100] flex flex-col bg-[#0F1024] px-5 py-6 xl:hidden"
             role="dialog"
             aria-modal="true"
           >
@@ -239,7 +239,7 @@ export default function HomeNav() {
                   openGetInTouch();
                 }}
                 className={
-                  "inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#685BFD] to-[#7C3AED] px-5 py-4 font-poppins text-[15px] font-bold text-white shadow-[0_18px_48px_rgba(104,91,253,0.35)] " +
+                  "inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#6C63FF] px-5 py-4 font-poppins text-[15px] font-bold text-white " +
                   focusRing
                 }
               >

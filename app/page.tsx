@@ -15,7 +15,7 @@ export default function Home() {
     <GetInTouchModalProvider>
       <HomeNav />
 
-      <main className="min-h-screen bg-[#0B0F1A] text-white">
+      <main className="min-h-screen bg-[#F6F7FB] text-slate-900">
         <HeroRedesign />
         <ProofBand />
         <ProblemRedesign />
