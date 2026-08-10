@@ -65,7 +65,7 @@ export default function ProcessFlowsPage() {
 
       <DocsTabs />
 
-      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#0F1024]">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {processes.map((p, i) => {
             const Icon = p.icon;
@@ -76,20 +76,20 @@ export default function ProcessFlowsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: (i % 3) * 0.06 }}
-                className="group p-6 rounded-3xl bg-white border border-[#15122E]/10 hover:border-[#6C63FF]/40 hover:shadow-[0_20px_60px_rgba(108,99,255,0.1)] transition-all"
+                className="group p-6 rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl hover:border-[#6C63FF]/40 transition-all"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-2xl bg-[#6C63FF]/10 flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-[#6C63FF]" />
+                  <div className="w-11 h-11 rounded-2xl bg-[#6C63FF]/15 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-[#9C9BFF]" />
                   </div>
-                  <span className="font-poppins text-xs font-bold text-[#15122E]/30">
+                  <span className="font-poppins text-xs font-bold text-white/30">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <h3 className="font-heading text-lg font-semibold text-[#15122E] mb-2">
+                <h3 className="font-onest text-lg font-semibold text-white mb-2">
                   {p.name}
                 </h3>
-                <p className="font-['DM_Sans'] text-[15px] leading-relaxed text-[#15122E]/70">
+                <p className="font-['DM_Sans'] text-[15px] leading-relaxed text-white/60">
                   {p.desc}
                 </p>
               </motion.div>
@@ -98,7 +98,7 @@ export default function ProcessFlowsPage() {
         </div>
 
         <div className="max-w-[900px] mx-auto mt-16 rounded-[32px] p-10 lg:p-14 text-center bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] text-white">
-          <h2 className="font-heading text-[28px] lg:text-[36px] font-semibold tracking-[-1px] mb-4">
+          <h2 className="font-onest text-[28px] lg:text-[36px] font-semibold tracking-[-1px] mb-4">
             See these processes in action
           </h2>
           <p className="max-w-[520px] mx-auto text-white/85 font-['DM_Sans'] text-lg mb-8">

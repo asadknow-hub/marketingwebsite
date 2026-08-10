@@ -138,23 +138,23 @@ export default function PricingPage() {
         </Link>
         <Link
           href="/contact"
-          className="inline-flex items-center gap-2 h-12 px-6 rounded-full border border-[#15122E]/15 hover:border-[#6C63FF] transition-colors text-[#15122E] font-poppins font-semibold"
+          className="inline-flex items-center gap-2 h-12 px-6 rounded-full border border-white/15 hover:border-[#6C63FF] transition-colors text-white font-poppins font-semibold"
         >
           Talk to Sales
         </Link>
       </PageHero>
 
       {/* Pricing tiers */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 pb-16">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-16 bg-[#0F1024]">
         <div className="max-w-[1200px] mx-auto">
           {/* Billing toggle */}
           <div className="flex items-center justify-center gap-3 mb-12">
-            <span className={"font-poppins text-sm font-semibold " + (!annual ? "text-[#15122E]" : "text-[#15122E]/50")}>
+            <span className={"font-poppins text-sm font-semibold " + (!annual ? "text-white" : "text-white/50")}>
               Monthly
             </span>
             <button
               onClick={() => setAnnual((v) => !v)}
-              className="relative w-14 h-8 rounded-full bg-[#6C63FF]/15 transition-colors"
+              className="relative w-14 h-8 rounded-full bg-[#6C63FF]/20 transition-colors"
               aria-label="Toggle billing period"
             >
               <motion.span
@@ -163,8 +163,8 @@ export default function PricingPage() {
                 className={"absolute top-1 w-6 h-6 rounded-full bg-[#6C63FF] " + (annual ? "left-7" : "left-1")}
               />
             </button>
-            <span className={"font-poppins text-sm font-semibold " + (annual ? "text-[#15122E]" : "text-[#15122E]/50")}>
-              Annual <span className="text-[#4F46E5]">(save 20%)</span>
+            <span className={"font-poppins text-sm font-semibold " + (annual ? "text-white" : "text-white/50")}>
+              Annual <span className="text-[#9C9BFF]">(save 20%)</span>
             </span>
           </div>
 
@@ -182,50 +182,50 @@ export default function PricingPage() {
                   className={
                     "relative flex flex-col p-8 rounded-[28px] " +
                     (tier.highlight
-                      ? "bg-[#15122E] text-white shadow-[0_30px_80px_rgba(21,18,46,0.25)] lg:-mt-4 lg:mb-4"
-                      : "bg-white border border-[#15122E]/10")
+                      ? "bg-[#6C63FF] text-white shadow-[0_30px_80px_rgba(108,99,255,0.25)] lg:-mt-4 lg:mb-4"
+                      : "border border-white/10 bg-white/[0.06] backdrop-blur-xl text-white")
                   }
                 >
                   {tier.highlight && (
-                    <span className="absolute top-6 right-6 px-3 py-1 rounded-full bg-[#6C63FF] text-white font-poppins text-xs font-semibold">
+                    <span className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/20 text-white font-poppins text-xs font-semibold">
                       Most Popular
                     </span>
                   )}
-                  <div className={"w-12 h-12 rounded-2xl flex items-center justify-center mb-5 " + (tier.highlight ? "bg-[#6C63FF]" : "bg-[#6C63FF]/10")}>
-                    <Icon className={"w-6 h-6 " + (tier.highlight ? "text-white" : "text-[#6C63FF]")} />
+                  <div className={"w-12 h-12 rounded-2xl flex items-center justify-center mb-5 " + (tier.highlight ? "bg-white/20" : "bg-[#6C63FF]/15")}>
+                    <Icon className={"w-6 h-6 " + (tier.highlight ? "text-white" : "text-[#9C9BFF]")} />
                   </div>
-                  <h3 className={"font-heading text-2xl font-bold mb-1 " + (tier.highlight ? "text-white" : "text-[#15122E]")}>
+                  <h3 className={"font-onest text-2xl font-bold mb-1 text-white"}>
                     {tier.name}
                   </h3>
-                  <p className={"font-['DM_Sans'] text-[14px] mb-6 " + (tier.highlight ? "text-white/70" : "text-[#15122E]/60")}>
+                  <p className={"font-['DM_Sans'] text-[14px] mb-6 " + (tier.highlight ? "text-white/80" : "text-white/50")}>
                     {tier.tagline}
                   </p>
                   <div className="mb-6">
                     {price === null ? (
-                      <div className={"font-heading text-4xl font-bold " + (tier.highlight ? "text-white" : "text-[#15122E]")}>
+                      <div className="font-onest text-4xl font-bold text-white">
                         Custom
                       </div>
                     ) : (
                       <div className="flex items-end gap-1">
-                        <span className={"font-heading text-5xl font-bold " + (tier.highlight ? "text-white" : "text-[#6C63FF]")}>
+                        <span className={"font-onest text-5xl font-bold " + (tier.highlight ? "text-white" : "text-[#9C9BFF]")}>
                           ${price}
                         </span>
-                        <span className={"font-['DM_Sans'] text-sm mb-2 " + (tier.highlight ? "text-white/60" : "text-[#15122E]/50")}>
+                        <span className={"font-['DM_Sans'] text-sm mb-2 " + (tier.highlight ? "text-white/70" : "text-white/40")}>
                           /user / mo
                         </span>
                       </div>
                     )}
                     {price !== null && (
-                      <div className={"font-['DM_Sans'] text-xs mt-1 " + (tier.highlight ? "text-white/50" : "text-[#15122E]/50")}>
+                      <div className={"font-['DM_Sans'] text-xs mt-1 " + (tier.highlight ? "text-white/60" : "text-white/40")}>
                         billed {annual ? "annually" : "monthly"}
                       </div>
                     )}
                   </div>
                   <ul className="space-y-3 mb-8 flex-1">
                     {tier.features.map((f) => (
-                      <li key={f} className={"flex items-start gap-2.5 font-['DM_Sans'] text-[15px] " + (tier.highlight ? "text-white/90" : "text-[#15122E]")}>
-                        <div className={"w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 " + (tier.highlight ? "bg-[#4F46E5]" : "bg-[#4F46E5]/15")}>
-                          <Check className={"w-3.5 h-3.5 " + (tier.highlight ? "text-white" : "text-[#4F46E5]")} strokeWidth={3} />
+                      <li key={f} className={"flex items-start gap-2.5 font-['DM_Sans'] text-[15px] " + (tier.highlight ? "text-white/90" : "text-white/80")}>
+                        <div className={"w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 " + (tier.highlight ? "bg-white/20" : "bg-[#6C63FF]/20")}>
+                          <Check className={"w-3.5 h-3.5 " + (tier.highlight ? "text-white" : "text-[#9C9BFF]")} strokeWidth={3} />
                         </div>
                         {f}
                       </li>
@@ -236,8 +236,8 @@ export default function PricingPage() {
                     className={
                       "w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-full font-poppins font-semibold transition-colors " +
                       (tier.highlight
-                        ? "bg-[#6C63FF] hover:bg-[#4F46E5] text-white"
-                        : "bg-[#15122E] hover:bg-[#4F46E5] text-white")
+                        ? "bg-white text-[#6C63FF] hover:scale-[1.02] transition-transform"
+                        : "bg-[#6C63FF] hover:bg-[#4F46E5] text-white")
                     }
                   >
                     {tier.cta} <ArrowUpRight className="w-4 h-4" />
@@ -250,14 +250,14 @@ export default function PricingPage() {
       </section>
 
       {/* Services */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-[#F5F3FF]">
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-[#12132A]">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
-            <Building2 className="w-12 h-12 mx-auto mb-4 text-[#6C63FF]" />
-            <h2 className="font-heading text-[32px] lg:text-[44px] font-semibold text-[#15122E] tracking-[-1.2px] mb-3">
+            <Building2 className="w-12 h-12 mx-auto mb-4 text-[#9C9BFF]" />
+            <h2 className="font-onest text-[32px] lg:text-[44px] font-semibold text-white tracking-[-1.2px] mb-3">
               Professional Services
             </h2>
-            <p className="max-w-[620px] mx-auto font-['DM_Sans'] text-[#15122E]/70 text-lg">
+            <p className="max-w-[620px] mx-auto font-['DM_Sans'] text-white/60 text-lg">
               Accelerate your rollout with our embedded consultants — from implementation and
               migration to training and ongoing optimization.
             </p>
@@ -272,13 +272,13 @@ export default function PricingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
-                  className="p-6 rounded-3xl bg-white border border-[#15122E]/10 text-center hover:border-[#6C63FF]/40 transition-colors"
+                  className="p-6 rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl text-center hover:border-[#6C63FF]/40 transition-colors"
                 >
-                  <Icon className="w-10 h-10 mx-auto mb-4 text-[#6C63FF]" />
-                  <h3 className="font-heading text-lg font-semibold text-[#15122E] mb-1">
+                  <Icon className="w-10 h-10 mx-auto mb-4 text-[#9C9BFF]" />
+                  <h3 className="font-onest text-lg font-semibold text-white mb-1">
                     {s.title}
                   </h3>
-                  <p className="font-['DM_Sans'] text-[14px] text-[#15122E]/70">{s.desc}</p>
+                  <p className="font-['DM_Sans'] text-[14px] text-white/50">{s.desc}</p>
                 </motion.div>
               );
             })}
@@ -295,7 +295,7 @@ export default function PricingPage() {
       </section>
 
       {/* Enterprise CTA */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-[#0F1024]">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -304,7 +304,7 @@ export default function PricingPage() {
           className="max-w-[900px] mx-auto rounded-[32px] p-10 lg:p-14 text-center bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] text-white"
         >
           <Rocket className="w-14 h-14 mx-auto mb-6" />
-          <h2 className="font-heading text-[30px] lg:text-[40px] font-semibold tracking-[-1px] mb-4">
+          <h2 className="font-onest text-[30px] lg:text-[40px] font-semibold tracking-[-1px] mb-4">
             Need a plan tailored to your enterprise?
           </h2>
           <p className="max-w-[560px] mx-auto text-white/85 font-['DM_Sans'] text-lg mb-8">
@@ -321,9 +321,9 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#0F1024]">
         <div className="max-w-[760px] mx-auto">
-          <h2 className="text-center font-heading text-[32px] lg:text-[44px] font-semibold text-[#15122E] tracking-[-1.2px] mb-10">
+          <h2 className="text-center font-onest text-[32px] lg:text-[44px] font-semibold text-white tracking-[-1.2px] mb-10">
             Frequently asked questions
           </h2>
           <div className="space-y-4">
@@ -334,12 +334,12 @@ export default function PricingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
-                className="p-6 rounded-3xl bg-white border border-[#15122E]/10"
+                className="p-6 rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl"
               >
-                <h4 className="font-heading text-lg font-semibold text-[#15122E] mb-2">
+                <h4 className="font-onest text-lg font-semibold text-white mb-2">
                   {f.q}
                 </h4>
-                <p className="font-['DM_Sans'] text-[15px] text-[#15122E]/70 leading-relaxed">
+                <p className="font-['DM_Sans'] text-[15px] text-white/60 leading-relaxed">
                   {f.a}
                 </p>
               </motion.div>

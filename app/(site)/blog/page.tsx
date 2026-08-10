@@ -79,17 +79,17 @@ export default function BlogPage() {
         subtitle="Expert insights on AI-powered ERP, enterprise operations, and industry best practices."
       >
         <div className="relative w-full max-w-md">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#15122E]/40" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search articles..."
-            className="w-full h-12 pl-11 pr-4 rounded-full border border-[#15122E]/15 bg-white font-['DM_Sans'] text-[#15122E] placeholder:text-[#15122E]/40 outline-none focus:border-[#6C63FF] focus:ring-2 focus:ring-[#6C63FF]/20 transition-all"
+            className="w-full h-12 pl-11 pr-4 rounded-full border border-white/15 bg-white/[0.06] backdrop-blur-xl font-['DM_Sans'] text-white placeholder:text-white/40 outline-none focus:border-[#6C63FF] focus:ring-2 focus:ring-[#6C63FF]/20 transition-all"
           />
         </div>
       </PageHero>
 
-      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#0F1024]">
         <div className="max-w-[1200px] mx-auto">
           {/* Category filter */}
           <div className="flex flex-wrap justify-center gap-2 mb-10">
@@ -101,7 +101,7 @@ export default function BlogPage() {
                   "relative px-5 py-2 rounded-full font-poppins text-sm font-semibold transition-colors " +
                   (category === cat
                     ? "text-white"
-                    : "text-[#15122E]/70 hover:text-[#15122E] bg-[#15122E]/5")
+                    : "text-white/60 hover:text-white bg-white/[0.06]")
                 }
               >
                 {category === cat && (
@@ -117,7 +117,7 @@ export default function BlogPage() {
           </div>
 
           {filtered.length === 0 ? (
-            <div className="text-center py-20 text-[#15122E]/50">
+            <div className="text-center py-20 text-white/40">
               <FileText className="w-12 h-12 mx-auto mb-4 opacity-40" />
               <p className="font-['DM_Sans']">
                 No posts found{search ? ` for "${search}"` : ""}.
@@ -134,38 +134,38 @@ export default function BlogPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.96 }}
                     transition={{ duration: 0.4, delay: (i % 6) * 0.04 }}
-                    className="group flex flex-col rounded-3xl bg-white border border-[#15122E]/10 overflow-hidden hover:border-[#6C63FF]/40 hover:shadow-[0_20px_60px_rgba(108,99,255,0.12)] transition-all duration-300 cursor-pointer"
+                    className="group flex flex-col rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl overflow-hidden hover:border-[#6C63FF]/40 transition-all duration-300 cursor-pointer"
                   >
-                    <div className="h-44 bg-gradient-to-br from-[#6C63FF]/15 via-[#F5F3FF] to-[#4F46E5]/15 flex items-center justify-center">
-                      <FileText className="w-10 h-10 text-[#6C63FF]/40" />
+                    <div className="h-44 bg-gradient-to-br from-[#6C63FF]/20 via-[#12132A] to-[#4F46E5]/20 flex items-center justify-center">
+                      <FileText className="w-10 h-10 text-[#9C9BFF]/40" />
                     </div>
                     <div className="p-6 flex flex-col flex-1">
                       <div className="flex items-center justify-between gap-2 mb-3 flex-wrap">
                         <span
                           className={
                             "px-3 py-1 rounded-full font-poppins text-xs font-semibold " +
-                            (CAT_COLOR[post.category] || "bg-[#15122E]/5 text-[#15122E]/60")
+                            (CAT_COLOR[post.category] || "bg-white/[0.06] text-white/60")
                           }
                         >
                           {post.category}
                         </span>
-                        <span className="text-xs text-[#15122E]/50 font-['DM_Sans'] flex items-center gap-1">
+                        <span className="text-xs text-white/40 font-['DM_Sans'] flex items-center gap-1">
                           <Calendar className="w-3 h-3" />
                           {formatDate(post.publishedAt)}
                         </span>
                       </div>
-                      <h3 className="font-heading text-lg font-semibold text-[#15122E] mb-2 leading-snug tracking-[-0.3px]">
+                      <h3 className="font-onest text-lg font-semibold text-white mb-2 leading-snug tracking-[-0.3px]">
                         {post.title}
                       </h3>
-                      <p className="font-['DM_Sans'] text-[15px] text-[#15122E]/70 leading-relaxed mb-4 flex-1">
+                      <p className="font-['DM_Sans'] text-[15px] text-white/60 leading-relaxed mb-4 flex-1">
                         {post.excerpt}
                       </p>
-                      <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#15122E]/8">
-                        <span className="text-xs text-[#15122E]/60 font-['DM_Sans'] flex items-center gap-1">
+                      <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/8">
+                        <span className="text-xs text-white/50 font-['DM_Sans'] flex items-center gap-1">
                           <User className="w-3 h-3" />
                           {post.authorName}
                         </span>
-                        <span className="inline-flex items-center gap-1 font-poppins text-sm font-semibold text-[#6C63FF]">
+                        <span className="inline-flex items-center gap-1 font-poppins text-sm font-semibold text-[#9C9BFF]">
                           Read
                           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </span>

@@ -98,7 +98,7 @@ export default function Footer() {
             <div className="flex flex-col gap-5">
               <motion.h4
                 variants={itemVariants}
-                className="text-white font-heading text-[22px] font-semibold tracking-[-0.6px]"
+                className="text-white font-onest text-[22px] font-semibold tracking-[-0.6px]"
               >
                 Social
               </motion.h4>
@@ -126,7 +126,7 @@ export default function Footer() {
             whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.21, 0.45, 0.32, 0.9] as const }}
-            className="w-full text-center text-white/10 font-heading font-bold leading-none text-[64px] sm:text-[120px] lg:text-[200px] tracking-tighter"
+            className="w-full text-center text-white/10 font-onest font-bold leading-none text-[64px] sm:text-[120px] lg:text-[200px] tracking-tighter"
           >
             Nexus AI
           </motion.h1>
@@ -168,7 +168,7 @@ function FooterColumn({
     <div className="flex flex-col gap-5">
       <motion.h4
         variants={itemVariants}
-        className="text-white font-heading text-[22px] font-semibold tracking-[-0.6px]"
+        className="text-white font-onest text-[22px] font-semibold tracking-[-0.6px]"
       >
         {title}
       </motion.h4>

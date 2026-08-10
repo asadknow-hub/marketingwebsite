@@ -58,18 +58,18 @@ export default function FeaturesPage() {
         subtitle={`Explore ${totalFeatures}+ features across ${featureModules.length} modules designed to transform your enterprise operations.`}
       >
         <div className="relative w-full max-w-xl">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#15122E]/40" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search features, modules, or capabilities..."
-            className="w-full h-13 py-3.5 pl-12 pr-4 rounded-full border border-[#15122E]/15 bg-white font-['DM_Sans'] text-[#15122E] placeholder:text-[#15122E]/40 outline-none focus:border-[#6C63FF] focus:ring-2 focus:ring-[#6C63FF]/20 transition-all"
+            className="w-full h-13 py-3.5 pl-12 pr-4 rounded-full border border-white/15 bg-white/[0.06] backdrop-blur-xl font-['DM_Sans'] text-white placeholder:text-white/40 outline-none focus:border-[#6C63FF] focus:ring-2 focus:ring-[#6C63FF]/20 transition-all"
           />
         </div>
       </PageHero>
 
       {/* Stats */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 pb-12">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-12 bg-[#0F1024]">
         <div className="max-w-[900px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((s, i) => (
             <motion.div
@@ -78,20 +78,20 @@ export default function FeaturesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="text-center p-6 rounded-3xl bg-white border border-[#15122E]/10"
+              className="text-center p-6 rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl"
             >
-              <div className="font-heading text-3xl font-bold text-[#6C63FF]">{s.value}</div>
-              <div className="mt-1 font-['DM_Sans'] text-sm text-[#15122E]/60">{s.label}</div>
+              <div className="font-onest text-3xl font-bold text-[#9C9BFF]">{s.value}</div>
+              <div className="mt-1 font-['DM_Sans'] text-sm text-white/50">{s.label}</div>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* Accordion */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#0F1024]">
         <div className="max-w-[1100px] mx-auto space-y-4">
           {filtered.length === 0 && (
-            <p className="text-center py-16 font-['DM_Sans'] text-[#15122E]/50">
+            <p className="text-center py-16 font-['DM_Sans'] text-white/40">
               No features found for &quot;{search}&quot;.
             </p>
           )}
@@ -108,11 +108,11 @@ export default function FeaturesPage() {
             return (
               <div
                 key={mod.id}
-                className="rounded-3xl bg-white border border-[#15122E]/10 overflow-hidden"
+                className="rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl overflow-hidden"
               >
                 <button
                   onClick={() => toggle(mod.id)}
-                  className="w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-[#6C63FF]/5 transition-colors"
+                  className="w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-white/[0.04] transition-colors"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-2xl bg-[#6C63FF] flex items-center justify-center shrink-0">
@@ -120,20 +120,20 @@ export default function FeaturesPage() {
                     </div>
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
-                        <h3 className="font-heading text-xl font-semibold text-[#15122E] tracking-[-0.4px]">
+                        <h3 className="font-onest text-xl font-semibold text-white tracking-[-0.4px]">
                           {mod.name}
                         </h3>
-                        <span className="px-2.5 py-0.5 rounded-full bg-[#15122E]/5 text-[#15122E]/60 font-poppins text-xs font-semibold">
+                        <span className="px-2.5 py-0.5 rounded-full bg-white/[0.08] text-white/50 font-poppins text-xs font-semibold">
                           {mod.features.length} features
                         </span>
                       </div>
-                      <p className="mt-1 font-['DM_Sans'] text-[15px] text-[#15122E]/70">
+                      <p className="mt-1 font-['DM_Sans'] text-[15px] text-white/60">
                         {mod.description}
                       </p>
                     </div>
                   </div>
                   <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                    <ChevronDown className="w-5 h-5 text-[#15122E]/50 shrink-0" />
+                    <ChevronDown className="w-5 h-5 text-white/50 shrink-0" />
                   </motion.div>
                 </button>
 
@@ -150,17 +150,17 @@ export default function FeaturesPage() {
                         {visibleFeatures.map((f) => (
                           <div
                             key={f.name}
-                            className="p-4 rounded-2xl border border-[#15122E]/8 hover:border-[#6C63FF]/40 hover:bg-[#6C63FF]/5 transition-all"
+                            className="p-4 rounded-2xl border border-white/8 hover:border-[#6C63FF]/40 hover:bg-[#6C63FF]/[0.06] transition-all"
                           >
                             <div className="flex items-start gap-3">
-                              <div className="w-5 h-5 rounded-full bg-[#4F46E5]/15 flex items-center justify-center shrink-0 mt-0.5">
-                                <Check className="w-3.5 h-3.5 text-[#4F46E5]" strokeWidth={3} />
+                              <div className="w-5 h-5 rounded-full bg-[#6C63FF]/20 flex items-center justify-center shrink-0 mt-0.5">
+                                <Check className="w-3.5 h-3.5 text-[#9C9BFF]" strokeWidth={3} />
                               </div>
                               <div>
-                                <div className="font-heading text-[15px] font-semibold text-[#15122E]">
+                                <div className="font-onest text-[15px] font-semibold text-white">
                                   {f.name}
                                 </div>
-                                <div className="font-['DM_Sans'] text-[13px] text-[#15122E]/60 leading-relaxed">
+                                <div className="font-['DM_Sans'] text-[13px] text-white/50 leading-relaxed">
                                   {f.description}
                                 </div>
                               </div>

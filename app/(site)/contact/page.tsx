@@ -41,7 +41,7 @@ export default function ContactPage() {
   };
 
   const inputCls =
-    "w-full h-12 px-4 rounded-xl border border-[#15122E]/15 bg-white font-['DM_Sans'] text-[#15122E] placeholder:text-[#15122E]/40 outline-none focus:border-[#6C63FF] focus:ring-2 focus:ring-[#6C63FF]/20 transition-all";
+    "w-full h-12 px-4 rounded-xl border border-white/15 bg-white/[0.06] backdrop-blur-xl font-['DM_Sans'] text-white placeholder:text-white/40 outline-none focus:border-[#6C63FF] focus:ring-2 focus:ring-[#6C63FF]/20 transition-all";
 
   return (
     <>
@@ -56,7 +56,7 @@ export default function ContactPage() {
         subtitle="Have questions about Nexus AI First? We're here to help. Send us a message and we'll respond within 24–48 hours."
       />
 
-      <section className="w-full px-4 sm:px-6 lg:px-8 pb-16">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-16 bg-[#0F1024]">
         <div className="max-w-[1100px] mx-auto grid lg:grid-cols-3 gap-6">
           {/* Form */}
           <motion.div
@@ -64,17 +64,17 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-2 p-8 rounded-3xl bg-white border border-[#15122E]/10"
+            className="lg:col-span-2 p-8 rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl"
           >
             {status === "sent" ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 rounded-full bg-[#4F46E5]/15 flex items-center justify-center mx-auto mb-4">
-                  <Check className="w-8 h-8 text-[#4F46E5]" strokeWidth={3} />
+                <div className="w-16 h-16 rounded-full bg-[#6C63FF]/20 flex items-center justify-center mx-auto mb-4">
+                  <Check className="w-8 h-8 text-[#9C9BFF]" strokeWidth={3} />
                 </div>
-                <h2 className="font-heading text-2xl font-bold text-[#15122E] mb-2">
+                <h2 className="font-onest text-2xl font-bold text-white mb-2">
                   Message sent successfully
                 </h2>
-                <p className="font-['DM_Sans'] text-[#15122E]/70 mb-6">
+                <p className="font-['DM_Sans'] text-white/60 mb-6">
                   Thank you for reaching out. Our team will get back to you within 24–48 hours.
                 </p>
                 <button
@@ -90,20 +90,20 @@ export default function ContactPage() {
             ) : (
               <form onSubmit={onSubmit} className="space-y-5">
                 <div className="flex items-center gap-3 mb-2">
-                  <MessageSquare className="w-6 h-6 text-[#6C63FF]" />
-                  <h2 className="font-heading text-2xl font-bold text-[#15122E]">
+                  <MessageSquare className="w-6 h-6 text-[#9C9BFF]" />
+                  <h2 className="font-onest text-2xl font-bold text-white">
                     Send us a message
                   </h2>
                 </div>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-poppins text-sm font-semibold text-[#15122E] mb-1.5">
+                    <label className="block font-poppins text-sm font-semibold text-white/80 mb-1.5">
                       Full Name *
                     </label>
                     <input required value={form.name} onChange={update("name")} placeholder="John Doe" className={inputCls} />
                   </div>
                   <div>
-                    <label className="block font-poppins text-sm font-semibold text-[#15122E] mb-1.5">
+                    <label className="block font-poppins text-sm font-semibold text-white/80 mb-1.5">
                       Email Address *
                     </label>
                     <input required type="email" value={form.email} onChange={update("email")} placeholder="john@company.com" className={inputCls} />
@@ -111,23 +111,23 @@ export default function ContactPage() {
                 </div>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-poppins text-sm font-semibold text-[#15122E] mb-1.5">
+                    <label className="block font-poppins text-sm font-semibold text-white/80 mb-1.5">
                       Company Name
                     </label>
                     <div className="relative">
-                      <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#15122E]/40" />
+                      <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
                       <input value={form.company} onChange={update("company")} placeholder="Acme Inc." className={inputCls + " pl-10"} />
                     </div>
                   </div>
                   <div>
-                    <label className="block font-poppins text-sm font-semibold text-[#15122E] mb-1.5">
+                    <label className="block font-poppins text-sm font-semibold text-white/80 mb-1.5">
                       Subject *
                     </label>
                     <input required value={form.subject} onChange={update("subject")} placeholder="How can we help?" className={inputCls} />
                   </div>
                 </div>
                 <div>
-                  <label className="block font-poppins text-sm font-semibold text-[#15122E] mb-1.5">
+                  <label className="block font-poppins text-sm font-semibold text-white/80 mb-1.5">
                     Message *
                   </label>
                   <textarea
@@ -136,7 +136,7 @@ export default function ContactPage() {
                     value={form.message}
                     onChange={update("message")}
                     placeholder="Tell us more about your inquiry..."
-                    className="w-full px-4 py-3 rounded-xl border border-[#15122E]/15 bg-white font-['DM_Sans'] text-[#15122E] placeholder:text-[#15122E]/40 outline-none focus:border-[#6C63FF] focus:ring-2 focus:ring-[#6C63FF]/20 transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-white/15 bg-white/[0.06] backdrop-blur-xl font-['DM_Sans'] text-white placeholder:text-white/40 outline-none focus:border-[#6C63FF] focus:ring-2 focus:ring-[#6C63FF]/20 transition-all resize-none"
                   />
                 </div>
                 <button
@@ -166,24 +166,24 @@ export default function ContactPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="space-y-5"
           >
-            <div className="p-6 rounded-3xl bg-[#6C63FF]/5 border border-[#6C63FF]/15">
+            <div className="p-6 rounded-[28px] border border-[#6C63FF]/20 bg-[#6C63FF]/[0.08]">
               <div className="flex items-center gap-3 mb-3">
-                <Mail className="w-6 h-6 text-[#6C63FF]" />
-                <h3 className="font-heading text-lg font-semibold text-[#15122E]">
+                <Mail className="w-6 h-6 text-[#9C9BFF]" />
+                <h3 className="font-onest text-lg font-semibold text-white">
                   Get in touch
                 </h3>
               </div>
-              <p className="font-['DM_Sans'] text-[15px] text-[#15122E]/70">
+              <p className="font-['DM_Sans'] text-[15px] text-white/60">
                 Our team is available to answer your questions and help you find the right ERP
                 solution for your business.
               </p>
             </div>
-            <div className="block p-6 rounded-3xl bg-white border border-[#15122E]/10">
+            <div className="block p-6 rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl">
               <div className="flex items-center gap-3 mb-2">
-                <Headphones className="w-6 h-6 text-[#15122E]" />
-                <h3 className="font-heading text-lg font-semibold text-[#15122E]">Sales & Support</h3>
+                <Headphones className="w-6 h-6 text-white" />
+                <h3 className="font-onest text-lg font-semibold text-white">Sales & Support</h3>
               </div>
-              <p className="font-['DM_Sans'] text-[15px] text-[#15122E]/70">
+              <p className="font-['DM_Sans'] text-[15px] text-white/60">
                 Talk to our team about plans, demos, onboarding, and dedicated support.
               </p>
             </div>
@@ -192,9 +192,9 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#F5F3FF] pt-16">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#12132A] pt-16">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="text-center font-heading text-[32px] lg:text-[44px] font-semibold text-[#15122E] tracking-[-1.2px] mb-10">
+          <h2 className="text-center font-onest text-[32px] lg:text-[44px] font-semibold text-white tracking-[-1.2px] mb-10">
             Frequently asked questions
           </h2>
           <div className="grid md:grid-cols-2 gap-4">
@@ -205,12 +205,12 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: (i % 2) * 0.06 }}
-                className="p-6 rounded-3xl bg-white border border-[#15122E]/10"
+                className="p-6 rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl"
               >
-                <h4 className="font-heading text-lg font-semibold text-[#15122E] mb-2">
+                <h4 className="font-onest text-lg font-semibold text-white mb-2">
                   {f.q}
                 </h4>
-                <p className="font-['DM_Sans'] text-[15px] text-[#15122E]/70 leading-relaxed">
+                <p className="font-['DM_Sans'] text-[15px] text-white/60 leading-relaxed">
                   {f.a}
                 </p>
               </motion.div>
