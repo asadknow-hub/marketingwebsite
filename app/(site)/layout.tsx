@@ -11,7 +11,7 @@ export default function SiteLayout({
 }) {
   return (
     <GetInTouchModalProvider>
-      <div className="min-h-screen flex flex-col bg-[#0F1024]">
+      <div className="min-h-screen flex flex-col bg-[#F6F7FB]">
         <Navbar />
         <main className="flex-1">
           <PageTransition>{children}</PageTransition>

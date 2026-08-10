@@ -89,8 +89,8 @@ export default function Navbar() {
           className={cn(
             "mx-auto flex items-center justify-between gap-4 rounded-full border px-4 py-2.5 backdrop-blur-2xl transition-colors duration-500",
             scrolled
-              ? "border-white/12 bg-[#12132A]/80 shadow-[0_16px_44px_rgba(0,0,0,0.34)]"
-              : "border-white/12 bg-[#12132A]/70 shadow-[0_12px_34px_rgba(0,0,0,0.28)]"
+              ? "border-[#15122E]/8 bg-white/85 shadow-[0_8px_30px_rgba(21,18,46,0.08)]"
+              : "border-[#15122E]/6 bg-white/70 shadow-[0_4px_20px_rgba(21,18,46,0.05)]"
           )}
         >
           <Link
@@ -104,7 +104,7 @@ export default function Navbar() {
                 className="h-6 w-6 object-contain"
               />
             </span>
-            <span className="font-poppins text-[14px] font-bold tracking-[-0.2px] text-white">
+            <span className="font-poppins text-[14px] font-bold tracking-[-0.2px] text-[#15122E]">
               Nexus AI First
             </span>
           </Link>
@@ -124,8 +124,8 @@ export default function Navbar() {
                     className={cn(
                       "flex items-center gap-1 rounded-full px-3 py-2 font-poppins text-[12px] font-bold uppercase tracking-[0.16em] transition-colors whitespace-nowrap",
                       groupActive
-                        ? "text-white"
-                        : "text-white/50 hover:text-white/85"
+                        ? "text-[#15122E]"
+                        : "text-[#15122E]/55 hover:text-[#15122E]"
                     )}
                   >
                     {group.label}
@@ -142,8 +142,8 @@ export default function Navbar() {
                         transition={{ duration: 0.18 }}
                         className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[300px]"
                       >
-                        <div className="rounded-2xl border border-white/10 bg-[#12132A]/95 backdrop-blur-2xl shadow-[0_24px_60px_rgba(0,0,0,0.4)] p-2">
-                          <span className="block px-3 pt-2 pb-1 font-poppins text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">
+                        <div className="rounded-2xl border border-[#15122E]/8 bg-white/95 backdrop-blur-2xl shadow-[0_24px_60px_rgba(21,18,46,0.12)] p-2">
+                          <span className="block px-3 pt-2 pb-1 font-poppins text-[10px] font-bold uppercase tracking-[0.2em] text-[#15122E]/30">
                             {group.label}
                           </span>
                           {group.items.map((item) => (
@@ -153,17 +153,17 @@ export default function Navbar() {
                               className={cn(
                                 "flex flex-col gap-0.5 px-3 py-2.5 rounded-xl transition-colors",
                                 isActive(item.href)
-                                  ? "bg-[#6C63FF]/15"
-                                  : "hover:bg-white/[0.06]"
+                                  ? "bg-[#6C63FF]/8"
+                                  : "hover:bg-[#15122E]/[0.04]"
                               )}
                             >
                               <span className={cn(
                                 "font-poppins text-sm font-bold",
-                                isActive(item.href) ? "text-[#9C9BFF]" : "text-white"
+                                isActive(item.href) ? "text-[#6C63FF]" : "text-[#15122E]"
                               )}>
                                 {item.label}
                               </span>
-                              <span className="font-['DM_Sans'] text-xs text-white/40">
+                              <span className="font-['DM_Sans'] text-xs text-[#15122E]/50">
                                 {item.desc}
                               </span>
                             </Link>
@@ -211,7 +211,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="xl:hidden inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.08] p-2.5 text-white"
+              className="xl:hidden inline-flex items-center justify-center rounded-full border border-[#15122E]/10 bg-white/60 p-2.5 text-[#15122E]"
               aria-label="Open menu"
             >
               <Menu className="w-5 h-5" />
@@ -228,7 +228,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 240, damping: 30 }}
-            className="fixed inset-0 z-[60] xl:hidden bg-[#0F1024] flex flex-col px-5 py-6"
+            className="fixed inset-0 z-[60] xl:hidden bg-white flex flex-col px-5 py-6"
             role="dialog"
             aria-modal="true"
           >
@@ -241,11 +241,11 @@ export default function Navbar() {
                     className="h-6 w-6 object-contain"
                   />
                 </span>
-                <span className="font-poppins text-[14px] font-bold text-white">Nexus AI First</span>
+                <span className="font-poppins text-[14px] font-bold text-[#15122E]">Nexus AI First</span>
               </span>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center justify-center rounded-full border border-white/12 bg-white/[0.08] p-2.5 text-white"
+                className="flex items-center justify-center rounded-full border border-[#15122E]/10 bg-[#15122E]/[0.04] p-2.5 text-[#15122E]"
                 aria-label="Close menu"
               >
                 <X className="w-5 h-5" />
@@ -267,7 +267,7 @@ export default function Navbar() {
                         onClick={() => setMobileExpanded(isExpanded ? null : group.prefix)}
                         className={cn(
                           "flex items-center justify-between w-full font-poppins text-2xl font-bold py-2 tracking-tight transition-colors",
-                          groupActive ? "text-[#9C9BFF]" : "text-white"
+                          groupActive ? "text-[#6C63FF]" : "text-[#15122E]"
                         )}
                       >
                         {group.label}
@@ -289,7 +289,7 @@ export default function Navbar() {
                                   href={item.href}
                                   className={cn(
                                     "font-poppins text-lg font-semibold py-1.5 transition-colors",
-                                    isActive(item.href) ? "text-[#9C9BFF]" : "text-white/60 hover:text-white"
+                                    isActive(item.href) ? "text-[#6C63FF]" : "text-[#15122E]/55 hover:text-[#15122E]"
                                   )}
                                 >
                                   {item.label}

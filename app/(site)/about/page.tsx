@@ -79,8 +79,8 @@ export default function AboutPage() {
       />
 
       {/* Stats bar */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 pb-16 bg-[#0F1024]">
-        <div className="max-w-[1100px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 py-8 border-y border-white/10">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-16 bg-[#F6F7FB]">
+        <div className="max-w-[1100px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 py-8 border-y border-[#15122E]/10">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
@@ -90,21 +90,21 @@ export default function AboutPage() {
               transition={{ duration: 0.4, delay: (i % 6) * 0.05 }}
               className="text-center"
             >
-              <div className="font-onest text-3xl font-bold text-[#9C9BFF]">{s.value}</div>
-              <div className="mt-1 font-['DM_Sans'] text-sm text-white/50">{s.label}</div>
+              <div className="font-onest text-3xl font-bold text-[#6C63FF]">{s.value}</div>
+              <div className="mt-1 font-['DM_Sans'] text-sm text-[#15122E]/50">{s.label}</div>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* Values */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-[#0F1024]">
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-[#F6F7FB]">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-onest text-[32px] lg:text-[44px] font-semibold text-white tracking-[-1.2px] mb-3">
+            <h2 className="font-onest text-[32px] lg:text-[44px] font-semibold text-[#15122E] tracking-[-1.2px] mb-3">
               Built on principles
             </h2>
-            <p className="max-w-[560px] mx-auto font-['DM_Sans'] text-white/60 text-lg">
+            <p className="max-w-[560px] mx-auto font-['DM_Sans'] text-[#15122E]/65 text-lg">
               Nexus AI First exists to help enterprises run smarter and faster.
             </p>
           </div>
@@ -118,15 +118,15 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="p-8 rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl hover:border-[#6C63FF]/40 transition-colors"
+                  className="p-8 rounded-[28px] border border-[#15122E]/10 bg-white hover:border-[#6C63FF]/40 transition-colors"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-[#6C63FF]/15 flex items-center justify-center mb-5">
-                    <Icon className="w-6 h-6 text-[#9C9BFF]" />
+                  <div className="w-12 h-12 rounded-2xl bg-[#6C63FF]/10 flex items-center justify-center mb-5">
+                    <Icon className="w-6 h-6 text-[#6C63FF]" />
                   </div>
-                  <h3 className="font-onest text-xl font-semibold text-white mb-3">
+                  <h3 className="font-onest text-xl font-semibold text-[#15122E] mb-3">
                     {v.title}
                   </h3>
-                  <p className="font-['DM_Sans'] text-[15px] leading-relaxed text-white/60">
+                  <p className="font-['DM_Sans'] text-[15px] leading-relaxed text-[#15122E]/65">
                     {v.desc}
                   </p>
                 </motion.div>
@@ -137,7 +137,7 @@ export default function AboutPage() {
       </section>
 
       {/* Platform split */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-[#12132A]">
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-white">
         <div className="max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -24 }}
@@ -145,21 +145,21 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex px-3 py-1 rounded-full bg-[#6C63FF]/15 text-[#9C9BFF] font-poppins text-xs font-semibold mb-4">
+            <span className="inline-flex px-3 py-1 rounded-full bg-[#6C63FF]/10 text-[#6C63FF] font-poppins text-xs font-semibold mb-4">
               Cloud SaaS Platform
             </span>
-            <h2 className="font-onest text-[30px] lg:text-[40px] font-semibold text-white tracking-[-1px] mb-5">
+            <h2 className="font-onest text-[30px] lg:text-[40px] font-semibold text-[#15122E] tracking-[-1px] mb-5">
               Enterprise-grade, fully managed
             </h2>
-            <p className="font-['DM_Sans'] text-lg text-white/60 mb-6">
+            <p className="font-['DM_Sans'] text-lg text-[#15122E]/65 mb-6">
               Nexus AI First is delivered as a secure, cloud-hosted service. We handle the
               infrastructure, scaling, and updates so your team can focus on running the business.
             </p>
             <ul className="space-y-3 mb-8">
               {platformPoints.map((p) => (
-                <li key={p} className="flex items-center gap-3 font-['DM_Sans'] text-white/80">
-                  <div className="w-5 h-5 rounded-full bg-[#6C63FF]/20 flex items-center justify-center shrink-0">
-                    <Check className="w-3.5 h-3.5 text-[#9C9BFF]" strokeWidth={3} />
+                <li key={p} className="flex items-center gap-3 font-['DM_Sans'] text-[#15122E]/80">
+                  <div className="w-5 h-5 rounded-full bg-[#6C63FF]/15 flex items-center justify-center shrink-0">
+                    <Check className="w-3.5 h-3.5 text-[#6C63FF]" strokeWidth={3} />
                   </div>
                   {p}
                 </li>
@@ -174,7 +174,7 @@ export default function AboutPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 h-12 px-6 rounded-full border border-white/15 hover:border-[#6C63FF] transition-colors text-white font-poppins font-semibold"
+                className="inline-flex items-center gap-2 h-12 px-6 rounded-full border border-[#15122E]/15 hover:border-[#6C63FF] transition-colors text-[#15122E] font-poppins font-semibold"
               >
                 View Pricing
               </Link>
@@ -196,12 +196,12 @@ export default function AboutPage() {
             ].map((s) => (
               <div
                 key={s.label}
-                className="p-8 rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl text-center"
+                className="p-8 rounded-[28px] border border-[#15122E]/10 bg-white text-center"
               >
-                <div className="font-onest text-4xl font-bold text-[#9C9BFF] mb-2">
+                <div className="font-onest text-4xl font-bold text-[#6C63FF] mb-2">
                   {s.value}
                 </div>
-                <div className="font-['DM_Sans'] text-sm text-white/50">{s.label}</div>
+                <div className="font-['DM_Sans'] text-sm text-[#15122E]/50">{s.label}</div>
               </div>
             ))}
           </motion.div>
@@ -209,13 +209,13 @@ export default function AboutPage() {
       </section>
 
       {/* Why */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-[#0F1024]">
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-[#F6F7FB]">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-onest text-[32px] lg:text-[44px] font-semibold text-white tracking-[-1.2px] mb-3">
+            <h2 className="font-onest text-[32px] lg:text-[44px] font-semibold text-[#15122E] tracking-[-1.2px] mb-3">
               Why Nexus AI First?
             </h2>
-            <p className="max-w-[600px] mx-auto font-['DM_Sans'] text-white/60 text-lg">
+            <p className="max-w-[600px] mx-auto font-['DM_Sans'] text-[#15122E]/65 text-lg">
               We built the ERP we always wanted — open, intelligent, and genuinely
               enterprise-ready.
             </p>
@@ -230,15 +230,15 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
-                  className="p-6 rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl hover:border-[#6C63FF]/40 transition-all"
+                  className="p-6 rounded-[28px] border border-[#15122E]/10 bg-white hover:border-[#6C63FF]/40 transition-all"
                 >
-                  <div className="w-11 h-11 rounded-2xl bg-[#6C63FF]/15 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-[#9C9BFF]" />
+                  <div className="w-11 h-11 rounded-2xl bg-[#6C63FF]/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-[#6C63FF]" />
                   </div>
-                  <h3 className="font-onest text-lg font-semibold text-white mb-2">
+                  <h3 className="font-onest text-lg font-semibold text-[#15122E] mb-2">
                     {r.title}
                   </h3>
-                  <p className="font-['DM_Sans'] text-[15px] leading-relaxed text-white/60">
+                  <p className="font-['DM_Sans'] text-[15px] leading-relaxed text-[#15122E]/65">
                     {r.desc}
                   </p>
                 </motion.div>
@@ -249,7 +249,7 @@ export default function AboutPage() {
       </section>
 
       {/* Community CTA */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#0F1024]">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#F6F7FB]">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

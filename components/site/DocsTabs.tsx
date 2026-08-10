@@ -14,8 +14,8 @@ const tabs = [
 export default function DocsTabs() {
   const pathname = usePathname();
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8 pb-8 bg-[#0F1024]">
-      <div className="max-w-[1100px] mx-auto flex flex-wrap items-center justify-center gap-2 p-2 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-xl">
+    <div className="w-full px-4 sm:px-6 lg:px-8 pb-8 bg-[#F6F7FB]">
+      <div className="max-w-[1100px] mx-auto flex flex-wrap items-center justify-center gap-2 p-2 rounded-full bg-white/80 border border-[#15122E]/8 backdrop-blur-xl">
         {tabs.map((t) => {
           const active = pathname.startsWith(t.href);
           return (
@@ -26,7 +26,7 @@ export default function DocsTabs() {
                 "px-5 py-2.5 rounded-full font-poppins text-sm font-semibold transition-colors",
                 active
                   ? "bg-[#6C63FF] text-white"
-                  : "text-white/60 hover:bg-white/[0.06] hover:text-white"
+                  : "text-[#15122E]/60 hover:bg-[#15122E]/[0.04] hover:text-[#15122E]"
               )}
             >
               {t.label}

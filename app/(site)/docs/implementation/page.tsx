@@ -75,7 +75,7 @@ export default function ImplementationDocsPage() {
       <DocsTabs />
 
       {/* Steps */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 py-8 bg-[#0F1024]">
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-8 bg-[#F6F7FB]">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {steps.map((s, i) => {
             const Icon = s.icon;
@@ -86,27 +86,27 @@ export default function ImplementationDocsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="relative p-6 rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl"
+                className="relative p-6 rounded-[28px] border border-[#15122E]/10 bg-white"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-11 h-11 rounded-2xl bg-[#6C63FF]/15 flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-[#9C9BFF]" />
+                  <div className="w-11 h-11 rounded-2xl bg-[#6C63FF]/10 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-[#6C63FF]" />
                   </div>
                   <span className="w-8 h-8 rounded-full bg-[#6C63FF] text-white flex items-center justify-center font-poppins text-sm font-bold">
                     {i + 1}
                   </span>
                 </div>
-                <h3 className="font-onest text-xl font-semibold text-white mb-2">
+                <h3 className="font-onest text-xl font-semibold text-[#15122E] mb-2">
                   {s.title}
                 </h3>
-                <p className="font-['DM_Sans'] text-[14px] leading-relaxed text-white/60 mb-4">
+                <p className="font-['DM_Sans'] text-[14px] leading-relaxed text-[#15122E]/65 mb-4">
                   {s.desc}
                 </p>
                 <ul className="space-y-2">
                   {s.points.map((p) => (
-                    <li key={p} className="flex items-start gap-2 font-['DM_Sans'] text-[13px] text-white/80">
-                      <div className="w-4 h-4 rounded-full bg-[#6C63FF]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <Check className="w-2.5 h-2.5 text-[#9C9BFF]" strokeWidth={3} />
+                    <li key={p} className="flex items-start gap-2 font-['DM_Sans'] text-[13px] text-[#15122E]/80">
+                      <div className="w-4 h-4 rounded-full bg-[#6C63FF]/15 flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="w-2.5 h-2.5 text-[#6C63FF]" strokeWidth={3} />
                       </div>
                       {p}
                     </li>
@@ -119,13 +119,13 @@ export default function ImplementationDocsPage() {
       </section>
 
       {/* Playbook */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-[#12132A]">
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="text-center mb-10">
-            <h2 className="font-onest text-[28px] lg:text-[38px] font-semibold text-white tracking-[-1px]">
+            <h2 className="font-onest text-[28px] lg:text-[38px] font-semibold text-[#15122E] tracking-[-1px]">
               Implementation Playbook
             </h2>
-            <p className="max-w-[560px] mx-auto mt-2 font-['DM_Sans'] text-white/60 text-lg">
+            <p className="max-w-[560px] mx-auto mt-2 font-['DM_Sans'] text-[#15122E]/65 text-lg">
               Go-live preparation and best practices, refined across hundreds of deployments.
             </p>
           </div>
@@ -139,13 +139,13 @@ export default function ImplementationDocsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: i * 0.08 }}
-                  className="p-8 rounded-[28px] border border-[#6C63FF]/20 bg-[#6C63FF]/[0.08]"
+                  className="p-8 rounded-[28px] border border-[#15122E]/15 bg-[#FFFFFF]"
                 >
-                  <Icon className="w-8 h-8 text-[#9C9BFF] mb-4" />
-                  <h3 className="font-onest text-lg font-semibold text-white mb-2">
+                  <Icon className="w-8 h-8 text-[#6C63FF] mb-4" />
+                  <h3 className="font-onest text-lg font-semibold text-[#15122E] mb-2">
                     {p.title}
                   </h3>
-                  <p className="font-['DM_Sans'] text-[15px] leading-relaxed text-white/60">
+                  <p className="font-['DM_Sans'] text-[15px] leading-relaxed text-[#15122E]/65">
                     {p.desc}
                   </p>
                 </motion.div>
@@ -156,7 +156,7 @@ export default function ImplementationDocsPage() {
       </section>
 
       {/* CTA */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#0F1024]">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#F6F7FB]">
         <div className="max-w-[900px] mx-auto rounded-[32px] p-10 lg:p-14 text-center bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] text-white">
           <Rocket className="w-12 h-12 mx-auto mb-6" />
           <h2 className="font-onest text-[28px] lg:text-[36px] font-semibold tracking-[-1px] mb-4">

@@ -30,7 +30,7 @@ export default function IndustriesPage() {
         </Link>
       </PageHero>
 
-      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#0F1024]">
+      <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#F6F7FB]">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {list.map((ind, i) => {
             const Icon = ind.icon;
@@ -43,18 +43,18 @@ export default function IndustriesPage() {
                 transition={{ duration: 0.45, delay: (i % 6) * 0.04 }}
               >
                 <Link href={`/industries/${ind.slug}`} className="group block h-full">
-                  <div className="relative h-full flex flex-col p-7 rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl hover:border-[#6C63FF]/40 transition-all duration-300 overflow-hidden">
+                  <div className="relative h-full flex flex-col p-7 rounded-[28px] border border-[#15122E]/10 bg-white hover:border-[#6C63FF]/40 transition-all duration-300 overflow-hidden">
                     <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-[#6C63FF]/8 group-hover:bg-[#6C63FF]/12 transition-colors" />
                     <div className="relative w-14 h-14 rounded-2xl bg-[#6C63FF]/15 flex items-center justify-center mb-5 group-hover:bg-[#6C63FF] transition-colors duration-300">
-                      <Icon className="w-7 h-7 text-[#9C9BFF] group-hover:text-white transition-colors duration-300" />
+                      <Icon className="w-7 h-7 text-[#6C63FF] group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <h3 className="relative font-onest text-2xl font-semibold text-white tracking-[-0.6px] mb-2">
+                    <h3 className="relative font-onest text-2xl font-semibold text-[#15122E] tracking-[-0.6px] mb-2">
                       {ind.name}
                     </h3>
-                    <p className="relative font-['DM_Sans'] text-[15px] leading-relaxed text-white/60 flex-1">
+                    <p className="relative font-['DM_Sans'] text-[15px] leading-relaxed text-[#15122E]/65 flex-1">
                       {ind.hero.subtitle}
                     </p>
-                    <span className="relative mt-5 inline-flex items-center gap-1 font-poppins text-sm font-semibold text-white group-hover:text-[#9C9BFF] transition-colors">
+                    <span className="relative mt-5 inline-flex items-center gap-1 font-poppins text-sm font-semibold text-[#15122E] group-hover:text-[#6C63FF] transition-colors">
                       Explore solution
                       <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </span>
