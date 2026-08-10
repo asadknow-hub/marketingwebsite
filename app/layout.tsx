@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "@/components/site/Navbar";
+import Footer from "@/components/site/Footer";
+import PageTransition from "@/components/site/PageTransition";
+import { GetInTouchModalProvider } from "@/components/site/GetInTouchModal";
 
 const description =
   "Nexus AI First is the world's leading Agentic ERP. Agentic AI configures your modules and runs the daily work — reports, onboarding, and approvals — so the business never waits on a frozen solution design.";
@@ -58,7 +62,17 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#F6F7FB] text-slate-900 antialiased">{children}</body>
+      <body className="bg-[#F6F7FB] text-slate-900 antialiased">
+        <GetInTouchModalProvider>
+          <div className="min-h-screen flex flex-col">
+            <Navbar />
+            <main className="flex-1">
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <Footer />
+          </div>
+        </GetInTouchModalProvider>
+      </body>
     </html>
   );
 }

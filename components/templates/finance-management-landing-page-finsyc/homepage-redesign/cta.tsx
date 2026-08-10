@@ -76,7 +76,7 @@ export default function FooterCtaRedesign({ className }: { className?: string })
   const { openGetInTouch } = useGetInTouchModal();
 
   return (
-    <footer
+    <section
       id="contact"
       className={"relative w-full overflow-hidden bg-[#F6F7FB] " + (className || "")}
     >
@@ -248,6 +248,6 @@ export default function FooterCtaRedesign({ className }: { className?: string })
           </div>
         </div>
       </div>
-    </footer>
+    </section>
   );
 }
