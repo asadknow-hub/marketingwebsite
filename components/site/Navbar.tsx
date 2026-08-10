@@ -12,7 +12,10 @@ const productItems: { label: string; href: string; desc: string }[] = [
   { label: "Modules", href: "/modules", desc: "Explore all 85+ ERP modules" },
   { label: "Features", href: "/features", desc: "Complete feature overview" },
   { label: "Industries", href: "/industries", desc: "40+ industry solutions" },
-  { label: "Pricing", href: "/pricing", desc: "Plans that scale with you" },
+];
+
+const topLinks: { label: string; href: string }[] = [
+  { label: "Pricing", href: "/pricing" },
 ];
 
 const companyItems: { label: string; href: string; desc: string }[] = [
@@ -110,6 +113,18 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden xl:flex items-center gap-1">
+            {topLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "rounded-full px-3 py-2 font-poppins text-[12px] font-bold uppercase tracking-[0.16em] transition-colors whitespace-nowrap",
+                  isActive(link.href) ? "text-[#15122E]" : "text-[#15122E]/55 hover:text-[#15122E]"
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
             {dropdowns.map((group) => {
               const groupActive = isGroupActive(group.items);
               const isOpen = openDropdown === group.prefix;
@@ -142,7 +157,7 @@ export default function Navbar() {
                         transition={{ duration: 0.18 }}
                         className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[300px]"
                       >
-                        <div className="rounded-2xl border border-[#15122E]/8 bg-white/95 backdrop-blur-2xl shadow-[0_24px_60px_rgba(21,18,46,0.12)] p-2">
+                        <div className="rounded-2xl border border-[#15122E]/8 bg-white shadow-[0_24px_60px_rgba(21,18,46,0.12)] p-2">
                           <span className="block px-3 pt-2 pb-1 font-poppins text-[10px] font-bold uppercase tracking-[0.2em] text-[#15122E]/30">
                             {group.label}
                           </span>
@@ -253,6 +268,18 @@ export default function Navbar() {
             </div>
 
             <div className="flex-1 flex flex-col justify-center px-3 gap-1 overflow-y-auto">
+              {topLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "font-poppins text-2xl font-bold py-2 tracking-tight transition-colors",
+                    isActive(link.href) ? "text-[#6C63FF]" : "text-[#15122E]"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
               {dropdowns.map((group, gi) => {
                 const isExpanded = mobileExpanded === group.prefix;
                 const groupActive = isGroupActive(group.items);
