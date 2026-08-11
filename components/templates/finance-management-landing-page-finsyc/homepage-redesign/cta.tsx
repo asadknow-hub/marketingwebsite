@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Layers, ShieldCheck, Sparkles, Workflow } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Sparkles, Workflow } from "lucide-react";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 import { focusRing, type } from "./ui";
 
@@ -35,14 +35,6 @@ const nextSteps: NextStep[] = [
     icon: ShieldCheck,
     accent: "from-[#E94B6F] to-[#FF8DA5]",
   },
-];
-
-const footerLinks = [
-  { label: "Problem", href: "#problem" },
-  { label: "Solution", href: "#solution" },
-  { label: "Modules", href: "#modules" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Top", href: "#top" },
 ];
 
 function StepCard({ step }: { step: NextStep }) {
@@ -200,52 +192,6 @@ export default function FooterCtaRedesign({ className }: { className?: string })
               ))}
             </div>
           </motion.div>
-        </div>
-
-        <div className="mt-16 border-t border-slate-200 pt-8">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-[460px]">
-              <div className="flex items-center gap-3 text-slate-900">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-[#6C63FF] shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-                  <Layers className="h-5 w-5" />
-                </div>
-                <div className="flex flex-col leading-tight">
-                  <span className="font-poppins text-[14px] font-bold tracking-[-0.2px] text-slate-950">Nexus AI First</span>
-                  <span className="font-poppins text-[10px] font-semibold uppercase tracking-[0.28em] text-slate-500">
-                    Agentic enterprise software
-                  </span>
-                </div>
-              </div>
-              <p className="mt-4 max-w-[420px] font-['DM_Sans'] text-[14px] leading-relaxed text-slate-600">
-                Built to replace frozen solution design with continuous mapping, orchestration, and approval-led
-                rollout.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              {footerLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className={
-                    "rounded-full border border-slate-200 bg-white px-4 py-2 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-950 " +
-                    focusRing
-                  }
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-8 flex flex-col gap-2 text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-            <p className="font-['DM_Sans'] text-[13px] leading-relaxed">
-              © 2026 Nexus AI First. All rights reserved.
-            </p>
-            <p className="font-['DM_Sans'] text-[13px] leading-relaxed">
-              Agentic enterprise software built to stay current.
-            </p>
-          </div>
         </div>
       </div>
     </section>
