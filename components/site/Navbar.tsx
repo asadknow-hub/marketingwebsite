@@ -14,10 +14,6 @@ const productItems: { label: string; href: string; desc: string }[] = [
   { label: "Industries", href: "/industries", desc: "40+ industry solutions" },
 ];
 
-const topLinks: { label: string; href: string }[] = [
-  { label: "Pricing", href: "/pricing" },
-];
-
 const companyItems: { label: string; href: string; desc: string }[] = [
   { label: "About Us", href: "/about", desc: "Our mission & vision" },
   { label: "Blog", href: "/blog", desc: "Insights & resources" },
@@ -36,9 +32,10 @@ interface DropdownGroup {
   prefix: string;
 }
 
-const dropdowns: DropdownGroup[] = [
+const navItems: (DropdownGroup | { label: string; href: string; isLink: true })[] = [
   { label: "Product", items: productItems, prefix: "product" },
   { label: "Company", items: companyItems, prefix: "company" },
+  { label: "Pricing", href: "/pricing", isLink: true },
   { label: "Docs", items: docsItems, prefix: "docs" },
 ];
 
@@ -100,32 +97,35 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-2.5 hover:opacity-80 transition-opacity shrink-0"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/12 bg-white/[0.08]">
+            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#15122E]/10 bg-white">
               <img
                 src="/purplelogowobg.png"
                 alt="Nexus AI First logo"
-                className="h-6 w-6 object-contain"
+                className="h-7 w-7 object-contain"
               />
             </span>
-            <span className="font-poppins text-[14px] font-bold tracking-[-0.2px] text-[#15122E]">
+            <span className="font-poppins text-[16px] font-bold tracking-[-0.2px] text-[#15122E]">
               Nexus AI First
             </span>
           </Link>
 
           <div className="hidden xl:flex items-center gap-1">
-            {topLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "rounded-full px-3 py-2 font-poppins text-[12px] font-bold uppercase tracking-[0.16em] transition-colors whitespace-nowrap",
-                  isActive(link.href) ? "text-[#15122E]" : "text-[#15122E]/55 hover:text-[#15122E]"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-            {dropdowns.map((group) => {
+            {navItems.map((item) => {
+              if ("isLink" in item) {
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "rounded-full px-3 py-2 font-poppins text-[12px] font-bold uppercase tracking-[0.16em] transition-colors whitespace-nowrap",
+                      isActive(item.href) ? "text-[#15122E]" : "text-[#15122E]/55 hover:text-[#15122E]"
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+              const group = item;
               const groupActive = isGroupActive(group.items);
               const isOpen = openDropdown === group.prefix;
               return (
@@ -249,14 +249,14 @@ export default function Navbar() {
           >
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-2.5">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/[0.08]">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#15122E]/10 bg-white">
                   <img
                     src="/purplelogowobg.png"
                     alt="Nexus AI First"
-                    className="h-6 w-6 object-contain"
+                    className="h-7 w-7 object-contain"
                   />
                 </span>
-                <span className="font-poppins text-[14px] font-bold text-[#15122E]">Nexus AI First</span>
+                <span className="font-poppins text-[16px] font-bold text-[#15122E]">Nexus AI First</span>
               </span>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -268,19 +268,22 @@ export default function Navbar() {
             </div>
 
             <div className="flex-1 flex flex-col justify-center px-3 gap-1 overflow-y-auto">
-              {topLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "font-poppins text-2xl font-bold py-2 tracking-tight transition-colors",
-                    isActive(link.href) ? "text-[#6C63FF]" : "text-[#15122E]"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              {dropdowns.map((group, gi) => {
+              {navItems.map((item, gi) => {
+                if ("isLink" in item) {
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn(
+                        "font-poppins text-2xl font-bold py-2 tracking-tight transition-colors",
+                        isActive(item.href) ? "text-[#6C63FF]" : "text-[#15122E]"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+                const group = item;
                 const isExpanded = mobileExpanded === group.prefix;
                 const groupActive = isGroupActive(group.items);
                 return (
