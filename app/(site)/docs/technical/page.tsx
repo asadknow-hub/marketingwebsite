@@ -65,7 +65,7 @@ export default function TechnicalDocsPage() {
       >
         <Link
           href="/contact"
-          className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
         >
           <Terminal className="w-4 h-4" /> Request API Access
         </Link>

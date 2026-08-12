@@ -142,7 +142,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="w-full inline-flex items-center justify-center gap-2 h-13 py-3.5 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold disabled:opacity-70"
+                  className="w-full inline-flex items-center justify-center gap-2 h-12 py-3.5 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold disabled:opacity-70"
                 >
                   {status === "sending" ? (
                     <>

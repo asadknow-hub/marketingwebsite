@@ -69,7 +69,7 @@ export default function PageHero({
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-8 flex flex-col sm:flex-row items-center gap-4"
+            className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full max-w-[420px] sm:max-w-none mx-auto sm:mx-0"
           >
             {children}
           </motion.div>

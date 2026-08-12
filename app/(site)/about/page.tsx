@@ -165,16 +165,16 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
               >
                 Get Started <ArrowUpRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 h-12 px-6 rounded-full border border-[#15122E]/15 hover:border-[#6C63FF] transition-colors text-[#15122E] font-poppins font-semibold"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full border border-[#15122E]/15 hover:border-[#6C63FF] transition-colors text-[#15122E] font-poppins font-semibold"
               >
                 View Pricing
               </Link>
@@ -265,16 +265,16 @@ export default function AboutPage() {
             Request a personalized demo or talk to our team about a plan tailored to your
             organization&apos;s needs.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-[420px] sm:max-w-none mx-auto">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 h-12 px-8 rounded-full bg-white text-[#6C63FF] font-poppins font-semibold hover:scale-[1.02] transition-transform"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-8 rounded-full bg-white text-[#6C63FF] font-poppins font-semibold hover:scale-[1.02] transition-transform"
             >
               Request a Demo <ArrowUpRight className="w-4 h-4" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 h-12 px-8 rounded-full border border-white/40 text-white font-poppins font-semibold hover:bg-white/10 transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-8 rounded-full border border-white/40 text-white font-poppins font-semibold hover:bg-white/10 transition-colors"
             >
               Talk to Sales
             </Link>

@@ -27,16 +27,16 @@ export default function ModulesPage() {
           <p className="max-w-[520px] mx-auto text-white/85 font-['DM_Sans'] text-[16px] sm:text-lg mb-8">
             Talk to our team about how the platform maps to your business and which modules fit your needs.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 max-w-[420px] sm:max-w-none mx-auto">
             <button
               onClick={openGetInTouch}
-              className="inline-flex items-center gap-2 h-12 px-8 rounded-full bg-white text-[#6C63FF] font-poppins font-semibold hover:scale-[1.02] transition-transform"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-8 rounded-full bg-white text-[#6C63FF] font-poppins font-semibold hover:scale-[1.02] transition-transform"
             >
               Talk to an Expert <ArrowUpRight className="w-4 h-4" />
             </button>
             <Link
               href="/pricing"
-              className="inline-flex items-center gap-2 h-12 px-8 rounded-full border border-white/30 text-white font-poppins font-semibold hover:bg-white/10 transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-8 rounded-full border border-white/30 text-white font-poppins font-semibold hover:bg-white/10 transition-colors"
             >
               View Pricing
             </Link>

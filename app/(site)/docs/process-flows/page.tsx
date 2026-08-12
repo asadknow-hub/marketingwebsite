@@ -107,7 +107,7 @@ export default function ProcessFlowsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 h-12 px-8 rounded-full bg-white text-[#6C63FF] font-poppins font-semibold hover:scale-[1.02] transition-transform"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-8 rounded-full bg-white text-[#6C63FF] font-poppins font-semibold hover:scale-[1.02] transition-transform"
           >
             Request a Demo <ArrowUpRight className="w-4 h-4" />
           </Link>

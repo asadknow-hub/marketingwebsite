@@ -132,13 +132,13 @@ export default function PricingPage() {
       >
         <Link
           href="/contact"
-          className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
         >
           Get Started <ArrowUpRight className="w-4 h-4" />
         </Link>
         <Link
           href="/contact"
-          className="inline-flex items-center gap-2 h-12 px-6 rounded-full border border-[#15122E]/15 hover:border-[#6C63FF] transition-colors text-[#15122E] font-poppins font-semibold"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full border border-[#15122E]/15 hover:border-[#6C63FF] transition-colors text-[#15122E] font-poppins font-semibold"
         >
           Talk to Sales
         </Link>
@@ -285,7 +285,7 @@ export default function PricingPage() {
           <div className="text-center mt-10">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
             >
               Request Professional Services <ArrowUpRight className="w-4 h-4" />
             </Link>
@@ -312,7 +312,7 @@ export default function PricingPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 h-12 px-8 rounded-full bg-white text-[#6C63FF] font-poppins font-semibold hover:scale-[1.02] transition-transform"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-8 rounded-full bg-white text-[#6C63FF] font-poppins font-semibold hover:scale-[1.02] transition-transform"
           >
             Talk to Sales <ArrowUpRight className="w-4 h-4" />
           </Link>

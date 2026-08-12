@@ -23,7 +23,7 @@ export default function IndustryDetailPage() {
         </p>
         <Link
           href="/industries"
-          className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Industries
         </Link>
@@ -81,16 +81,16 @@ export default function IndustryDetailPage() {
             {ind.hero.subtitle}
           </motion.p>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 max-w-[420px] sm:max-w-none">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-[#6C63FF] hover:bg-[#4F46E5] transition-colors text-white font-poppins font-semibold"
             >
               Talk to an Expert <ArrowUpRight className="w-4 h-4" />
             </Link>
             <Link
               href="/modules"
-              className="inline-flex items-center gap-2 h-12 px-6 rounded-full border border-[#15122E]/15 hover:border-[#6C63FF] transition-colors text-[#15122E] font-poppins font-semibold"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full border border-[#15122E]/15 hover:border-[#6C63FF] transition-colors text-[#15122E] font-poppins font-semibold"
             >
               Explore Modules
             </Link>
@@ -201,7 +201,7 @@ export default function IndustryDetailPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 h-12 px-8 rounded-full bg-white text-[#6C63FF] font-poppins font-semibold hover:scale-[1.02] transition-transform"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-8 rounded-full bg-white text-[#6C63FF] font-poppins font-semibold hover:scale-[1.02] transition-transform"
           >
             Talk to an Expert <ArrowUpRight className="w-4 h-4" />
           </Link>

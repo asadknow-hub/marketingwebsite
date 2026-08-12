@@ -338,14 +338,14 @@ export default function HeroRedesign() {
                 initial={{ y: 18, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.28, ease: "easeOut" as const }}
-                className="mt-7 flex flex-wrap items-center gap-3"
+                className="mt-7 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3 max-w-[420px] sm:max-w-none"
               >
                 <motion.button
                   type="button"
                   onClick={openGetInTouch}
                   whileHover={{ y: -1, scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
-                  className="inline-flex items-center gap-3 rounded-full bg-[#6C63FF] px-5 py-3 font-poppins text-[14px] font-bold text-white shadow-[0_18px_40px_rgba(108,99,255,0.26)] transition-colors hover:bg-[#5B55F6]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-[#6C63FF] px-5 py-3 font-poppins text-[14px] font-bold text-white shadow-[0_18px_40px_rgba(108,99,255,0.26)] transition-colors hover:bg-[#5B55F6]"
                 >
                   Talk to Nexus Agent
                   <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#15122E]">
@@ -356,7 +356,7 @@ export default function HeroRedesign() {
                 <a
                   href="#modules"
                   className={
-                    "inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 font-poppins text-[14px] font-bold text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl transition-colors hover:bg-slate-50 hover:text-slate-950 " +
+                    "w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 font-poppins text-[14px] font-bold text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl transition-colors hover:bg-slate-50 hover:text-slate-950 " +
                     focusRing
                   }
                 >
