@@ -176,8 +176,7 @@ export default function PricingPage() {
                 <motion.div
                   key={tier.name}
                   initial={{ opacity: 0, y: 28 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
                   className={
                     "relative flex flex-col p-8 rounded-[28px] " +
