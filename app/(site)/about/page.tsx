@@ -24,7 +24,7 @@ const stats = [
   { value: "812", label: "Built-in Forms" },
   { value: "18", label: "E2E Processes" },
   { value: "40+", label: "Industries" },
-  { value: "85+", label: "Modules" },
+  { value: "15", label: "Modules" },
   { value: "50K+", label: "Users Supported" },
   { value: "99.9%", label: "Uptime SLA" },
 ];
@@ -192,7 +192,7 @@ export default function AboutPage() {
               { value: "812", label: "Forms" },
               { value: "18", label: "E2E Processes" },
               { value: "40+", label: "Industries" },
-              { value: "85+", label: "Modules" },
+              { value: "15", label: "Modules" },
             ].map((s) => (
               <div
                 key={s.label}

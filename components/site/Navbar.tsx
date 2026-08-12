@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { useGetInTouchModal } from "@/components/site/GetInTouchModal";
 
 const productItems: { label: string; href: string; desc: string }[] = [
-  { label: "Modules", href: "/modules", desc: "Explore all 85+ ERP modules & features" },
+  { label: "Modules", href: "/modules", desc: "Explore all 15 ERP modules & features" },
   { label: "Industries", href: "/industries", desc: "40+ industry solutions" },
 ];
 

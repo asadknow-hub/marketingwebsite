@@ -58,7 +58,7 @@ const tiers: Tier[] = [
     highlight: true,
     cta: "Get Started",
     features: [
-      "All 85+ modules included",
+      "All 15 modules included",
       "Up to 250 users",
       "Advanced Agentic AI & Copilot",
       "Priority support",

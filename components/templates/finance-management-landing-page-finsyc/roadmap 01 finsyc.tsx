@@ -128,7 +128,7 @@ const waveThreeModules = [
 });
 
 const heroBullets = [
-  { label: "85+ Modules", value: "Finance · HR · CRM · Supply Chain · Manufacturing" },
+  { label: "15 Modules", value: "Finance · HR · CRM · Supply Chain · Manufacturing" },
   { label: "AI-Powered", value: "Copilot, predictive analytics & smart automation" },
   { label: "40+ Industries", value: "Pre-configured solutions for every sector" },
 ];
@@ -313,7 +313,7 @@ export default function Roadmap01Finsyc({ className }: { className?: string }) {
                   transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" as const }}
                   className="mt-5 max-w-[650px] font-['DM_Sans'] text-[18px] sm:text-[20px] leading-relaxed text-[#15122E]/78"
                 >
-                  From finance and HR to supply chain and manufacturing — 85+ modules connected by an AI orchestration layer that understands your business context and automates the work for you.
+                  From finance and HR to supply chain and manufacturing — 15 modules connected by an AI orchestration layer that understands your business context and automates the work for you.
                 </motion.p>
 
                 <motion.div

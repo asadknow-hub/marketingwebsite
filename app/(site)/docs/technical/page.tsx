@@ -22,7 +22,7 @@ import DocsTabs from "@/components/site/DocsTabs";
 
 const architecture = [
   { icon: Layers, title: "Presentation Layer", desc: "React + Next.js front end with server components and a responsive design system." },
-  { icon: Cpu, title: "Application Layer", desc: "Modular service architecture powering 85+ business modules and the Agentic AI engine." },
+  { icon: Cpu, title: "Application Layer", desc: "Modular service architecture powering 15 business modules and the Agentic AI engine." },
   { icon: Database, title: "Data Layer", desc: "Multi-tenant relational store with row-level security and full audit trails." },
   { icon: Cloud, title: "Infrastructure Layer", desc: "Cloud-native, containerized, and horizontally scalable with autoscaling." },
 ];
