@@ -25,7 +25,7 @@ export default function ModulesPage() {
             Ready to see it in action?
           </h2>
           <p className="max-w-[520px] mx-auto text-white/85 font-['DM_Sans'] text-lg mb-8">
-            Talk to our team about how the agentic platform maps to your business and which wave fits your timeline.
+            Talk to our team about how the platform maps to your business and which modules fit your needs.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <button

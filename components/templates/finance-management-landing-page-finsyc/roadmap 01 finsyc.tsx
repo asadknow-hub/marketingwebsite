@@ -39,67 +39,67 @@ const moduleIndex = Object.fromEntries(featureModules.map((module) => [module.id
 
 const waveOne = [
   {
-    wave: "Wave 1 · Live now",
+    wave: "Core platform",
     title: "Orchestration AI Layer",
     description: "The agnostic intelligence layer that understands your business logic, interprets intent, and directs every task to the right agent or person.",
     icon: Layers,
     features: ["Business context", "Task routing", "Controls stay visible"],
     moreCount: 0,
     accent: "bg-gradient-to-br from-[#6C63FF] to-[#4F46E5]",
-    note: "System layer",
+    note: "AI core",
   },
   {
-    wave: "Wave 1 · Live now",
+    wave: "Core platform",
     title: "Finance & Accounting",
     description: moduleIndex.finance?.description || "End-to-end financial management from general ledger to advanced reporting and compliance.",
     icon: DollarSign,
     features: (moduleIndex.finance?.features ?? []).slice(0, 4).map((f) => f.name),
     moreCount: Math.max((moduleIndex.finance?.features.length ?? 0) - 4, 0),
     accent: "bg-gradient-to-br from-[#E94B6F] to-[#FF8DA5]",
-    note: "Wave 1 launch",
+    note: "Available now",
   },
   {
-    wave: "Wave 1 · Live now",
+    wave: "Core platform",
     title: "HRMS",
     description: moduleIndex.hr?.description || "Complete workforce management from recruitment to retirement with integrated payroll.",
     icon: Briefcase,
     features: (moduleIndex.hr?.features ?? []).slice(0, 4).map((f) => f.name),
     moreCount: Math.max((moduleIndex.hr?.features.length ?? 0) - 4, 0),
     accent: "bg-gradient-to-br from-[#0EA5E9] to-[#6366F1]",
-    note: "Wave 1 launch",
+    note: "Available now",
   },
 ] as const;
 
 const waveTwo = [
   {
-    wave: "Wave 2 · Target Q3 2027",
+    wave: "Business operations",
     title: moduleIndex.crm?.name || "CRM & Sales",
     description: moduleIndex.crm?.description || "Complete customer relationship management with lead tracking, opportunity management, and sales automation.",
     icon: (moduleIndex.crm?.icon as LucideIcon) ?? Boxes,
     features: (moduleIndex.crm?.features ?? []).slice(0, 4).map((f) => f.name),
     moreCount: Math.max((moduleIndex.crm?.features.length ?? 0) - 4, 0),
     accent: "bg-gradient-to-br from-[#8B5CF6] to-[#0EA5E9]",
-    note: "Q3 2027",
+    note: "Available now",
   },
   {
-    wave: "Wave 2 · Target Q3 2027",
+    wave: "Business operations",
     title: moduleIndex["supply-chain"]?.name || "Supply Chain & Logistics",
     description: moduleIndex["supply-chain"]?.description || "Complete supply chain visibility from procurement to delivery.",
     icon: (moduleIndex["supply-chain"]?.icon as LucideIcon) ?? Building2,
     features: (moduleIndex["supply-chain"]?.features ?? []).slice(0, 4).map((f) => f.name),
     moreCount: Math.max((moduleIndex["supply-chain"]?.features.length ?? 0) - 4, 0),
     accent: "bg-gradient-to-br from-[#F59E0B] to-[#FB7185]",
-    note: "Q3 2027",
+    note: "Available now",
   },
   {
-    wave: "Wave 2 · Target Q3 2027",
+    wave: "Business operations",
     title: moduleIndex.analytics?.name || "Analytics & BI",
     description: moduleIndex.analytics?.description || "Business intelligence with dashboards, reports, and predictive analytics.",
     icon: (moduleIndex.analytics?.icon as LucideIcon) ?? Sparkles,
     features: (moduleIndex.analytics?.features ?? []).slice(0, 4).map((f) => f.name),
     moreCount: Math.max((moduleIndex.analytics?.features.length ?? 0) - 4, 0),
     accent: "bg-gradient-to-br from-[#14B8A6] to-[#4F46E5]",
-    note: "Q3 2027",
+    note: "Available now",
   },
 ] as const;
 
@@ -128,9 +128,9 @@ const waveThreeModules = [
 });
 
 const heroBullets = [
-  { label: "Wave 1 live now", value: "Orchestration · Finance · HRMS" },
-  { label: "Wave 2", value: "Q3 2027" },
-  { label: "Wave 3", value: "Fully unlocked" },
+  { label: "85+ Modules", value: "Finance · HR · CRM · Supply Chain · Manufacturing" },
+  { label: "AI-Powered", value: "Copilot, predictive analytics & smart automation" },
+  { label: "40+ Industries", value: "Pre-configured solutions for every sector" },
 ];
 
 function RoadmapCard({ wave, title, description, icon: Icon, features, moreCount, accent, reverse = false, note }: RoadmapCardProps) {
@@ -195,10 +195,10 @@ function RoadmapCard({ wave, title, description, icon: Icon, features, moreCount
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-white/72">
-                  Snake map
+                  Module preview
                 </p>
                 <p className="mt-2 max-w-[260px] font-['DM_Sans'] text-[14px] sm:text-[15px] leading-relaxed text-white/80">
-                  A compact view of the module and the submodules it unlocks.
+                  {description}
                 </p>
               </div>
               <div className="rounded-full bg-white/14 p-3 backdrop-blur-sm">
@@ -209,7 +209,7 @@ function RoadmapCard({ wave, title, description, icon: Icon, features, moreCount
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               <div className="rounded-[24px] border border-white/16 bg-white/10 p-4 backdrop-blur-md">
                 <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/65">
-                  Feature rail
+                  Key features
                 </p>
                 <div className="mt-3 space-y-2">
                   {features.slice(0, 3).map((feature) => (
@@ -223,7 +223,7 @@ function RoadmapCard({ wave, title, description, icon: Icon, features, moreCount
 
               <div className="rounded-[24px] border border-white/16 bg-white/10 p-4 backdrop-blur-md">
                 <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.24em] text-white/65">
-                  Wave marker
+                  Status
                 </p>
                 <div className="mt-3 flex items-center gap-2">
                   <span className="h-2.5 w-2.5 rounded-full bg-white" />
@@ -231,9 +231,11 @@ function RoadmapCard({ wave, title, description, icon: Icon, features, moreCount
                     {note}
                   </span>
                 </div>
-                <p className="mt-3 text-[13px] leading-relaxed text-white/78">
-                  Alternating colors keep the roadmap easy to scan while the snake-like line guides the eye down the suite.
-                </p>
+                {moreCount > 0 && (
+                  <p className="mt-3 text-[13px] leading-relaxed text-white/78">
+                    +{moreCount} more capabilities inside this module.
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -286,41 +288,37 @@ export default function Roadmap01Finsyc({ className }: { className?: string }) {
               <div>
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut" as const }}
                   className="inline-flex items-center gap-2 rounded-full border border-[#6C63FF]/10 bg-white/70 px-4 py-2 backdrop-blur-sm"
                 >
                   <Boxes className="h-4 w-4 text-[#6C63FF]" />
                   <span className="font-poppins text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.35em] text-[#6C63FF]">
-                    Roadmap
+                    Platform Modules
                   </span>
                 </motion.div>
 
                 <motion.h1
                   initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.75, delay: 0.08, ease: "easeOut" as const }}
                   className="mt-6 max-w-[720px] font-onest text-[42px] sm:text-[56px] lg:text-[72px] font-semibold leading-[0.94] tracking-[-2.5px] text-[#15122E]"
                 >
-                  The suite unfolds in waves.
+                  One platform. Every module your business needs.
                 </motion.h1>
 
                 <motion.p
                   initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" as const }}
                   className="mt-5 max-w-[650px] font-['DM_Sans'] text-[18px] sm:text-[20px] leading-relaxed text-[#15122E]/78"
                 >
-                  Top orchestration, Finance & Accounting, and HRMS land first. CRM, supply chain, and analytics follow in Q3 2027. Then the rest of the suite unlocks in wave 3.
+                  From finance and HR to supply chain and manufacturing — 85+ modules connected by an AI orchestration layer that understands your business context and automates the work for you.
                 </motion.p>
 
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.22, ease: "easeOut" as const }}
                   className="mt-8 flex flex-wrap gap-3"
                 >
@@ -344,18 +342,17 @@ export default function Roadmap01Finsyc({ className }: { className?: string }) {
                     Talk to us <ArrowUpRight className="h-4 w-4" />
                   </Link>
                   <a
-                    href="#roadmap-timeline"
+                    href="#module-list"
                     className="inline-flex items-center gap-2 rounded-full border border-[#15122E]/12 bg-white/78 px-5 py-3 font-poppins text-[14px] sm:text-[15px] font-bold text-[#15122E] transition-colors hover:border-[#6C63FF]/40"
                   >
-                    See the snake map
+                    Browse all modules
                   </a>
                 </div>
               </div>
 
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.75, delay: 0.08, ease: "easeOut" as const }}
                 className="relative overflow-hidden rounded-[38px] border border-white/80 bg-white shadow-[0_24px_70px_rgba(21,18,46,0.08)]"
               >
@@ -364,10 +361,10 @@ export default function Roadmap01Finsyc({ className }: { className?: string }) {
                   <div className="flex items-center justify-between gap-4">
                     <div>
                       <p className="font-poppins text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-[#15122E]/40">
-                        Vertical map
+                        Platform overview
                       </p>
                       <h2 className="mt-2 font-onest text-[24px] sm:text-[28px] font-semibold tracking-[-0.8px] text-[#15122E]">
-                        A simple path from live now to fully unlocked.
+                        From core finance to full enterprise — all connected by AI.
                       </h2>
                     </div>
                     <div className="rounded-full bg-[#15122E] p-3 text-white shadow-[0_12px_30px_rgba(21,18,46,0.14)]">
@@ -398,7 +395,7 @@ export default function Roadmap01Finsyc({ className }: { className?: string }) {
           </div>
         </div>
 
-        <div id="roadmap-timeline" className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[96px] pb-24 lg:pb-32">
+        <div id="module-list" className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[96px] pb-24 lg:pb-32">
           <div className="mx-auto max-w-[1248px]">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
@@ -408,10 +405,10 @@ export default function Roadmap01Finsyc({ className }: { className?: string }) {
               className="mb-8 flex items-center gap-2"
             >
               <span className="rounded-full border border-[#6C63FF]/10 bg-white/70 px-3 py-1 font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-[#6C63FF]">
-                Wave 1
+                Core platform
               </span>
               <span className="font-['DM_Sans'] text-[14px] sm:text-[15px] text-[#15122E]/60">
-                Live now · foundation layers
+                AI orchestration · Finance · HRMS
               </span>
             </motion.div>
 
@@ -439,10 +436,10 @@ export default function Roadmap01Finsyc({ className }: { className?: string }) {
                 className="mt-4 flex items-center gap-2"
               >
                 <span className="rounded-full border border-[#6C63FF]/10 bg-white/70 px-3 py-1 font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-[#6C63FF]">
-                  Wave 2
+                  Business operations
                 </span>
                 <span className="font-['DM_Sans'] text-[14px] sm:text-[15px] text-[#15122E]/60">
-                  Target Q3 2027 · three modules next
+                  CRM · Supply Chain · Analytics
                 </span>
               </motion.div>
 
@@ -469,10 +466,10 @@ export default function Roadmap01Finsyc({ className }: { className?: string }) {
                 className="mt-4 flex items-center gap-2"
               >
                 <span className="rounded-full border border-[#15122E]/10 bg-white/70 px-3 py-1 font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-[#15122E]/55">
-                  Wave 3
+                  Extended suite
                 </span>
                 <span className="font-['DM_Sans'] text-[14px] sm:text-[15px] text-[#15122E]/60">
-                  Fully unlocked suite
+                  10 additional modules across the platform
                 </span>
               </motion.div>
 
