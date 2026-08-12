@@ -3,6 +3,7 @@
 import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, User, Search, FileText, ArrowRight, Newspaper } from "lucide-react";
+import Link from "next/link";
 import PageHero from "@/components/site/PageHero";
 
 interface Post {
@@ -127,14 +128,17 @@ export default function BlogPage() {
             <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <AnimatePresence mode="popLayout">
                 {filtered.map((post, i) => (
-                  <motion.article
+                  <motion.div
                     key={post.id}
                     layout
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.96 }}
                     transition={{ duration: 0.4, delay: (i % 6) * 0.04 }}
-                    className="group flex flex-col rounded-[28px] border border-[#15122E]/10 bg-white overflow-hidden hover:border-[#6C63FF]/40 transition-all duration-300 cursor-pointer"
+                  >
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="group flex flex-col h-full rounded-[28px] border border-[#15122E]/10 bg-white overflow-hidden hover:border-[#6C63FF]/40 transition-all duration-300"
                   >
                     <div className="h-36 sm:h-44 bg-gradient-to-br from-[#6C63FF]/12 via-[#F0F1F5] to-[#4F46E5]/12 flex items-center justify-center">
                       <FileText className="w-10 h-10 text-[#6C63FF]/40" />
@@ -171,7 +175,8 @@ export default function BlogPage() {
                         </span>
                       </div>
                     </div>
-                  </motion.article>
+                  </Link>
+                  </motion.div>
                 ))}
               </AnimatePresence>
             </motion.div>

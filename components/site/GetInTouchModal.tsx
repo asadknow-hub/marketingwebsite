@@ -192,7 +192,7 @@ export function GetInTouchModalProvider({ children }: { children: React.ReactNod
                   </aside>
 
                   <form onSubmit={handleSubmit} className="p-6 sm:p-8 lg:p-10">
-                    <div className="max-w-[560px] pr-12">
+                    <div className="max-w-[560px]">
                       <p className="font-poppins text-xs font-semibold uppercase tracking-[0.18em] text-[#6C63FF]">Get in touch</p>
                       <h2 id="get-in-touch-title" className="mt-2 font-onest text-3xl font-semibold leading-tight tracking-[-1px] text-[#15122E] sm:text-4xl">
                         Tell us where the work is.
@@ -337,7 +337,7 @@ export function GetInTouchModalProvider({ children }: { children: React.ReactNod
                     <button
                       type="submit"
                       disabled={status === "submitting" || !form.departments.length}
-                      className="mt-5 flex h-13 w-full items-center justify-center gap-2 rounded-full bg-[#15122E] px-6 py-3.5 font-poppins text-sm font-semibold text-white transition-colors hover:bg-[#4F46E5] disabled:cursor-not-allowed disabled:opacity-45"
+                      className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#15122E] px-6 py-3.5 font-poppins text-sm font-semibold text-white transition-colors hover:bg-[#4F46E5] disabled:cursor-not-allowed disabled:opacity-45"
                     >
                       {status === "submitting" ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
                       {status === "submitting" ? "Sending..." : "Send details"}

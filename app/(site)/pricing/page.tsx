@@ -193,15 +193,15 @@ export default function PricingPage() {
                   <div className={"w-12 h-12 rounded-2xl flex items-center justify-center mb-5 " + (tier.highlight ? "bg-white/20" : "bg-[#6C63FF]/15")}>
                     <Icon className={"w-6 h-6 " + (tier.highlight ? "text-white" : "text-[#6C63FF]")} />
                   </div>
-                  <h3 className={"font-onest text-2xl font-bold mb-1 text-white"}>
+                  <h3 className={"font-onest text-2xl font-bold mb-1 " + (tier.highlight ? "text-white" : "text-[#15122E]")}>
                     {tier.name}
                   </h3>
-                  <p className={"font-['DM_Sans'] text-[14px] mb-6 " + (tier.highlight ? "text-[#15122E]/80" : "text-white/50")}>
+                  <p className={"font-['DM_Sans'] text-[14px] mb-6 " + (tier.highlight ? "text-white/80" : "text-[#15122E]/50")}>
                     {tier.tagline}
                   </p>
                   <div className="mb-6">
                     {price === null ? (
-                      <div className="font-onest text-4xl font-bold text-[#15122E]">
+                      <div className={"font-onest text-4xl font-bold " + (tier.highlight ? "text-white" : "text-[#15122E]")}>
                         Custom
                       </div>
                     ) : (
@@ -215,14 +215,14 @@ export default function PricingPage() {
                       </div>
                     )}
                     {price !== null && (
-                      <div className={"font-['DM_Sans'] text-xs mt-1 " + (tier.highlight ? "text-[#15122E]/65" : "text-[#15122E]/40")}>
+                      <div className={"font-['DM_Sans'] text-xs mt-1 " + (tier.highlight ? "text-white/65" : "text-[#15122E]/40")}>
                         billed {annual ? "annually" : "monthly"}
                       </div>
                     )}
                   </div>
                   <ul className="space-y-3 mb-8 flex-1">
                     {tier.features.map((f) => (
-                      <li key={f} className={"flex items-start gap-2.5 font-['DM_Sans'] text-[15px] " + (tier.highlight ? "text-[#15122E]/90" : "text-[#15122E]/80")}>
+                      <li key={f} className={"flex items-start gap-2.5 font-['DM_Sans'] text-[15px] " + (tier.highlight ? "text-white/90" : "text-[#15122E]/80")}>
                         <div className={"w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 " + (tier.highlight ? "bg-white/20" : "bg-[#6C63FF]/15")}>
                           <Check className={"w-3.5 h-3.5 " + (tier.highlight ? "text-white" : "text-[#6C63FF]")} strokeWidth={3} />
                         </div>

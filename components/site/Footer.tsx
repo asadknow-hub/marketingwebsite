@@ -19,10 +19,10 @@ const companyLinks = [
 ];
 
 const socialLinks = [
-  { name: "Facebook", icon: Facebook, href: "#" },
-  { name: "Twitter", icon: Twitter, href: "#" },
-  { name: "LinkedIn", icon: Linkedin, href: "#" },
-  { name: "Instagram", icon: Instagram, href: "#" },
+  { name: "Facebook", icon: Facebook, href: "https://facebook.com" },
+  { name: "Twitter", icon: Twitter, href: "https://twitter.com" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
+  { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
 ];
 
 const containerVariants = {
@@ -107,6 +107,8 @@ export default function Footer() {
                   <motion.li key={social.name} variants={itemVariants}>
                     <a
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-3 text-white/70 font-sans text-lg hover:text-white transition-colors"
                     >
                       <social.icon size={18} fill="currentColor" strokeWidth={0} />
@@ -141,10 +143,10 @@ export default function Footer() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <div className="flex flex-col sm:flex-row items-center gap-4 text-white/70 font-sans text-base">
-            <Link href="/legal" className="hover:text-white transition-colors">
+            <Link href="/contact" className="hover:text-white transition-colors">
               Terms &amp; Conditions
             </Link>
-            <Link href="/legal" className="hover:text-white transition-colors">
+            <Link href="/contact" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
           </div>
