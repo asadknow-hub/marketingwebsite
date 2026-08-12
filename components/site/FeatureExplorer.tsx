@@ -84,7 +84,7 @@ export default function FeatureExplorer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.08 }}
-          className="font-onest text-[32px] sm:text-[42px] lg:text-[52px] font-semibold leading-[0.96] tracking-[-1.8px] text-[#15122E]"
+          className="font-onest text-[28px] sm:text-[42px] lg:text-[52px] font-semibold leading-[0.96] tracking-[-1.2px] sm:tracking-[-1.8px] text-[#15122E]"
         >
           Every module, every feature.
         </motion.h2>
@@ -93,7 +93,7 @@ export default function FeatureExplorer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.14 }}
-          className="mt-4 max-w-[620px] mx-auto font-['DM_Sans'] text-[17px] sm:text-[18px] leading-relaxed text-[#15122E]/65"
+          className="mt-3 max-w-[620px] mx-auto font-['DM_Sans'] text-[15px] sm:text-[17px] sm:text-[18px] leading-relaxed text-[#15122E]/65"
         >
           {totalFeatures}+ features across {featureModules.length} modules — including {aiFeatureCount} AI-powered capabilities. Search, filter, and explore the full suite.
         </motion.p>
@@ -257,7 +257,7 @@ export default function FeatureExplorer() {
                     transition={{ duration: 0.35, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6">
+                    <div className="px-4 pb-4 sm:px-6 sm:pb-6">
                       <div className="h-px bg-gradient-to-r from-transparent via-[#6C63FF]/15 to-transparent mb-5" />
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                         {visibleFeatures.map((f) => {

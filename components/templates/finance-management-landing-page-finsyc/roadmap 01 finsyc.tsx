@@ -302,7 +302,7 @@ export default function Roadmap01Finsyc({ className }: { className?: string }) {
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.75, delay: 0.08, ease: "easeOut" as const }}
-                  className="mt-6 max-w-[720px] font-onest text-[42px] sm:text-[56px] lg:text-[72px] font-semibold leading-[0.94] tracking-[-2.5px] text-[#15122E]"
+                  className="mt-6 max-w-[720px] font-onest text-[36px] sm:text-[56px] lg:text-[72px] font-semibold leading-[0.94] tracking-[-1.5px] sm:tracking-[-2.5px] text-[#15122E]"
                 >
                   One platform. Every module your business needs.
                 </motion.h1>
@@ -311,7 +311,7 @@ export default function Roadmap01Finsyc({ className }: { className?: string }) {
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.16, ease: "easeOut" as const }}
-                  className="mt-5 max-w-[650px] font-['DM_Sans'] text-[18px] sm:text-[20px] leading-relaxed text-[#15122E]/78"
+                  className="mt-5 max-w-[650px] font-['DM_Sans'] text-[16px] sm:text-[20px] leading-relaxed text-[#15122E]/78"
                 >
                   From finance and HR to supply chain and manufacturing — 15 modules connected by an AI orchestration layer that understands your business context and automates the work for you.
                 </motion.p>
@@ -320,7 +320,7 @@ export default function Roadmap01Finsyc({ className }: { className?: string }) {
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.22, ease: "easeOut" as const }}
-                  className="mt-8 flex flex-wrap gap-3"
+                  className="mt-8 flex flex-wrap gap-2.5 sm:gap-3"
                 >
                   {heroBullets.map((bullet) => (
                     <div key={bullet.label} className="rounded-[24px] border border-white/70 bg-white/78 px-4 py-3 shadow-[0_14px_35px_rgba(21,18,46,0.06)] backdrop-blur-sm">

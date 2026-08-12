@@ -166,7 +166,7 @@ export default function SolutionRedesign({ className }: { className?: string }) 
                 <span className="font-poppins text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">
                   {stat.label}
                 </span>
-                {i < stats.length - 1 && <span className="ml-6 h-1 w-1 rounded-full bg-slate-300 sm:hidden" />}
+                {i < stats.length - 1 && <span className="ml-6 hidden h-1 w-1 rounded-full bg-slate-300 sm:block" />}
               </div>
             );
           })}

@@ -66,7 +66,7 @@ export default function ModuleDetailPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.05 }}
-            className="font-heading text-[34px] lg:text-[52px] font-semibold text-[#15122E] tracking-[-1.5px] leading-tight mb-5"
+            className="font-heading text-[28px] sm:text-[34px] lg:text-[52px] font-semibold text-[#15122E] tracking-[-1px] sm:tracking-[-1.5px] leading-tight mb-5"
           >
             {mod.title}
           </motion.h1>
@@ -75,7 +75,7 @@ export default function ModuleDetailPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="max-w-[720px] font-['DM_Sans'] text-lg text-[#15122E]/70 leading-relaxed mb-8"
+            className="max-w-[720px] font-['DM_Sans'] text-[16px] sm:text-lg text-[#15122E]/70 leading-relaxed mb-8"
           >
             {mod.description}
           </motion.p>
@@ -102,7 +102,7 @@ export default function ModuleDetailPage() {
         <div className="max-w-[1200px] mx-auto">
           <div className="flex items-center gap-2 mb-10">
             <Sparkles className="w-5 h-5 text-[#6C63FF]" />
-            <h2 className="font-heading text-[26px] lg:text-[34px] font-semibold text-[#15122E] tracking-[-1px]">
+            <h2 className="font-heading text-[22px] sm:text-[26px] lg:text-[34px] font-semibold text-[#15122E] tracking-[-0.8px] sm:tracking-[-1px]">
               Key Capabilities
             </h2>
           </div>
@@ -116,7 +116,7 @@ export default function ModuleDetailPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: (i % 3) * 0.06 }}
-                  className="p-6 rounded-3xl bg-white border border-[#15122E]/10 hover:border-[#6C63FF]/40 hover:shadow-[0_20px_60px_rgba(108,99,255,0.1)] transition-all"
+                  className="p-5 sm:p-6 rounded-[24px] sm:rounded-3xl bg-white border border-[#15122E]/10 hover:border-[#6C63FF]/40 hover:shadow-[0_20px_60px_rgba(108,99,255,0.1)] transition-all"
                 >
                   <div className="w-11 h-11 rounded-2xl bg-[#6C63FF]/10 flex items-center justify-center mb-4">
                     <FIcon className="w-5 h-5 text-[#6C63FF]" />
@@ -137,7 +137,7 @@ export default function ModuleDetailPage() {
       {/* Benefits */}
       <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-[#F5F3FF]">
         <div className="max-w-[1100px] mx-auto">
-          <h2 className="font-heading text-[26px] lg:text-[34px] font-semibold text-[#15122E] tracking-[-1px] mb-10">
+          <h2 className="font-heading text-[22px] sm:text-[26px] lg:text-[34px] font-semibold text-[#15122E] tracking-[-0.8px] sm:tracking-[-1px] mb-8 sm:mb-10">
             Business Impact
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -148,7 +148,7 @@ export default function ModuleDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="p-8 rounded-3xl bg-white border border-[#15122E]/10"
+                className="p-6 sm:p-8 rounded-[24px] sm:rounded-3xl bg-white border border-[#15122E]/10"
               >
                 <div className="w-10 h-10 rounded-full bg-[#6C63FF]/15 flex items-center justify-center mb-4">
                   <Check className="w-5 h-5 text-[#6C63FF]" strokeWidth={3} />
@@ -167,11 +167,11 @@ export default function ModuleDetailPage() {
 
       {/* CTA */}
       <section className="w-full px-4 sm:px-6 lg:px-8 py-20">
-        <div className="max-w-[900px] mx-auto rounded-[32px] p-10 lg:p-14 text-center bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] text-white">
-          <h2 className="font-heading text-[28px] lg:text-[36px] font-semibold tracking-[-1px] mb-4">
+        <div className="max-w-[900px] mx-auto rounded-[24px] sm:rounded-[32px] p-8 sm:p-10 lg:p-14 text-center bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] text-white">
+          <h2 className="font-heading text-[22px] sm:text-[28px] lg:text-[36px] font-semibold tracking-[-0.8px] sm:tracking-[-1px] mb-4">
             See {mod.title} in action
           </h2>
-          <p className="max-w-[520px] mx-auto text-white/85 font-['DM_Sans'] text-lg mb-8">
+          <p className="max-w-[520px] mx-auto text-white/85 font-['DM_Sans'] text-[16px] sm:text-lg mb-8">
             Request a personalized demo and we&apos;ll walk you through how this module fits your
             business.
           </p>

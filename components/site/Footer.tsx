@@ -44,7 +44,7 @@ export default function Footer() {
     <footer className="relative w-full overflow-hidden bg-[#15122E]">
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 lg:px-[96px] pt-16 lg:pt-24 pb-8">
         <motion.div
-          className="w-full flex flex-col lg:flex-row items-start gap-[60px] lg:gap-[130px]"
+          className="w-full flex flex-col lg:flex-row items-start gap-10 lg:gap-[130px]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -92,7 +92,7 @@ export default function Footer() {
           </div>
 
           {/* Right: Link columns */}
-          <div className="lg:ml-auto grid grid-cols-2 md:grid-cols-3 gap-y-12 gap-x-8 lg:gap-[64px] w-full lg:w-auto">
+          <div className="lg:ml-auto grid grid-cols-2 md:grid-cols-3 gap-y-10 gap-x-6 sm:gap-x-8 lg:gap-[64px] w-full lg:w-auto">
             <FooterColumn title="Product" links={productLinks} />
             <FooterColumn title="Company" links={companyLinks} />
             <div className="flex flex-col gap-5">
@@ -140,7 +140,7 @@ export default function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <div className="flex items-center gap-8 text-white/70 font-sans text-base">
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-white/70 font-sans text-base">
             <Link href="/legal" className="hover:text-white transition-colors">
               Terms &amp; Conditions
             </Link>

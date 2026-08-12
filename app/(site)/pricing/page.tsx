@@ -179,7 +179,7 @@ export default function PricingPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
                   className={
-                    "relative flex flex-col p-8 rounded-[28px] " +
+                    "relative flex flex-col p-6 sm:p-8 rounded-[28px] " +
                     (tier.highlight
                       ? "bg-[#6C63FF] text-white shadow-[0_30px_80px_rgba(108,99,255,0.25)] lg:-mt-4 lg:mb-4"
                       : "border border-[#15122E]/10 bg-white text-[#15122E]")
@@ -253,10 +253,10 @@ export default function PricingPage() {
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-12">
             <Building2 className="w-12 h-12 mx-auto mb-4 text-[#6C63FF]" />
-            <h2 className="font-onest text-[32px] lg:text-[44px] font-semibold text-[#15122E] tracking-[-1.2px] mb-3">
+            <h2 className="font-onest text-[26px] sm:text-[32px] lg:text-[44px] font-semibold text-[#15122E] tracking-[-0.8px] sm:tracking-[-1.2px] mb-3">
               Professional Services
             </h2>
-            <p className="max-w-[620px] mx-auto font-['DM_Sans'] text-[#15122E]/65 text-lg">
+            <p className="max-w-[620px] mx-auto font-['DM_Sans'] text-[#15122E]/65 text-[16px] sm:text-lg">
               Accelerate your rollout with our embedded consultants — from implementation and
               migration to training and ongoing optimization.
             </p>
@@ -300,13 +300,13 @@ export default function PricingPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-[900px] mx-auto rounded-[32px] p-10 lg:p-14 text-center bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] text-white"
+          className="max-w-[900px] mx-auto rounded-[24px] sm:rounded-[32px] p-8 sm:p-10 lg:p-14 text-center bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] text-white"
         >
           <Rocket className="w-14 h-14 mx-auto mb-6" />
-          <h2 className="font-onest text-[30px] lg:text-[40px] font-semibold tracking-[-1px] mb-4">
+          <h2 className="font-onest text-[24px] sm:text-[30px] lg:text-[40px] font-semibold tracking-[-0.8px] sm:tracking-[-1px] mb-4">
             Need a plan tailored to your enterprise?
           </h2>
-          <p className="max-w-[560px] mx-auto text-white/85 font-['DM_Sans'] text-lg mb-8">
+          <p className="max-w-[560px] mx-auto text-white/85 font-['DM_Sans'] text-[16px] sm:text-lg mb-8">
             Our team will design a package around your user count, modules, security, and
             deployment requirements — with volume pricing and dedicated support.
           </p>
@@ -322,7 +322,7 @@ export default function PricingPage() {
       {/* FAQ */}
       <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#F6F7FB]">
         <div className="max-w-[760px] mx-auto">
-          <h2 className="text-center font-onest text-[32px] lg:text-[44px] font-semibold text-[#15122E] tracking-[-1.2px] mb-10">
+          <h2 className="text-center font-onest text-[26px] sm:text-[32px] lg:text-[44px] font-semibold text-[#15122E] tracking-[-0.8px] sm:tracking-[-1.2px] mb-8 sm:mb-10">
             Frequently asked questions
           </h2>
           <div className="space-y-4">
@@ -333,7 +333,7 @@ export default function PricingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
-                className="p-6 rounded-[28px] border border-white/10 bg-white/[0.06] backdrop-blur-xl"
+                className="p-5 sm:p-6 rounded-[24px] sm:rounded-[28px] border border-[#15122E]/10 bg-white"
               >
                 <h4 className="font-onest text-lg font-semibold text-[#15122E] mb-2">
                   {f.q}

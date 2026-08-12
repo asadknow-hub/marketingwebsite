@@ -111,7 +111,7 @@ export default function FooterCtaRedesign({ className }: { className?: string })
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.14, ease: "easeOut" as const }}
-              className="mt-5 max-w-[660px] font-['DM_Sans'] text-[17px] leading-[1.78] text-slate-600 sm:text-[18px]"
+              className="mt-5 max-w-[660px] font-['DM_Sans'] text-[16px] leading-[1.65] text-slate-600 sm:text-[18px] sm:leading-[1.78]"
             >
               We’ll map your first workflow, show the live module flow, and roll out with approval-led control so the
               business never has to wait for another frozen design.
@@ -172,16 +172,16 @@ export default function FooterCtaRedesign({ className }: { className?: string })
             transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] as const }}
             className="rounded-[36px] border border-slate-200 bg-white p-5 shadow-[0_24px_90px_rgba(15,23,42,0.08)] backdrop-blur-2xl sm:p-6"
           >
-            <div className="flex items-center justify-between gap-4">
-              <div>
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
                 <p className="font-poppins text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500">
                   What happens next
                 </p>
-                <p className="mt-2 font-onest text-[22px] font-semibold tracking-[-0.6px] text-slate-950 sm:text-[26px]">
+                <p className="mt-2 font-onest text-[20px] font-semibold tracking-[-0.6px] text-slate-950 sm:text-[26px]">
                   A simple rollout path.
                 </p>
               </div>
-              <div className="rounded-full border border-[#C7C3FF]/40 bg-[#EEF2FF] px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-[#4F46E5]">
+              <div className="shrink-0 rounded-full border border-[#C7C3FF]/40 bg-[#EEF2FF] px-3 py-1.5 font-poppins text-[10px] font-bold uppercase tracking-[0.22em] text-[#4F46E5]">
                 approval-led
               </div>
             </div>

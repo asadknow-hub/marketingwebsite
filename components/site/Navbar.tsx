@@ -79,7 +79,7 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" as const }}
         className={cn(
-          "fixed top-3 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 transition-all duration-300",
+          "fixed top-3 left-0 right-0 z-50 px-3 sm:px-6 lg:px-8 transition-all duration-300",
         )}
       >
         <motion.nav
@@ -96,14 +96,14 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-2.5 hover:opacity-80 transition-opacity shrink-0"
           >
-            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#15122E]/10 bg-white">
+            <span className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-[#15122E]/10 bg-white">
               <img
                 src="/purplelogowobg.png"
                 alt="Nexus AI First logo"
-                className="h-7 w-7 object-contain"
+                className="h-6 w-6 sm:h-7 sm:w-7 object-contain"
               />
             </span>
-            <span className="font-poppins text-[16px] font-bold tracking-[-0.2px] text-[#15122E]">
+            <span className="font-poppins text-[15px] sm:text-[16px] font-bold tracking-[-0.2px] text-[#15122E]">
               Nexus AI First
             </span>
           </Link>
@@ -242,7 +242,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 240, damping: 30 }}
-            className="fixed inset-0 z-[60] xl:hidden bg-white flex flex-col px-5 py-6"
+            className="fixed inset-0 z-[60] xl:hidden bg-white flex flex-col px-5 py-6 overflow-y-auto"
             role="dialog"
             aria-modal="true"
           >

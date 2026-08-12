@@ -64,7 +64,7 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-2 p-8 rounded-[28px] border border-[#15122E]/10 bg-white"
+            className="lg:col-span-2 p-5 sm:p-8 rounded-[24px] sm:rounded-[28px] border border-[#15122E]/10 bg-white"
           >
             {status === "sent" ? (
               <div className="text-center py-12">
@@ -194,7 +194,7 @@ export default function ContactPage() {
       {/* FAQ */}
       <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-white pt-16">
         <div className="max-w-[900px] mx-auto">
-          <h2 className="text-center font-onest text-[32px] lg:text-[44px] font-semibold text-[#15122E] tracking-[-1.2px] mb-10">
+          <h2 className="text-center font-onest text-[26px] sm:text-[32px] lg:text-[44px] font-semibold text-[#15122E] tracking-[-0.8px] sm:tracking-[-1.2px] mb-8 sm:mb-10">
             Frequently asked questions
           </h2>
           <div className="grid md:grid-cols-2 gap-4">
@@ -205,7 +205,7 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: (i % 2) * 0.06 }}
-                className="p-6 rounded-[28px] border border-[#15122E]/10 bg-white"
+                className="p-5 sm:p-6 rounded-[24px] sm:rounded-[28px] border border-[#15122E]/10 bg-white"
               >
                 <h4 className="font-onest text-lg font-semibold text-[#15122E] mb-2">
                   {f.q}

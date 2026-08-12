@@ -20,7 +20,7 @@ export default function PageHero({
   children,
 }: PageHeroProps) {
   return (
-    <section className="relative w-full overflow-hidden pt-36 lg:pt-48 pb-16 lg:pb-24 bg-[#F6F7FB]">
+    <section className="relative w-full overflow-hidden pt-32 lg:pt-48 pb-14 lg:pb-24 bg-[#F6F7FB]">
       {/* Grid + ambient glow */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(108,99,255,0.12),transparent_30%),radial-gradient(circle_at_top_right,rgba(233,75,111,0.08),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(14,165,233,0.06),transparent_24%)]" />
@@ -48,7 +48,7 @@ export default function PageHero({
           initial={{ y: 24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="w-full text-[#15122E] font-onest text-[38px] sm:text-[52px] lg:text-[62px] font-semibold leading-[0.95] tracking-[-2.2px] lg:tracking-[-2.2px]"
+          className="w-full text-[#15122E] font-onest text-[32px] sm:text-[52px] lg:text-[62px] font-semibold leading-[1.05] sm:leading-[0.95] tracking-[-1.2px] sm:tracking-[-2.2px] lg:tracking-[-2.2px]"
         >
           {title}
         </motion.h1>
@@ -58,7 +58,7 @@ export default function PageHero({
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-6 w-full max-w-[680px] text-[#15122E]/65 font-['DM_Sans'] text-lg lg:text-xl leading-[1.72]"
+            className="mt-5 sm:mt-6 w-full max-w-[680px] text-[#15122E]/65 font-['DM_Sans'] text-[16px] sm:text-lg lg:text-xl leading-[1.6] sm:leading-[1.72]"
           >
             {subtitle}
           </motion.p>

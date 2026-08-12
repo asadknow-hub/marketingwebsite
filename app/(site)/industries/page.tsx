@@ -43,12 +43,12 @@ export default function IndustriesPage() {
                 transition={{ duration: 0.45, delay: (i % 6) * 0.04 }}
               >
                 <Link href={`/industries/${ind.slug}`} className="group block h-full">
-                  <div className="relative h-full flex flex-col p-7 rounded-[28px] border border-[#15122E]/10 bg-white hover:border-[#6C63FF]/40 transition-all duration-300 overflow-hidden">
+                  <div className="relative h-full flex flex-col p-5 sm:p-7 rounded-[24px] sm:rounded-[28px] border border-[#15122E]/10 bg-white hover:border-[#6C63FF]/40 transition-all duration-300 overflow-hidden">
                     <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-[#6C63FF]/8 group-hover:bg-[#6C63FF]/12 transition-colors" />
                     <div className="relative w-14 h-14 rounded-2xl bg-[#6C63FF]/15 flex items-center justify-center mb-5 group-hover:bg-[#6C63FF] transition-colors duration-300">
                       <Icon className="w-7 h-7 text-[#6C63FF] group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <h3 className="relative font-onest text-2xl font-semibold text-[#15122E] tracking-[-0.6px] mb-2">
+                    <h3 className="relative font-onest text-xl sm:text-2xl font-semibold text-[#15122E] tracking-[-0.6px] mb-2">
                       {ind.name}
                     </h3>
                     <p className="relative font-['DM_Sans'] text-[15px] leading-relaxed text-[#15122E]/65 flex-1">

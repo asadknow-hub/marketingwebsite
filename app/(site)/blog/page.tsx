@@ -136,10 +136,10 @@ export default function BlogPage() {
                     transition={{ duration: 0.4, delay: (i % 6) * 0.04 }}
                     className="group flex flex-col rounded-[28px] border border-[#15122E]/10 bg-white overflow-hidden hover:border-[#6C63FF]/40 transition-all duration-300 cursor-pointer"
                   >
-                    <div className="h-44 bg-gradient-to-br from-[#6C63FF]/12 via-[#F0F1F5] to-[#4F46E5]/12 flex items-center justify-center">
+                    <div className="h-36 sm:h-44 bg-gradient-to-br from-[#6C63FF]/12 via-[#F0F1F5] to-[#4F46E5]/12 flex items-center justify-center">
                       <FileText className="w-10 h-10 text-[#6C63FF]/40" />
                     </div>
-                    <div className="p-6 flex flex-col flex-1">
+                    <div className="p-5 sm:p-6 flex flex-col flex-1">
                       <div className="flex items-center justify-between gap-2 mb-3 flex-wrap">
                         <span
                           className={

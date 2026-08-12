@@ -20,11 +20,11 @@ export default function ModulesPage() {
 
       {/* CTA */}
       <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#F6F7FB]">
-        <div className="max-w-[900px] mx-auto rounded-[32px] p-10 lg:p-14 text-center bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] text-white">
-          <h2 className="font-onest text-[26px] lg:text-[34px] font-semibold tracking-[-1px] mb-3">
+        <div className="max-w-[900px] mx-auto rounded-[24px] sm:rounded-[32px] p-8 sm:p-10 lg:p-14 text-center bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] text-white">
+          <h2 className="font-onest text-[24px] sm:text-[26px] lg:text-[34px] font-semibold tracking-[-0.8px] sm:tracking-[-1px] mb-3">
             Ready to see it in action?
           </h2>
-          <p className="max-w-[520px] mx-auto text-white/85 font-['DM_Sans'] text-lg mb-8">
+          <p className="max-w-[520px] mx-auto text-white/85 font-['DM_Sans'] text-[16px] sm:text-lg mb-8">
             Talk to our team about how the platform maps to your business and which modules fit your needs.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

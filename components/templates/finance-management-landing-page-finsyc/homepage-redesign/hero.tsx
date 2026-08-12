@@ -191,7 +191,7 @@ function AgentConsole() {
           })}
         </div>
 
-        <div className="relative min-h-[420px] px-5 pb-5 pt-4">
+        <div className="relative min-h-[360px] px-4 pb-4 pt-4 sm:min-h-[420px] sm:px-5 sm:pb-5">
           <div className="rounded-[20px] border border-white/10 bg-white/[0.04] px-4 py-3.5">
             <p className="font-poppins text-[9px] font-bold uppercase tracking-[0.24em] text-white/40">
               Employee request
@@ -319,7 +319,7 @@ export default function HeroRedesign() {
                 initial={{ y: 28, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.75, delay: 0.1, ease: "easeOut" as const }}
-                className="mt-6 max-w-[760px] font-onest text-[42px] font-semibold leading-[0.95] tracking-[-2px] text-slate-950 sm:text-[56px] lg:text-[62px] lg:tracking-[-2.6px]"
+                className="mt-6 max-w-[760px] font-onest text-[36px] font-semibold leading-[0.95] tracking-[-1.5px] text-slate-950 sm:text-[56px] lg:text-[62px] lg:tracking-[-2.6px]"
               >
                 Enterprise software that
                 <span className="block text-[#6C63FF]">runs itself.</span>
@@ -329,7 +329,7 @@ export default function HeroRedesign() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.18, ease: "easeOut" as const }}
-                className="mt-6 max-w-[640px] font-['DM_Sans'] text-[17px] leading-[1.7] text-slate-600 sm:text-[18px]"
+                className="mt-5 max-w-[640px] font-['DM_Sans'] text-[16px] leading-[1.65] text-slate-600 sm:text-[18px] sm:leading-[1.7]"
               >
                 Consultants no longer freeze your requirements. Nexus AI First maps live business changes into working modules so the company keeps moving without waiting months for a solution design.
               </motion.p>
@@ -338,7 +338,7 @@ export default function HeroRedesign() {
                 initial={{ y: 18, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.28, ease: "easeOut" as const }}
-                className="mt-8 flex flex-wrap items-center gap-3"
+                className="mt-7 flex flex-wrap items-center gap-3"
               >
                 <motion.button
                   type="button"
@@ -368,7 +368,7 @@ export default function HeroRedesign() {
                 initial={{ y: 16, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.36, ease: "easeOut" as const }}
-                className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-slate-200 pt-6"
+                className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2.5 border-t border-slate-200 pt-5"
               >
                 {[
                   "Approval-led by design",

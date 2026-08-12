@@ -175,7 +175,7 @@ export default function ModulesRedesign({ className }: { className?: string }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" as const }}
-                  className="mt-8 flex flex-wrap items-center gap-5"
+                  className="mt-8 flex flex-wrap items-center gap-4 sm:gap-5"
                 >
                   <Metric value={String(liveCount)} label="Live modules" />
                   <div className="h-8 w-px bg-white/10" />

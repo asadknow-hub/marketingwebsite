@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
@@ -7,6 +7,13 @@ import { GetInTouchModalProvider } from "@/components/site/GetInTouchModal";
 
 const description =
   "Nexus AI First is the world's leading Agentic ERP. Agentic AI configures your modules and runs the daily work — reports, onboarding, and approvals — so the business never waits on a frozen solution design.";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#F6F7FB",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nexusaifirst.com"),

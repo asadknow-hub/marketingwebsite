@@ -78,10 +78,10 @@ export default function TechnicalDocsPage() {
         <div className="max-w-[1100px] mx-auto">
           <div className="text-center mb-10">
             <Server className="w-10 h-10 mx-auto mb-3 text-[#6C63FF]" />
-            <h2 className="font-onest text-[28px] lg:text-[38px] font-semibold text-[#15122E] tracking-[-1px]">
+            <h2 className="font-onest text-[22px] sm:text-[28px] lg:text-[38px] font-semibold text-[#15122E] tracking-[-0.8px] sm:tracking-[-1px]">
               System Architecture
             </h2>
-            <p className="max-w-[560px] mx-auto mt-2 font-['DM_Sans'] text-[#15122E]/65 text-lg">
+            <p className="max-w-[560px] mx-auto mt-2 font-['DM_Sans'] text-[#15122E]/65 text-[16px] sm:text-lg">
               Built on a modern, scalable architecture designed for enterprise workloads.
             </p>
           </div>
@@ -95,7 +95,7 @@ export default function TechnicalDocsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: i * 0.06 }}
-                  className="p-6 rounded-[28px] border border-[#15122E]/10 bg-white"
+                  className="p-5 sm:p-6 rounded-[24px] sm:rounded-[28px] border border-[#15122E]/10 bg-white"
                 >
                   <div className="w-11 h-11 rounded-2xl bg-[#6C63FF]/10 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-[#6C63FF]" />
@@ -117,10 +117,10 @@ export default function TechnicalDocsPage() {
       <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-white">
         <div className="max-w-[1000px] mx-auto">
           <div className="text-center mb-10">
-            <h2 className="font-onest text-[28px] lg:text-[38px] font-semibold text-[#15122E] tracking-[-1px]">
+            <h2 className="font-onest text-[22px] sm:text-[28px] lg:text-[38px] font-semibold text-[#15122E] tracking-[-0.8px] sm:tracking-[-1px]">
               REST API Reference
             </h2>
-            <p className="max-w-[560px] mx-auto mt-2 font-['DM_Sans'] text-[#15122E]/65 text-lg">
+            <p className="max-w-[560px] mx-auto mt-2 font-['DM_Sans'] text-[#15122E]/65 text-[16px] sm:text-lg">
               A consistent, resource-oriented API across every module.
             </p>
           </div>
@@ -156,7 +156,7 @@ export default function TechnicalDocsPage() {
       <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#F6F7FB]">
         <div className="max-w-[1100px] mx-auto">
           <div className="text-center mb-10">
-            <h2 className="font-onest text-[28px] lg:text-[38px] font-semibold text-[#15122E] tracking-[-1px]">
+            <h2 className="font-onest text-[22px] sm:text-[28px] lg:text-[38px] font-semibold text-[#15122E] tracking-[-0.8px] sm:tracking-[-1px]">
               Platform Capabilities
             </h2>
           </div>
@@ -170,7 +170,7 @@ export default function TechnicalDocsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: i * 0.06 }}
-                  className="p-6 rounded-[28px] border border-[#6C63FF]/15 bg-[#6C63FF]/[0.06]"
+                  className="p-5 sm:p-6 rounded-[24px] sm:rounded-[28px] border border-[#6C63FF]/15 bg-[#6C63FF]/[0.06]"
                 >
                   <Icon className="w-6 h-6 text-[#6C63FF] mb-3" />
                   <h3 className="font-onest text-base font-semibold text-[#15122E] mb-1">

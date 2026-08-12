@@ -203,7 +203,7 @@ export default function PricingRedesign({ className }: { className?: string }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.14, ease: "easeOut" as const }}
-            className="mt-5 max-w-[700px] font-['DM_Sans'] text-[16px] leading-[1.78] text-white/60 sm:text-[17px]"
+            className="mt-5 max-w-[700px] font-['DM_Sans'] text-[15px] leading-[1.65] text-white/60 sm:text-[17px] sm:leading-[1.78]"
           >
             Pick the level of scope you need. Every plan stays approval-led, module-aware, and ready to scale from
             pilot to enterprise.

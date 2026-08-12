@@ -76,7 +76,7 @@ export default function ProcessFlowsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: (i % 3) * 0.06 }}
-                className="group p-6 rounded-[28px] border border-[#15122E]/10 bg-white hover:border-[#6C63FF]/40 transition-all"
+                className="group p-5 sm:p-6 rounded-[24px] sm:rounded-[28px] border border-[#15122E]/10 bg-white hover:border-[#6C63FF]/40 transition-all"
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-11 h-11 rounded-2xl bg-[#6C63FF]/10 flex items-center justify-center">
@@ -97,11 +97,11 @@ export default function ProcessFlowsPage() {
           })}
         </div>
 
-        <div className="max-w-[900px] mx-auto mt-16 rounded-[32px] p-10 lg:p-14 text-center bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] text-white">
-          <h2 className="font-onest text-[28px] lg:text-[36px] font-semibold tracking-[-1px] mb-4">
+        <div className="max-w-[900px] mx-auto mt-12 sm:mt-16 rounded-[24px] sm:rounded-[32px] p-8 sm:p-10 lg:p-14 text-center bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] text-white">
+          <h2 className="font-onest text-[22px] sm:text-[28px] lg:text-[36px] font-semibold tracking-[-0.8px] sm:tracking-[-1px] mb-4">
             See these processes in action
           </h2>
-          <p className="max-w-[520px] mx-auto text-white/85 font-['DM_Sans'] text-lg mb-8">
+          <p className="max-w-[520px] mx-auto text-white/85 font-['DM_Sans'] text-[16px] sm:text-lg mb-8">
             Request a personalized demo and we&apos;ll walk you through the flows most relevant to
             your business.
           </p>

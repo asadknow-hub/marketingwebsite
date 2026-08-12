@@ -86,7 +86,7 @@ export default function ImplementationDocsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="relative p-6 rounded-[28px] border border-[#15122E]/10 bg-white"
+                className="relative p-5 sm:p-6 rounded-[24px] sm:rounded-[28px] border border-[#15122E]/10 bg-white"
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-11 h-11 rounded-2xl bg-[#6C63FF]/10 flex items-center justify-center">
@@ -122,10 +122,10 @@ export default function ImplementationDocsPage() {
       <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="text-center mb-10">
-            <h2 className="font-onest text-[28px] lg:text-[38px] font-semibold text-[#15122E] tracking-[-1px]">
+            <h2 className="font-onest text-[22px] sm:text-[28px] lg:text-[38px] font-semibold text-[#15122E] tracking-[-0.8px] sm:tracking-[-1px]">
               Implementation Playbook
             </h2>
-            <p className="max-w-[560px] mx-auto mt-2 font-['DM_Sans'] text-[#15122E]/65 text-lg">
+            <p className="max-w-[560px] mx-auto mt-2 font-['DM_Sans'] text-[#15122E]/65 text-[16px] sm:text-lg">
               Go-live preparation and best practices, refined across hundreds of deployments.
             </p>
           </div>
@@ -139,7 +139,7 @@ export default function ImplementationDocsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: i * 0.08 }}
-                  className="p-8 rounded-[28px] border border-[#15122E]/15 bg-[#FFFFFF]"
+                  className="p-6 sm:p-8 rounded-[24px] sm:rounded-[28px] border border-[#15122E]/15 bg-[#FFFFFF]"
                 >
                   <Icon className="w-8 h-8 text-[#6C63FF] mb-4" />
                   <h3 className="font-onest text-lg font-semibold text-[#15122E] mb-2">
@@ -157,12 +157,12 @@ export default function ImplementationDocsPage() {
 
       {/* CTA */}
       <section className="w-full px-4 sm:px-6 lg:px-8 pb-24 bg-[#F6F7FB]">
-        <div className="max-w-[900px] mx-auto rounded-[32px] p-10 lg:p-14 text-center bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] text-white">
+        <div className="max-w-[900px] mx-auto rounded-[24px] sm:rounded-[32px] p-8 sm:p-10 lg:p-14 text-center bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] text-white">
           <Rocket className="w-12 h-12 mx-auto mb-6" />
-          <h2 className="font-onest text-[28px] lg:text-[36px] font-semibold tracking-[-1px] mb-4">
+          <h2 className="font-onest text-[22px] sm:text-[28px] lg:text-[36px] font-semibold tracking-[-0.8px] sm:tracking-[-1px] mb-4">
             Ready to plan your rollout?
           </h2>
-          <p className="max-w-[520px] mx-auto text-white/85 font-['DM_Sans'] text-lg mb-8">
+          <p className="max-w-[520px] mx-auto text-white/85 font-['DM_Sans'] text-[16px] sm:text-lg mb-8">
             Talk to our implementation team and we&apos;ll map out a go-live plan tailored to your
             organization.
           </p>
